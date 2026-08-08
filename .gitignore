@@ -1,0 +1,51 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Next.js Build and Production Output
+/.next/
+/out/
+/build
+
+# Testing Diagnostics
+/coverage
+
+# Debugging and Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Local Environment Variables (Contains private API keys/secrets)
+.env*.local
+.env
+!.env.example
+
+# Vercel Deployment Artifacts
+.vercel
+
+# TypeScript Compilation Info
+*.tsbuildinfo
+next-env.d.ts
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE and Text Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Project Specific
+.claude/
+docs/
+CLAUDE.md
+.pnpmfile.cjs

@@ -1,0 +1,166 @@
+/* ==================================================================
+   THE FACILITY — auto-advancing coverflow carousel on a navy plate
+   ================================================================== */
+
+.section {
+  background: #08194a;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+/* ---------------------------- head ------------------------------- */
+
+.head {
+  max-width: min(1180px, 92vw);
+  margin: 0 auto clamp(30px, 5vh, 60px);
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 clamp(12px, 1.6vh, 20px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #7ba6e8;
+}
+
+.title {
+  margin: 0 0 clamp(12px, 1.6vh, 20px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 2.9vw, 50px);
+  line-height: 1.12;
+  letter-spacing: 0.006em;
+  color: #fff;
+  white-space: nowrap; /* keep it on one line */
+}
+
+.body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(13.5px, 0.98vw, 17px);
+  font-weight: 400;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.7);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- stage ------------------------------ */
+
+.stage {
+  position: relative;
+  height: clamp(240px, 30vw, 520px);
+  margin-bottom: clamp(24px, 4vh, 46px);
+  outline: none;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.stageDragging {
+  cursor: grabbing;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  transition: transform 620ms var(--ease-out-expo);
+}
+
+.stage:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 8px;
+}
+
+.slide {
+  --cn: clamp(22px, 2.4vw, 48px);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(54vw, 940px);
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+
+  background: #16336f;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+
+  transition: transform 900ms var(--ease-out-expo),
+    opacity 700ms var(--ease-soft);
+  will-change: transform, opacity;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Empty slot styling until the photography lands. */
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #16336f;
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.8vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/* ---------------------------- dots ------------------------------- */
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  transition: width 520ms var(--ease-out-expo),
+    background 420ms var(--ease-soft);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.dotActive {
+  width: 34px;
+  background: #fff;
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 860px) {
+  .title {
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .stage {
+    height: clamp(220px, 52vw, 340px);
+  }
+
+  .slide {
+    width: 76vw;
+  }
+}
