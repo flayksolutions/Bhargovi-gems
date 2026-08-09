@@ -131,7 +131,7 @@
 
 /* ---------------------------- mobile ------------------------------ */
 
-.mobileList {
+.mobileWrap {
   display: none;
 }
 
@@ -142,6 +142,31 @@
     display: none;
   }
 
+  .mobileWrap {
+    position: relative;
+    display: block;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  /* Same gradient as the desktop .line::before, rotated to vertical.
+     Positioned at the wrap's left edge (same x as the old
+     border-left on .mobileList) so it still passes through the
+     badge centers via the .mobileBadge translateX below. */
+  .mobileLine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      #7fa9e3 0%,
+      #2564ca 95.19%,
+      rgba(37, 100, 202, 0) 100%
+    );
+  }
+
   .mobileList {
     display: flex;
     flex-direction: column;
@@ -150,9 +175,6 @@
     padding: 0;
     padding-left: 12px;
     list-style: none;
-    max-width: 480px;
-    margin-inline: auto;
-    border-left: 1px solid rgba(174, 203, 242, 0.3);
   }
 
   .mobileItem {
@@ -167,6 +189,11 @@
     flex: none;
     width: 48px;
     height: 48px;
+    /* Shift left by half the badge width so the line (border-left on
+       .mobileList) passes through the badge's center rather than its
+       left edge. transform-only so it doesn't reflow the text next
+       to it. */
+    transform: translateX(-24px);
   }
 
   .mobileItem .label {

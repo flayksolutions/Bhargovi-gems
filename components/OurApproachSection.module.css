@@ -2,13 +2,13 @@
    OUR APPROACH — sticky left column, photo bleeds to the viewport edge
    ================================================================== */
 
-/* NOTE on the bleed: `.sticky` is `position: sticky`, which makes it
-   its own containing block, so `.bleed` (`position: absolute`) can
-   escape the page gutter with `left: calc(-1 * var(--gutter))`
-   without touching any ancestor. Do NOT add transform/filter/
-   will-change/overflow-hidden to `.section` (or anything above it) —
-   any of those would create a new containing block and break both
-   the sticky pin and the bleed offset. See CLAUDE.md.
+/* NOTE on the bleed: the image sits in normal document flow, after
+   the text, so it can never overlap the title/body regardless of how
+   many lines they wrap to. It still bleeds past the page gutter on
+   the left via a negative margin (not `position: absolute`), so it
+   needs no special containing-block setup. Do NOT add transform/
+   filter/will-change/overflow-hidden to `.section` (or anything above
+   it) — any of those would break the `.sticky` pin. See CLAUDE.md.
 ------------------------------------------------------------------- */
 
 .section {
@@ -29,20 +29,32 @@
 .sticky {
   position: sticky;
   top: 0;
-  flex: 0 0 clamp(320px, 34vw, 520px);
-  min-width: 0;
-  /* Explicit height (not just content height) so the bleed image —
-     anchored to its bottom — always lands below the text instead of
-     overlapping it, and so the pin has a real range to release from. */
-  min-height: clamp(480px, 58vh, 693px);
+  /* Equal split with `.stories` — both flex:1 1 0 off a 0 basis, so
+     they always share the row's available width evenly instead of
+     each capping out early and leaving dead space on the right. */
+  flex: 1 1 0;
+  min-width: 280px;
   padding-block: clamp(60px, 10vh, 120px);
 }
 
 .bleed {
-  position: absolute;
-  left: calc(-1 * var(--gutter));
-  bottom: 0;
-  width: min(499px, 92%);
+  position: relative;
+  /* Normal-flow placement (after the text above it) is what
+     guarantees no vertical overlap. The margin pulls the image past
+     the gutter and past `.inner`'s own centering inset (the gap that
+     opens up once the viewport exceeds the section's 1640px content
+     max-width), so it always reaches all the way to x:0 — not just
+     the gutter edge. */
+  margin-top: clamp(32px, 5.5vh, 64px);
+  margin-left: calc(
+    -1 * (var(--gutter) + max(0px, (100vw - 1640px - 2 * var(--gutter)) / 2))
+  );
+  /* On wide screens, scale with viewport width (vw) rather than
+     capping at a fixed px — so the image keeps growing to fill the
+     gap that opens up once the viewport outgrows the section's
+     1640px content max-width, instead of sitting undersized and
+     isolated at a fixed size. */
+  width: min(calc(100% + var(--gutter)), 30vw);
   aspect-ratio: 499 / 395;
   opacity: 0.45;
   pointer-events: none;
@@ -94,9 +106,8 @@
 /* ---------------------------- stories ------------------------------ */
 
 .stories {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
-  max-width: 630px;
   display: flex;
   flex-direction: column;
   gap: clamp(28px, 4.2vh, 48px);

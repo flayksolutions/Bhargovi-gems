@@ -45,24 +45,27 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
         </ol>
       </div>
 
-      <ol className={styles.mobileList}>
-        {milestones.map((milestone) => (
-          <li key={milestone.id} className={styles.mobileItem}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/icons/milestone-badge.svg"
-              alt=""
-              aria-hidden="true"
-              className={styles.mobileBadge}
-            />
-            <div>
-              <p className={styles.label}>{milestone.label}</p>
-              <p className={styles.year}>{milestone.year}</p>
-              <p className={styles.body}>{milestone.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <div className={styles.mobileWrap}>
+        <div className={styles.mobileLine} aria-hidden="true" />
+        <ol className={styles.mobileList}>
+          {milestones.map((milestone) => (
+            <li key={milestone.id} className={styles.mobileItem}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/icons/milestone-badge.svg"
+                alt=""
+                aria-hidden="true"
+                className={styles.mobileBadge}
+              />
+              <div>
+                <p className={styles.label}>{milestone.label}</p>
+                <p className={styles.year}>{milestone.year}</p>
+                <p className={styles.body}>{milestone.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   );
 }
