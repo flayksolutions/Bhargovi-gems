@@ -112,14 +112,50 @@ export const facilitySection = {
   eyebrow: "The Facility",
   title: "A Closer Look at Every Facet",
   body: "Recent parcels and bench work, photographed in our Surat HQ.",
-  /* `image: null` renders an empty plate. Drop a path in per slide
-     as the photography arrives. */
-  slides: [1, 2, 3, 4, 5, 6, 7].map((n) => ({
-    id: "facility-" + n,
-    image: null as string | null,
-    alt: "Bhargovi Gems facility, photograph " + n,
-    caption: "Image " + String(n).padStart(2, "0"),
-  })),
+  slides: [
+    {
+      id: "facility-1",
+      image: "/images/facility/facility-01-cutting-floor.jpg",
+      alt: "Cutting and polishing floor at the Surat facility",
+      caption: "Image 01",
+    },
+    {
+      id: "facility-2",
+      image: "/images/facility/facility-02-sarine-mapping.jpg",
+      alt: "Sarine 4D mapping software scanning a rough diamond",
+      caption: "Image 02",
+    },
+    {
+      id: "facility-3",
+      image: "/images/facility/facility-03-grading.jpg",
+      alt: "Craftsman grading a polished stone with a loupe and tweezers",
+      caption: "Image 03",
+    },
+    {
+      id: "facility-4",
+      image: "/images/facility/facility-04-laser-sawing.jpg",
+      alt: "Technician operating a laser sawing machine",
+      caption: "Image 04",
+    },
+    {
+      id: "facility-5",
+      image: "/images/facility/facility-05-bruting-floor.jpg",
+      alt: "Craftsmen at work on the bruting floor",
+      caption: "Image 05",
+    },
+    {
+      id: "facility-6",
+      image: "/images/facility/facility-06-polishing-wheel.jpg",
+      alt: "Craftsman setting a stone at the polishing wheel",
+      caption: "Image 06",
+    },
+    {
+      id: "facility-7",
+      image: "/images/facility/facility-07-planning-room.jpg",
+      alt: "Diamond planning and mapping room",
+      caption: "Image 07",
+    },
+  ] satisfies { id: string; image: string | null; alt: string; caption: string }[],
 };
 
 /* Seal marks in public/brand/certs are neutral placeholders drawn in
