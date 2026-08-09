@@ -147,6 +147,11 @@
     display: block;
     max-width: 480px;
     margin-inline: auto;
+    /* Badges are centered on the line via a -24px translateX below
+       (half the 48px badge width), which would otherwise push them
+       past the wrap's left edge and off the screen. This padding
+       reserves that space. */
+    padding-left: 24px;
   }
 
   /* Same gradient as the desktop .line::before, rotated to vertical.
@@ -155,7 +160,7 @@
      badge centers via the .mobileBadge translateX below. */
   .mobileLine {
     position: absolute;
-    left: 0;
+    left: 24px;
     top: 0;
     bottom: 0;
     width: 1px;
