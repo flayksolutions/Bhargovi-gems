@@ -17,6 +17,12 @@
   --text-muted: #6d7f99;
   --text-ghost: rgba(2, 38, 113, 0.28);
 
+  /* Dark navy sections (About page) — design-element colors only,
+     text/type still runs through the tokens above. */
+  --navy-deep: #000d34;
+  --ink-navy: #0b0e19;
+  --sky-tint: #aecbf2;
+
   /* Type */
   --font-display: "Arsenal SC", "Arsenal", Georgia, serif;
   --font-heading: "Arsenal", Georgia, serif;

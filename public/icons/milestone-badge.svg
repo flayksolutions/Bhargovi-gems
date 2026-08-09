@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Badge 1994">
+<g id="Chamfer Shape">
+<path d="M0 0L42 0L56 14V56H14L0 42L0 0Z" fill="#172346"/>
+<path d="M41.793 0.5L55.5 14.207V55.5H14.207L0.5 41.793L0.5 0.5L41.793 0.5Z" stroke="#AECBF2" stroke-opacity="0.22"/>
+</g>
+<g id="Frame">
+<path id="Vector" d="M22.5 19.75H33.5L37.1667 25.25L28 36.25L18.8333 25.25L22.5 19.75Z" stroke="#AECBF2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M27.0833 19.75L24.3333 25.25L28 36.25L31.6667 25.25L28.9167 19.75" stroke="#AECBF2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M18.8333 25.25H37.1667" stroke="#AECBF2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

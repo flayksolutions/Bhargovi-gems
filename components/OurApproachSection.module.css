@@ -1,0 +1,168 @@
+/* ==================================================================
+   OUR APPROACH — sticky left column, photo bleeds to the viewport edge
+   ================================================================== */
+
+/* NOTE on the bleed: `.sticky` is `position: sticky`, which makes it
+   its own containing block, so `.bleed` (`position: absolute`) can
+   escape the page gutter with `left: calc(-1 * var(--gutter))`
+   without touching any ancestor. Do NOT add transform/filter/
+   will-change/overflow-hidden to `.section` (or anything above it) —
+   any of those would create a new containing block and break both
+   the sticky pin and the bleed offset. See CLAUDE.md.
+------------------------------------------------------------------- */
+
+.section {
+  background: var(--navy-deep);
+  padding: clamp(56px, 9vh, 88px) var(--gutter);
+}
+
+.inner {
+  max-width: 1640px;
+  margin-inline: auto;
+  display: flex;
+  gap: clamp(48px, 8vw, 130px);
+  align-items: flex-start;
+}
+
+/* ---------------------------- sticky column ------------------------ */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  flex: 0 0 clamp(320px, 34vw, 520px);
+  min-width: 0;
+  /* Explicit height (not just content height) so the bleed image —
+     anchored to its bottom — always lands below the text instead of
+     overlapping it, and so the pin has a real range to release from. */
+  min-height: clamp(480px, 58vh, 693px);
+  padding-block: clamp(60px, 10vh, 120px);
+}
+
+.bleed {
+  position: absolute;
+  left: calc(-1 * var(--gutter));
+  bottom: 0;
+  width: min(499px, 92%);
+  aspect-ratio: 499 / 395;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.bleedImage {
+  object-fit: cover;
+  object-position: 60% 40%;
+  transform: scaleX(-1);
+}
+
+.eyebrow {
+  position: relative;
+  margin: 0 0 clamp(14px, 1.8vh, 20px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sky-tint);
+}
+
+.title {
+  position: relative;
+  margin: 0 0 clamp(16px, 2.2vh, 24px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.55vw, 40px);
+  line-height: 1.24;
+  color: #fff;
+}
+
+.titleLine {
+  display: block;
+}
+
+.body {
+  position: relative;
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 1.02vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- stories ------------------------------ */
+
+.stories {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 630px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4.2vh, 48px);
+}
+
+.story {
+  padding-bottom: clamp(28px, 4.2vh, 48px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.storyLast {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.storyImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 630 / 310;
+  margin-bottom: clamp(18px, 2.6vh, 28px);
+}
+
+.storyImageInner {
+  object-fit: cover;
+}
+
+.storyTitle {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(19px, 1.55vw, 26px);
+  color: #fff;
+}
+
+.storyBody {
+  margin: 0;
+  max-width: 60ch;
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 1.02vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive ---------------------------- */
+
+@media (max-width: 960px) {
+  .inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sticky {
+    position: static;
+    flex-basis: auto;
+    width: 100%;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  .bleed {
+    display: none;
+  }
+
+  .stories {
+    max-width: 100%;
+  }
+}
