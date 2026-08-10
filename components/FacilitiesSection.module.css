@@ -143,13 +143,14 @@
   padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(3px);
-  background: rgba(80, 80, 80, 0.2);
+  /* backdrop-filter: blur(3px); */
+  /* background: rgba(80, 80, 80, 0.2); */
+  background: #fff;
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #fff;
+  color: var(--ink-deep);
 }
 
 .cardTitle {
