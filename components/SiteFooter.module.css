@@ -30,7 +30,7 @@
 }
 
 .plateImage {
-  width: clamp(280px, 33vw, 620px);
+  width: clamp(280px, 28vw, 620px);
   height: auto;
 }
 

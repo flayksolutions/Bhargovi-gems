@@ -28,7 +28,8 @@ export default function FacilityCarousel({
   title,
   body,
   slides,
-  interval = 4500,
+  // interval = 4500,
+  interval = 3500,
 }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -39,7 +40,7 @@ export default function FacilityCarousel({
 
   const go = useCallback(
     (next: number) => setActive(((next % count) + count) % count),
-    [count]
+    [count],
   );
 
   /* Autoplay — pauses on hover/focus/drag, on a hidden tab, and is
