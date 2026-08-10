@@ -12,10 +12,12 @@ type Props = {
 
 export default function MilestonesSection({ eyebrow, title, milestones }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
+  const mobileTrackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const mobileTrack = mobileTrackRef.current;
+    if (!section || !mobileTrack) return;
 
     const items = Array.from(
       section.querySelectorAll<HTMLElement>("[data-milestone-index]")
@@ -31,14 +33,25 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
       return;
     }
 
+    const mobileQuery = window.matchMedia("(max-width: 880px)");
+
     let rafId = 0;
     let queued = false;
 
     const update = () => {
       queued = false;
-      const rect = section.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      const p = total <= 0 ? 1 : Math.min(Math.max(-rect.top / total, 0), 1);
+      let p: number;
+
+      if (mobileQuery.matches) {
+        const rect = mobileTrack.getBoundingClientRect();
+        const total = rect.height + window.innerHeight;
+        p = Math.min(Math.max((window.innerHeight - rect.top) / total, 0), 1);
+      } else {
+        const rect = section.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        p = total <= 0 ? 1 : Math.min(Math.max(-rect.top / total, 0), 1);
+      }
+
       section.style.setProperty("--p", p.toFixed(4));
 
       items.forEach((el, i) => {
@@ -111,7 +124,7 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
           </ol>
         </div>
 
-        <div className={styles.mobileWrap}>
+        <div className={styles.mobileWrap} ref={mobileTrackRef}>
           <div className={styles.mobileLine} aria-hidden="true" />
           <ol className={styles.mobileList}>
             {milestones.map((milestone, i) => (

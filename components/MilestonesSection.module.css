@@ -166,6 +166,16 @@
 /* ---------------------------- responsive -------------------------- */
 
 @media (max-width: 880px) {
+  .section {
+    height: auto;
+  }
+
+  .pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
   .wave {
     display: none;
   }
