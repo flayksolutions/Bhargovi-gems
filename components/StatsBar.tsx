@@ -7,7 +7,7 @@ export type Stat = { value: number; suffix: string; label: string };
 
 const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
-function useCountUp(target: number, run: boolean, duration = 1500) {
+function useCountUp(target: number, run: boolean, duration = 2000) {
   const [n, setN] = useState(0);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function StatsBar({ stats }: { stats: Stat[] }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.35 }
+      { threshold: 0.35 },
     );
 
     observer.observe(el);

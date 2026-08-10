@@ -15,7 +15,7 @@ export const site = {
 };
 
 export const heroSection = {
-  titleLines: ["Manufacturing", "Certified Diamonds"],
+  titleLines: ["Leading Lab Grown", "Diamonds Manufacturers"],
   body: "Precision-cut, ethically sourced diamonds \u2014 trusted by jewellery manufacturers and retail brands worldwide.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-diamond.jpg",
@@ -77,34 +77,34 @@ export const productsSection = {
       image: "/images/cuts/cushion-cut.png",
       alt: "Cushion cut diamond",
     },
-    {
-      id: "shape-five",
-      name: "Shape Five",
-      spec: "Placeholder \u00b7 Spec Line",
-      image: "/images/cuts/round-brilliant.png",
-      alt: "Placeholder diamond plate",
-    },
-    {
-      id: "shape-six",
-      name: "Shape Six",
-      spec: "Placeholder \u00b7 Spec Line",
-      image: "/images/cuts/princess-cut.png",
-      alt: "Placeholder diamond plate",
-    },
-    {
-      id: "shape-seven",
-      name: "Shape Seven",
-      spec: "Placeholder \u00b7 Spec Line",
-      image: "/images/cuts/emerald-cut.png",
-      alt: "Placeholder diamond plate",
-    },
-    {
-      id: "shape-eight",
-      name: "Shape Eight",
-      spec: "Placeholder \u00b7 Spec Line",
-      image: "/images/cuts/cushion-cut.png",
-      alt: "Placeholder diamond plate",
-    },
+    // {
+    //   id: "shape-five",
+    //   name: "Shape Five",
+    //   spec: "Placeholder \u00b7 Spec Line",
+    //   image: "/images/cuts/round-brilliant.png",
+    //   alt: "Placeholder diamond plate",
+    // },
+    // {
+    //   id: "shape-six",
+    //   name: "Shape Six",
+    //   spec: "Placeholder \u00b7 Spec Line",
+    //   image: "/images/cuts/princess-cut.png",
+    //   alt: "Placeholder diamond plate",
+    // },
+    // {
+    //   id: "shape-seven",
+    //   name: "Shape Seven",
+    //   spec: "Placeholder \u00b7 Spec Line",
+    //   image: "/images/cuts/emerald-cut.png",
+    //   alt: "Placeholder diamond plate",
+    // },
+    // {
+    //   id: "shape-eight",
+    //   name: "Shape Eight",
+    //   spec: "Placeholder \u00b7 Spec Line",
+    //   image: "/images/cuts/cushion-cut.png",
+    //   alt: "Placeholder diamond plate",
+    // },
   ],
 };
 
@@ -155,7 +155,12 @@ export const facilitySection = {
       alt: "Diamond planning and mapping room",
       caption: "Image 07",
     },
-  ] satisfies { id: string; image: string | null; alt: string; caption: string }[],
+  ] satisfies {
+    id: string;
+    image: string | null;
+    alt: string;
+    caption: string;
+  }[],
 };
 
 /* Seal marks in public/brand/certs are neutral placeholders drawn in
@@ -216,7 +221,10 @@ export const footer = {
       title: "Contact",
       items: [
         { label: "+91 XXXXX XXXXX", href: "tel:+91" },
-        { label: "sales@bhargovigems.com", href: "mailto:sales@bhargovigems.com" },
+        {
+          label: "sales@bhargovigems.com",
+          href: "mailto:sales@bhargovigems.com",
+        },
         { label: "Mumbai, India" },
       ],
     },
@@ -292,10 +300,7 @@ export const officesSection = {
 ------------------------------------------------------------------- */
 
 export const aboutHeroSection = {
-  breadcrumb: [
-    { label: "Home", href: "/" },
-    { label: "About" },
-  ],
+  breadcrumb: [{ label: "Home", href: "/" }, { label: "About" }],
   title: "A Family Legacy in Diamond Crafting Since 1994",
   body: "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.",
   image: "/images/about/hero-diamonds.png",
@@ -538,10 +543,7 @@ const PLACEHOLDER_IMAGE = "/images/rough-stone.jpg";
 ------------------------------------------------------------------- */
 
 export const diamondInfoHeroSection = {
-  breadcrumb: [
-    { label: "Home", href: "/" },
-    { label: "Diamond Information" },
-  ],
+  breadcrumb: [{ label: "Home", href: "/" }, { label: "Diamond Information" }],
   title: "Understanding Diamonds — The Complete Buyer's Guide",
   body: "From the 4Cs to certification and our own quality standards — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
   image: "/images/diamond-info/hero-diamonds.png",
@@ -643,7 +645,13 @@ export const fourCsSection = {
   ] satisfies FourCRow[],
 };
 
-export type ShapeChip = { id: string; name: string; facets: string; icon: string; featured?: boolean };
+export type ShapeChip = {
+  id: string;
+  name: string;
+  facets: string;
+  icon: string;
+  featured?: boolean;
+};
 
 export const shapesCutsSection = {
   id: "shapes",
@@ -658,14 +666,55 @@ export const shapesCutsSection = {
     alt: "A round brilliant cut diamond viewed from the crown",
   },
   chips: [
-    { id: "round", name: "Round", facets: "58 facets", icon: "/images/diamond-info/shapes/round.svg", featured: true },
-    { id: "princess", name: "Princess", facets: "76 facets", icon: "/images/diamond-info/shapes/princess.svg" },
-    { id: "oval", name: "Oval", facets: "58 facets", icon: "/images/diamond-info/shapes/oval.svg" },
-    { id: "emerald", name: "Emerald", facets: "57 facets", icon: "/images/diamond-info/shapes/emerald.svg" },
-    { id: "marquise", name: "Marquise", facets: "58 facets", icon: "/images/diamond-info/shapes/marquise.svg" },
-    { id: "cushion", name: "Cushion", facets: "64 facets", icon: "/images/diamond-info/shapes/cushion.svg" },
-    { id: "radiant", name: "Radiant", facets: "70 facets", icon: "/images/diamond-info/shapes/radiant.svg" },
-    { id: "asscher", name: "Asscher", facets: "58 facets", icon: "/images/diamond-info/shapes/asscher.svg" },
+    {
+      id: "round",
+      name: "Round",
+      facets: "58 facets",
+      icon: "/images/diamond-info/shapes/round.svg",
+      featured: true,
+    },
+    {
+      id: "princess",
+      name: "Princess",
+      facets: "76 facets",
+      icon: "/images/diamond-info/shapes/princess.svg",
+    },
+    {
+      id: "oval",
+      name: "Oval",
+      facets: "58 facets",
+      icon: "/images/diamond-info/shapes/oval.svg",
+    },
+    {
+      id: "emerald",
+      name: "Emerald",
+      facets: "57 facets",
+      icon: "/images/diamond-info/shapes/emerald.svg",
+    },
+    {
+      id: "marquise",
+      name: "Marquise",
+      facets: "58 facets",
+      icon: "/images/diamond-info/shapes/marquise.svg",
+    },
+    {
+      id: "cushion",
+      name: "Cushion",
+      facets: "64 facets",
+      icon: "/images/diamond-info/shapes/cushion.svg",
+    },
+    {
+      id: "radiant",
+      name: "Radiant",
+      facets: "70 facets",
+      icon: "/images/diamond-info/shapes/radiant.svg",
+    },
+    {
+      id: "asscher",
+      name: "Asscher",
+      facets: "58 facets",
+      icon: "/images/diamond-info/shapes/asscher.svg",
+    },
   ] satisfies ShapeChip[],
   catalogueLink: { label: "View the full shape catalogue", href: "/products" },
 };
@@ -709,7 +758,14 @@ export const labGrownVsMinedSection = {
     "Bhargovi Gems manufactures lab-grown diamonds exclusively. This comparison is published for buyer education, not as a sales position.",
 };
 
-export type LabAccreditation = { id: string; code: string; name: string; blurb: string; logo?: string; badgeText?: string };
+export type LabAccreditation = {
+  id: string;
+  code: string;
+  name: string;
+  blurb: string;
+  logo?: string;
+  badgeText?: string;
+};
 
 export const certificationVerificationSection = {
   id: "certification",
@@ -762,7 +818,13 @@ export const certificationVerificationSection = {
   ] satisfies LabAccreditation[],
 };
 
-export type RoughStage = { id: string; number: string; name: string; description: string; icon: "hex" | "outline" | "filled" };
+export type RoughStage = {
+  id: string;
+  number: string;
+  name: string;
+  description: string;
+  icon: "hex" | "outline" | "filled";
+};
 
 export const roughToPolishedSection = {
   id: "our-process",
@@ -772,14 +834,62 @@ export const roughToPolishedSection = {
   startLabel: "Rough",
   endLabel: "Certified Polish",
   stages: [
-    { id: "growing", number: "01", name: "Growing", description: "Rough grown in-house under HPHT or CVD conditions.", icon: "hex" },
-    { id: "planning-marking", number: "02", name: "Planning & Marking", description: "Sarine scanning maps each stone for maximum yield.", icon: "hex" },
-    { id: "sawing-cleaving", number: "03", name: "Sawing & Cleaving", description: "Rough is divided along its natural crystal grain.", icon: "outline" },
-    { id: "bruting", number: "04", name: "Bruting", description: "The stone is turned against another to shape its girdle.", icon: "outline" },
-    { id: "faceting", number: "05", name: "Faceting", description: "Cutters place and polish each facet to angle tolerance.", icon: "outline" },
-    { id: "grading-qc", number: "06", name: "Grading & QC", description: "In-house graders verify the 4Cs before submission.", icon: "filled" },
-    { id: "certification", number: "07", name: "Certification", description: "Submitted to GIA or IGI for independent grading.", icon: "filled" },
-    { id: "export", number: "08", name: "Export", description: "Sealed, documented and dispatched to partners worldwide.", icon: "filled" },
+    {
+      id: "growing",
+      number: "01",
+      name: "Growing",
+      description: "Rough grown in-house under HPHT or CVD conditions.",
+      icon: "hex",
+    },
+    {
+      id: "planning-marking",
+      number: "02",
+      name: "Planning & Marking",
+      description: "Sarine scanning maps each stone for maximum yield.",
+      icon: "hex",
+    },
+    {
+      id: "sawing-cleaving",
+      number: "03",
+      name: "Sawing & Cleaving",
+      description: "Rough is divided along its natural crystal grain.",
+      icon: "outline",
+    },
+    {
+      id: "bruting",
+      number: "04",
+      name: "Bruting",
+      description: "The stone is turned against another to shape its girdle.",
+      icon: "outline",
+    },
+    {
+      id: "faceting",
+      number: "05",
+      name: "Faceting",
+      description: "Cutters place and polish each facet to angle tolerance.",
+      icon: "outline",
+    },
+    {
+      id: "grading-qc",
+      number: "06",
+      name: "Grading & QC",
+      description: "In-house graders verify the 4Cs before submission.",
+      icon: "filled",
+    },
+    {
+      id: "certification",
+      number: "07",
+      name: "Certification",
+      description: "Submitted to GIA or IGI for independent grading.",
+      icon: "filled",
+    },
+    {
+      id: "export",
+      number: "08",
+      name: "Export",
+      description: "Sealed, documented and dispatched to partners worldwide.",
+      icon: "filled",
+    },
   ] satisfies RoughStage[],
 };
 
@@ -798,12 +908,50 @@ export const qualityStandardsSection = {
   eyebrow: "Our Standards",
   titleLines: ["What We Actually Ship", "by category"],
   body: "The ranges we manufacture and supply as standard. This is where education becomes a sourcing decision — everything outside these bands is quoted case by case.",
-  columns: ["Category", "Clarity Range", "Colour Range", "Size Range", "Certification"],
+  columns: [
+    "Category",
+    "Clarity Range",
+    "Colour Range",
+    "Size Range",
+    "Certification",
+  ],
   rows: [
-    { id: "certified-round", category: "Certified Round Brilliant", clarity: "IF – SI2", colour: "D – M", size: "0.18 ct – 3.00 ct", certification: "GIA / IGI", certified: true },
-    { id: "certified-fancy", category: "Certified Fancy Shapes", clarity: "IF – SI2", colour: "D – M", size: "0.30 ct – 3.00 ct", certification: "GIA / IGI", certified: true },
-    { id: "non-certified-round", category: "Non-Certified Round", clarity: "IF – Pique", colour: "D – L", size: "0.005 ct – 3.00 ct", certification: "On request", certified: false },
-    { id: "non-certified-fancy", category: "Non-Certified Fancy", clarity: "VVS – Pique", colour: "D – L", size: "0.005 ct – 3.00 ct", certification: "On request", certified: false },
+    {
+      id: "certified-round",
+      category: "Certified Round Brilliant",
+      clarity: "IF – SI2",
+      colour: "D – M",
+      size: "0.18 ct – 3.00 ct",
+      certification: "GIA / IGI",
+      certified: true,
+    },
+    {
+      id: "certified-fancy",
+      category: "Certified Fancy Shapes",
+      clarity: "IF – SI2",
+      colour: "D – M",
+      size: "0.30 ct – 3.00 ct",
+      certification: "GIA / IGI",
+      certified: true,
+    },
+    {
+      id: "non-certified-round",
+      category: "Non-Certified Round",
+      clarity: "IF – Pique",
+      colour: "D – L",
+      size: "0.005 ct – 3.00 ct",
+      certification: "On request",
+      certified: false,
+    },
+    {
+      id: "non-certified-fancy",
+      category: "Non-Certified Fancy",
+      clarity: "VVS – Pique",
+      colour: "D – L",
+      size: "0.005 ct – 3.00 ct",
+      certification: "On request",
+      certified: false,
+    },
   ] satisfies SpecRow[],
   note: "Custom assortments by clarity, colour, size or shape are assembled to order — minimums depend on the band.",
   cta: { label: "Request a parcel spec", href: "/contact" },
@@ -820,21 +968,73 @@ export const anatomyGlossarySection = {
     image: "/images/diamond-info/anatomy/cross-section.png",
     alt: "Cross-section diagram of a round brilliant cut diamond labelled with table, crown, girdle, pavilion, culet, depth and diameter",
   },
-  caption: "Cross-section of a 58-facet round brilliant. Table and depth percentages are quoted on every report we issue.",
+  caption:
+    "Cross-section of a 58-facet round brilliant. Table and depth percentages are quoted on every report we issue.",
   glossaryHeading: "Glossary of Terms",
   terms: [
-    { id: "table", term: "Table", definition: "The flat top facet — quoted as a percentage of total diameter." },
-    { id: "crown", term: "Crown", definition: "The upper portion of the stone, sitting above the girdle." },
-    { id: "girdle", term: "Girdle", definition: "The thin outer edge that separates crown from pavilion." },
-    { id: "pavilion", term: "Pavilion", definition: "The lower portion, below the girdle, that returns light." },
-    { id: "culet", term: "Culet", definition: "The small facet or point at the very bottom of the stone." },
-    { id: "facet", term: "Facet", definition: "A single flat, polished surface on a cut diamond." },
-    { id: "depth", term: "Depth %", definition: "Total height divided by average diameter, as a percentage." },
-    { id: "brilliance", term: "Brilliance", definition: "The white light reflected straight back to the eye." },
-    { id: "scintillation", term: "Scintillation", definition: "The sparkle pattern seen as the stone or the light moves." },
-    { id: "fluorescence", term: "Fluorescence", definition: "A soft glow some diamonds emit under ultraviolet light." },
-    { id: "inclusion", term: "Inclusion", definition: "An internal characteristic formed during the stone’s growth." },
-    { id: "blemish", term: "Blemish", definition: "A surface characteristic, usually from polishing or handling." },
+    {
+      id: "table",
+      term: "Table",
+      definition:
+        "The flat top facet — quoted as a percentage of total diameter.",
+    },
+    {
+      id: "crown",
+      term: "Crown",
+      definition: "The upper portion of the stone, sitting above the girdle.",
+    },
+    {
+      id: "girdle",
+      term: "Girdle",
+      definition: "The thin outer edge that separates crown from pavilion.",
+    },
+    {
+      id: "pavilion",
+      term: "Pavilion",
+      definition: "The lower portion, below the girdle, that returns light.",
+    },
+    {
+      id: "culet",
+      term: "Culet",
+      definition: "The small facet or point at the very bottom of the stone.",
+    },
+    {
+      id: "facet",
+      term: "Facet",
+      definition: "A single flat, polished surface on a cut diamond.",
+    },
+    {
+      id: "depth",
+      term: "Depth %",
+      definition: "Total height divided by average diameter, as a percentage.",
+    },
+    {
+      id: "brilliance",
+      term: "Brilliance",
+      definition: "The white light reflected straight back to the eye.",
+    },
+    {
+      id: "scintillation",
+      term: "Scintillation",
+      definition: "The sparkle pattern seen as the stone or the light moves.",
+    },
+    {
+      id: "fluorescence",
+      term: "Fluorescence",
+      definition: "A soft glow some diamonds emit under ultraviolet light.",
+    },
+    {
+      id: "inclusion",
+      term: "Inclusion",
+      definition:
+        "An internal characteristic formed during the stone’s growth.",
+    },
+    {
+      id: "blemish",
+      term: "Blemish",
+      definition:
+        "A surface characteristic, usually from polishing or handling.",
+    },
   ] satisfies GlossaryTerm[],
 };
 
@@ -855,7 +1055,8 @@ export const diamondInfoFaqSection = {
     },
     {
       id: "custom-assortments",
-      question: "Can we request custom parcel assortments by clarity, colour or size?",
+      question:
+        "Can we request custom parcel assortments by clarity, colour or size?",
       answer:
         "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
     },
