@@ -6,8 +6,8 @@
   position: relative;
   overflow: hidden;
   background: #000d34;
-  padding: clamp(56px, 9vh, 120px) 0;
-  min-height: clamp(480px, 44vw, 640px);
+  padding: 100px 0;
+  min-height: clamp(480px, 44vw, 680px);
   display: flex;
   align-items: center;
 }

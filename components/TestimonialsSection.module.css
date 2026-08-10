@@ -4,7 +4,7 @@
 
 .section {
   background: var(--paper);
-  padding: clamp(56px, 9vh, 120px) var(--gutter);
+  padding: 100px var(--gutter);
 }
 
 /* ---------------------------- head ------------------------------- */
