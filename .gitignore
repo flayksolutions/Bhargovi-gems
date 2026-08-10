@@ -48,6 +48,7 @@ Thumbs.db
 .claude/
 docs/
 CLAUDE.md
+.worktrees/
 .pnpmfile.cjs
 .playwright-mcp/
 pnpm-lock.yaml
