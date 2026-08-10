@@ -22,9 +22,15 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
     const items = Array.from(
       section.querySelectorAll<HTMLElement>("[data-milestone-index]")
     );
+    // First milestone reveals just after p leaves 0 (in sync with the
+    // line starting to draw), not at p itself — otherwise it's already
+    // "revealed" the instant the pin engages and never visibly animates.
+    // The rest are spaced evenly across the remaining scroll distance.
+    const firstThreshold = 0.02;
     const thresholds = items.map((el) => {
       const i = Number(el.dataset.milestoneIndex);
-      return (i + 1) / milestones.length;
+      const spacing = milestones.length > 1 ? i / (milestones.length - 1) : 0;
+      return firstThreshold + spacing * (1 - firstThreshold);
     });
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
