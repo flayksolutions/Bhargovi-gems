@@ -1,9 +1,12 @@
 /* ==================================================================
    MILESTONES — dark wave timeline, alternating content above/below.
-   Pins as it reaches the top of the viewport; --p (0 → 1, written by
-   MilestonesSection.tsx) tracks scroll position across a 200vh scrub
-   distance and drives the line clip-path + per-milestone .revealed
-   threshold toggling.
+   Desktop (≥881px) pins as it reaches the top of the viewport; --p
+   (0 → 1, written by MilestonesSection.tsx) tracks scroll position
+   across a 200vh scrub distance. Mobile (<881px) does NOT pin — a
+   pinned 100vh box clipped real content on real phones, so --p there
+   instead tracks the mobile list's own natural scroll-through-
+   viewport window. Either way, --p drives the line clip-path +
+   per-milestone .revealed threshold toggling identically.
    ================================================================== */
 
 .section {
