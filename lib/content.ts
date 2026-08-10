@@ -391,8 +391,8 @@ export const milestonesSection = {
     {
       id: "2023",
       year: "2023",
-      label: "Antwerp Office",
-      body: "Opened Antwerp liaison office; 15+ countries served",
+      label: "Surat Office",
+      body: "Opened Surat liaison office; 15+ countries served",
     },
   ] satisfies Milestone[],
 };
