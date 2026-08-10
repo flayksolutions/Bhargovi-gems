@@ -35,11 +35,6 @@
     position: static;
     height: auto;
   }
-
-  .badgeBox,
-  .badgeIcon {
-    transition: none;
-  }
 }
 
 .head {
@@ -138,6 +133,13 @@
 .badgeIcon {
   opacity: 0;
   transition: opacity 0.3s ease 0.28s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badgeBox,
+  .badgeIcon {
+    transition: none;
+  }
 }
 
 .node.revealed .badgeBox,
