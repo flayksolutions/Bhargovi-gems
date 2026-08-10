@@ -24,7 +24,7 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
     );
     const thresholds = items.map((el) => {
       const i = Number(el.dataset.milestoneIndex);
-      return milestones.length > 1 ? i / (milestones.length - 1) : 0;
+      return (i + 1) / milestones.length;
     });
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

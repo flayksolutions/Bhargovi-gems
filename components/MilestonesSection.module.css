@@ -41,6 +41,7 @@
 }
 
 .head {
+  width: 100%;
   margin: 0 auto clamp(40px, 6vh, 64px);
   max-width: 900px;
   text-align: center;
@@ -69,6 +70,7 @@
 /* ---------------------------- wave -------------------------------- */
 
 .wave {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -253,6 +255,7 @@
   .mobileWrap {
     position: relative;
     display: block;
+    width: 100%;
     max-width: 480px;
     margin-inline: auto;
     /* Badges are centered on the line via a -24px translateX below
