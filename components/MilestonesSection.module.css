@@ -117,6 +117,34 @@
   height: 56px;
 }
 
+.badgeBox,
+.badgeIcon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.badgeBox {
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.badgeIcon {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.28s;
+}
+
+.node.revealed .badgeBox,
+.mobileItem.revealed .badgeBox {
+  transform: scale(1);
+}
+
+.node.revealed .badgeIcon,
+.mobileItem.revealed .badgeIcon {
+  opacity: 1;
+}
+
 .content {
   position: absolute;
   left: 50%;
@@ -239,7 +267,8 @@
     /* Shift left by half the badge width so the line (border-left on
        .mobileList) passes through the badge's center rather than its
        left edge. transform-only so it doesn't reflow the text next
-       to it. */
+       to it. Kept on the wrapper span, separate from .badgeBox's own
+       scale transform, so the two don't clobber each other. */
     transform: translateX(-24px);
   }
 
