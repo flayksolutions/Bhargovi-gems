@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Node 06">
+<path id="Vector" d="M9.5 2H20.5L28 11L15 28L2 11L9.5 2Z" fill="#D9EAFB" stroke="#1B4C96" stroke-width="1.2" stroke-linejoin="round"/>
+<g id="Vector_2">
+<path d="M2 11H28ZM9.5 2L12 11L15 28M20.5 2L18 11L15 28" fill="#D9EAFB"/>
+<path d="M2 11H28M9.5 2L12 11L15 28L18 11L20.5 2" stroke="#1B4C96" stroke-opacity="0.55" stroke-width="1.2" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

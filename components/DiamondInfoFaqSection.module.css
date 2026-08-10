@@ -1,0 +1,215 @@
+/* ==================================================================
+   FAQS — dark accordion
+   ================================================================== */
+
+.section {
+  position: relative;
+  background: var(--navy-deep);
+  padding: clamp(72px, 10vh, 120px) var(--gutter);
+  overflow: clip;
+  isolation: isolate;
+  scroll-margin-top: 96px;
+}
+
+.glow {
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  top: -30%;
+  width: 84%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(37, 100, 202, 0.3) 0%, rgba(0, 13, 52, 0) 68%);
+}
+
+.inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--sky-tint);
+}
+
+.rule {
+  width: 28px;
+  height: 1px;
+  background: #7fa9e3;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.14;
+}
+
+.title span {
+  display: block;
+}
+
+.title span:first-child {
+  font-size: clamp(26px, 2.7vw, 44px);
+  color: #fff;
+}
+
+.titleAccent {
+  font-size: clamp(20px, 2vw, 32px);
+  color: #aecbf2;
+}
+
+.body {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------------------------- accordion ------------------------------ */
+
+.accordion {
+  --cn: 42px;
+  background: rgba(255, 255, 255, 0.05);
+  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, 0 100%);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 56px 18px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panelHeader p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.monogram {
+  width: 32px;
+  height: 32px;
+  opacity: 0.5;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.itemOpen {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 22px 36px 22px 40px;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.number {
+  flex: none;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.itemOpen .number {
+  color: var(--sky-tint);
+}
+
+.questionText {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.itemOpen .questionText {
+  font-weight: 600;
+  color: #fff;
+}
+
+.toggle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 18px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.answerWrap {
+  display: grid;
+  transition: grid-template-rows 420ms var(--ease-soft);
+}
+
+.answerWrap > .answer {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.answer {
+  margin: 0;
+  padding: 0 36px 0 40px;
+  max-width: 620px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.itemOpen .answer {
+  padding-bottom: 28px;
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .question,
+  .panelHeader,
+  .answer {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}

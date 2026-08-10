@@ -533,6 +533,353 @@ export type ProcessStep = {
 
 const PLACEHOLDER_IMAGE = "/images/rough-stone.jpg";
 
+/* ------------------------------------------------------------------
+   Diamond Information page (/diamond-information)
+------------------------------------------------------------------- */
+
+export const diamondInfoHeroSection = {
+  breadcrumb: [
+    { label: "Home", href: "/" },
+    { label: "Diamond Information" },
+  ],
+  title: "Understanding Diamonds — The Complete Buyer's Guide",
+  body: "From the 4Cs to certification and our own quality standards — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
+  image: "/images/diamond-info/hero-diamonds.png",
+  alt: "Loose polished diamonds of varying cuts and colours scattered on a dark, sparkling surface",
+};
+
+export type Chapter = { id: string; number: string; label: string };
+
+export const chapterRailSection = {
+  chapters: [
+    { id: "the-4cs", number: "01", label: "The 4Cs" },
+    { id: "shapes", number: "02", label: "Shapes" },
+    { id: "lab-grown-vs-mined", number: "03", label: "Lab-Grown vs Mined" },
+    { id: "certification", number: "04", label: "Certification" },
+    { id: "our-process", number: "05", label: "Our Process" },
+    { id: "quality-standards", number: "06", label: "Quality Standards" },
+    { id: "glossary", number: "07", label: "Glossary" },
+    { id: "faqs", number: "08", label: "FAQs" },
+  ] satisfies Chapter[],
+};
+
+export type FourCSegment = { label: string; strong?: boolean; dim?: boolean };
+export type FourCRow = {
+  id: string;
+  number: string;
+  name: string;
+  description: string;
+  segments: FourCSegment[];
+  rangeSpan: number;
+  callout: string;
+};
+
+export const fourCsSection = {
+  id: "the-4cs",
+  eyebrow: "Diamond Education",
+  titleLines: ["The Four Cs", "of a Diamond"],
+  body: "Every stone we grade and export is assessed against the same four universal standards.",
+  rows: [
+    {
+      id: "cut",
+      number: "01",
+      name: "Cut",
+      description: "How a diamond’s facets return light.",
+      segments: [
+        { label: "Excellent", strong: true },
+        { label: "Very Good", strong: true },
+        { label: "Good", dim: true },
+        { label: "Fair", dim: true },
+        { label: "Poor", dim: true },
+      ],
+      rangeSpan: 2,
+      callout: "We ship Excellent–Very Good only",
+    },
+    {
+      id: "colour",
+      number: "02",
+      name: "Colour",
+      description: "Graded D (colourless) through Z (visible tint)",
+      segments: [
+        { label: "D", strong: true },
+        { label: "G", strong: true },
+        { label: "J", strong: true },
+        { label: "M", strong: true },
+        { label: "Z", dim: true },
+      ],
+      rangeSpan: 4,
+      callout: "Standard supply range D–M",
+    },
+    {
+      id: "clarity",
+      number: "03",
+      name: "Clarity",
+      description: "Graded at 10× magnification, from Flawless to Included.",
+      segments: [
+        { label: "FL", strong: true },
+        { label: "VVS", strong: true },
+        { label: "VS", strong: true },
+        { label: "SI", strong: true },
+        { label: "I1–I3", dim: true },
+      ],
+      rangeSpan: 4,
+      callout: "Certified goods IF–SI2",
+    },
+    {
+      id: "carat",
+      number: "04",
+      name: "Carat",
+      description: "One carat = 200 mg. Price rises sharply with size.",
+      segments: [
+        { label: "0.25", strong: true },
+        { label: "0.50", strong: true },
+        { label: "1.00", strong: true },
+        { label: "1.50", strong: true },
+        { label: "2.00+", strong: true },
+      ],
+      rangeSpan: 5,
+      callout: "Melee 0.005ct up to 3.00ct",
+    },
+  ] satisfies FourCRow[],
+};
+
+export type ShapeChip = { id: string; name: string; facets: string; icon: string; featured?: boolean };
+
+export const shapesCutsSection = {
+  id: "shapes",
+  eyebrow: "Shapes We Cut",
+  titleLines: ["Ten Shapes,", "Cut & Polished In-House"],
+  body: "From the classic round brilliant to fancy silhouettes, every shape is planned, sawn, bruted and polished on our own floor",
+  featured: {
+    name: "Round Brilliant",
+    tag: "Most Requested",
+    caption: "58 facets · the benchmark for light return",
+    image: "/images/diamond-info/round-brilliant.png",
+    alt: "A round brilliant cut diamond viewed from the crown",
+  },
+  chips: [
+    { id: "round", name: "Round", facets: "58 facets", icon: "/images/diamond-info/shapes/round.svg", featured: true },
+    { id: "princess", name: "Princess", facets: "76 facets", icon: "/images/diamond-info/shapes/princess.svg" },
+    { id: "oval", name: "Oval", facets: "58 facets", icon: "/images/diamond-info/shapes/oval.svg" },
+    { id: "emerald", name: "Emerald", facets: "57 facets", icon: "/images/diamond-info/shapes/emerald.svg" },
+    { id: "marquise", name: "Marquise", facets: "58 facets", icon: "/images/diamond-info/shapes/marquise.svg" },
+    { id: "cushion", name: "Cushion", facets: "64 facets", icon: "/images/diamond-info/shapes/cushion.svg" },
+    { id: "radiant", name: "Radiant", facets: "70 facets", icon: "/images/diamond-info/shapes/radiant.svg" },
+    { id: "asscher", name: "Asscher", facets: "58 facets", icon: "/images/diamond-info/shapes/asscher.svg" },
+  ] satisfies ShapeChip[],
+  catalogueLink: { label: "View the full shape catalogue", href: "/products" },
+};
+
+export const labGrownVsMinedSection = {
+  id: "lab-grown-vs-mined",
+  eyebrow: "Our Technology",
+  title: "Grown in Weeks, Not Eons",
+  body: "Buyers increasingly ask about origin. Here is how the two compare — and exactly where we stand.",
+  cards: [
+    {
+      id: "lab-grown",
+      tag: "Our Specialty",
+      emphasis: true,
+      title: "Lab-Grown Diamonds",
+      subtitle: "HPHT & CVD · 100% of our output",
+      bullets: [
+        "Grown in three to ten weeks under HPHT or CVD conditions",
+        "Chemically, optically and physically identical to mined stone",
+        "Graded on the same universal 4Cs, by the same laboratories",
+        "Consistent supply, so repeat parcels stay true to spec",
+        "Every Bhargovi stone independently graded and certified",
+      ],
+    },
+    {
+      id: "mined",
+      tag: "For Reference",
+      emphasis: false,
+      title: "Mined (Natural) Diamonds",
+      subtitle: "Not part of our current range",
+      bullets: [
+        "Formed one to three billion years ago in the earth’s mantle",
+        "Chemically identical, and graded on exactly the same 4Cs",
+        "Finite supply drives higher and more volatile price points",
+        "Origin traceability depends on chain-of-custody schemes",
+        "Supplied on request through partners, never in-house",
+      ],
+    },
+  ],
+  disclaimer:
+    "Bhargovi Gems manufactures lab-grown diamonds exclusively. This comparison is published for buyer education, not as a sales position.",
+};
+
+export type LabAccreditation = { id: string; code: string; name: string; blurb: string; logo?: string; badgeText?: string };
+
+export const certificationVerificationSection = {
+  id: "certification",
+  eyebrow: "Trust & Verification",
+  title: "No Stone Leaves Unverified",
+  body: "Independent certification is non-negotiable. Here is what each accreditation on our paperwork actually guarantees.",
+  labs: [
+    {
+      id: "gia",
+      code: "GIA",
+      name: "Gemological Institute of America",
+      blurb: "Sets the global grading standard for the 4Cs.",
+      logo: "/images/diamond-info/certs/gia.png",
+    },
+    {
+      id: "igi",
+      code: "IGI",
+      name: "International Gemological Institute",
+      blurb: "The world’s largest independent gem laboratory.",
+      logo: "/images/diamond-info/certs/igi.png",
+    },
+    {
+      id: "hrd",
+      code: "HRD Antwerp",
+      name: "European grading authority",
+      blurb: "Antwerp-based grading and quality reports.",
+      logo: "/images/diamond-info/certs/hrd.png",
+    },
+    {
+      id: "kimberley",
+      code: "Kimberley Process",
+      name: "Conflict-free assurance",
+      blurb: "Chain-of-custody warranty on every shipment.",
+      logo: "/images/diamond-info/certs/kimberley.png",
+    },
+    {
+      id: "scs",
+      code: "SCS-007",
+      name: "Sustainability certified",
+      blurb: "Verified low-carbon, sustainable growing.",
+      badgeText: "SCS",
+    },
+    {
+      id: "rjc",
+      code: "RJC Member",
+      name: "Responsible Jewellery Council",
+      blurb: "Audited chain-of-custody and ethics standard.",
+      badgeText: "RJC",
+    },
+  ] satisfies LabAccreditation[],
+};
+
+export type RoughStage = { id: string; number: string; name: string; description: string; icon: "hex" | "outline" | "filled" };
+
+export const roughToPolishedSection = {
+  id: "our-process",
+  eyebrow: "Our Process",
+  title: "From Rough to Certified Polish",
+  body: "Eight stages, every one of them under our own roof — nothing leaves the floor until it is graded.",
+  startLabel: "Rough",
+  endLabel: "Certified Polish",
+  stages: [
+    { id: "growing", number: "01", name: "Growing", description: "Rough grown in-house under HPHT or CVD conditions.", icon: "hex" },
+    { id: "planning-marking", number: "02", name: "Planning & Marking", description: "Sarine scanning maps each stone for maximum yield.", icon: "hex" },
+    { id: "sawing-cleaving", number: "03", name: "Sawing & Cleaving", description: "Rough is divided along its natural crystal grain.", icon: "outline" },
+    { id: "bruting", number: "04", name: "Bruting", description: "The stone is turned against another to shape its girdle.", icon: "outline" },
+    { id: "faceting", number: "05", name: "Faceting", description: "Cutters place and polish each facet to angle tolerance.", icon: "outline" },
+    { id: "grading-qc", number: "06", name: "Grading & QC", description: "In-house graders verify the 4Cs before submission.", icon: "filled" },
+    { id: "certification", number: "07", name: "Certification", description: "Submitted to GIA or IGI for independent grading.", icon: "filled" },
+    { id: "export", number: "08", name: "Export", description: "Sealed, documented and dispatched to partners worldwide.", icon: "filled" },
+  ] satisfies RoughStage[],
+};
+
+export type SpecRow = {
+  id: string;
+  category: string;
+  clarity: string;
+  colour: string;
+  size: string;
+  certification: string;
+  certified: boolean;
+};
+
+export const qualityStandardsSection = {
+  id: "quality-standards",
+  eyebrow: "Our Standards",
+  titleLines: ["What We Actually Ship", "by category"],
+  body: "The ranges we manufacture and supply as standard. This is where education becomes a sourcing decision — everything outside these bands is quoted case by case.",
+  columns: ["Category", "Clarity Range", "Colour Range", "Size Range", "Certification"],
+  rows: [
+    { id: "certified-round", category: "Certified Round Brilliant", clarity: "IF – SI2", colour: "D – M", size: "0.18 ct – 3.00 ct", certification: "GIA / IGI", certified: true },
+    { id: "certified-fancy", category: "Certified Fancy Shapes", clarity: "IF – SI2", colour: "D – M", size: "0.30 ct – 3.00 ct", certification: "GIA / IGI", certified: true },
+    { id: "non-certified-round", category: "Non-Certified Round", clarity: "IF – Pique", colour: "D – L", size: "0.005 ct – 3.00 ct", certification: "On request", certified: false },
+    { id: "non-certified-fancy", category: "Non-Certified Fancy", clarity: "VVS – Pique", colour: "D – L", size: "0.005 ct – 3.00 ct", certification: "On request", certified: false },
+  ] satisfies SpecRow[],
+  note: "Custom assortments by clarity, colour, size or shape are assembled to order — minimums depend on the band.",
+  cta: { label: "Request a parcel spec", href: "/contact" },
+};
+
+export type GlossaryTerm = { id: string; term: string; definition: string };
+
+export const anatomyGlossarySection = {
+  id: "glossary",
+  eyebrow: "Reference",
+  titleLines: ["Anatomy of a", "Round Brilliant"],
+  body: "The vocabulary that appears on every grading report — and on every conversation you will have with a cutter.",
+  diagram: {
+    image: "/images/diamond-info/anatomy/cross-section.png",
+    alt: "Cross-section diagram of a round brilliant cut diamond labelled with table, crown, girdle, pavilion, culet, depth and diameter",
+  },
+  caption: "Cross-section of a 58-facet round brilliant. Table and depth percentages are quoted on every report we issue.",
+  glossaryHeading: "Glossary of Terms",
+  terms: [
+    { id: "table", term: "Table", definition: "The flat top facet — quoted as a percentage of total diameter." },
+    { id: "crown", term: "Crown", definition: "The upper portion of the stone, sitting above the girdle." },
+    { id: "girdle", term: "Girdle", definition: "The thin outer edge that separates crown from pavilion." },
+    { id: "pavilion", term: "Pavilion", definition: "The lower portion, below the girdle, that returns light." },
+    { id: "culet", term: "Culet", definition: "The small facet or point at the very bottom of the stone." },
+    { id: "facet", term: "Facet", definition: "A single flat, polished surface on a cut diamond." },
+    { id: "depth", term: "Depth %", definition: "Total height divided by average diameter, as a percentage." },
+    { id: "brilliance", term: "Brilliance", definition: "The white light reflected straight back to the eye." },
+    { id: "scintillation", term: "Scintillation", definition: "The sparkle pattern seen as the stone or the light moves." },
+    { id: "fluorescence", term: "Fluorescence", definition: "A soft glow some diamonds emit under ultraviolet light." },
+    { id: "inclusion", term: "Inclusion", definition: "An internal characteristic formed during the stone’s growth." },
+    { id: "blemish", term: "Blemish", definition: "A surface characteristic, usually from polishing or handling." },
+  ] satisfies GlossaryTerm[],
+};
+
+export type FAQItem = { id: string; question: string; answer: string };
+
+export const diamondInfoFaqSection = {
+  id: "faqs",
+  eyebrow: "Common Questions",
+  titleLines: ["What Buyers", "Ask Us Most"],
+  body: "Five things that come up in almost every first conversation with a new sourcing partner.",
+  panelLabel: "Frequently Asked",
+  items: [
+    {
+      id: "certified",
+      question: "Are all Bhargovi Gems diamonds independently certified?",
+      answer:
+        "Every certified stone we ship carries a GIA or IGI report, quoted by number on the invoice and matched to a laser inscription on the girdle. Non-certified parcels are graded in-house against the same 4Cs and are always labelled as such — we never blur the two.",
+    },
+    {
+      id: "custom-assortments",
+      question: "Can we request custom parcel assortments by clarity, colour or size?",
+      answer:
+        "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
+    },
+    {
+      id: "certified-and-non-certified",
+      question: "Do you supply both certified and non-certified goods?",
+      answer:
+        "We do. Certified goods are graded and reported by GIA or IGI; non-certified goods are graded in-house against the same 4Cs and priced accordingly. Every quote states clearly which category a parcel falls into.",
+    },
+    {
+      id: "authenticity",
+      question: "How is the authenticity of each stone verified before export?",
+      answer:
+        "Each certified stone carries a laser inscription on the girdle matched to its grading report number, and every shipment is documented under Kimberley Process and RJC chain-of-custody standards before it leaves our facility.",
+    },
+    {
+      id: "moq",
+      question: "What is the minimum order quantity for wholesale buyers?",
+      answer:
+        "Minimums vary by category and band — melee parcels start small, while certified goods are typically quoted per carat lot. Share your target spec with sourcing and we will confirm the minimum for that specific order.",
+    },
+  ] satisfies FAQItem[],
+};
+
 export const processSection = {
   eyebrow: "Our Process",
   title: "From Rough Stone to Polish",

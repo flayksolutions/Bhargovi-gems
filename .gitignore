@@ -50,3 +50,4 @@ docs/
 CLAUDE.md
 .pnpmfile.cjs
 .playwright-mcp/
+pnpm-lock.yaml
