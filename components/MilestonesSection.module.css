@@ -84,7 +84,9 @@
 }
 
 /* Extends past the last badge and fades out, reading as "more to
-   come" rather than a hard stop. */
+   come" rather than a hard stop. clip-path reveals it left-to-right
+   in lockstep with --p — no transition here, it must track scroll
+   1:1, not ease independently. */
 .line::before {
   content: "";
   position: absolute;
@@ -98,6 +100,7 @@
     #2564ca 95.19%,
     rgba(37, 100, 202, 0) 100%
   );
+  clip-path: inset(0 calc((1 - var(--p)) * 100%) 0 0);
 }
 
 .node {
@@ -208,6 +211,7 @@
       #2564ca 95.19%,
       rgba(37, 100, 202, 0) 100%
     );
+    clip-path: inset(0 0 calc((1 - var(--p)) * 100%) 0);
   }
 
   .mobileList {
