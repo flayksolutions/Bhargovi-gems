@@ -35,6 +35,11 @@
     position: static;
     height: auto;
   }
+
+  .badgeBox,
+  .badgeIcon {
+    transition: none;
+  }
 }
 
 .head {
