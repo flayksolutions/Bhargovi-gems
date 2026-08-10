@@ -148,6 +148,49 @@
   background: #fff;
 }
 
+/* ---------------------------- light variant ------------------------ */
+
+.light {
+  background: var(--paper);
+}
+
+.light .eyebrow {
+  color: var(--sapphire);
+}
+
+.light .title {
+  color: var(--ink);
+}
+
+.light .body {
+  color: var(--text-muted);
+}
+
+.light .slide,
+.light .placeholder {
+  background: var(--frost);
+}
+
+.light .placeholder {
+  color: var(--text-muted);
+}
+
+.light .stage:focus-visible {
+  outline-color: var(--text-ghost);
+}
+
+.light .dot {
+  background: rgba(2, 38, 113, 0.2);
+}
+
+.light .dot:hover {
+  background: rgba(2, 38, 113, 0.36);
+}
+
+.light .dotActive {
+  background: var(--ink);
+}
+
 /* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 860px) {

@@ -18,6 +18,7 @@ type Props = {
   body: string;
   slides: Slide[];
   interval?: number;
+  variant?: "dark" | "light";
 };
 
 /* Past this much horizontal travel, a drag counts as a slide change. */
@@ -30,6 +31,7 @@ export default function FacilityCarousel({
   slides,
   // interval = 4500,
   interval = 3500,
+  variant = "dark",
 }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -86,7 +88,10 @@ export default function FacilityCarousel({
   };
 
   return (
-    <section className={styles.section} aria-labelledby="facility-title">
+    <section
+      className={`${styles.section} ${variant === "light" ? styles.light : ""}`}
+      aria-labelledby="facility-title"
+    >
       <header className={styles.head}>
         <p className={styles.eyebrow}>{eyebrow}</p>
         <h2 id="facility-title" className={styles.title}>
