@@ -22,7 +22,12 @@ const DIMS: Record<Facility["size"], { grow: number; w: number; h: number }> = {
   wide: { grow: 639, w: 639, h: 260 },
 };
 
-export default function FacilitiesSection({ eyebrow, title, body, facilities }: Props) {
+export default function FacilitiesSection({
+  eyebrow,
+  title,
+  body,
+  facilities,
+}: Props) {
   const rows: Facility[][] = [];
   let cursor = 0;
   for (const count of ROWS) {
@@ -41,7 +46,7 @@ export default function FacilitiesSection({ eyebrow, title, body, facilities }: 
       </header>
 
       <div className={styles.grid}>
-        {rows.map((row, i) => (
+        {rows.slice(0, 2).map((row, i) => (
           <div key={i} className={styles.row}>
             {row.map((facility, j) => {
               const { grow, w, h } = DIMS[facility.size];
@@ -52,13 +57,14 @@ export default function FacilitiesSection({ eyebrow, title, body, facilities }: 
                  left, last card's right) stay square. */
               const cutRight = j < row.length - 1;
               const cutLeft = j > 0;
-              const cutClass = cutRight && cutLeft
-                ? styles.cutBoth
-                : cutRight
-                  ? styles.cutRight
-                  : cutLeft
-                    ? styles.cutLeft
-                    : "";
+              const cutClass =
+                cutRight && cutLeft
+                  ? styles.cutBoth
+                  : cutRight
+                    ? styles.cutRight
+                    : cutLeft
+                      ? styles.cutLeft
+                      : "";
               return (
                 <div
                   key={facility.id}
