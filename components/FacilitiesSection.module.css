@@ -47,18 +47,33 @@
 /* ---------------------------- grid -------------------------------- */
 
 .grid {
-  --row-gap: clamp(18px, 2.2vw, 32px);
+  --row-gap: clamp(6px, 0.8vw, 10px);
+  /* Clip offset that drives the diagonal cut's steepness — kept
+     separate from --row-gap so the angle can be tuned without
+     changing the visible gap width. */
+  --slant: clamp(18px, 2.2vw, 28px);
   max-width: 1640px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* ~32px between rows vs. ~2px between cards in a row, per Figma. */
   gap: var(--row-gap);
 }
 
 .row {
   display: flex;
-  gap: clamp(2px, 0.15vw, 3px);
+}
+
+/* Two facing cut edges share the same slope (both offset by --slant
+   over the card height), so the horizontal distance between them is
+   constant at every y and equals margin + slant. Setting the margin
+   to (row-gap - slant) — negative once slant exceeds row-gap, so the
+   card boxes overlap — makes that constant distance equal exactly
+   --row-gap, keeping the visible gap pinned to the row gap regardless
+   of how steep --slant makes the cut. The overlap itself is invisible
+   because it falls entirely inside whichever card's clip-path has
+   already cut that region away. */
+.row > * + * {
+  margin-left: calc(var(--row-gap) - var(--slant));
 }
 
 .card {
@@ -87,18 +102,18 @@
    outer edges of the row (first card's left, last card's right) stay
    square. */
 .cutRight {
-  clip-path: polygon(0 0, 100% 0, calc(100% - var(--row-gap)) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
 }
 
 .cutLeft {
-  clip-path: polygon(var(--row-gap) 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(var(--slant) 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .cutBoth {
   clip-path: polygon(
-    var(--row-gap) 0,
+    var(--slant) 0,
     100% 0,
-    calc(100% - var(--row-gap)) 100%,
+    calc(100% - var(--slant)) 100%,
     0 100%
   );
 }
@@ -161,6 +176,10 @@
   .row {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .row > * + * {
+    margin-left: 0;
   }
 
   .card {
