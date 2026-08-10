@@ -13,7 +13,7 @@
 
 .section {
   background: var(--navy-deep);
-  padding: clamp(56px, 9vh, 88px) var(--gutter);
+  padding: 100px var(--gutter);
 }
 
 .inner {
