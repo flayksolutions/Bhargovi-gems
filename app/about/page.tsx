@@ -4,17 +4,17 @@ import AboutHero from "@/components/AboutHero";
 import LegacySection from "@/components/LegacySection";
 import MilestonesSection from "@/components/MilestonesSection";
 import FacilitiesSection from "@/components/FacilitiesSection";
-import OurApproachSection from "@/components/OurApproachSection";
+import ProcessSection from "@/components/ProcessSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import SiteFooter from "@/components/SiteFooter";
 import {
+  aboutApproachProcessSection,
   aboutHeroSection,
   certificationsSection,
   facilitiesPageSection,
   footer,
   legacySection,
   milestonesSection,
-  ourApproachSection,
   site,
 } from "@/lib/content";
 
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <LegacySection {...legacySection} />
         <MilestonesSection {...milestonesSection} />
         <FacilitiesSection {...facilitiesPageSection} />
-        <OurApproachSection {...ourApproachSection} />
+        <ProcessSection {...aboutApproachProcessSection} />
         <CertificationsSection {...certificationsSection} />
       </main>
 
