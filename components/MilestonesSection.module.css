@@ -1,12 +1,40 @@
 /* ==================================================================
-   MILESTONES — dark wave timeline, alternating content above/below
+   MILESTONES — dark wave timeline, alternating content above/below.
+   Pins as it reaches the top of the viewport; --p (0 → 1, written by
+   MilestonesSection.tsx) tracks scroll position across a 200vh scrub
+   distance and drives the line clip-path + per-milestone .revealed
+   threshold toggling.
    ================================================================== */
 
 .section {
+  --p: 0;
   position: relative;
+  height: calc(100vh + 200vh);
+  height: calc(100svh + 200svh);
   background: var(--navy-deep);
-  padding: 100px var(--gutter);
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
   overflow: clip;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    height: auto;
+  }
+
+  .pin {
+    position: static;
+    height: auto;
+  }
 }
 
 .head {
