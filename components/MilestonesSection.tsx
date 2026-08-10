@@ -50,8 +50,14 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
 
       if (mobileQuery.matches) {
         const rect = mobileTrack.getBoundingClientRect();
-        const total = rect.height + window.innerHeight;
-        p = Math.min(Math.max((window.innerHeight - rect.top) / total, 0), 1);
+        // total = rect.height (not rect.height + innerHeight): p should
+        // reach 1 when the list's bottom first reaches the viewport's
+        // bottom edge (last item just visible), not when it reaches the
+        // viewport's top edge (list already fully scrolled past) — the
+        // latter meant the last milestone's reveal fired after it was
+        // already invisible.
+        const total = rect.height;
+        p = total <= 0 ? 1 : Math.min(Math.max((window.innerHeight - rect.top) / total, 0), 1);
       } else {
         const rect = section.getBoundingClientRect();
         const total = rect.height - window.innerHeight;
