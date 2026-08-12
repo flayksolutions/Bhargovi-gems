@@ -45,22 +45,6 @@ export default function AnatomyGlossarySection({
               sizes="(max-width: 900px) 100vw, 520px"
               className={styles.diagramImage}
             />
-            <span className={[styles.dimLabel, styles.labelTable].join(" ")}>
-              <span className={styles.bracketH} aria-hidden="true" />
-              Table
-            </span>
-            <span className={[styles.dimLabel, styles.labelCrown].join(" ")}>Crown</span>
-            <span className={[styles.dimLabel, styles.labelGirdle].join(" ")}>Girdle</span>
-            <span className={[styles.dimLabel, styles.labelPavilion].join(" ")}>Pavilion</span>
-            <span className={[styles.dimLabel, styles.labelCulet].join(" ")}>Culet</span>
-            <span className={[styles.dimLabel, styles.labelDiameter].join(" ")}>
-              <span className={styles.bracketH} aria-hidden="true" />
-              Diameter
-            </span>
-            <span className={[styles.dimLabel, styles.labelDepth].join(" ")}>
-              <span className={styles.bracketV} aria-hidden="true" />
-              Depth
-            </span>
           </div>
           <p className={styles.caption}>{caption}</p>
         </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ShapesCutsSection.module.css";
@@ -8,7 +11,7 @@ type Props = {
   eyebrow: string;
   titleLines: string[];
   body: string;
-  featured: { name: string; tag: string; caption: string; image: string; alt: string };
+  stageRings: { outer: string; inner: string };
   chips: ShapeChip[];
   catalogueLink: { label: string; href: string };
 };
@@ -18,10 +21,14 @@ export default function ShapesCutsSection({
   eyebrow,
   titleLines,
   body,
-  featured,
+  stageRings,
   chips,
   catalogueLink,
 }: Props) {
+  const defaultChip = chips.find((c) => c.featured) ?? chips[0];
+  const [selectedId, setSelectedId] = useState(defaultChip.id);
+  const selected = chips.find((c) => c.id === selectedId) ?? defaultChip;
+
   return (
     <section id={id} className={styles.section} aria-labelledby="shapes-title">
       <div className={styles.inner}>
@@ -38,33 +45,57 @@ export default function ShapesCutsSection({
         <p className={styles.body}>{body}</p>
 
         <div className={styles.stage}>
-          <Image
-            src={featured.image}
-            alt={featured.alt}
-            fill
-            sizes="(max-width: 900px) 100vw, 600px"
-            className={styles.stageImage}
-          />
-          <span className={styles.stageScrim} aria-hidden="true" />
-          <span className={styles.tag}>{featured.tag}</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={stageRings.outer} alt="" aria-hidden="true" className={styles.ringOuter} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={stageRings.inner} alt="" aria-hidden="true" className={styles.ringInner} />
+
+          {selected.photo ? (
+            <div className={styles.photoWrap}>
+              <Image
+                key={selected.id}
+                src={selected.photo}
+                alt={selected.photoAlt ?? selected.name}
+                fill
+                sizes="300px"
+                className={styles.photo}
+              />
+            </div>
+          ) : (
+            <span
+              aria-hidden="true"
+              className={styles.photoFallback}
+              style={{ ["--icon-src" as string]: `url(${selected.icon})` }}
+            />
+          )}
+
+          {selected.tag && <span className={styles.tag}>{selected.tag}</span>}
           <div className={styles.stageText}>
-            <p className={styles.stageName}>{featured.name}</p>
-            <p className={styles.stageCaption}>{featured.caption}</p>
+            <p className={styles.stageName}>{selected.name}</p>
+            {selected.caption && <p className={styles.stageCaption}>{selected.caption}</p>}
           </div>
         </div>
 
         <div className={styles.chips}>
           <ul className={styles.chipGrid}>
-            {chips.map((chip) => (
-              <li key={chip.id}>
-                <div className={[styles.chip, chip.featured ? styles.chipFeatured : ""].filter(Boolean).join(" ")}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={chip.icon} alt="" aria-hidden="true" className={styles.chipIcon} />
-                  <p className={styles.chipName}>{chip.name}</p>
-                  <p className={styles.chipFacets}>{chip.facets}</p>
-                </div>
-              </li>
-            ))}
+            {chips.map((chip) => {
+              const active = chip.id === selectedId;
+              return (
+                <li key={chip.id}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedId(chip.id)}
+                    className={[styles.chip, active ? styles.chipActive : ""].filter(Boolean).join(" ")}
+                    aria-pressed={active}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={chip.icon} alt="" aria-hidden="true" className={styles.chipIcon} />
+                    <p className={styles.chipName}>{chip.name}</p>
+                    <p className={styles.chipFacets}>{chip.facets}</p>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
           <Link href={catalogueLink.href} className={styles.catalogueLink}>

@@ -682,6 +682,10 @@ export type ShapeChip = {
   facets: string;
   icon: string;
   featured?: boolean;
+  tag?: string;
+  caption?: string;
+  photo?: string;
+  photoAlt?: string;
 };
 
 export const shapesCutsSection = {
@@ -689,12 +693,9 @@ export const shapesCutsSection = {
   eyebrow: "Shapes We Cut",
   titleLines: ["Ten Shapes,", "Cut & Polished In-House"],
   body: "From the classic round brilliant to fancy silhouettes, every shape is planned, sawn, bruted and polished on our own floor",
-  featured: {
-    name: "Round Brilliant",
-    tag: "Most Requested",
-    caption: "58 facets · the benchmark for light return",
-    image: "/images/diamond-info/round-brilliant.png",
-    alt: "A round brilliant cut diamond viewed from the crown",
+  stageRings: {
+    outer: "/images/diamond-info/stage-ring-outer.svg",
+    inner: "/images/diamond-info/stage-ring-inner.svg",
   },
   chips: [
     {
@@ -703,12 +704,19 @@ export const shapesCutsSection = {
       facets: "58 facets",
       icon: "/images/diamond-info/shapes/round.svg",
       featured: true,
+      tag: "Most Requested",
+      caption: "58 facets · the benchmark for light return",
+      photo: "/images/diamond-info/round-cut.png",
+      photoAlt: "A round brilliant cut diamond viewed from the crown",
     },
     {
       id: "princess",
       name: "Princess",
       facets: "76 facets",
       icon: "/images/diamond-info/shapes/princess.svg",
+      caption: "76 facets · sharp, modern corners",
+      photo: "/images/diamond-info/princess-cut.png",
+      photoAlt: "A princess cut diamond viewed from above",
     },
     {
       id: "oval",
@@ -721,6 +729,9 @@ export const shapesCutsSection = {
       name: "Emerald",
       facets: "57 facets",
       icon: "/images/diamond-info/shapes/emerald.svg",
+      caption: "57 facets · step-cut, hall-of-mirrors effect",
+      photo: "/images/diamond-info/emerald-cut.png",
+      photoAlt: "An emerald cut diamond viewed from above",
     },
     {
       id: "marquise",
@@ -733,6 +744,9 @@ export const shapesCutsSection = {
       name: "Cushion",
       facets: "64 facets",
       icon: "/images/diamond-info/shapes/cushion.svg",
+      caption: "64 facets · soft corners, pillowed brilliance",
+      photo: "/images/diamond-info/cushion-cut.png",
+      photoAlt: "A cushion cut diamond viewed from above",
     },
     {
       id: "radiant",
@@ -996,7 +1010,7 @@ export const anatomyGlossarySection = {
   titleLines: ["Anatomy of a", "Round Brilliant"],
   body: "The vocabulary that appears on every grading report — and on every conversation you will have with a cutter.",
   diagram: {
-    image: "/images/diamond-info/anatomy/cross-section.png",
+    image: "/images/diamond-info/anatomy/cross-section-labelled.png",
     alt: "Cross-section diagram of a round brilliant cut diamond labelled with table, crown, girdle, pavilion, culet, depth and diameter",
   },
   caption:

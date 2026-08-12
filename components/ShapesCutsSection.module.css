@@ -81,17 +81,65 @@
   overflow: hidden;
   background: #0b0e19;
   box-shadow: 0 24px 56px rgba(28, 69, 153, 0.1);
-  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    0 100%
+  );
 }
 
-.stageImage {
+.ringOuter,
+.ringInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.ringInner {
+  width: 52%;
+}
+
+.photoWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(180px, 25vw, 272px);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  /* border-radius: 50%; */
+  overflow: hidden;
+  /* box-shadow: 0 26px 44px rgba(28, 69, 153, 0.22); */
+}
+
+.photo {
   object-fit: cover;
 }
 
-.stageScrim {
+.photoFallback {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 13, 52, 0.15) 0%, rgba(0, 13, 52, 0.72) 100%);
+  top: 50%;
+  left: 50%;
+  width: clamp(110px, 16vw, 160px);
+  height: clamp(110px, 16vw, 160px);
+  transform: translate(-50%, -50%);
+  /* Icons are flat #1B4C96-stroke art meant for light chips; mask
+     them into a solid sky tint so they read on the navy stage. */
+  background: var(--sky-tint);
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity: 0.9;
 }
 
 .tag {
@@ -151,6 +199,7 @@
 
 .chip {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -160,9 +209,17 @@
   background: #fff;
   border: 1px solid #d9eafb;
   box-shadow: 0 6px 16px rgba(28, 69, 153, 0.07);
+  cursor: pointer;
+  transition:
+    border-color 220ms var(--ease-soft),
+    box-shadow 220ms var(--ease-soft);
 }
 
-.chipFeatured {
+.chip:hover {
+  border-color: #aecbf2;
+}
+
+.chipActive {
   border: 3px solid #2564ca;
   box-shadow: 0 12px 28px rgba(28, 69, 153, 0.16);
 }
@@ -189,7 +246,7 @@
   color: rgba(58, 68, 86, 0.72);
 }
 
-.chipFeatured .chipFacets {
+.chipActive .chipFacets {
   color: var(--azure);
 }
 
@@ -236,7 +293,7 @@
     border-width: 1px;
   }
 
-  .chipFeatured {
+  .chipActive {
     border-width: 2px;
   }
 }

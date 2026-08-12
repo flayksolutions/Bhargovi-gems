@@ -75,80 +75,6 @@
 
 .diagramImage {
   object-fit: contain;
-  object-position: 50% 12%;
-}
-
-.dimLabel {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-family: var(--font-body);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #1b4c96;
-  white-space: nowrap;
-}
-
-.bracketH {
-  width: 120px;
-  height: 6px;
-  border-left: 1px solid #1b4c96;
-  border-right: 1px solid #1b4c96;
-  border-top: 1px solid #1b4c96;
-}
-
-.bracketV {
-  width: 6px;
-  height: 90px;
-  border-top: 1px solid #1b4c96;
-  border-bottom: 1px solid #1b4c96;
-  border-right: 1px solid #1b4c96;
-}
-
-.labelTable {
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  flex-direction: column-reverse;
-}
-
-.labelCrown {
-  top: 30%;
-  left: 0;
-}
-
-.labelGirdle {
-  top: 37%;
-  left: 0;
-}
-
-.labelPavilion {
-  top: 57%;
-  left: 0;
-}
-
-.labelCulet {
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.labelDiameter {
-  bottom: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  flex-direction: column-reverse;
-}
-
-.labelDepth {
-  top: 47%;
-  right: 0;
-  flex-direction: row;
-  gap: 8px;
 }
 
 .caption {
@@ -222,13 +148,5 @@
 @media (max-width: 560px) {
   .terms {
     grid-template-columns: 1fr;
-  }
-
-  .dimLabel {
-    font-size: 9px;
-  }
-
-  .bracketH {
-    width: 80px;
   }
 }

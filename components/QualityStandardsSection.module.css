@@ -14,11 +14,15 @@
 .glow {
   position: absolute;
   z-index: -1;
-  right: -10%;
-  top: -35%;
-  width: 80%;
-  height: 90%;
-  background: radial-gradient(circle, rgba(37, 100, 202, 0.3) 0%, rgba(0, 13, 52, 0) 68%);
+  right: 10%;
+  top: -100px;
+  width: 640px;
+  height: 640px;
+  transform: translateX(50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 100, 202, 0.45) 0%, rgba(37, 100, 202, 0) 72%);
+  filter: blur(100px);
+  pointer-events: none;
 }
 
 .head {
@@ -83,10 +87,12 @@
 /* ---------------------------- table -------------------------------- */
 
 .tableWrap {
+  --cn: 34px;
   max-width: 1360px;
   margin: 0 auto;
   overflow-x: auto;
   background: rgba(255, 255, 255, 0.05);
+  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, var(--cn) 100%, 0 calc(100% - var(--cn)));
 }
 
 .table {
