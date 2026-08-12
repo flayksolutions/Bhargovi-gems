@@ -38,9 +38,16 @@ export default function SiteHeader({ brand, nav, cta }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  /* Hide on the way down, bring it straight back on the way up. */
+  /* Hide on the way down, bring it straight back on the way up.
+     Pages with a pinned hero (see Hero.tsx) mark their spacer with
+     [data-hero-spacer]; while that hero hasn't been fully scrolled
+     over yet, keep the header put instead of letting it slide away
+     and leave blank space above the still-pinned hero. */
   useEffect(() => {
     lastY.current = window.scrollY;
+    const heroSpacer = document.querySelector<HTMLElement>(
+      "[data-hero-spacer]"
+    );
     let queued = false;
     let rafId = 0;
 
@@ -48,10 +55,16 @@ export default function SiteHeader({ brand, nav, cta }: Props) {
       queued = false;
       const y = window.scrollY;
       const delta = y - lastY.current;
+      const heroPinned = heroSpacer
+        ? y < heroSpacer.offsetHeight
+        : false;
 
       if (y < 12) {
         setHidden(false);
         setFloating(false);
+      } else if (heroPinned) {
+        setFloating(true);
+        setHidden(false);
       } else {
         setFloating(true);
         // Ignore sub-pixel jitter so it doesn't flicker mid-scroll.
