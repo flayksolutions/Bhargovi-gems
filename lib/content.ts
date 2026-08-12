@@ -528,31 +528,33 @@ export const ourApproachSection = {
   ] satisfies ApproachStory[],
 };
 
-export const aboutApproachProcessSection = {
-  eyebrow: "Our Approach",
-  title: "Commitment to Quality and Service",
+export const aboutValuesSection = {
+  eyebrow: "Our Values",
+  title: "Driven by Purpose",
+  intro:
+    "Ethics and integrity guide every stage of how we source, cut and deal.",
   steps: [
     {
-      id: "what-sets-us-apart",
-      name: "What Sets Us Apart",
+      id: "ethical-sourcing",
+      name: "Ethical Sourcing",
       description:
-        "Deep sourcing partnerships across mining regions, in-house Sarine 4D mapping and polishing under one roof, and an extensive ready inventory across shapes and sizes.",
+        "Absolute integrity as a foundational principle across every business activity — from sourcing through to the sale, with nothing compromised along the way.",
       image: "/images/about/approach-jewelry.png",
       alt: "Finished diamond jewellery on display",
     },
     {
-      id: "certified-verified-guaranteed",
-      name: "Certified. Verified. Guaranteed.",
+      id: "craftsmanship",
+      name: "Craftsmanship",
       description:
-        "Every stone is GIA/IGI certified, 4D Sarine scanned and multi-point inspected before it leaves the floor. Certificates are quoted by number on the invoice and matched to the laser inscription on the girdle.",
+        "Meticulous attention at every stage, backed by in-house Sarine 4D mapping and generations of expert craftsmanship, so each diamond meets the highest standard.",
       image: "/images/about/approach-retail.png",
       alt: "Retail jewellery counter with a client reviewing stones",
     },
     {
-      id: "trusted-by-brands",
-      name: "Trusted by Brands Worldwide",
+      id: "transparency",
+      name: "Transparency",
       description:
-        "Three generations of grading and craftsmanship since 1994, reliable delivery to 15+ countries, and transparent GIA/IGI-backed grading on every parcel we ship.",
+        "Every diamond traced from source to market, with GIA/IGI-backed grading and complete transparency on origin and quality for every parcel we ship.",
       image: "/images/about/approach-loose-diamonds.png",
       alt: "A scatter of loose polished diamonds of varying cuts",
     },

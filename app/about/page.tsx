@@ -4,11 +4,11 @@ import AboutHero from "@/components/AboutHero";
 import LegacySection from "@/components/LegacySection";
 import MilestonesSection from "@/components/MilestonesSection";
 import FacilitiesSection from "@/components/FacilitiesSection";
-import ProcessSection from "@/components/ProcessSection";
+import ValuesSection from "@/components/ValuesSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import SiteFooter from "@/components/SiteFooter";
 import {
-  aboutApproachProcessSection,
+  aboutValuesSection,
   aboutHeroSection,
   certificationsSection,
   facilitiesPageSection,
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <LegacySection {...legacySection} />
         <MilestonesSection {...milestonesSection} />
         <FacilitiesSection {...facilitiesPageSection} />
-        <ProcessSection {...aboutApproachProcessSection} />
+        <ValuesSection {...aboutValuesSection} />
         <CertificationsSection {...certificationsSection} />
       </main>
 
