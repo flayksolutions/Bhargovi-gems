@@ -539,7 +539,7 @@ export const aboutValuesSection = {
       name: "Ethical Sourcing",
       description:
         "Absolute integrity as a foundational principle across every business activity — from sourcing through to the sale, with nothing compromised along the way.",
-      image: "/images/about/approach-jewelry.png",
+      image: "/images/about/ethical-sourcing.png",
       alt: "Finished diamond jewellery on display",
     },
     {
@@ -547,7 +547,7 @@ export const aboutValuesSection = {
       name: "Craftsmanship",
       description:
         "Meticulous attention at every stage, backed by in-house Sarine 4D mapping and generations of expert craftsmanship, so each diamond meets the highest standard.",
-      image: "/images/about/approach-retail.png",
+      image: "/images/about/craftsmanship.png",
       alt: "Retail jewellery counter with a client reviewing stones",
     },
     {
@@ -555,7 +555,7 @@ export const aboutValuesSection = {
       name: "Transparency",
       description:
         "Every diamond traced from source to market, with GIA/IGI-backed grading and complete transparency on origin and quality for every parcel we ship.",
-      image: "/images/about/approach-loose-diamonds.png",
+      image: "/images/about/transparency.png",
       alt: "A scatter of loose polished diamonds of varying cuts",
     },
   ],
