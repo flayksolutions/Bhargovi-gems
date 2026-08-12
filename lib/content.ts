@@ -15,7 +15,7 @@ export const site = {
 };
 
 export const heroSection = {
-  titleLines: ["Leading Lab Grown", "Diamonds Manufacturers"],
+  titleLines: ["Lab Grown Diamonds", "Manufacturers"],
   body: "Precision-cut, ethically sourced diamonds \u2014 trusted by jewellery manufacturers and retail brands worldwide.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-diamond.jpg",
@@ -26,7 +26,7 @@ export const heroSection = {
 export const aboutSection = {
   eyebrow: "About Us",
   title: "A Family Legacy in Diamond Crafting Since 1994",
-  body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory, serving jewellery brands across India and abroad.",
+  body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory.",
   /* Drop the real headquarters photograph in at
      public/images/facility.jpg and this line needs no change. */
   image: "/images/facility.jpg",
@@ -271,7 +271,7 @@ export const testimonialsSection = {
 };
 
 export const officesSection = {
-  eyebrow: "Global Reach",
+  eyebrow: "Locations",
   title: "Our Offices",
   /* Exported straight from Figma with the Mumbai/Surat location pins
      already composited in, so they stay pixel-accurate no matter how
@@ -310,7 +310,7 @@ export const aboutHeroSection = {
 export const legacySection = {
   eyebrow: "About Us",
   title: "Your Trusted Diamond Manufacturer Since 1994",
-  body: "With in-house cutting and polishing facilities and an extensive inventory, Bhargovi Gems caters to the growing needs of jewellery manufacturers and retail brands across India and abroad.",
+  body: "At Bhargovi Gems, diamonds are more than what we manufacture — they are a craft we have refined over decades. With in-house cutting and polishing capabilities and a strong focus on precision, consistency and quality, we bring generations of diamond expertise into every stone we create.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
      interlock exactly the way they were designed, no matter how the
@@ -346,10 +346,11 @@ export const legacySection = {
     },
   ],
   features: [
-    "Manufactured for 15+ Countries",
-    "Extensive inventory across shapes & sizes",
-    "Quick and reliable global delivery",
-    "Diverse Range in Standard & Custom Cuts",
+    "30+ Years of Diamond",
+    "Manufacturing Expertise",
+    "In-house Cutting & Polishing",
+    "Precision Across Shapes & Sizes",
+    "Quality-led Manufacturing",
   ],
 };
 

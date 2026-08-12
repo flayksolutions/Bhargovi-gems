@@ -30,7 +30,7 @@ export default function Home() {
 
       <main>
         <Hero {...heroSection} />
-        <StatsBar {...statsSection} />
+        {/* <StatsBar {...statsSection} /> */}
         <ProductsSection {...productsSection} />
         <AboutSection
           {...aboutSection}
@@ -39,9 +39,9 @@ export default function Home() {
         />
         <OurApproachSection {...ourApproachSection} />
         <FacilityCarousel {...facilitySection} variant="light" />
-        <TestimonialsSection {...testimonialsSection} />
+        {/* <TestimonialsSection {...testimonialsSection} /> */}
         <GlobalOfficesSection {...officesSection} />
-        <CertificationsSection {...certificationsSection} />
+        {/* <CertificationsSection {...certificationsSection} /> */}
       </main>
 
       <SiteFooter brand={site.brand} {...footer} />
