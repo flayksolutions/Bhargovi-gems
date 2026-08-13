@@ -28,9 +28,9 @@ export default function SustainabilityPage() {
   return (
     <>
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
+      <SustainabilityHero {...sustainabilityHeroSection} />
 
       <main>
-        <SustainabilityHero {...sustainabilityHeroSection} />
         <CommitmentSection {...commitmentSection} />
         <PillarsSection {...pillarsSection} />
         <IntegritySection {...integritySection} />

@@ -90,20 +90,6 @@ button {
   color: var(--ink);
 }
 
-/* `main`'s own box exactly covers the hero spacer (see Hero.module.css),
-   which sits in flow directly above the fixed, negative-z-index pinned
-   hero. Even with the spacer itself set to `pointer-events: none`, the
-   transparent `main` box behind it still intercepts clicks meant for the
-   hero underneath. Make `main` a pass-through and re-enable pointer
-   events on its real section children instead. */
-main {
-  pointer-events: none;
-}
-
-main > *:not([data-hero-spacer]) {
-  pointer-events: auto;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

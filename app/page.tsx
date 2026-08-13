@@ -31,9 +31,9 @@ export default function Home() {
   return (
     <>
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
+      <Hero {...heroSection} />
 
       <main>
-        <Hero {...heroSection} />
         {/* <StatsBar {...statsSection} /> */}
         <ProductsSection {...productsSection} />
 
