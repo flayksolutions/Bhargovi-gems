@@ -67,6 +67,15 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* `body` doesn't establish its own stacking context by default, so a
+     `position: fixed; z-index: -1` descendant (the pinned hero sections)
+     gets compared against the implicit root (`html`) context instead —
+     and `body`'s own in-flow box wins that comparison, sitting in front
+     of the hero and swallowing its clicks even though the hero still
+     paints visibly on screen. Isolating here scopes the hero's negative
+     z-index to `body`'s own stacking context so it stacks correctly. */
+  isolation: isolate;
 }
 
 img {
