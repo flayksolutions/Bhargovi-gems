@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./IntegritySection.module.css";
 
@@ -13,8 +16,26 @@ type Props = {
 export default function IntegritySection({ title, body, points, images }: Props) {
   const [main, sliver] = images;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const stage = stageRef.current;
+    if (!section || !stage) return;
+
+    const sync = () => {
+      section.style.setProperty("--stage-h", `${stage.offsetHeight}px`);
+    };
+
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section} aria-labelledby="integrity-title">
+    <section ref={sectionRef} className={styles.section} aria-labelledby="integrity-title">
       {sliver && (
         <div className={styles.sliver} aria-hidden="true">
           <Image
@@ -47,7 +68,7 @@ export default function IntegritySection({ title, body, points, images }: Props)
         </div>
 
         {main && (
-          <div className={styles.stage}>
+          <div ref={stageRef} className={styles.stage}>
             <Image
               src={main.src}
               alt={main.alt}

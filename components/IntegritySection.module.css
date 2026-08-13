@@ -14,28 +14,23 @@
 /* ---------------------------- sliver --------------------------------- */
 
 .sliver {
-  --cn: var(--notch);
   --w: clamp(200px, 20vw, 340px);
   /* Only a fixed sliver peeks past the section's clipped left edge —
      comfortably narrower than the gutter so it never reaches the
      content text (see .inner padding). */
-  --peek: 28px;
+  --peek: 96px;
 
   position: absolute;
   left: calc(-1 * var(--w) + var(--peek));
   top: 50%;
   transform: translateY(-50%);
+  /* --stage-h is synced from .stage's actual rendered height via
+     ResizeObserver in IntegritySection.tsx, so this always matches
+     .stage exactly regardless of flex-shrink/breakpoint. */
+  height: var(--stage-h, 511px);
   width: var(--w);
-  aspect-ratio: 523 / 511;
   z-index: 0;
   overflow: hidden;
-  clip-path: polygon(
-    0 0,
-    calc(100% - var(--cn)) 0,
-    100% var(--cn),
-    100% 100%,
-    0 100%
-  );
   box-shadow: 0 24px 48px rgba(11, 14, 25, 0.16);
 }
 
