@@ -108,6 +108,14 @@ export const productsSection = {
   ],
 };
 
+export const purposeSection = {
+  eyebrow: "Building a Better Tomorrow",
+  title: "Purpose Beyond Business",
+  body: "Our commitment goes beyond creating exceptional diamonds. We invest in communities, support meaningful causes, and embrace responsible practices that create lasting value. Through initiatives in education, healthcare and environmental care, we strive to make a positive difference today and for generations to come.",
+  image: "/images/purpose-community.png",
+  alt: "Two children planting a sapling together in the soil",
+};
+
 export const facilitySection = {
   eyebrow: "The Facility",
   title: "A Closer Look at Every Facet",
@@ -293,6 +301,14 @@ export const officesSection = {
       icon: "/icons/office-surat.svg",
     },
   ],
+};
+
+export const craftingSection = {
+  title: "Crafting Beyond the Ordinary",
+  body: "Every exceptional stone begins with careful hands and a clear vision. At Bhargovi Gems, we refine each creation through precision, patience, and an uncompromising eye for detail. From the first cut to the final polish, every step is guided by a commitment to enduring quality.",
+  watermark: ["Precision", "Patience", "Perfection"],
+  image: "/images/crafting-precision.png",
+  alt: "Close-up of a diamond being shaped on a precision cutting machine",
 };
 
 /* ------------------------------------------------------------------
