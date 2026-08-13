@@ -9,6 +9,8 @@
 .section {
   position: relative;
   background: var(--paper);
+  padding-bottom: clamp(72px, 11vh, 128px);
+  background: var(--paper);
 }
 
 /* ---------------------------- image -------------------------------- */
@@ -123,7 +125,7 @@
     inset: auto;
     padding-right: 0;
     padding-inline: var(--gutter);
-    padding-bottom: clamp(48px, 9vw, 80px);
+    /* padding-bottom: clamp(48px, 9vw, 80px); */
     justify-content: center;
   }
 
