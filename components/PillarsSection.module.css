@@ -1,0 +1,89 @@
+/* ==================================================================
+   PILLARS — dark blurred-photo band with a frosted-glass panel
+   holding three icon/title/body cards.
+   ================================================================== */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-navy);
+  padding: clamp(64px, 10vh, 112px) var(--gutter);
+  display: flex;
+  justify-content: center;
+}
+
+.plate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.plateImage {
+  object-fit: cover;
+}
+
+/* ---------------------------- panel -------------------------------- */
+
+.panel {
+  --cn: clamp(24px, 3.4vw, 48px);
+
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1168px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 3.4vw, 56px);
+  padding: clamp(32px, 4.4vw, 56px) clamp(32px, 4.8vw, 64px);
+
+  background: rgba(10, 31, 68, 0.28);
+  border: 1px solid rgba(127, 169, 227, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(19px, 1.5vw, 24px);
+  color: #fff;
+}
+
+.cardBody {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 900px) {
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

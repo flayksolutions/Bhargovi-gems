@@ -589,6 +589,106 @@ export type ProcessStep = {
 const PLACEHOLDER_IMAGE = "/images/rough-stone.jpg";
 
 /* ------------------------------------------------------------------
+   Sustainability page (/sustainability)
+------------------------------------------------------------------- */
+
+export const sustainabilityHeroSection = {
+  breadcrumb: [{ label: "Home", href: "/" }, { label: "Sustainability" }],
+  title: "Responsible by Design",
+  body: "From lab to jewel, every stone we grow reflects our commitment to people and the planet.",
+  image: "/images/sustainability/hero-bg.png",
+  alt: "A lab-grown diamond suspended in a dark, softly lit field",
+};
+
+export const commitmentSection = {
+  eyebrow: "Our Commitment",
+  title: "Rooted in Responsibility",
+  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+};
+
+export type PillarCard = { id: string; name: string; body: string; icon: string };
+
+export const pillarsSection = {
+  background: "/images/sustainability/commitment-bg.png",
+  cards: [
+    {
+      id: "sustainable-growing",
+      name: "Sustainable Growing",
+      body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
+      icon: "/icons/sustainability/windmill.svg",
+    },
+    {
+      id: "ethical-sourcing",
+      name: "Ethical Sourcing",
+      body: "Every stone is traceable from lab to market, backed by independent certification.",
+      icon: "/icons/sustainability/ethical-sourcing.svg",
+    },
+    {
+      id: "eco-responsibility",
+      name: "Eco Responsibility",
+      body: "We minimize waste, conserve energy, and work toward carbon neutrality across operations.",
+      icon: "/icons/sustainability/recycle.svg",
+    },
+  ] satisfies PillarCard[],
+};
+
+export const integritySection = {
+  title: "Product Integrity & Traceability",
+  body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
+  points: ["Certified Authenticity", "Full Traceability", "Ethical Craftsmanship"],
+  images: [
+    {
+      src: "/images/sustainability/integrity-1.png",
+      alt: "A loupe and tweezers used to inspect a polished diamond",
+    },
+    {
+      src: "/images/sustainability/integrity-2.png",
+      alt: "A rough diamond crystal beside cutting tools",
+    },
+  ],
+};
+
+export type CaringBand = {
+  id: string;
+  title: string;
+  body: string;
+  image: string;
+  alt: string;
+  theme: "dark" | "light";
+  imageSide: "left" | "right";
+};
+
+export const caringSection = {
+  bands: [
+    {
+      id: "people",
+      title: "Caring for People",
+      body: "Our people define who we are. We ensure fair treatment and safe workplaces for everyone.",
+      image: "/images/sustainability/caring-people.png",
+      alt: "A large group of colleagues gathered together outdoors",
+      theme: "dark",
+      imageSide: "left",
+    },
+    {
+      id: "community",
+      title: "Caring for Community",
+      body: "We support education, health, and local development where we live and work.",
+      image: "/images/sustainability/caring-community.png",
+      alt: "Hands cupped together, watering a young plant",
+      theme: "light",
+      imageSide: "right",
+    },
+  ] satisfies CaringBand[],
+};
+
+export const planetSection = {
+  title: "Caring for the Planet",
+  body: "Grown, not mined — our gems use far less land and water, and we keep reducing our footprint.",
+  image: "/images/sustainability/caring-planet.png",
+  alt: "A cluster of polished diamonds resting on a green leaf",
+};
+
+/* ------------------------------------------------------------------
    Diamond Information page (/diamond-information)
 ------------------------------------------------------------------- */
 

@@ -1,0 +1,138 @@
+/* ==================================================================
+   PRODUCT INTEGRITY — text left, two overlapping chamfered photos
+   right (back panel offset up-left, front panel overlapping it).
+   ================================================================== */
+
+.section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+  padding: clamp(72px, 11vh, 128px) var(--gutter);
+  margin-bottom: clamp(56px, 9vh, 112px);
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.content {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 clamp(24px, 3.4vh, 40px);
+  max-width: 15ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1.06;
+  color: var(--ink-navy);
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.body {
+  margin: 0;
+  max-width: 42ch;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.point {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--frost);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-navy);
+}
+
+.point:last-child {
+  border-bottom: none;
+}
+
+/* ---------------------------- stage --------------------------------- */
+
+.stage {
+  position: relative;
+  flex: 1 1 460px;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.frameBack,
+.frameFront {
+  --cn: clamp(20px, 2.2vw, 32px);
+
+  position: absolute;
+  overflow: hidden;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+.frameBack {
+  left: 0;
+  top: 0;
+  width: 62%;
+  height: 68%;
+  z-index: 0;
+  box-shadow: 0 20px 44px rgba(11, 14, 25, 0.18);
+}
+
+.frameFront {
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  height: 74%;
+  z-index: 1;
+  box-shadow: 0 24px 52px rgba(11, 14, 25, 0.22);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ---------------------------- responsive ---------------------------- */
+
+@media (max-width: 900px) {
+  .section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+
+  .stage {
+    aspect-ratio: 5 / 4;
+    order: -1;
+  }
+}

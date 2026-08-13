@@ -1,0 +1,99 @@
+/* ==================================================================
+   OUR COMMITMENT — centered eyebrow/title/body on white, with two
+   oversized faint faceted-gem outlines bleeding off the left/right
+   edges (recreates the Figma "Icon_crystal" watermark decoration
+   without importing an off-canvas SVG).
+   ================================================================== */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  padding: clamp(80px, 13vh, 152px) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.crystal,
+.crystal2 {
+  position: absolute;
+  z-index: 0;
+  width: clamp(360px, 42vw, 640px);
+  aspect-ratio: 0.62;
+  border: 1.5px solid var(--sapphire);
+  opacity: 0.05;
+  pointer-events: none;
+  clip-path: polygon(
+    50% 0%,
+    78% 16%,
+    100% 42%,
+    72% 100%,
+    28% 100%,
+    0% 42%,
+    22% 16%
+  );
+}
+
+.crystal {
+  left: clamp(-220px, -14vw, -80px);
+  top: -12%;
+  transform: rotate(-12deg);
+}
+
+.crystal2 {
+  right: clamp(-240px, -16vw, -100px);
+  bottom: -18%;
+  transform: rotate(18deg);
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 6px 0 0;
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.1;
+  color: var(--ink-navy);
+}
+
+.body {
+  position: relative;
+  z-index: 1;
+  margin: clamp(12px, 2vh, 20px) 0 0;
+  max-width: 56ch;
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.05vw, 17px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 640px) {
+  .title {
+    max-width: 100%;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+}

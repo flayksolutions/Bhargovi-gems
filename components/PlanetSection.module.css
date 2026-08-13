@@ -1,0 +1,71 @@
+/* ==================================================================
+   CARING FOR THE PLANET — centered closing band, full-width leaf
+   photo with a soft radial glow seated behind the centered copy.
+   ================================================================== */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(360px, 40vw, 572px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy-deep);
+}
+
+.plate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: clamp(320px, 34vw, 484px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0, 13, 52, 0.7) 0%, transparent 72%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 30ch;
+  padding: clamp(48px, 8vh, 88px) var(--gutter);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.body {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  text-wrap: pretty;
+}
