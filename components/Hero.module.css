@@ -20,6 +20,7 @@
    sets how long the pin lasts before the next section fully covers it. */
 .spacer {
   height: calc(100svh - var(--header-h));
+  pointer-events: none;
 }
 
 /* ---------------------------- plate ------------------------------ */
