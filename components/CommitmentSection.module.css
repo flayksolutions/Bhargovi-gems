@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
   background: var(--paper);
-  padding: clamp(80px, 13vh, 152px) var(--gutter);
+  padding: clamp(80px, 16vh, 152px) var(--gutter);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,36 +17,25 @@
   text-align: center;
 }
 
-.crystal,
-.crystal2 {
+.crystalLeft,
+.crystalRight {
   position: absolute;
   z-index: 0;
-  width: clamp(360px, 42vw, 640px);
-  aspect-ratio: 0.62;
-  border: 1.5px solid var(--sapphire);
-  opacity: 0.05;
+  top: 50%;
+  width: clamp(320px, 30vw, 520px);
+  height: auto;
+  opacity: 0.16;
   pointer-events: none;
-  clip-path: polygon(
-    50% 0%,
-    78% 16%,
-    100% 42%,
-    72% 100%,
-    28% 100%,
-    0% 42%,
-    22% 16%
-  );
 }
 
-.crystal {
-  left: clamp(-220px, -14vw, -80px);
-  top: -12%;
-  transform: rotate(-12deg);
+.crystalLeft {
+  left: clamp(-160px, -9vw, -60px);
+  transform: translateY(-50%) rotate(-15deg);
 }
 
-.crystal2 {
-  right: clamp(-240px, -16vw, -100px);
-  bottom: -18%;
-  transform: rotate(18deg);
+.crystalRight {
+  right: clamp(-160px, -9vw, -60px);
+  transform: translateY(-50%) rotate(15deg);
 }
 
 .eyebrow {

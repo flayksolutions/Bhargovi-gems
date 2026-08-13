@@ -9,8 +9,20 @@ type Props = {
 export default function CommitmentSection({ eyebrow, title, body }: Props) {
   return (
     <section className={styles.section} aria-labelledby="commitment-title">
-      <span className={styles.crystal} aria-hidden="true" />
-      <span className={styles.crystal2} aria-hidden="true" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/icons/sustainability/crystal-outline.svg"
+        alt=""
+        aria-hidden="true"
+        className={styles.crystalLeft}
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/icons/sustainability/crystal-outline.svg"
+        alt=""
+        aria-hidden="true"
+        className={styles.crystalRight}
+      />
 
       <p className={styles.eyebrow}>{eyebrow}</p>
       <h2 id="commitment-title" className={styles.title}>

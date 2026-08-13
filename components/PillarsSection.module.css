@@ -7,7 +7,7 @@
   position: relative;
   overflow: hidden;
   background: var(--ink-navy);
-  padding: clamp(64px, 10vh, 112px) var(--gutter);
+  padding: clamp(64px, 16vh, 144px) var(--gutter);
   display: flex;
   justify-content: center;
 }
@@ -34,7 +34,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(28px, 3.4vw, 56px);
-  padding: clamp(32px, 4.4vw, 56px) clamp(32px, 4.8vw, 64px);
+  padding: clamp(32px, 4.4vw, 88px) clamp(32px, 4.8vw, 64px);
 
   background: rgba(10, 31, 68, 0.28);
   border: 1px solid rgba(127, 169, 227, 0.3);

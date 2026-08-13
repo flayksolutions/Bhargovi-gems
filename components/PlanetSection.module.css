@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-inline: var(--gutter);
   background: var(--navy-deep);
 }
 
@@ -45,7 +46,8 @@
   align-items: center;
   gap: 20px;
   max-width: 30ch;
-  padding: clamp(48px, 8vh, 88px) var(--gutter);
+  width: 100%;
+  padding-block: clamp(48px, 8vh, 88px);
   text-align: center;
 }
 

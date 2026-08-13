@@ -656,6 +656,7 @@ export type CaringBand = {
   alt: string;
   theme: "dark" | "light";
   imageSide: "left" | "right";
+  notch: "top-left" | "top-right";
 };
 
 export const caringSection = {
@@ -668,15 +669,17 @@ export const caringSection = {
       alt: "A large group of colleagues gathered together outdoors",
       theme: "dark",
       imageSide: "left",
+      notch: "top-right",
     },
     {
       id: "community",
       title: "Caring for Community",
       body: "We support education, health, and local development where we live and work.",
       image: "/images/sustainability/caring-community.png",
-      alt: "Hands cupped together, watering a young plant",
+      alt: "Hands resting together on a moss-covered tree trunk",
       theme: "light",
       imageSide: "right",
+      notch: "top-left",
     },
   ] satisfies CaringBand[],
 };

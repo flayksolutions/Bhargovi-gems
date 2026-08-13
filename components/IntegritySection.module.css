@@ -1,27 +1,66 @@
 /* ==================================================================
-   PRODUCT INTEGRITY — text left, two overlapping chamfered photos
-   right (back panel offset up-left, front panel overlapping it).
+   PRODUCT INTEGRITY — white band. Title/body/points sit left of a
+   single chamfered lifestyle photo; a second, mostly off-canvas
+   photo bleeds a sliver in from the section's left edge, matching
+   the Figma "Stage — Cut Panel" pair (523 x 511 in a 1440 frame).
    ================================================================== */
 
 .section {
   position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* ---------------------------- sliver --------------------------------- */
+
+.sliver {
+  --cn: var(--notch);
+  --w: clamp(200px, 20vw, 340px);
+  /* Only a fixed sliver peeks past the section's clipped left edge —
+     comfortably narrower than the gutter so it never reaches the
+     content text (see .inner padding). */
+  --peek: 28px;
+
+  position: absolute;
+  left: calc(-1 * var(--w) + var(--peek));
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--w);
+  aspect-ratio: 523 / 511;
+  z-index: 0;
+  overflow: hidden;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    0 100%
+  );
+  box-shadow: 0 24px 48px rgba(11, 14, 25, 0.16);
+}
+
+/* ---------------------------- inner ----------------------------------- */
+
+.inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: clamp(40px, 6vw, 96px);
-  padding: clamp(72px, 11vh, 128px) var(--gutter);
-  margin-bottom: clamp(56px, 9vh, 112px);
   max-width: 1440px;
   margin-inline: auto;
+  padding: clamp(72px, 11vh, 128px) var(--gutter);
 }
 
 .content {
-  flex: 1 1 420px;
+  flex: 0 1 480px;
   min-width: 0;
 }
 
 .title {
-  margin: 0 0 clamp(24px, 3.4vh, 40px);
-  max-width: 15ch;
+  margin: 0 0 clamp(28px, 4vh, 48px);
+  /* max-width: 13ch; */
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(30px, 3.4vw, 48px);
@@ -37,7 +76,7 @@
 
 .body {
   margin: 0;
-  max-width: 42ch;
+  max-width: 40ch;
   font-family: var(--font-body);
   font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
@@ -70,17 +109,12 @@
 /* ---------------------------- stage --------------------------------- */
 
 .stage {
+  --cn: clamp(28px, 3.2vw, 56px);
+
   position: relative;
-  flex: 1 1 460px;
-  min-width: 0;
-  aspect-ratio: 4 / 3;
-}
-
-.frameBack,
-.frameFront {
-  --cn: clamp(20px, 2.2vw, 32px);
-
-  position: absolute;
+  flex: 0 1 523px;
+  width: 100%;
+  aspect-ratio: 523 / 511;
   overflow: hidden;
   clip-path: polygon(
     0 0,
@@ -90,24 +124,7 @@
     var(--cn) 100%,
     0 calc(100% - var(--cn))
   );
-}
-
-.frameBack {
-  left: 0;
-  top: 0;
-  width: 62%;
-  height: 68%;
-  z-index: 0;
-  box-shadow: 0 20px 44px rgba(11, 14, 25, 0.18);
-}
-
-.frameFront {
-  right: 0;
-  bottom: 0;
-  width: 68%;
-  height: 74%;
-  z-index: 1;
-  box-shadow: 0 24px 52px rgba(11, 14, 25, 0.22);
+  box-shadow: 0 24px 52px rgba(11, 14, 25, 0.18);
 }
 
 .image {
@@ -117,7 +134,11 @@
 /* ---------------------------- responsive ---------------------------- */
 
 @media (max-width: 900px) {
-  .section {
+  .sliver {
+    display: none;
+  }
+
+  .inner {
     flex-direction: column;
     align-items: stretch;
     gap: 40px;
@@ -132,7 +153,7 @@
   }
 
   .stage {
-    aspect-ratio: 5 / 4;
+    flex-basis: auto;
     order: -1;
   }
 }

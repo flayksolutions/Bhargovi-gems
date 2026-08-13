@@ -19,7 +19,12 @@ export default function CaringSection({ bands }: Props) {
           ].join(" ")}
           aria-labelledby={`caring-${band.id}-title`}
         >
-          <div className={styles.media}>
+          <div
+            className={[
+              styles.media,
+              band.notch === "top-right" ? styles.notchTopRight : styles.notchTopLeft,
+            ].join(" ")}
+          >
             <Image
               src={band.image}
               alt={band.alt}

@@ -11,47 +11,48 @@ type Props = {
 };
 
 export default function IntegritySection({ title, body, points, images }: Props) {
-  const [back, front] = images;
+  const [main, sliver] = images;
 
   return (
     <section className={styles.section} aria-labelledby="integrity-title">
-      <div className={styles.content}>
-        <h2 id="integrity-title" className={styles.title}>
-          {title}
-        </h2>
-
-        <div className={styles.foot}>
-          <p className={styles.body}>{body}</p>
-
-          <ul className={styles.points}>
-            {points.map((point) => (
-              <li key={point} className={styles.point}>
-                {point}
-              </li>
-            ))}
-          </ul>
+      {sliver && (
+        <div className={styles.sliver} aria-hidden="true">
+          <Image
+            src={sliver.src}
+            alt=""
+            fill
+            sizes="20vw"
+            className={styles.image}
+          />
         </div>
-      </div>
+      )}
 
-      <div className={styles.stage}>
-        {back && (
-          <div className={styles.frameBack}>
-            <Image
-              src={back.src}
-              alt={back.alt}
-              fill
-              sizes="(max-width: 900px) 60vw, 26vw"
-              className={styles.image}
-            />
+      <div className={styles.inner}>
+        <div className={styles.content}>
+          <h2 id="integrity-title" className={styles.title}>
+            {title}
+          </h2>
+
+          <div className={styles.foot}>
+            <p className={styles.body}>{body}</p>
+
+            <ul className={styles.points}>
+              {points.map((point) => (
+                <li key={point} className={styles.point}>
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
-        {front && (
-          <div className={styles.frameFront}>
+        </div>
+
+        {main && (
+          <div className={styles.stage}>
             <Image
-              src={front.src}
-              alt={front.alt}
+              src={main.src}
+              alt={main.alt}
               fill
-              sizes="(max-width: 900px) 70vw, 30vw"
+              sizes="(max-width: 900px) 90vw, 36vw"
               className={styles.image}
             />
           </div>

@@ -21,8 +21,18 @@
 }
 
 .media {
+  --cn: var(--notch);
+
   position: relative;
   flex: 0 0 58%;
+}
+
+.notchTopRight {
+  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, 0 100%);
+}
+
+.notchTopLeft {
+  clip-path: polygon(var(--cn) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cn));
 }
 
 .image {
