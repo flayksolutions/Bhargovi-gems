@@ -106,6 +106,7 @@
   .band {
     flex-direction: column;
     min-height: 0;
+    padding-bottom: clamp(56px, 14vw, 96px);
   }
 
   .imageLeft .media,
@@ -125,5 +126,9 @@
 
   .text {
     padding: clamp(32px, 8vw, 48px) var(--gutter);
+  }
+
+  .body {
+    max-width: none;
   }
 }

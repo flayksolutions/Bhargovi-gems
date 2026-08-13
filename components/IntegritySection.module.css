@@ -49,7 +49,7 @@
 }
 
 .content {
-  flex: 0 1 480px;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
