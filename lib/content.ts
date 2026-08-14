@@ -9,6 +9,7 @@ export const site = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Sustainability", href: "/sustainability" },
+    { label: "Diamond", href: "/diamond-information" },
     { label: "Contact", href: "/contact" },
   ],
   cta: { label: "Enquire Now", href: "/contact" },
@@ -221,7 +222,7 @@ export const footer = {
       items: [
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
-        { label: "Diamond Information", href: "/diamond-information" },
+        { label: "Diamond", href: "/diamond-information" },
         { label: "Contact", href: "/contact" },
       ],
     },
