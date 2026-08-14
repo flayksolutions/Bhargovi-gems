@@ -17,13 +17,6 @@
   isolation: isolate;
 }
 
-/* Reserves the hero's flow space (it's fixed, so out of flow) and
-   sets how long the pin lasts before the next section fully covers it. */
-.spacer {
-  height: calc(100svh - var(--header-h));
-  pointer-events: none;
-}
-
 /* ---------------------------- plate ------------------------------ */
 
 .plate {

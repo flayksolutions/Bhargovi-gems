@@ -68,13 +68,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* `body` doesn't establish its own stacking context by default, so a
-     `position: fixed; z-index: -1` descendant (the pinned hero sections)
-     gets compared against the implicit root (`html`) context instead —
-     and `body`'s own in-flow box wins that comparison, sitting in front
-     of the hero and swallowing its clicks even though the hero still
-     paints visibly on screen. Isolating here scopes the hero's negative
-     z-index to `body`'s own stacking context so it stacks correctly. */
+  /* Stacking context anchor for the pinned-hero pass-through below. */
   isolation: isolate;
 }
 
@@ -99,12 +93,22 @@ button {
   color: var(--ink);
 }
 
-/* `main`'s own box exactly covers the hero spacer (see Hero.module.css),
-   which sits in flow directly above the fixed, negative-z-index pinned
-   hero. Even with the spacer itself set to `pointer-events: none`, the
-   transparent `main` box behind it still intercepts clicks meant for the
-   hero underneath. Make `main` a pass-through and re-enable pointer
-   events on its real section children instead. */
+/* ------------------------------------------------------------------
+   Pinned-hero click-through
+
+   Hero sections pin via `position: fixed; z-index: -1` behind the
+   section that scrolls over them (see Hero.module.css). Two things
+   have to hold together for the hero to stay clickable while pinned:
+
+   1. `body` needs its own stacking context (`isolation: isolate`
+      above) so the hero's negative z-index is scoped to `body` rather
+      than escaping to the root context, where `body`'s own in-flow
+      box would always paint — and hit-test — in front of it.
+   2. `main`'s box still spans the hero's flow-space spacer even with
+      (1) in place, so `main` is made a pointer-events pass-through
+      and re-enabled per real section child. The spacer itself opts
+      out via `data-hero-spacer`, since it has no content to click.
+------------------------------------------------------------------- */
 main {
   pointer-events: none;
 }

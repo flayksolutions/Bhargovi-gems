@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PinnedHeroSpacer from "./PinnedHeroSpacer";
 import styles from "./Hero.module.css";
 
 type Props = {
@@ -77,10 +78,7 @@ export default function Hero({
         </div>
       </section>
 
-      {/* Fills the flow space the fixed hero above no longer occupies,
-          and sets how far you scroll before the next section fully
-          covers it. */}
-      <div className={styles.spacer} data-hero-spacer aria-hidden="true" />
+      <PinnedHeroSpacer />
     </>
   );
 }

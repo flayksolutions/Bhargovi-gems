@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PinnedHeroSpacer from "./PinnedHeroSpacer";
 import styles from "./SustainabilityHero.module.css";
 
 type Crumb = { label: string; href?: string };
@@ -66,10 +67,7 @@ export default function SustainabilityHero({
         </div>
       </section>
 
-      {/* Fills the flow space the fixed hero above no longer occupies,
-          and sets how far you scroll before the next section fully
-          covers it. */}
-      <div className={styles.spacer} data-hero-spacer aria-hidden="true" />
+      <PinnedHeroSpacer />
     </>
   );
 }
