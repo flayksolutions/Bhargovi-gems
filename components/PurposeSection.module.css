@@ -9,7 +9,7 @@
 .section {
   position: relative;
   background: var(--paper);
-  padding-bottom: clamp(72px, 11vh, 128px);
+  padding-bottom: clamp(72px, 20vh, 128px);
   background: var(--paper);
 }
 

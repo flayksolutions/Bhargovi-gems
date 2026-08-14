@@ -18,7 +18,7 @@
   /* Only a fixed sliver peeks past the section's clipped left edge —
      comfortably narrower than the gutter so it never reaches the
      content text (see .inner padding). */
-  --peek: 96px;
+  --peek: 5%;
 
   position: absolute;
   left: calc(-1 * var(--w) + var(--peek));
