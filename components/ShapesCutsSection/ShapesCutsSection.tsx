@@ -111,7 +111,7 @@ export default function ShapesCutsSection({
                         alt=""
                         aria-hidden="true"
                         fill
-                        sizes="82px"
+                        sizes="88px"
                         className={styles.dockImage}
                       />
                     </span>
