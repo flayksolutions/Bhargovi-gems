@@ -858,7 +858,7 @@ export const planetSection = {
 export const diamondInfoHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Diamond Information" }],
   titleLines: ["Understanding Diamonds", "The Complete Buyer's Guide"],
-  body: "From the 4Cs to certification and our own quality standards — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
+  body: "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
   image: "/images/diamond-info/hero-guide.jpg",
   alt: "Round, pear, emerald and marquise cut diamonds resting on a moss-covered stone beside a bare branch",
 };
@@ -870,11 +870,8 @@ export const chapterRailSection = {
     { id: "the-4cs", number: "01", label: "The 4Cs" },
     { id: "shapes", number: "02", label: "Shapes" },
     { id: "lab-grown-vs-mined", number: "03", label: "Lab-Grown vs Mined" },
-    /* 04 Certification and 05 Our Process are retired — the numbering
-       keeps its gaps so the remaining chapters hold their names. */
-    { id: "quality-standards", number: "06", label: "Quality Standards" },
-    { id: "glossary", number: "07", label: "Glossary" },
-    { id: "faqs", number: "08", label: "FAQs" },
+    { id: "glossary", number: "04", label: "Glossary" },
+    { id: "faqs", number: "05", label: "FAQs" },
   ] satisfies Chapter[],
 };
 
@@ -1317,70 +1314,6 @@ export const roughToPolishedSection = {
       icon: "filled",
     },
   ] satisfies RoughStage[],
-};
-
-export type SpecRow = {
-  id: string;
-  category: string;
-  clarity: string;
-  colour: string;
-  size: string;
-  certification: string;
-  certified: boolean;
-};
-
-export const qualityStandardsSection = {
-  id: "quality-standards",
-  eyebrow: "Our Standards",
-  titleLines: ["What We Actually Ship", "by category"],
-  body: "The ranges we manufacture and supply as standard. This is where education becomes a sourcing decision — everything outside these bands is quoted case by case.",
-  columns: [
-    "Category",
-    "Clarity Range",
-    "Colour Range",
-    "Size Range",
-    "Certification",
-  ],
-  rows: [
-    {
-      id: "certified-round",
-      category: "Certified Round Brilliant",
-      clarity: "IF – SI2",
-      colour: "D – M",
-      size: "0.18 ct – 3.00 ct",
-      certification: "GIA / IGI",
-      certified: true,
-    },
-    {
-      id: "certified-fancy",
-      category: "Certified Fancy Shapes",
-      clarity: "IF – SI2",
-      colour: "D – M",
-      size: "0.30 ct – 3.00 ct",
-      certification: "GIA / IGI",
-      certified: true,
-    },
-    {
-      id: "non-certified-round",
-      category: "Non-Certified Round",
-      clarity: "IF – Pique",
-      colour: "D – L",
-      size: "0.005 ct – 3.00 ct",
-      certification: "On request",
-      certified: false,
-    },
-    {
-      id: "non-certified-fancy",
-      category: "Non-Certified Fancy",
-      clarity: "VVS – Pique",
-      colour: "D – L",
-      size: "0.005 ct – 3.00 ct",
-      certification: "On request",
-      certified: false,
-    },
-  ] satisfies SpecRow[],
-  note: "Custom assortments by clarity, colour, size or shape are assembled to order — minimums depend on the band.",
-  cta: { label: "Request a parcel spec", href: "/contact" },
 };
 
 export type GlossaryTerm = { id: string; term: string; definition: string };
