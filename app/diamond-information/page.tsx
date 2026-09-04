@@ -38,16 +38,18 @@ export default function DiamondInformationPage() {
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
 
       <main>
-        <AboutHero {...diamondInfoHeroSection} />
-        <ChapterRail {...chapterRailSection} />
-        <FourCsSection {...fourCsSection} />
-        <ShapesCutsSection {...shapesCutsSection} />
-        <LabGrownVsMinedSection {...labGrownVsMinedSection} />
-        <CertificationVerificationSection {...certificationVerificationSection} />
-        <RoughToPolishedSection {...roughToPolishedSection} />
-        <QualityStandardsSection {...qualityStandardsSection} />
-        <AnatomyGlossarySection {...anatomyGlossarySection} />
-        <DiamondInfoFaqSection {...diamondInfoFaqSection} />
+        <div className="scroll-stack">
+          <AboutHero {...diamondInfoHeroSection} />
+          <ChapterRail {...chapterRailSection} />
+          <FourCsSection {...fourCsSection} />
+          <ShapesCutsSection {...shapesCutsSection} />
+          <LabGrownVsMinedSection {...labGrownVsMinedSection} />
+          <CertificationVerificationSection {...certificationVerificationSection} />
+          <RoughToPolishedSection {...roughToPolishedSection} />
+          <QualityStandardsSection {...qualityStandardsSection} />
+          <AnatomyGlossarySection {...anatomyGlossarySection} />
+          <DiamondInfoFaqSection {...diamondInfoFaqSection} />
+        </div>
       </main>
 
       <SiteFooter brand={site.brand} {...footer} />
