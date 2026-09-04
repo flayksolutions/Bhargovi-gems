@@ -3,7 +3,11 @@
    ================================================================== */
 
 .hero {
-  position: relative;
+  /* Pinned: the hero holds at the top of the viewport while every
+     section after it scrolls up and over the top of it. */
+  position: sticky;
+  top: 0;
+  z-index: 1;
   min-height: clamp(420px, 62vh, 700px);
   display: flex;
   align-items: center;

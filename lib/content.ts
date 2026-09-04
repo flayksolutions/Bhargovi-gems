@@ -16,22 +16,32 @@ export const site = {
 };
 
 export const heroSection = {
-  titleLines: ["Lab Grown Diamonds", "Manufacturers"],
+  titleLines: ["Manufacturing", "Lab Grown Diamonds"],
   body: "Precision-cut, ethically sourced diamonds \u2014 trusted by jewellery manufacturers and retail brands worldwide.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-diamond.jpg",
-  video: "/videos/hero.mp4",
+  video: "/videos/hero-2.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
+
+
+// export const aboutSection = {
+//   eyebrow: "About Us",
+//   title: "A Family Legacy in Diamond Crafting Since 1994",
+//   body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory.",
+//   /* Drop the real headquarters photograph in at
+//      public/images/facility.jpg and this line needs no change. */
+//   image: "/images/facility.jpg",
+//   alt: "The Bhargovi Gems headquarters at night",
+// };
 
 export const aboutSection = {
   eyebrow: "About Us",
   title: "A Family Legacy in Diamond Crafting Since 1994",
-  body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory.",
-  /* Drop the real headquarters photograph in at
-     public/images/facility.jpg and this line needs no change. */
-  image: "/images/facility.jpg",
-  alt: "The Bhargovi Gems headquarters at night",
+  body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory, serving jewellery brands across India and abroad.",
+  image: "/images/facility-2.jpg",
+  video: "/videos/house-tour.mp4",
+  alt: "The Bhargovi Gems Surat facility",
 };
 
 export const statsSection = {
@@ -45,67 +55,88 @@ export const statsSection = {
 
 /* Cards 05-08 are placeholders: same four plates, dummy copy.
    Swap `image`, `name` and `spec` when the real shapes land. */
+// export const productsSection = {
+//   eyebrow: "Flagship Products",
+//   titleLines: ["Round, Princess, Emerald", "& Cushion Cuts"],
+//   cta: { label: "More info", href: "/products" },
+//   cards: [
+//     {
+//       id: "round-brilliant",
+//       name: "Round Brilliant",
+//       spec: "58 Facets \u00b7 Excellent Cut",
+//       image: "/images/cuts/round-brilliant.png",
+//       alt: "Round brilliant cut diamond",
+//     },
+//     {
+//       id: "princess-cut",
+//       name: "Princess Cut",
+//       spec: "76 Facets \u00b7 Sharp Corners",
+//       image: "/images/cuts/princess-cut.png",
+//       alt: "Princess cut diamond",
+//     },
+//     {
+//       id: "emerald-cut",
+//       name: "Emerald Cut",
+//       spec: "Step Cut \u00b7 Hall-of-Mirrors",
+//       image: "/images/cuts/emerald-cut.png",
+//       alt: "Emerald cut diamond",
+//     },
+//     {
+//       id: "cushion-cut",
+//       name: "Cushion Cut",
+//       spec: "Pillow Silhouette \u00b7 Soft Fire",
+//       image: "/images/cuts/cushion-cut.png",
+//       alt: "Cushion cut diamond",
+//     },
+//     // {
+//     //   id: "shape-five",
+//     //   name: "Shape Five",
+//     //   spec: "Placeholder \u00b7 Spec Line",
+//     //   image: "/images/cuts/round-brilliant.png",
+//     //   alt: "Placeholder diamond plate",
+//     // },
+//     // {
+//     //   id: "shape-six",
+//     //   name: "Shape Six",
+//     //   spec: "Placeholder \u00b7 Spec Line",
+//     //   image: "/images/cuts/princess-cut.png",
+//     //   alt: "Placeholder diamond plate",
+//     // },
+//     // {
+//     //   id: "shape-seven",
+//     //   name: "Shape Seven",
+//     //   spec: "Placeholder \u00b7 Spec Line",
+//     //   image: "/images/cuts/emerald-cut.png",
+//     //   alt: "Placeholder diamond plate",
+//     // },
+//     // {
+//     //   id: "shape-eight",
+//     //   name: "Shape Eight",
+//     //   spec: "Placeholder \u00b7 Spec Line",
+//     //   image: "/images/cuts/cushion-cut.png",
+//     //   alt: "Placeholder diamond plate",
+//     // },
+//   ],
+// };
+
 export const productsSection = {
   eyebrow: "Flagship Products",
-  titleLines: ["Round, Princess, Emerald", "& Cushion Cuts"],
-  cta: { label: "More info", href: "/products" },
-  cards: [
-    {
-      id: "round-brilliant",
-      name: "Round Brilliant",
-      spec: "58 Facets \u00b7 Excellent Cut",
-      image: "/images/cuts/round-brilliant.png",
-      alt: "Round brilliant cut diamond",
-    },
-    {
-      id: "princess-cut",
-      name: "Princess Cut",
-      spec: "76 Facets \u00b7 Sharp Corners",
-      image: "/images/cuts/princess-cut.png",
-      alt: "Princess cut diamond",
-    },
-    {
-      id: "emerald-cut",
-      name: "Emerald Cut",
-      spec: "Step Cut \u00b7 Hall-of-Mirrors",
-      image: "/images/cuts/emerald-cut.png",
-      alt: "Emerald cut diamond",
-    },
-    {
-      id: "cushion-cut",
-      name: "Cushion Cut",
-      spec: "Pillow Silhouette \u00b7 Soft Fire",
-      image: "/images/cuts/cushion-cut.png",
-      alt: "Cushion cut diamond",
-    },
-    // {
-    //   id: "shape-five",
-    //   name: "Shape Five",
-    //   spec: "Placeholder \u00b7 Spec Line",
-    //   image: "/images/cuts/round-brilliant.png",
-    //   alt: "Placeholder diamond plate",
-    // },
-    // {
-    //   id: "shape-six",
-    //   name: "Shape Six",
-    //   spec: "Placeholder \u00b7 Spec Line",
-    //   image: "/images/cuts/princess-cut.png",
-    //   alt: "Placeholder diamond plate",
-    // },
-    // {
-    //   id: "shape-seven",
-    //   name: "Shape Seven",
-    //   spec: "Placeholder \u00b7 Spec Line",
-    //   image: "/images/cuts/emerald-cut.png",
-    //   alt: "Placeholder diamond plate",
-    // },
-    // {
-    //   id: "shape-eight",
-    //   name: "Shape Eight",
-    //   spec: "Placeholder \u00b7 Spec Line",
-    //   image: "/images/cuts/cushion-cut.png",
-    //   alt: "Placeholder diamond plate",
-    // },
+  title: "Each One Grown, Not Mined",
+  tagline: "Precision. Purity. Perfection",
+  background: "/images/shapes-bg.png",
+  shapes: [
+    { src: "/images/shapes/round-brilliant.png", name: "Round Brilliant" },
+    { src: "/images/shapes/princess.png", name: "Princess" },
+    { src: "/images/shapes/emerald.png", name: "Emerald" },
+    { src: "/images/shapes/oval.png", name: "Oval" },
+    { src: "/images/shapes/pear.png", name: "Pear" },
+    { src: "/images/shapes/heart.png", name: "Heart" },
+    { src: "/images/shapes/marquise.png", name: "Marquise" },
+    { src: "/images/shapes/half-moon.png", name: "Half Moon" },
+    { src: "/images/shapes/trillian.png", name: "Trillion" },
+    { src: "/images/shapes/octagon.png", name: "Octagon" },
+    { src: "/images/shapes/lozenge.png", name: "Lozenge" },
+    { src: "/images/shapes/baguette.png", name: "Baguette" },
   ],
 };
 
@@ -215,14 +246,14 @@ export const certificationsSection = {
 
 export const footer = {
   tagline: "Certified diamonds, manufactured ethically and cut precisely.",
-  image: "/images/footer-diamond.jpg",
+  image: "/images/facility-2.jpg",
   columns: [
     {
       title: "Quick Links",
       items: [
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
-        { label: "Diamond", href: "/diamond-information" },
+        { label: "Diamond Information", href: "/diamond-information" },
         { label: "Contact", href: "/contact" },
       ],
     },
@@ -279,15 +310,36 @@ export const testimonialsSection = {
   ],
 };
 
+// export const officesSection = {
+//   eyebrow: "Locations",
+//   title: "Our Offices",
+//   /* Exported straight from Figma with the Mumbai/Surat location pins
+//      already composited in, so they stay pixel-accurate no matter how
+//      the full-bleed image gets cropped by object-fit: cover. */
+//   mapImage: "/images/offices-map-pins.png",
+//   mapImageAlt: "World map highlighting the Mumbai and Surat office locations",
+//   cta: { label: "Request a Quote", href: "/contact" },
+//   offices: [
+//     {
+//       id: "mumbai",
+//       name: "Mumbai (HQ)",
+//       address: "Bharat Diamond Bourse, BKC, Mumbai, India",
+//       icon: "/icons/office-mumbai.svg",
+//     },
+//     {
+//       id: "surat",
+//       name: "Surat",
+//       address: "Manufacturing Facility, Surat, Gujarat, India",
+//       icon: "/icons/office-surat.svg",
+//     },
+//   ],
+// };
+
 export const officesSection = {
   eyebrow: "Locations",
   title: "Our Offices",
-  /* Exported straight from Figma with the Mumbai/Surat location pins
-     already composited in, so they stay pixel-accurate no matter how
-     the full-bleed image gets cropped by object-fit: cover. */
-  mapImage: "/images/offices-map-pins.png",
-  mapImageAlt: "World map highlighting the Mumbai and Surat office locations",
-  cta: { label: "Request a Quote", href: "/contact" },
+  map: "/images/offices-map.svg",
+  mapAlt: "World map highlighting the Mumbai and Surat office locations",
   offices: [
     {
       id: "mumbai",
@@ -302,13 +354,14 @@ export const officesSection = {
       icon: "/icons/office-surat.svg",
     },
   ],
+  cta: { label: "Request a Quote", href: "/contact" },
 };
 
 export const craftingSection = {
   title: "Crafting Beyond the Ordinary",
   body: "Every exceptional stone begins with careful hands and a clear vision. At Bhargovi Gems, we refine each creation through precision, patience, and an uncompromising eye for detail. From the first cut to the final polish, every step is guided by a commitment to enduring quality.",
   watermark: ["Precision", "Patience", "Perfection"],
-  image: "/images/crafting-precision.png",
+  image: "/images/crafting-2.png",
   alt: "Close-up of a diamond being shaped on a precision cutting machine",
 };
 
@@ -631,6 +684,25 @@ export const pillarsSection = {
       icon: "/icons/sustainability/recycle.svg",
     },
   ] satisfies PillarCard[],
+};
+
+export const commitmentsSection = {
+  background: "/images/shapes-bg.png",
+  blocks: [
+    {
+      id: "ethically-sourced",
+      title: "Ethically Sourced",
+      media: "/videos/ethically-sourced.mp4" as string | null,
+      alt: "A polished diamond on handmade paper among raw minerals",
+    },
+    {
+      id: "environment-friendly",
+      title: "Environment Friendly",
+      media: "/videos/environment-friendly.mp4" as string | null,
+      alt: "Aerial view of a dense green forest canopy",
+      captionAbove: true,
+    },
+  ],
 };
 
 export const integritySection = {
@@ -1249,57 +1321,104 @@ export const diamondInfoFaqSection = {
   ] satisfies FAQItem[],
 };
 
+// export const processSection = {
+//   eyebrow: "Our Process",
+//   title: "From Rough Stone to Polish",
+//   steps: [
+//     {
+//       id: "growing",
+//       name: "Growing",
+//       description:
+//         "Cillum est sint exercitation occaecat sit eu et sint aute. Ipsum ad fugiat et irure et ullamco incididunt cillum.",
+//       image: PLACEHOLDER_IMAGE,
+//       alt: "Rough octahedral diamond crystal resting on dark stone",
+//     },
+//     {
+//       id: "planning-marking",
+//       name: "Planning & Marking",
+//       description:
+//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+//       image: PLACEHOLDER_IMAGE,
+//       alt: "Rough diamond mapped for planning and marking",
+//     },
+//     {
+//       id: "sawing-cleaving",
+//       name: "Sawing & Cleaving",
+//       description:
+//         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis.",
+//       image: PLACEHOLDER_IMAGE,
+//       alt: "Diamond being sawn along its crystal plane",
+//     },
+//     {
+//       id: "bruting",
+//       name: "Bruting",
+//       description:
+//         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
+//       image: PLACEHOLDER_IMAGE,
+//       alt: "Diamond girdle shaped on the bruting lathe",
+//     },
+//     {
+//       id: "faceting",
+//       name: "Faceting",
+//       description:
+//         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.",
+//       image: PLACEHOLDER_IMAGE,
+//       alt: "Fifty-seven facets polished onto a brilliant cut",
+//     },
+//     {
+//       id: "grading",
+//       name: "Grading and Quality Check",
+//       description:
+//         "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+//       image: PLACEHOLDER_IMAGE,
+//       alt: "Finished stone under the loupe for grading",
+//     },
+//   ] satisfies ProcessStep[],
+// };
+
 export const processSection = {
   eyebrow: "Our Process",
   title: "From Rough Stone to Polish",
   steps: [
     {
-      id: "growing",
-      name: "Growing",
+      id: "selection",
+      name: "Rough Diamond Selection",
       description:
-        "Cillum est sint exercitation occaecat sit eu et sint aute. Ipsum ad fugiat et irure et ullamco incididunt cillum.",
+        "Each lab-grown rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine its ideal cutting plan.",
       image: PLACEHOLDER_IMAGE,
       alt: "Rough octahedral diamond crystal resting on dark stone",
     },
     {
-      id: "planning-marking",
-      name: "Planning & Marking",
+      id: "planning-mapping",
+      name: "Planning & Mapping",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+        "Advanced planning technology is used to analyse the rough and identify the optimal way to maximise beauty, proportions and yield.",
       image: PLACEHOLDER_IMAGE,
       alt: "Rough diamond mapped for planning and marking",
     },
     {
-      id: "sawing-cleaving",
-      name: "Sawing & Cleaving",
+      id: "precision-cutting",
+      name: "Precision Cutting",
       description:
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis.",
+        "The rough is precisely sawn and shaped to create the desired diamond form, with careful attention to proportions and symmetry.",
       image: PLACEHOLDER_IMAGE,
       alt: "Diamond being sawn along its crystal plane",
     },
     {
-      id: "bruting",
-      name: "Bruting",
+      id: "polishing",
+      name: "Polishing",
       description:
-        "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
+        "Skilled craftsmen meticulously polish each facet, transforming the cut diamond into a smooth, highly reflective surface that enhances its brilliance.",
       image: PLACEHOLDER_IMAGE,
       alt: "Diamond girdle shaped on the bruting lathe",
     },
     {
-      id: "faceting",
-      name: "Faceting",
+      id: "final-nspection",
+      name: "Final Inspection",
       description:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.",
+        "Every polished diamond undergoes detailed quality inspection for cut, symmetry, polish and overall finish before it is ready for certification or further use.",
       image: PLACEHOLDER_IMAGE,
       alt: "Fifty-seven facets polished onto a brilliant cut",
-    },
-    {
-      id: "grading",
-      name: "Grading and Quality Check",
-      description:
-        "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
-      image: PLACEHOLDER_IMAGE,
-      alt: "Finished stone under the loupe for grading",
-    },
+    }
   ] satisfies ProcessStep[],
 };

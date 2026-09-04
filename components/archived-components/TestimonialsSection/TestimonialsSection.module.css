@@ -1,0 +1,261 @@
+/* ==================================================================
+   TESTIMONIALS — client quote on a navy notched panel
+   ================================================================== */
+
+.section {
+  background: var(--paper);
+  padding: 100px var(--gutter);
+}
+
+/* ---------------------------- head ------------------------------- */
+
+.head {
+  max-width: 900px;
+  margin: 0 auto clamp(30px, 5vh, 60px);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 clamp(12px, 1.6vh, 20px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(25px, 2.9vw, 50px);
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  color: var(--ink-deep);
+  text-wrap: balance;
+}
+
+/* ---------------------------- panel ------------------------------ */
+
+.inner {
+  max-width: 1640px;
+  margin-inline: auto;
+}
+
+.panel {
+  --cn: clamp(24px, 3.2vw, 56px);
+
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(360px, 32vw, 452px);
+  padding: clamp(28px, 3.4vw, 58px) clamp(24px, 4vw, 78px);
+
+  background: linear-gradient(160deg, #0a2a5e, #000d2b);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+.diamonds {
+  position: absolute;
+  top: -8%;
+  right: -1%;
+  width: clamp(200px, 30vw, 387px);
+  aspect-ratio: 387 / 307;
+  pointer-events: none;
+}
+
+.diamondsImage {
+  object-fit: contain;
+  object-position: top right;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: clamp(300px, 26vw, 336px);
+}
+
+.quoteMark {
+  display: block;
+  width: clamp(28px, 2.4vw, 39px);
+  height: auto;
+  margin-bottom: clamp(16px, 2vh, 28px);
+}
+
+/* ---------------------------- slider ------------------------------ */
+
+/* Holds the sliding quote/meta and the fixed controls side by side,
+   bottom-aligned, so only the quote content moves. */
+.body {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 40px);
+  min-height: 0;
+  padding-top: clamp(24px, 4vh, 44px);
+}
+
+.sliderViewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
+  height: 100%;
+  transition: transform 620ms var(--ease-out-expo);
+}
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.quote {
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--font-body);
+  font-size: clamp(18px, 1.9vw, 32px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: #fff;
+  text-wrap: pretty;
+}
+
+.meta {
+  min-width: 0;
+  margin-top: auto;
+  padding-top: clamp(20px, 3vh, 32px);
+}
+
+.rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  margin-bottom: clamp(14px, 1.6vh, 22px);
+  background: #5c7fb8;
+}
+
+.name {
+  margin: 0 0 4px;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.05vw, 16px);
+  font-weight: 600;
+  color: #fff;
+}
+
+.role {
+  margin: 0;
+  max-width: 46ch;
+  font-family: var(--font-body);
+  font-size: clamp(12.5px, 0.92vw, 14px);
+  font-weight: 400;
+  color: #8fa6cc;
+}
+
+/* ---------------------------- controls ---------------------------- */
+
+/* Stays put at the bottom-right of the panel — the slide indicator
+   sits above the arrow buttons, both right-aligned. */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+  justify-content: flex-end;
+  gap: clamp(10px, 1.4vh, 18px);
+  flex: none;
+}
+
+.navGroup {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1vw, 16px);
+}
+
+.navBtn {
+  display: grid;
+  place-items: center;
+  width: clamp(42px, 3.6vw, 52px);
+  height: clamp(42px, 3.6vw, 52px);
+  border-radius: 50%;
+
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.75);
+
+  transition: border-color 380ms var(--ease-soft), background 380ms var(--ease-soft),
+    color 380ms var(--ease-soft);
+}
+
+.navBtn:disabled {
+  cursor: not-allowed;
+}
+
+/* Only a slide with somewhere left to go gets the solid, high-contrast
+   treatment — the disabled direction stays an outline with a muted
+   arrow, matching the design's "no more slides this way" state. */
+.navBtnEnabled {
+  background: #fff;
+  border-color: transparent;
+  color: #001233;
+  cursor: pointer;
+}
+
+.navBtnEnabled:hover {
+  background: #dcebff;
+}
+
+.navIconPrev {
+  display: inline-flex;
+  transform: scaleX(-1);
+}
+
+.counter {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.85vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #8fa6cc;
+  white-space: nowrap;
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 720px) {
+  .diamonds {
+    display: none;
+  }
+
+  .body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sliderViewport {
+    flex: none;
+  }
+
+  .slide {
+    height: auto;
+  }
+
+  .controls {
+    align-self: flex-end;
+  }
+}

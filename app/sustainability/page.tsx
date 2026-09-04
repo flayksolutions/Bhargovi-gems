@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SustainabilityHero from "@/components/SustainabilityHero";
-import CommitmentSection from "@/components/CommitmentSection";
-import PillarsSection from "@/components/PillarsSection";
-import IntegritySection from "@/components/IntegritySection";
-import CaringSection from "@/components/CaringSection";
-import PlanetSection from "@/components/PlanetSection";
-import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader/SiteHeader";
+import SustainabilityHero from "@/components/SustainabilityHero/SustainabilityHero";
+import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
+import PillarsSection from "@/components/PillarsSection/PillarsSection";
+import IntegritySection from "@/components/IntegritySection/IntegritySection";
+import CaringSection from "@/components/CaringSection/CaringSection";
+import PlanetSection from "@/components/PlanetSection/PlanetSection";
+import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
   caringSection,
   commitmentSection,

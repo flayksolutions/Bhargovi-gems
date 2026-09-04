@@ -1,0 +1,163 @@
+/* ==================================================================
+   CERTIFICATION & VERIFICATION — dark grid of accrediting bodies
+   ================================================================== */
+
+.section {
+  position: relative;
+  background: var(--navy-deep);
+  padding: clamp(72px, 10vh, 120px) var(--gutter);
+  overflow: clip;
+  isolation: isolate;
+  scroll-margin-top: 96px;
+}
+
+.glow {
+  position: absolute;
+  z-index: -1;
+  left: 30%;
+  top: -80px;
+  width: 620px;
+  height: 620px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 100, 202, 0.55) 0%, rgba(37, 100, 202, 0) 72%);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.head {
+  margin: 0 auto clamp(36px, 5vh, 56px);
+  max-width: 880px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 0 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--sky-tint);
+}
+
+.rule {
+  width: 28px;
+  height: 1px;
+  background: #7fa9e3;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 46px);
+  color: #fff;
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------------------------- grid -------------------------------- */
+
+.grid {
+  --cn: 30px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 25px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 32px 28px 32px 32px;
+  background: rgba(255, 255, 255, 0.05);
+  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, var(--cn) 100%, 0 calc(100% - var(--cn)));
+  transition: background 320ms var(--ease-soft);
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.markImage {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.badgeText {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: #1b4c96;
+}
+
+.text {
+  min-width: 0;
+}
+
+.code {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--sky-tint);
+}
+
+.name {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.blurb {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 26px 22px 26px 26px;
+  }
+}

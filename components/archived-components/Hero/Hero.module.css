@@ -1,0 +1,198 @@
+/* ==================================================================
+   HERO — full-bleed plate, headline masked up on load
+   ================================================================== */
+
+.hero {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #030b18;
+  isolation: isolate;
+}
+
+/* ---------------------------- plate ------------------------------ */
+
+.plate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%;
+  transform: scale(1.09);
+  animation: settle 2200ms var(--ease-out-expo) 60ms forwards;
+}
+
+@keyframes settle {
+  to {
+    transform: scale(1);
+  }
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(2, 9, 22, 0.86) 0%,
+      rgba(2, 9, 22, 0.52) 34%,
+      rgba(2, 9, 22, 0.08) 62%,
+      rgba(2, 9, 22, 0) 82%
+    ),
+    linear-gradient(to top, rgba(2, 9, 22, 0.72), rgba(2, 9, 22, 0) 46%);
+}
+
+/* ---------------------------- content ---------------------------- */
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: var(--gutter);
+  padding-bottom: clamp(36px, 6vh, 84px);
+  padding-top: clamp(80px, 18vh, 200px);
+}
+
+.title {
+  margin: 0 0 clamp(22px, 3.4vh, 46px);
+  max-width: 25ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 78px);
+  line-height: 1.03;
+  letter-spacing: 0.008em;
+  color: #fff;
+}
+
+/* Each line is a mask; the inner span slides up out of it. */
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.lineInner {
+  display: block;
+  transform: translateY(105%);
+  animation: riseIn 1150ms var(--ease-out-expo) forwards;
+}
+
+@keyframes riseIn {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(20px, 3vw, 54px);
+  opacity: 0;
+  animation: fadeUp 1000ms var(--ease-out-expo) 620ms forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.body {
+  margin: 0;
+  max-width: 40ch;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.02vw, 17.5px);
+  font-weight: 400;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.84);
+  text-wrap: pretty;
+}
+
+.cta {
+  --cn: var(--notch-sm);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(13px, 1.25vw, 19px) clamp(22px, 2.2vw, 38px);
+
+  font-family: var(--font-body);
+  font-size: clamp(13px, 0.95vw, 16px);
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+
+  background: var(--sapphire);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+  transition: background 420ms var(--ease-soft);
+}
+
+.cta:hover {
+  background: #0a3a94;
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .title {
+    max-width: 100%;
+    font-size: clamp(31px, 8.4vw, 52px);
+  }
+
+  .image {
+    object-position: 68% 50%;
+  }
+
+  .foot {
+    gap: 22px;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lineInner {
+    transform: none;
+    animation: none;
+  }
+
+  .foot {
+    opacity: 1;
+    animation: none;
+  }
+
+  .image {
+    transform: none;
+    animation: none;
+  }
+}

@@ -1,30 +1,24 @@
-import SiteHeader from "@/components/SiteHeader";
-import Hero from "@/components/Hero";
-import StatsBar from "@/components/StatsBar";
-import ProductsSection from "@/components/ProductsSection";
-import PurposeSection from "@/components/PurposeSection";
-import AboutSection from "@/components/AboutSection";
-import OurApproachSection from "@/components/OurApproachSection";
-import FacilityCarousel from "@/components/FacilityCarousel";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import GlobalOfficesSection from "@/components/GlobalOfficesSection";
-import CraftingSection from "@/components/CraftingSection";
-import CertificationsSection from "@/components/CertificationsSection";
-import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader/SiteHeader";
+import Hero from "@/components/Hero/Hero";
+import ProductsSection from "@/components/ProductsSection/ProductsSection";
+import AboutSection from "@/components/AboutSection/AboutSection";
+import ProcessSection from "@/components/ProcessSection/ProcessSection";
+import FacilityCarousel from "@/components/FacilityCarousel/FacilityCarousel";
+import CraftingSection from "@/components/CraftingSection/CraftingSection";
+import OfficesSection from "@/components/OfficesSection/OfficesSection";
+import CommitmentsSection from "@/components/CommitmentsSection/CommitmentsSection";
+import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
   aboutSection,
-  certificationsSection,
   craftingSection,
   facilitySection,
   footer,
   heroSection,
   officesSection,
-  ourApproachSection,
+  commitmentsSection,
+  processSection,
   productsSection,
-  purposeSection,
   site,
-  statsSection,
-  testimonialsSection,
 } from "@/lib/content";
 
 export default function Home() {
@@ -34,22 +28,16 @@ export default function Home() {
 
       <main>
         <Hero {...heroSection} />
-        {/* <StatsBar {...statsSection} /> */}
-        <ProductsSection {...productsSection} />
 
-        <AboutSection
-          {...aboutSection}
-          image="/images/facility-2.jpg"
-          alt="The Bhargovi Gems Surat facility"
-        />
-        <PurposeSection {...purposeSection} />
-        <OurApproachSection {...ourApproachSection} />
-        <CraftingSection {...craftingSection} />
-        <FacilityCarousel {...facilitySection} variant="light" />
-        {/* <TestimonialsSection {...testimonialsSection} /> */}
-        <GlobalOfficesSection {...officesSection} />
-
-        {/* <CertificationsSection {...certificationsSection} /> */}
+        <div className="scroll-stack">
+          <ProductsSection {...productsSection} />
+          <AboutSection {...aboutSection} />
+          <ProcessSection {...processSection} />
+          <FacilityCarousel {...facilitySection} />
+          <CraftingSection {...craftingSection} />
+          <OfficesSection {...officesSection} />
+          <CommitmentsSection {...commitmentsSection} />
+        </div>
       </main>
 
       <SiteFooter brand={site.brand} {...footer} />

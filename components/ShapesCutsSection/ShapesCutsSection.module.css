@@ -1,0 +1,309 @@
+/* ==================================================================
+   SHAPES & CUTS — featured stage + shape chip grid
+   ================================================================== */
+
+.section {
+  background: var(--porcelain, #f7fbff);
+  padding: clamp(72px, 10vh, 120px) var(--gutter);
+  scroll-margin-top: 96px;
+}
+
+.inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(32px, 5vw, 80px);
+  row-gap: clamp(28px, 4vh, 44px);
+}
+
+.head {
+  grid-column: 1;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.rule {
+  width: 28px;
+  height: 1px;
+  background: var(--azure);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.14;
+}
+
+.title span {
+  display: block;
+}
+
+.title span:first-child {
+  font-size: clamp(28px, 2.9vw, 46px);
+  color: var(--ink-deep);
+}
+
+.titleAccent {
+  font-size: clamp(20px, 2vw, 32px);
+  color: #1b4c96;
+}
+
+.body {
+  grid-column: 2;
+  align-self: start;
+  margin: 6px 0 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: #3a4456;
+}
+
+/* ---------------------------- featured stage ----------------------- */
+
+.stage {
+  --cn: clamp(30px, 3.6vw, 52px);
+  position: relative;
+  grid-column: 1;
+  aspect-ratio: 600 / 440;
+  overflow: hidden;
+  background: #0b0e19;
+  box-shadow: 0 24px 56px rgba(28, 69, 153, 0.1);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    0 100%
+  );
+}
+
+.ringOuter,
+.ringInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.ringInner {
+  width: 52%;
+}
+
+.photoWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(180px, 25vw, 272px);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  /* border-radius: 50%; */
+  overflow: hidden;
+  /* box-shadow: 0 26px 44px rgba(28, 69, 153, 0.22); */
+}
+
+.photo {
+  object-fit: cover;
+}
+
+.photoFallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(110px, 16vw, 160px);
+  height: clamp(110px, 16vw, 160px);
+  transform: translate(-50%, -50%);
+  /* Icons are flat #1B4C96-stroke art meant for light chips; mask
+     them into a solid sky tint so they read on the navy stage. */
+  background: var(--sky-tint);
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity: 0.9;
+}
+
+.tag {
+  position: absolute;
+  top: clamp(20px, 3vw, 44px);
+  left: clamp(20px, 3.5vw, 46px);
+  padding: 6px 12px;
+  background: #1b4c96;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.stageText {
+  position: absolute;
+  left: clamp(20px, 3.5vw, 46px);
+  bottom: clamp(20px, 3.5vw, 36px);
+  right: clamp(20px, 3.5vw, 46px);
+}
+
+.stageName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 26px);
+  color: #f7fbff;
+}
+
+.stageCaption {
+  margin: 6px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #aecbf2;
+}
+
+/* ---------------------------- chips -------------------------------- */
+
+.chips {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.6vh, 28px);
+}
+
+.chipGrid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.chip {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 150px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #d9eafb;
+  box-shadow: 0 6px 16px rgba(28, 69, 153, 0.07);
+  cursor: pointer;
+  transition:
+    border-color 220ms var(--ease-soft),
+    box-shadow 220ms var(--ease-soft);
+}
+
+.chip:hover {
+  border-color: #aecbf2;
+}
+
+.chipActive {
+  border: 3px solid #2564ca;
+  box-shadow: 0 12px 28px rgba(28, 69, 153, 0.16);
+}
+
+.chipIcon {
+  width: 46px;
+  height: 46px;
+}
+
+.chipName {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-deep);
+}
+
+.chipFacets {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  color: rgba(58, 68, 86, 0.72);
+}
+
+.chipActive .chipFacets {
+  color: var(--azure);
+}
+
+.catalogueLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--azure);
+  text-decoration: none;
+}
+
+.catalogueLink svg {
+  transition: transform 280ms var(--ease-soft);
+}
+
+.catalogueLink:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .head,
+  .body,
+  .stage,
+  .chips {
+    grid-column: 1;
+  }
+
+  .chipGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .chip {
+    border-width: 1px;
+  }
+
+  .chipActive {
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chipGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .chip {
+    height: 128px;
+  }
+}

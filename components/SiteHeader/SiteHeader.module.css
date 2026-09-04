@@ -1,0 +1,195 @@
+/* ==================================================================
+   SITE HEADER — white bar above the hero plate
+   ================================================================== */
+
+.header {
+  /* Fixed and out of the document flow, so the hero can claim the
+     full viewport underneath it. Starts see-through so the hero
+     shows through it, then gains a blurred backing once the second
+     section reaches the top of the screen. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  height: var(--header-h);
+  padding-inline: var(--gutter);
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: clamp(16px, 3vw, 48px);
+
+  transform: translateY(0);
+  transition: transform 800ms var(--ease-soft);
+}
+
+/* Scrolling down past one header-height: slide the whole bar off the
+   top of the viewport. Independent of .scrolled, which only controls
+   the backdrop/logo/link color treatment. */
+.header.hidden {
+  transform: translateY(-140%);
+}
+
+/* Full-bleed backing div, sitting behind the content. Carries the
+   background/blur, masked so the blur fades out toward the bottom
+   edge instead of cutting off sharply. Kept separate from .header
+   itself so the mask only affects this layer, not the nav text/CTA
+   sitting on top of it. */
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  z-index: -1;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+
+  mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 60%,
+    transparent 100%
+  );
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+
+  pointer-events: none;
+
+  transition:
+    background 480ms var(--ease-soft),
+    backdrop-filter 480ms var(--ease-soft);
+}
+
+/* Second section has reached the top: blur what's behind it. */
+.scrolled .backdrop {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ---------------------------- brand ------------------------------ */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 0.9vw, 16px);
+  text-decoration: none;
+}
+
+.logo {
+  width: clamp(120px, 11vw, 180px);
+  height: auto;
+  color: #fff;
+  transition: color 420ms var(--ease-soft);
+}
+
+.scrolled .logo {
+  color: var(--ink);
+}
+
+/* ---------------------------- nav -------------------------------- */
+
+.nav {
+  justify-self: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 46px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  position: relative;
+  display: inline-block;
+  padding-block: 6px;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  color: #fff;
+  text-decoration: none;
+  transition: color 420ms var(--ease-soft);
+}
+
+.scrolled .navLink {
+  color: var(--ink-deep);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--sapphire);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 520ms var(--ease-out-expo);
+}
+
+.navLink:hover {
+  color: var(--sapphire);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---------------------------- cta -------------------------------- */
+
+.cta {
+  --cn: var(--notch-sm);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 1.05vw, 12px) clamp(18px, 1.9vw, 30px);
+
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.92vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+
+  background: var(--sapphire);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+  transition: background 420ms var(--ease-soft);
+}
+
+.cta:hover {
+  background: var(--ink);
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .header {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .nav {
+    display: none;
+  }
+}

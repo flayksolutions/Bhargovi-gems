@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import AboutHero from "@/components/AboutHero";
-import ChapterRail from "@/components/ChapterRail";
-import FourCsSection from "@/components/FourCsSection";
-import ShapesCutsSection from "@/components/ShapesCutsSection";
-import LabGrownVsMinedSection from "@/components/LabGrownVsMinedSection";
-import CertificationVerificationSection from "@/components/CertificationVerificationSection";
-import RoughToPolishedSection from "@/components/RoughToPolishedSection";
-import QualityStandardsSection from "@/components/QualityStandardsSection";
-import AnatomyGlossarySection from "@/components/AnatomyGlossarySection";
-import DiamondInfoFaqSection from "@/components/DiamondInfoFaqSection";
-import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader/SiteHeader";
+import AboutHero from "@/components/AboutHero/AboutHero";
+import ChapterRail from "@/components/ChapterRail/ChapterRail";
+import FourCsSection from "@/components/FourCsSection/FourCsSection";
+import ShapesCutsSection from "@/components/ShapesCutsSection/ShapesCutsSection";
+import LabGrownVsMinedSection from "@/components/LabGrownVsMinedSection/LabGrownVsMinedSection";
+import CertificationVerificationSection from "@/components/CertificationVerificationSection/CertificationVerificationSection";
+import RoughToPolishedSection from "@/components/RoughToPolishedSection/RoughToPolishedSection";
+import QualityStandardsSection from "@/components/QualityStandardsSection/QualityStandardsSection";
+import AnatomyGlossarySection from "@/components/AnatomyGlossarySection/AnatomyGlossarySection";
+import DiamondInfoFaqSection from "@/components/DiamondInfoFaqSection/DiamondInfoFaqSection";
+import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
   anatomyGlossarySection,
   certificationVerificationSection,

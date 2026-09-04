@@ -37,7 +37,26 @@
   --notch-sm: 12px;
   --header-h: clamp(62px, 5.4vw, 92px);
   --gutter: clamp(20px, 4.4vw, 72px);
+
 }
+
+/* ------------------------------------------------------------------
+   Shared breakpoint scale — every *.module.css file's @media blocks
+   should use one of these two widths (CSS has no custom-media-query
+   support in this build, so the values are duplicated per file, not
+   read from a variable — keep them in sync with this comment):
+
+     mobile:  max-width: 640px   (<640px)
+     tablet:  641px – 960px      (write as `max-width: 960px`, the
+                                   ceiling; there is no separate
+                                   min-width query for the tablet band
+                                   unless a rule truly only applies
+                                   between the two thresholds)
+     desktop: > 960px            (the default, unqueried styles)
+
+   Do not introduce one-off breakpoints (780px, 820px, 860px, 900px,
+   etc.) — fold the rule into the 640 or 960 query instead.
+------------------------------------------------------------------- */
 
 *,
 *::before,
@@ -67,9 +86,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Stacking context anchor for the pinned-hero pass-through below. */
-  isolation: isolate;
 }
 
 img {
@@ -93,30 +109,6 @@ button {
   color: var(--ink);
 }
 
-/* ------------------------------------------------------------------
-   Pinned-hero click-through
-
-   Hero sections pin via `position: fixed; z-index: -1` behind the
-   section that scrolls over them (see Hero.module.css). Two things
-   have to hold together for the hero to stay clickable while pinned:
-
-   1. `body` needs its own stacking context (`isolation: isolate`
-      above) so the hero's negative z-index is scoped to `body` rather
-      than escaping to the root context, where `body`'s own in-flow
-      box would always paint — and hit-test — in front of it.
-   2. `main`'s box still spans the hero's flow-space spacer even with
-      (1) in place, so `main` is made a pointer-events pass-through
-      and re-enabled per real section child. The spacer itself opts
-      out via `data-hero-spacer`, since it has no content to click.
-------------------------------------------------------------------- */
-main {
-  pointer-events: none;
-}
-
-main > *:not([data-hero-spacer]) {
-  pointer-events: auto;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -124,4 +116,12 @@ main > *:not([data-hero-spacer]) {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Everything after the hero rides over it. Needs its own stacking
+   level and an opaque background, or the pinned hero shows through. */
+.scroll-stack {
+  position: relative;
+  z-index: 2;
+  background: var(--paper);
 }

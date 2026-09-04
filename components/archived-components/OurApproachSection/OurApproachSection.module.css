@@ -1,0 +1,179 @@
+/* ==================================================================
+   OUR APPROACH — sticky left column, photo bleeds to the viewport edge
+   ================================================================== */
+
+/* NOTE on the bleed: the image sits in normal document flow, after
+   the text, so it can never overlap the title/body regardless of how
+   many lines they wrap to. It still bleeds past the page gutter on
+   the left via a negative margin (not `position: absolute`), so it
+   needs no special containing-block setup. Do NOT add transform/
+   filter/will-change/overflow-hidden to `.section` (or anything above
+   it) — any of those would break the `.sticky` pin. See CLAUDE.md.
+------------------------------------------------------------------- */
+
+.section {
+  background: var(--navy-deep);
+  padding: 100px var(--gutter);
+}
+
+.inner {
+  max-width: 1640px;
+  margin-inline: auto;
+  display: flex;
+  gap: clamp(48px, 8vw, 130px);
+  align-items: flex-start;
+}
+
+/* ---------------------------- sticky column ------------------------ */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  /* Equal split with `.stories` — both flex:1 1 0 off a 0 basis, so
+     they always share the row's available width evenly instead of
+     each capping out early and leaving dead space on the right. */
+  flex: 1 1 0;
+  min-width: 280px;
+  padding-block: clamp(60px, 10vh, 120px);
+}
+
+.bleed {
+  position: relative;
+  /* Normal-flow placement (after the text above it) is what
+     guarantees no vertical overlap. The margin pulls the image past
+     the gutter and past `.inner`'s own centering inset (the gap that
+     opens up once the viewport exceeds the section's 1640px content
+     max-width), so it always reaches all the way to x:0 — not just
+     the gutter edge. */
+  margin-top: clamp(32px, 5.5vh, 64px);
+  margin-left: calc(
+    -1 * (var(--gutter) + max(0px, (100vw - 1640px - 2 * var(--gutter)) / 2))
+  );
+  /* On wide screens, scale with viewport width (vw) rather than
+     capping at a fixed px — so the image keeps growing to fill the
+     gap that opens up once the viewport outgrows the section's
+     1640px content max-width, instead of sitting undersized and
+     isolated at a fixed size. */
+  width: min(calc(100% + var(--gutter)), 30vw);
+  aspect-ratio: 499 / 395;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.bleedImage {
+  object-fit: cover;
+  object-position: 60% 40%;
+  transform: scaleX(-1);
+}
+
+.eyebrow {
+  position: relative;
+  margin: 0 0 clamp(14px, 1.8vh, 20px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sky-tint);
+}
+
+.title {
+  position: relative;
+  margin: 0 0 clamp(16px, 2.2vh, 24px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.55vw, 40px);
+  line-height: 1.24;
+  color: #fff;
+}
+
+.titleLine {
+  display: block;
+}
+
+.body {
+  position: relative;
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 1.02vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- stories ------------------------------ */
+
+.stories {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4.2vh, 48px);
+}
+
+.story {
+  padding-bottom: clamp(28px, 4.2vh, 48px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.storyLast {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.storyImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 630 / 310;
+  margin-bottom: clamp(18px, 2.6vh, 28px);
+}
+
+.storyImageInner {
+  object-fit: cover;
+}
+
+.storyTitle {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(19px, 1.55vw, 26px);
+  color: #fff;
+}
+
+.storyBody {
+  margin: 0;
+  max-width: 60ch;
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 1.02vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive ---------------------------- */
+
+@media (max-width: 960px) {
+  .inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sticky {
+    position: static;
+    flex-basis: auto;
+    width: 100%;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  .bleed {
+    display: none;
+  }
+
+  .stories {
+    max-width: 100%;
+  }
+}

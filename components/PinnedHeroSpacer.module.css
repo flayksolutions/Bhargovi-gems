@@ -1,4 +1,0 @@
-.spacer {
-  height: calc(100svh - var(--header-h));
-  pointer-events: none;
-}

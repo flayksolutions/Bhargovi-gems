@@ -1,0 +1,173 @@
+/* ==================================================================
+   PILLARS — two portrait plates on the faceted background, captions
+   staggered (below the first, above the second)
+   ================================================================== */
+
+.section {
+  position: relative;
+  isolation: isolate;
+  background: var(--paper);
+  padding: clamp(96px, 16vh, 200px) var(--gutter);
+  overflow: clip;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.backdropImage {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.inner {
+  position: relative;
+  max-width: 1640px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 96px);
+  align-items: start;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.6vh, 38px);
+  min-width: 0;
+}
+
+/* Caption above the plate rather than below. */
+.captionFirst {
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
+/* ---------------------------- plate ------------------------------ */
+
+.plate {
+  --cn: clamp(26px, 3vw, 58px);
+
+  position: relative;
+  width: 100%;
+  /* Sized off the viewport so both plates, both captions and the
+     section padding fit on one screen. */
+  /* height: clamp(250px, calc(100svh - 420px), 680px); */
+  height: clamp(250px, calc(100svh - 360px), 680px);
+  overflow: hidden;
+  background: #e7edf7;
+
+  /* House chamfer: top-right and bottom-left, same as the process
+     frames and the about card. */
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+/* The wipe lives on an inner layer: one element can only carry one
+   clip-path, so the chamfer and the reveal would cancel each other.
+   Left block opens from the bottom edge upward, right from the top. */
+.reveal {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(100% 0 0 0);
+  /* Slow, even curtain. An ease-out curve was over before it read. */
+  transition: clip-path 1900ms cubic-bezier(0.62, 0.05, 0.23, 1);
+}
+
+.revealDown {
+  clip-path: inset(0 0 100% 0);
+}
+
+.block.isIn .reveal {
+  clip-path: inset(0 0 0 0);
+}
+
+.media {
+  transform: scale(1.1);
+  transition: transform 2400ms cubic-bezier(0.24, 0.72, 0.26, 1);
+}
+
+.block.isIn .media {
+  transform: scale(1);
+}
+
+.title {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 1000ms var(--ease-soft) 700ms,
+    transform 1100ms var(--ease-out-expo) 700ms;
+}
+
+/* Second block trails the first, so they don't fire in lockstep. */
+.block:nth-child(2) .reveal {
+  transition-delay: 240ms;
+}
+
+.block:nth-child(2) .media {
+  transition-delay: 240ms;
+}
+
+.block:nth-child(2) .title {
+  transition-delay: 940ms;
+}
+
+.block.isIn .title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .revealDown,
+  .block .media,
+  .block .title {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------------------------- caption ---------------------------- */
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 44px);
+  line-height: 1.14;
+  letter-spacing: 0.005em;
+  color: var(--ink-deep);
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+/* Two portrait plates side by side need real width to read as
+   portraits rather than slivers, so the grid drops to one column for
+   the whole tablet-and-below band, not just on phone. */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(40px, 10vw, 64px);
+  }
+
+  .blockOffset {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,111 @@
+/* ==================================================================
+   CRAFTING — copy top-left, washed bench photograph bleeding out of
+   the bottom-right corner
+   ================================================================== */
+
+.section {
+  position: relative;
+  isolation: isolate;
+  background: #fcfdfe;
+  min-height: clamp(680px, 112svh, 1240px);
+  padding: clamp(110px, 17vh, 230px) var(--gutter) clamp(72px, 11vh, 150px);
+  overflow: clip;
+}
+
+/* ---------------------------- plate ------------------------------ */
+
+/* .plate {
+  position: absolute;
+  right: clamp(-40px, -2vw, -10px);
+  bottom: clamp(-46px, -3vh, -12px);
+  z-index: -1;
+  width: min(1500px, 78%);
+  pointer-events: none;
+  user-select: none;
+} */
+.plate {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.plateImage {
+  object-fit: cover;
+  object-position: right bottom;
+}
+
+/* ---------------------------- content ---------------------------- */
+
+.content {
+  position: relative;
+  max-width: 1640px;
+  margin-inline: auto;
+  margin-left: 50%;
+}
+
+.title {
+  margin: 0 0 clamp(16px, 2.2vh, 28px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(27px, 3vw, 52px);
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  color: var(--ink-deep);
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0;
+  max-width: 46ch;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 0.98vw, 17px);
+  font-weight: 400;
+  line-height: 1.68;
+  color: #7a8798;
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .section {
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: visible;
+  }
+
+  .plate {
+    position: relative;
+    inset: auto;
+    right: auto;
+    bottom: auto;
+    width: calc(100% + var(--gutter) * 2);
+    aspect-ratio: 1090 / 614;
+    margin: 0 calc(var(--gutter) * -1) 0;
+  }
+
+  /* Blend the photograph's bottom edge into the section background
+     instead of cutting off hard against the text below it. */
+  .plate::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(80px, 20vw, 160px);
+    background: linear-gradient(to bottom, rgba(252, 253, 254, 0), #fcfdfe);
+    pointer-events: none;
+  }
+
+  .content {
+    max-width: none;
+    margin-left: 0;
+    padding: clamp(28px, 7vw, 48px) 0 clamp(64px, 14vw, 112px);
+  }
+
+  .body {
+    max-width: none;
+  }
+}

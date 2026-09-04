@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import AboutHero from "@/components/AboutHero";
-import LegacySection from "@/components/LegacySection";
-import MilestonesSection from "@/components/MilestonesSection";
-import FacilitiesSection from "@/components/FacilitiesSection";
-import ValuesSection from "@/components/ValuesSection";
-import CertificationsSection from "@/components/CertificationsSection";
-import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader/SiteHeader";
+import AboutHero from "@/components/AboutHero/AboutHero";
+import LegacySection from "@/components/LegacySection/LegacySection";
+import MilestonesSection from "@/components/MilestonesSection/MilestonesSection";
+import FacilitiesSection from "@/components/FacilitiesSection/FacilitiesSection";
+import ValuesSection from "@/components/ValuesSection/ValuesSection";
+import CertificationsSection from "@/components/CertificationsSection/CertificationsSection";
+import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
   aboutValuesSection,
   aboutHeroSection,

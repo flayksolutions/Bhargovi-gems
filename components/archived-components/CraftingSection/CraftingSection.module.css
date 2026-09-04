@@ -1,0 +1,163 @@
+/* ==================================================================
+   CRAFTING — dark navy band with a faint oversized word-stack
+   watermark and a photo that bleeds to the viewport's right AND
+   bottom edges. Geometry matches the 1440px Figma frame:
+   image left inset 304/1440 = 21.1%, width 1136/1440 = 78.9%,
+   bottom flush with the frame (top 339 + height 439.5 = 778.5 total).
+   Watermark words positioned from the same 1440px reference, in vw
+   so they scale in step with their own vw-based font-size.
+   ================================================================== */
+
+.section {
+  position: relative;
+  /* overflow: hidden; */
+  z-index: 1;
+  background: var(--navy-deep);
+  /* Gutter lives here (not on .inner) so the bleed math below — which
+     cancels this padding plus .inner's own auto-centering margin —
+     matches the proven technique in OurApproachSection.module.css. */
+  padding: clamp(72px, 11vh, 128px) var(--gutter) 0;
+}
+
+/* ---------------------------- glow ------------------------------------ */
+
+/* Figma: a blurred circle bleeding off the section's left edge, sitting
+   near the bottom (left -199px, bottom-anchored, ~359px across in the
+   1440px reference frame). Recreated in CSS, matching the blurred-glow
+   technique already used in GlobalOfficesSection.module.css. */
+.glow {
+  position: absolute;
+  left: -13.8%;
+  bottom: -25%;
+  z-index: 0;
+  width: clamp(220px, 25vw, 500px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sapphire) 0%, transparent 72%);
+  opacity: 0.35;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* ---------------------------- watermark ------------------------------ */
+
+.watermark {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  /* overflow: hidden; */
+  pointer-events: none;
+}
+
+.watermark span {
+  position: absolute;
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(48px, 11.2vw, 161px);
+  /* Figma's "leading-normal" — the inherited body line-height (1.6)
+     was padding each line with extra whitespace above/below the
+     glyphs, which is what was pushing the stack apart. */
+  /* line-height: 0.7; */
+  line-height: 1;
+  /* letter-spacing: 0.016em; */
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--sky-tint);
+  opacity: 0.04;
+}
+
+.watermark span:nth-child(1) {
+  top: -2.5vw;
+  left: 70vw;
+}
+
+.watermark span:nth-child(2) {
+  top: 5.5vw;
+  left: 58vw;
+}
+
+.watermark span:nth-child(3) {
+  top: 13vw;
+  left: 45vw;
+}
+
+/* ---------------------------- content --------------------------------- */
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1640px;
+  margin-inline: auto;
+}
+
+.title {
+  margin: 0 0 clamp(14px, 1.8vh, 20px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.body {
+  margin: 0;
+  max-width: min(743px, 52vw);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 15px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- media ------------------------------------ */
+
+.mediaWrap {
+  position: relative;
+  /* 98px gap / 1440px frame width in the Figma reference. */
+  margin-top: clamp(64px, 6.8vw, 130px);
+  margin-left: 21.1%;
+  /* Bleed to the viewport's right edge, mirroring the left-bleed
+     technique in OurApproachSection.module.css. Nested inside .inner
+     so the gutter/centering it cancels actually applies here. */
+  margin-right: calc(
+    -1 * (var(--gutter) + max(0px, (100vw - 1640px - 2 * var(--gutter)) / 2))
+  );
+  /* .section/.inner carry no bottom padding, so as the last child this
+     sits flush against the section's bottom edge. */
+  aspect-ratio: 1136 / 439.5;
+  overflow: hidden;
+  /* Chamfered corner: top-left, matching the Figma photo's own vector
+     mask (71/1136 ≈ 6.25% of the frame's own width). */
+  clip-path: polygon(0 var(--notch), var(--notch) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.media {
+  object-fit: cover;
+}
+
+/* ---------------------------- responsive -------------------------------- */
+
+@media (max-width: 900px) {
+  .watermark {
+    display: none;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+
+  .mediaWrap {
+    margin-left: 0;
+    margin-right: calc(-1 * var(--gutter));
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .mediaWrap {
+    aspect-ratio: 1 / 1;
+  }
+}

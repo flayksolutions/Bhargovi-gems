@@ -1,0 +1,202 @@
+/* ==================================================================
+   ABOUT — facility plate, pinned, with a card that grows on scroll
+   until it fills the frame edge to edge, then releases.
+   `--p` (0 → 1) is written to .section by AboutSection.tsx.
+   ================================================================== */
+
+.section {
+  --p: 0;
+  /* Growth runs right to the end of the pin, so the moment the plate
+     is full the section releases and the page carries on. */
+  --pf: clamp(0, calc(var(--p) / 0.98), 1);
+
+  position: relative;
+  height: 180vh;
+  background: #051132;
+}
+
+.viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------------------------- backdrop --------------------------- */
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  /* Counter-zoom: the plate settles as the card opens out. */
+  transform: scale(calc(1.14 - 0.14 * var(--pf)));
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* ------------------------------ gems ------------------------------ */
+/* Cushion (bottom-left) and emerald (top-right) plates float in the
+   pinned frame, bleeding off the edges. They scale up and fade in with
+   the same `--pf` progress that drives the card's growth. */
+
+.gem {
+  position: absolute;
+  z-index: 1;
+  width: clamp(120px, 16vw, 260px);
+  height: auto;
+  pointer-events: none;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.gemCushion {
+  left: clamp(-50px, -9vw, -50px);
+  bottom: clamp(40px, -9vw, -50px);
+  opacity: var(--pf);
+  transform: scale(calc(0.4 + 0.45 * var(--pf)));
+  transform-origin: center left;
+}
+
+.gemEmerald {
+  right: clamp(-50px, -9vw, -50px);
+  top: clamp(40px, -9vw, -50px);
+  opacity: var(--pf);
+  transform: scale(calc(0.4 + 0.45 * var(--pf)));
+  transform-origin: center right;
+}
+
+@media (max-width: 960px) {
+  .gem {
+    width: clamp(90px, 26vw, 160px);
+  }
+}
+
+/* ---------------------------- the card --------------------------- */
+
+.cardWrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  /* Gutter closes to zero so the card can reach the frame edge. */
+  padding-inline: calc(clamp(20px, 5vw, 80px) * (1 - var(--pf)));
+}
+
+.card {
+  /* Chamfer closes as the card takes the full frame. */
+  --cn: calc(30px * (1 - var(--pf)));
+
+  position: relative;
+  width: calc(30vw + 70vw * var(--pf));
+  min-width: min(320px, 100%);
+  /* Overshoots 100vh slightly at full so there is no seam; the
+     pinned viewport clips it. */
+  min-height: calc(42vh + 60vh * var(--pf));
+
+  display: grid;
+  place-items: center;
+  padding-block: calc(46px + 26px * var(--pf));
+  padding-inline: calc(38px + 24px * var(--pf));
+
+  background: var(--paper);
+  color: var(--ink-deep);
+  text-align: center;
+
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+.cardInner {
+  max-width: 62ch;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 0 clamp(18px, 2vw, 30px);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.72vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-deep);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  width: clamp(20px, 2vw, 34px);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.title {
+  margin: 0 0 clamp(18px, 2.2vw, 30px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: calc(
+    clamp(24px, 2.05vw, 34px) + clamp(4px, 0.9vw, 15px) * var(--pf)
+  );
+  line-height: 1.2;
+  letter-spacing: 0.004em;
+  color: var(--ink-deep);
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0 auto;
+  max-width: 46ch;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 0.95vw, 17px);
+  font-weight: 400;
+  line-height: 1.72;
+  color: #45597a;
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .section {
+    height: 155vh;
+  }
+
+  .card {
+    width: calc(74vw + 26vw * var(--pf));
+    padding-block: calc(38px + 20px * var(--pf));
+    padding-inline: calc(26px + 14px * var(--pf));
+    --cn: calc(22px * (1 - var(--pf)));
+  }
+
+  .title {
+    font-size: calc(clamp(22px, 5.4vw, 30px) + 2.4vw * var(--pf));
+  }
+}
+
+/* Short windows: keep the card inside the pinned viewport. */
+@media (max-height: 700px) {
+  .card {
+    padding-block: calc(30px + 18px * var(--pf));
+  }
+}

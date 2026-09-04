@@ -1,0 +1,319 @@
+/* ==================================================================
+   VALUES SECTION — scrolling media column + sticky editorial panel
+   (duplicated from ProcessSection)
+   ================================================================== */
+
+.section {
+  /* One shared column width + gap, so every step name and its
+     description sit on exactly the same left edge. */
+  --num-col: clamp(24px, 2vw, 32px);
+  --num-gap: clamp(12px, 1.1vw, 20px);
+
+  position: relative;
+  background: var(--paper);
+  padding-block: clamp(36px, 5vh, 78px) clamp(56px, 8vh, 120px);
+}
+
+.inner {
+  max-width: 1640px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 96px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+  column-gap: clamp(48px, 6.5vw, 128px);
+  align-items: start;
+}
+
+/* ---------------------------- media column ----------------------- */
+
+.media {
+  display: block;
+  min-width: 0;
+}
+
+/* Each block owns ~one viewport of scroll, so one step ≈ one screen. */
+.mediaItem {
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.045;
+  max-height: 74vh;
+  margin: 0;
+  overflow: hidden;
+  background: #05101f;
+  /* Chamfered corners: top-right + bottom-left */
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    var(--notch) 100%,
+    0 calc(100% - var(--notch))
+  );
+}
+
+.image {
+  object-fit: cover;
+  transform: scale(1.075);
+  opacity: 0.62;
+  filter: saturate(0.82);
+  transition: transform 1400ms var(--ease-out-expo),
+    opacity 900ms var(--ease-soft), filter 900ms var(--ease-soft);
+  will-change: transform, opacity;
+}
+
+.frameActive .image {
+  transform: scale(1);
+  opacity: 1;
+  filter: saturate(1);
+}
+
+/* A whisper of light across the top-left, like the reference plate. */
+.frameGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      120% 80% at 18% 8%,
+      rgba(37, 100, 202, 0.22),
+      transparent 62%
+    ),
+    linear-gradient(to bottom, transparent 55%, rgba(2, 12, 30, 0.34));
+  opacity: 0;
+  transition: opacity 900ms var(--ease-soft);
+}
+
+.frameActive .frameGlow {
+  opacity: 1;
+}
+
+/* ---------------------------- sticky panel ----------------------- */
+
+.panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.panelInner {
+  width: 100%;
+  padding-block: clamp(24px, 5vh, 56px);
+}
+
+.eyebrow {
+  margin: 0 0 clamp(14px, 1.8vh, 22px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.title {
+  margin: 0 0 clamp(20px, 3vh, 32px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.35vw, 60px);
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  color: var(--ink-deep);
+}
+
+.intro {
+  margin: 0 0 clamp(28px, 4.6vh, 56px);
+  max-width: 46ch;
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 1vw, 17px);
+  font-weight: 400;
+  line-height: 1.66;
+  color: var(--text-muted);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  padding-block: clamp(9px, 1.15vh, 15px);
+}
+
+.itemButton {
+  display: flex;
+  align-items: flex-end; /* number sits at the bottom of the name */
+  gap: var(--num-gap);
+  width: 100%;
+}
+
+.num {
+  flex: 0 0 var(--num-col);
+  width: var(--num-col);
+  padding-bottom: 0.26em; /* optical lift off the descender line */
+  line-height: 1;
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.75vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(37, 100, 202, 0.45);
+  transition: color 600ms var(--ease-soft);
+}
+
+.itemActive .num {
+  color: var(--azure);
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(22px, 2.1vw, 38px);
+  line-height: 1.18;
+  letter-spacing: 0.004em;
+  color: var(--text-ghost);
+  transition: color 620ms var(--ease-soft), opacity 620ms var(--ease-soft);
+}
+
+.itemActive .name {
+  color: var(--ink-deep);
+}
+
+.itemButton:hover .name {
+  color: rgba(2, 38, 113, 0.62);
+}
+
+.itemActive .itemButton:hover .name {
+  color: var(--ink-deep);
+}
+
+.itemButton:focus-visible {
+  outline: 1px solid var(--azure);
+  outline-offset: 6px;
+}
+
+/* Height-auto accordion without JS measurement. */
+.reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 720ms var(--ease-out-expo),
+    opacity 460ms var(--ease-soft);
+}
+
+.revealOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows 720ms var(--ease-out-expo),
+    opacity 640ms var(--ease-soft) 120ms;
+}
+
+.revealClip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.body {
+  margin: clamp(8px, 1.1vh, 14px) 0 clamp(6px, 0.9vh, 12px);
+  padding-left: calc(var(--num-col) + var(--num-gap));
+  max-width: 46ch;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.95vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.66;
+  color: var(--text-muted);
+}
+
+/* ---------------------------- mobile flow ------------------------ */
+
+.mobile {
+  display: none;
+}
+
+.mobileList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileItem + .mobileItem {
+  margin-top: clamp(56px, 9vw, 88px);
+}
+
+.mobileItem .frame {
+  max-height: none;
+  aspect-ratio: 1 / 1;
+}
+
+.mobileText {
+  margin-top: 22px;
+}
+
+.mobileText .num {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mobileText .name {
+  display: block;
+  margin: 0 0 4px;
+  color: var(--ink-deep);
+}
+
+.mobileText .body {
+  padding-left: 0;
+  max-width: 60ch;
+}
+
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .media,
+  .panel {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .title {
+    margin-bottom: clamp(32px, 7vw, 48px);
+  }
+
+  .eyebrow,
+  .title {
+    font-size-adjust: none;
+  }
+
+  .title {
+    font-size: clamp(30px, 7.4vw, 46px);
+  }
+
+  .name {
+    font-size: clamp(24px, 6vw, 34px);
+  }
+}
+
+/* Short desktop windows: let the panel breathe instead of clipping. */
+@media (min-width: 961px) and (max-height: 720px) {
+  .panel {
+    height: auto;
+    min-height: 100vh;
+    align-items: center;
+  }
+
+  .item {
+    padding-block: 7px;
+  }
+}

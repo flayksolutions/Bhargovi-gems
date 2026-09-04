@@ -1,0 +1,354 @@
+/* ==================================================================
+   MILESTONES — dark wave timeline, alternating content above/below.
+   Desktop (≥881px) pins as it reaches the top of the viewport; --p
+   (0 → 1, written by MilestonesSection.tsx) tracks scroll position
+   across a 200vh scrub distance. Mobile (<881px) does NOT pin — a
+   pinned 100vh box clipped real content on real phones, so --p there
+   instead tracks the mobile list's own natural scroll-through-
+   viewport window. Either way, --p drives the line clip-path +
+   per-milestone .revealed threshold toggling identically.
+   ================================================================== */
+
+.section {
+  --p: 0;
+  position: relative;
+  height: calc(100vh + 200vh);
+  height: calc(100svh + 200svh);
+  background: var(--navy-deep);
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    height: auto;
+  }
+
+  .pin {
+    position: static;
+    height: auto;
+  }
+}
+
+.head {
+  width: 100%;
+  margin: 0 auto clamp(40px, 6vh, 64px);
+  max-width: 900px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 clamp(10px, 1.4vh, 16px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sky-tint);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.6vw, 42px);
+  line-height: 1.15;
+  color: #fff;
+  text-wrap: balance;
+}
+
+/* ---------------------------- wave -------------------------------- */
+
+.wave {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Generous clearance above/below so a wrapped 3-line body under an
+     "above" node never reaches the heading (or, below, the section
+     edge). */
+  margin: clamp(150px, 17vh, 195px) 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Extends past the last badge and fades out, reading as "more to
+   come" rather than a hard stop. clip-path reveals it left-to-right
+   in lockstep with --p — no transition here, it must track scroll
+   1:1, not ease independently. */
+.line::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: clamp(-64px, -6vw, -32px);
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    #7fa9e3 0%,
+    #2564ca 95.19%,
+    rgba(37, 100, 202, 0) 100%
+  );
+  clip-path: inset(0 calc((1 - var(--p)) * 100%) 0 0);
+}
+
+.node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+}
+
+.badgeBox,
+.badgeIcon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.badgeBox {
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.badgeIcon {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.28s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badgeBox,
+  .badgeIcon {
+    transition: none;
+  }
+}
+
+.node.revealed .badgeBox,
+.mobileItem.revealed .badgeBox {
+  transform: scale(1);
+}
+
+.node.revealed .badgeIcon,
+.mobileItem.revealed .badgeIcon {
+  opacity: 1;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  text-align: center;
+}
+
+.content > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.content > *:nth-child(1) {
+  transition-delay: 0.42s;
+}
+
+.content > *:nth-child(2) {
+  transition-delay: 0.5s;
+}
+
+.content > *:nth-child(3) {
+  transition-delay: 0.58s;
+}
+
+.node.revealed .content > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content > * {
+    transition: none;
+  }
+}
+
+.above .content {
+  bottom: calc(100% + 22px);
+}
+
+.below .content {
+  top: calc(100% + 22px);
+}
+
+.label {
+  margin: 0 0 4px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sky-tint);
+}
+
+.year {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  color: #fff;
+}
+
+.body {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------------------------- mobile ------------------------------ */
+
+.mobileWrap {
+  display: none;
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 880px) {
+  .section {
+    height: auto;
+  }
+
+  .pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .wave {
+    display: none;
+  }
+
+  .mobileWrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+    /* Badges are centered on the line via a -24px translateX below
+       (half the 48px badge width), which would otherwise push them
+       past the wrap's left edge and off the screen. This padding
+       reserves that space. */
+    padding-left: 24px;
+  }
+
+  /* Same gradient as the desktop .line::before, rotated to vertical.
+     Positioned at the wrap's left edge (same x as the old
+     border-left on .mobileList) so it still passes through the
+     badge centers via the .mobileBadge translateX below. */
+  .mobileLine {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      #7fa9e3 0%,
+      #2564ca 95.19%,
+      rgba(37, 100, 202, 0) 100%
+    );
+    clip-path: inset(0 0 calc((1 - var(--p)) * 100%) 0);
+  }
+
+  .mobileList {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 6vw, 40px);
+    margin: 0;
+    padding: 0;
+    padding-left: 12px;
+    list-style: none;
+  }
+
+  .mobileItem {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-left: -28px;
+    padding-left: 16px;
+  }
+
+  .mobileBadge {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    /* Shift left by half the badge width so the line (border-left on
+       .mobileList) passes through the badge's center rather than its
+       left edge. transform-only so it doesn't reflow the text next
+       to it. Kept on the wrapper span, separate from .badgeBox's own
+       scale transform, so the two don't clobber each other. */
+    transform: translateX(-24px);
+  }
+
+  .mobileItem .label {
+    text-align: left;
+  }
+
+  .mobileItem .body {
+    text-align: left;
+    max-width: 34ch;
+  }
+
+  .mobileContent > * {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .mobileContent > *:nth-child(1) {
+    transition-delay: 0.42s;
+  }
+
+  .mobileContent > *:nth-child(2) {
+    transition-delay: 0.5s;
+  }
+
+  .mobileContent > *:nth-child(3) {
+    transition-delay: 0.58s;
+  }
+
+  .mobileItem.revealed .mobileContent > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobileContent > * {
+      transition: none;
+    }
+  }
+}
