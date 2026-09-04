@@ -142,16 +142,16 @@
   white-space: nowrap;
 }
 
-.th:first-child,
-.category {
-  padding-left: 27px;
-}
-
 .category,
 .td {
   height: 80px;
   padding: 0;
   vertical-align: middle;
+}
+
+.th:first-child,
+.category {
+  padding-left: 40px;
 }
 
 .table tbody tr + tr .category,
@@ -188,7 +188,7 @@
 
   .th:first-child,
   .category {
-    padding-left: 18px;
+    padding-left: 26px;
   }
 }
 
