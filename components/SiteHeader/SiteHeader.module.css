@@ -47,13 +47,8 @@
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
 
-  mask-image: linear-gradient(to bottom, #000 0%, #000 65%, transparent 100%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    #000 65%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to bottom, #000 0%, #000 65%, #0000 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 65%, #0000 100%);
   mask-size: 100% 100%;
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;
