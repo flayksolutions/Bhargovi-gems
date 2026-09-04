@@ -14,7 +14,11 @@
 .list {
   display: flex;
   align-items: stretch;
-  gap: clamp(20px, 2.4vw, 40px);
+  /* `safe` keeps the first item reachable once the row overflows —
+     plain `center` would clip it off the scrollable start edge. */
+  justify-content: center;
+  justify-content: safe center;
+  gap: clamp(20px, 3vw, 52px);
   margin: 0 auto;
   padding: 0 var(--gutter);
   max-width: 1440px;
@@ -88,8 +92,18 @@
   transform: scaleX(1);
 }
 
+@media (max-width: 960px) {
+  .list {
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 640px) {
   .list {
     gap: 24px;
+  }
+
+  .link {
+    height: 60px;
   }
 }

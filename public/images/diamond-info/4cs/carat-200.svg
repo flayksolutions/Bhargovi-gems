@@ -1,0 +1,24 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame">
+<path id="Vector" d="M32 3.58L52.09 11.91L60.42 32L52.09 52.09L32 60.42L11.91 52.09L3.58 32L11.91 11.91L32 3.58Z" fill="#D9EAFB" fill-opacity="0.55" stroke="#0A42AC" stroke-width="1.792" stroke-linejoin="round"/>
+<g id="Group" opacity="0.55">
+<path id="Vector_2" d="M32 3.58L36.78 20.45" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_3" d="M32 3.58L27.22 20.45" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_4" d="M52.09 11.91L43.55 27.22" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_5" d="M52.09 11.91L36.78 20.45" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_6" d="M60.42 32L43.55 36.78" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_7" d="M60.42 32L43.55 27.22" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_8" d="M52.09 52.09L36.78 43.55" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_9" d="M52.09 52.09L43.55 36.78" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_10" d="M32 60.42L27.22 43.55" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_11" d="M32 60.42L36.78 43.55" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_12" d="M11.91 52.09L20.45 36.78" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_13" d="M11.91 52.09L27.22 43.55" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_14" d="M3.58 32L20.45 27.22" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_15" d="M3.58 32L20.45 36.78" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_16" d="M11.91 11.91L27.22 20.45" stroke="#0A42AC" stroke-width="1.1648"/>
+<path id="Vector_17" d="M11.91 11.91L20.45 27.22" stroke="#0A42AC" stroke-width="1.1648"/>
+</g>
+<path id="Vector_18" d="M36.78 20.45L43.55 27.22V36.78L36.78 43.55H27.22L20.45 36.78V27.22L27.22 20.45H36.78Z" fill="white" fill-opacity="0.85" stroke="#0A42AC" stroke-width="1.792" stroke-linejoin="round"/>
+</g>
+</svg>

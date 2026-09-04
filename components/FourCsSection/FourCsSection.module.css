@@ -1,51 +1,54 @@
 /* ==================================================================
-   THE FOUR CS — sticky-feeling intro column + four scale rows
+   THE FOUR C'S — 2×2 hairline grid, one illustrated card per C
    ================================================================== */
 
 .section {
+  position: relative;
   background: var(--paper);
-  padding: clamp(72px, 10vh, 120px) var(--gutter);
+  padding: clamp(56px, 7vw, 80px) var(--gutter) clamp(56px, 7vw, 80px);
   scroll-margin-top: 96px;
 }
 
 .inner {
-  max-width: 1360px;
+  max-width: 1240px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 100px);
-  align-items: start;
 }
 
+/* ---------------------------- header ----------------------------- */
+
 .head {
-  position: sticky;
-  top: 140px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 368px);
+  align-items: end;
+  gap: clamp(24px, 4vw, 64px);
+  margin-bottom: clamp(32px, 4.4vw, 42px);
 }
 
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin: 0 0 20px;
+  gap: 12px;
+  margin: 0 0 10px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.19em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--azure);
 }
 
 .rule {
-  width: 28px;
+  flex: none;
+  width: 26px;
   height: 1px;
   background: var(--azure);
 }
 
 .title {
-  margin: 0 0 20px;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.14;
+  line-height: 1.16;
 }
 
 .title span {
@@ -53,208 +56,307 @@
 }
 
 .title span:first-child {
-  font-size: clamp(30px, 3vw, 46px);
-  color: var(--ink-deep);
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--ink);
 }
 
 .titleAccent {
-  font-family: "Prata", var(--font-display), serif;
-  font-size: clamp(22px, 2.2vw, 34px);
-  color: #1b4c96;
+  font-size: clamp(22px, 2.4vw, 34px);
+  color: var(--sapphire);
 }
 
 .body {
   margin: 0;
-  max-width: 32ch;
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.75;
-  color: #3a4456;
+  font-size: clamp(14px, 1vw, 15.5px);
+  line-height: 1.68;
+  color: var(--text-muted);
+  text-wrap: pretty;
 }
 
-/* ---------------------------- rows -------------------------------- */
+/* ---------------------------- grid ------------------------------- */
 
-.rows {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* One hairline shared between neighbours: the container draws top +
+     left, each card draws right + bottom. */
+  border-top: 1px solid rgba(37, 100, 202, 0.16);
+  border-left: 1px solid rgba(37, 100, 202, 0.16);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(24px, 3vw, 38px) clamp(22px, 2.9vw, 42px);
+  border-right: 1px solid rgba(37, 100, 202, 0.16);
+  border-bottom: 1px solid rgba(37, 100, 202, 0.16);
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.cardNumber {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--azure);
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.caption {
+  margin: 4px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* The graphic takes the slack so every card's note sits on the
+   same baseline within its row. */
+.graphic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  min-width: 0;
+  padding: clamp(20px, 2.6vw, 34px) 0 clamp(18px, 2.2vw, 28px);
+}
+
+/* ------------------------- 01 · cut scale ------------------------ */
+
+.diagram {
+  display: block;
+  width: min(220px, 62%);
+  height: auto;
+  margin: 0 auto clamp(14px, 2vw, 26px);
+}
+
+.scaleTrack {
+  position: relative;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    rgba(37, 100, 202, 0.34),
+    rgba(37, 100, 202, 0.04)
+  );
+}
+
+.scaleFill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: calc(var(--fill) * 100%);
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--sapphire), var(--azure));
+}
+
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ------------------------- 02 · colour row ----------------------- */
+
+.gemRow,
+.loupeRow,
+.caratRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(8px, 1.4vw, 20px);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 44px minmax(0, 220px) minmax(0, 1fr);
-  align-items: start;
-  column-gap: clamp(20px, 3vw, 44px);
-  padding: clamp(24px, 3vh, 34px) 0;
-  border-top: 1px solid rgba(217, 217, 217, 0.95);
-}
-
-.row:first-child {
-  border-top: 1px solid #2564ca;
-}
-
-.number {
-  grid-column: 1;
-  padding-top: 4px;
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--azure);
-}
-
-.name {
-  grid-column: 2;
-  margin: -6px 0 0;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(22px, 2vw, 30px);
-  color: var(--ink-deep);
-}
-
-.description {
-  grid-column: 3;
-  margin: 0;
-  max-width: 30ch;
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.7;
-  color: #3a4456;
-}
-
-.scale {
-  grid-column: 1 / -1;
-  position: relative;
-  margin-top: 22px;
-  max-width: 420px;
-  margin-left: auto;
-}
-
-.segments {
-  display: flex;
-  gap: 5px;
-}
-
-.segmentCol {
-  flex: 1;
-  min-width: 0;
+.gem,
+.loupe {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
-.bar {
-  display: block;
-  width: 100%;
-  height: 9px;
-  border-radius: 1px;
-  background: var(--seg-color, #d9eafb);
-  opacity: 1;
-}
-
-.barDim {
-  opacity: 0.3;
-}
-
-.segmentCol:nth-child(1) .bar {
-  --seg-color: #0a42ac;
-}
-.segmentCol:nth-child(2) .bar {
-  --seg-color: #3e6cc0;
-}
-.segmentCol:nth-child(3) .bar {
-  --seg-color: #7296d3;
-}
-.segmentCol:nth-child(4) .bar {
-  --seg-color: #a5c0e7;
-}
-.segmentCol:nth-child(5) .bar {
-  --seg-color: #d9eafb;
-}
-
-.segmentLabel {
-  font-family: var(--font-body);
-  font-size: 10.5px;
-  font-weight: 500;
-  color: rgba(58, 68, 86, 0.85);
-  white-space: nowrap;
-}
-
-.segmentLabelDim {
-  color: rgba(58, 68, 86, 0.4);
-}
-
-.range {
+.gemDisc {
   position: relative;
   display: block;
-  margin-top: 14px;
-  width: calc(100% * var(--span, 1) / var(--count, 1));
-  height: 1px;
-  background: rgba(37, 100, 202, 0.75);
+  width: clamp(44px, 4.6vw, 64px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(37, 100, 202, 0.32);
 }
 
-.range::before,
-.range::after {
-  content: "";
+.gemPhoto {
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.gemTint {
   position: absolute;
-  top: -5px;
-  width: 1px;
-  height: 6px;
-  background: rgba(37, 100, 202, 0.75);
+  inset: 0;
+  background: var(--tint);
+  mix-blend-mode: multiply;
 }
 
-.range::before {
-  left: 0;
-}
-
-.range::after {
-  right: 0;
-}
-
-.callout {
-  margin: 10px 0 0;
+.itemLabel {
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
-  color: var(--azure);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  white-space: nowrap;
 }
 
-/* ---------------------------- responsive -------------------------- */
+/* ------------------------ 03 · clarity loupes -------------------- */
+
+.loupeIcon {
+  display: block;
+  width: clamp(40px, 4vw, 56px);
+  height: auto;
+}
+
+/* -------------------------- 04 · carat row ----------------------- */
+
+.caratRow {
+  position: relative;
+}
+
+/* Shared baseline the stones sit on — sits exactly at the foot of the
+   icons, which is `label height + gap` above the row's bottom edge. */
+.caratRow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  height: 1px;
+  background: rgba(37, 100, 202, 0.18);
+}
+
+.carat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.carat .itemLabel {
+  line-height: 14px;
+}
+
+.caratIcon {
+  display: block;
+  /* --s is the design px size at 1440; scales with the card. */
+  width: clamp(calc(var(--s) * 0.62px), calc(var(--s) * 0.07vw), calc(var(--s) * 1px));
+  height: auto;
+}
+
+/* ---------------------------- note ------------------------------- */
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0;
+  padding-top: clamp(14px, 1.8vw, 22px);
+  border-top: 1px solid rgba(37, 100, 202, 0.16);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.noteDot {
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--azure);
+}
+
+.noteAccent {
+  color: var(--azure);
+  font-weight: 600;
+}
+
+/* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 960px) {
-  .inner {
-    grid-template-columns: 1fr;
-  }
-
   .head {
-    position: static;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 18px;
   }
 
-  .row {
-    grid-template-columns: 32px 1fr;
-    row-gap: 8px;
+  .body {
+    max-width: 56ch;
   }
 
-  .name {
-    grid-column: 2;
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .description {
-    grid-column: 2;
-    max-width: 100%;
-  }
-
-  .scale {
-    grid-column: 1 / -1;
-    max-width: 100%;
-    margin-left: 0;
+  .diagram {
+    width: min(220px, 74%);
   }
 }
 
-@media (max-width: 480px) {
-  .segmentLabel {
+@media (max-width: 640px) {
+  .gemRow,
+  .loupeRow,
+  .caratRow {
+    gap: 6px;
+  }
+
+  .gemDisc {
+    width: clamp(38px, 12vw, 56px);
+  }
+
+  .loupeIcon {
+    width: clamp(34px, 11vw, 50px);
+  }
+
+  .caratIcon {
+    width: clamp(calc(var(--s) * 0.5px), calc(var(--s) * 0.19vw), calc(var(--s) * 1px));
+  }
+
+  .itemLabel {
+    font-size: 10px;
+  }
+
+  .ticks {
     font-size: 9px;
   }
 }

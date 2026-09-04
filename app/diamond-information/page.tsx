@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
-import AboutHero from "@/components/AboutHero/AboutHero";
+import DiamondInfoHero from "@/components/DiamondInfoHero/DiamondInfoHero";
 import ChapterRail from "@/components/ChapterRail/ChapterRail";
 import FourCsSection from "@/components/FourCsSection/FourCsSection";
 import ShapesCutsSection from "@/components/ShapesCutsSection/ShapesCutsSection";
 import LabGrownVsMinedSection from "@/components/LabGrownVsMinedSection/LabGrownVsMinedSection";
-import CertificationVerificationSection from "@/components/CertificationVerificationSection/CertificationVerificationSection";
-import RoughToPolishedSection from "@/components/RoughToPolishedSection/RoughToPolishedSection";
 import QualityStandardsSection from "@/components/QualityStandardsSection/QualityStandardsSection";
 import AnatomyGlossarySection from "@/components/AnatomyGlossarySection/AnatomyGlossarySection";
 import DiamondInfoFaqSection from "@/components/DiamondInfoFaqSection/DiamondInfoFaqSection";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
   anatomyGlossarySection,
-  certificationVerificationSection,
   chapterRailSection,
   diamondInfoFaqSection,
   diamondInfoHeroSection,
@@ -21,7 +18,6 @@ import {
   fourCsSection,
   labGrownVsMinedSection,
   qualityStandardsSection,
-  roughToPolishedSection,
   shapesCutsSection,
   site,
 } from "@/lib/content";
@@ -39,13 +35,11 @@ export default function DiamondInformationPage() {
 
       <main>
         <div className="scroll-stack">
-          <AboutHero {...diamondInfoHeroSection} />
+          <DiamondInfoHero {...diamondInfoHeroSection} />
           <ChapterRail {...chapterRailSection} />
           <FourCsSection {...fourCsSection} />
           <ShapesCutsSection {...shapesCutsSection} />
           <LabGrownVsMinedSection {...labGrownVsMinedSection} />
-          <CertificationVerificationSection {...certificationVerificationSection} />
-          <RoughToPolishedSection {...roughToPolishedSection} />
           <QualityStandardsSection {...qualityStandardsSection} />
           <AnatomyGlossarySection {...anatomyGlossarySection} />
           <DiamondInfoFaqSection {...diamondInfoFaqSection} />

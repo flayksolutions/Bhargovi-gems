@@ -1,180 +1,264 @@
 /* ==================================================================
-   LAB-GROWN VS MINED — two comparison cards
+   LAB-GROWN VS MINED — two chamfered panels over a workshop plate
    ================================================================== */
 
 .section {
-  background: var(--paper);
-  padding: clamp(72px, 10vh, 120px) var(--gutter);
+  position: relative;
+  padding: clamp(64px, 8vw, 95px) var(--gutter) clamp(48px, 6vw, 64px);
+  background: var(--navy-deep);
+  overflow: clip;
+  isolation: isolate;
   scroll-margin-top: 96px;
 }
 
+.plate {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.image {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 9, 32, 0.92) 0%,
+      rgba(2, 9, 32, 0.8) 34%,
+      rgba(2, 9, 32, 0.86) 100%
+    );
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---------------------------- header ----------------------------- */
+
 .head {
-  margin: 0 auto clamp(36px, 5vh, 56px);
-  max-width: 880px;
   text-align: center;
 }
 
 .eyebrow {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 14px;
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.19em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--azure);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .rule {
+  flex: none;
   width: 28px;
   height: 1px;
-  background: var(--azure);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .title {
-  margin: 0 0 16px;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(28px, 3vw, 46px);
-  color: var(--ink-deep);
-  text-wrap: balance;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.2;
+  color: #fff;
 }
 
 .body {
-  margin: 0;
+  margin: 14px auto 0;
+  max-width: 68ch;
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.75;
-  color: #3a4456;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  text-wrap: pretty;
 }
 
-/* ---------------------------- cards -------------------------------- */
+/* ---------------------------- table ------------------------------ */
 
-.cards {
-  --cn: clamp(28px, 3.4vw, 44px);
-  max-width: 1360px;
-  margin: 0 auto;
+.table {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 24px);
+  margin-top: clamp(34px, 4.6vw, 56px);
 }
 
-.card {
-  position: relative;
-  padding: clamp(28px, 3.2vw, 40px) clamp(24px, 3.4vw, 44px);
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   background: #f7fbff;
-  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, var(--cn) 100%, 0 calc(100% - var(--cn)));
+  /* Chamfer the outer top-right corner of the pair. */
+  clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 0 100%);
 }
 
-.cardEmphasis {
-  background: radial-gradient(120% 120% at 92% 0%, #213662 0%, #11224b 30%, #081740 45%, #000d34 60%);
+.columnEmphasis {
+  background: #002185;
+  /* …and the outer bottom-left corner of the pair. */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 48px 100%, 0 calc(100% - 48px));
+}
+
+/* --- column head --- */
+
+.columnHead {
+  padding: clamp(20px, 2.6vw, 28px) clamp(22px, 3vw, 44px) clamp(18px, 2.4vw, 26px);
 }
 
 .tag {
   display: inline-block;
-  padding: 7px 12px;
-  border-radius: 2px;
-  background: rgba(217, 217, 217, 0.5);
+  padding: 5px 12px;
+  background: rgba(37, 100, 202, 0.1);
   font-family: var(--font-body);
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: #3a4456;
+  color: var(--sapphire);
 }
 
-.cardEmphasis .tag {
-  background: var(--azure);
-  color: #fff;
+.columnEmphasis .tag {
+  background: rgba(255, 255, 255, 0.86);
+  color: #002185;
 }
 
-.cardTitle {
-  margin: 22px 0 0;
+.columnTitle {
+  margin: clamp(22px, 3vw, 34px) 0 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(22px, 2vw, 30px);
-  color: var(--ink-deep);
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.2;
+  color: var(--ink);
 }
 
-.cardEmphasis .cardTitle {
+.columnEmphasis .columnTitle {
   color: #fff;
 }
 
 .subtitle {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13.5px;
   color: var(--azure);
 }
 
-.cardEmphasis .subtitle {
-  color: rgba(174, 203, 242, 0.9);
+.columnEmphasis .subtitle {
+  color: rgba(255, 255, 255, 0.66);
 }
 
-.divider {
-  display: block;
-  margin: 22px 0;
-  height: 1px;
-  background: #d9d9d9;
-}
+/* --- rows --- */
 
-.cardEmphasis .divider {
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.bullets {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.rows {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  flex: 1;
+  margin: 0;
 }
 
-.bullets li {
+.row {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-height: 76px;
+  padding: 14px clamp(22px, 3vw, 44px);
+  border-top: 1px solid rgba(37, 100, 202, 0.14);
+}
+
+.columnEmphasis .row {
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+.rowLabel {
+  margin: 0;
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.5;
-  color: #3a4456;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azure);
 }
 
-.cardEmphasis .bullets li {
-  color: rgba(255, 255, 255, 0.72);
+.columnEmphasis .rowLabel {
+  color: rgba(174, 203, 242, 0.86);
 }
 
+.rowValue {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 15.5px);
+  line-height: 1.55;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.columnEmphasis .rowValue {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+/* Small rotated square standing in for the brand monogram. */
 .glyph {
   flex: none;
-  margin-top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  position: relative;
+  top: -1px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
   background: var(--azure);
 }
 
-.cardEmphasis .glyph {
-  background: #7fa9e3;
+.columnEmphasis .glyph {
+  background: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
+
+/* ---------------------------- disclaimer ------------------------- */
 
 .disclaimer {
-  max-width: 920px;
-  margin: clamp(28px, 4vh, 44px) auto 0;
+  margin: clamp(24px, 3vw, 40px) auto 0;
+  max-width: 92ch;
   text-align: center;
   font-family: var(--font-body);
-  font-size: 13px;
-  color: rgba(58, 68, 86, 0.7);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  text-wrap: pretty;
 }
 
-/* ---------------------------- responsive -------------------------- */
+/* ---------------------------- responsive ------------------------- */
 
-@media (max-width: 860px) {
-  .cards {
-    grid-template-columns: 1fr;
+@media (max-width: 960px) {
+  .table {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Stacked: only the outer corners of the pair stay chamfered. */
+  .column:first-child {
+    clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%);
+  }
+
+  .column:last-child {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 36px 100%, 0 calc(100% - 36px));
+  }
+
+  .row {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .rowValue {
+    font-size: 14px;
   }
 }
