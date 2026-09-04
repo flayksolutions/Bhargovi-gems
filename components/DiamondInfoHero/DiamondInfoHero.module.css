@@ -4,7 +4,11 @@
    ================================================================== */
 
 .hero {
+  /* z-index must clear the footer's sticky z-index:0 layer, or the
+     footer (pinned to the viewport bottom from scroll 0) paints over
+     the lower part of the hero instead of staying hidden behind it. */
   position: relative;
+  z-index: 1;
   min-height: clamp(460px, 60vh, 644px);
   display: flex;
   align-items: center;

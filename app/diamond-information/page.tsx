@@ -34,8 +34,9 @@ export default function DiamondInformationPage() {
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
 
       <main>
+        <DiamondInfoHero {...diamondInfoHeroSection} />
+
         <div className="scroll-stack">
-          <DiamondInfoHero {...diamondInfoHeroSection} />
           <ChapterRail {...chapterRailSection} />
           <FourCsSection {...fourCsSection} />
           <ShapesCutsSection {...shapesCutsSection} />
