@@ -1,0 +1,129 @@
+/* ==================================================================
+   CONTACT HERO — compact navy banner, gradient + a single glow blob.
+   No photography yet: pinned like the main Hero so the form section
+   slides up and over it, same reveal pattern used site-wide.
+   ================================================================== */
+
+.hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  min-height: clamp(420px, 58vh, 580px);
+  padding: var(--header-h) var(--gutter) 0;
+
+  background: linear-gradient(100deg, #0f1729 0%, #000d34 100%);
+}
+
+/* ---------------------------- glow -------------------------------- */
+
+.glow {
+  position: absolute;
+  top: clamp(-260px, -22vw, -140px);
+  right: clamp(-220px, -16vw, -80px);
+  width: clamp(360px, 34vw, 640px);
+  height: clamp(360px, 34vw, 640px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(127, 169, 227, 0.55) 0%,
+    rgba(37, 100, 202, 0.28) 42%,
+    rgba(15, 23, 41, 0) 72%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+/* ---------------------------- content ------------------------------ */
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(18px, 2.6vh, 24px);
+  max-width: 620px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #7fa9e3;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: 1.18;
+  color: #fff;
+}
+
+.line {
+  display: block;
+}
+
+.contactRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.contactLink {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1vw, 18px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 380ms var(--ease-soft);
+}
+
+.contactLink:hover {
+  color: #fff;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .hero {
+    min-height: clamp(360px, 66vh, 520px);
+  }
+
+  .title {
+    font-size: clamp(30px, 8vw, 44px);
+  }
+}
+
+@media (max-width: 640px) {
+  .contactRow {
+    gap: 10px;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .contactRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1522,3 +1522,77 @@ export const processSection = {
     }
   ] satisfies ProcessStep[],
 };
+
+/* ------------------------------------------------------------------
+   Contact page (/contact)
+------------------------------------------------------------------- */
+
+export const contactHeroSection = {
+  eyebrow: "Get in Touch",
+  titleLines: ["We'd Love to Hear", "From You"],
+  phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
+  email: {
+    label: "bhargovigems4445@gmail.com",
+    href: "mailto:bhargovigems4445@gmail.com",
+  },
+};
+
+export type ContactFormField = {
+  id: string;
+  number: string;
+  label: string;
+  name: string;
+  type: "text" | "email" | "tel" | "textarea";
+  placeholder: string;
+};
+
+export const contactFormSection = {
+  eyebrow: "Send a Message",
+  title: "Tell Us What You're Looking For",
+  fields: [
+    {
+      id: "full-name",
+      number: "01",
+      label: "Full Name",
+      name: "fullName",
+      type: "text",
+      placeholder: "Jane Doe",
+    },
+    {
+      id: "company-name",
+      number: "02",
+      label: "Company Name",
+      name: "companyName",
+      type: "text",
+      placeholder: "Doe Jewellery Co.",
+    },
+    {
+      id: "email-address",
+      number: "03",
+      label: "Email Address",
+      name: "email",
+      type: "email",
+      placeholder: "jane@company.com",
+    },
+    {
+      id: "phone-number",
+      number: "04",
+      label: "Phone Number",
+      name: "phone",
+      type: "tel",
+      placeholder: "+1 (000) 000-0000",
+    },
+    {
+      id: "message",
+      number: "05",
+      label: "Tell Us What You Need",
+      name: "message",
+      type: "textarea",
+      placeholder: "Volume, specifications, timeline, or partnership details…",
+    },
+  ] satisfies ContactFormField[],
+  submit: { label: "Submit Enquiry" },
+  note: "Confidential enquiry · We respond within one business day",
+  image: "/images/contact-form-tray.png",
+  alt: "Loose polished diamonds scattered across a jewellery tray",
+};

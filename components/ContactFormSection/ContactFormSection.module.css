@@ -1,0 +1,259 @@
+/* ==================================================================
+   SEND US A MESSAGE — form card on the left, a full-bleed photograph
+   pinned to the right edge of the viewport (never the content column).
+   ================================================================== */
+
+.section {
+  --v-pad-bottom: clamp(96px, 15vh, 180px);
+  /* The plate's own rendered height at 60vw wide, given its real
+     3186:3083 aspect ratio — independent of its `right` offset, which
+     only shifts it horizontally. */
+  --plate-h: calc(60vw * 3083 / 3186);
+
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: #f7fbff;
+  padding-top: 0;
+  padding-bottom: var(--v-pad-bottom);
+  /* At least tall enough for the plate plus its own bottom padding —
+     otherwise `overflow: clip` above crops the plate top and bottom
+     whenever the viewport is short relative to how wide (and
+     therefore tall) 60vw makes it. */
+  min-height: max(
+    clamp(560px, 82vh, 900px),
+    calc(var(--plate-h) + var(--v-pad-bottom))
+  );
+  display: flex;
+  align-items: center;
+}
+
+/* ---------------------------- plate -------------------------------
+   Sized in vw, not px/%, so it stays proportional to the viewport.
+   `right: -27%` deliberately bleeds a fifth of it off the edge — the
+   section's own min-height (above) still grows to match its full
+   height, so nothing gets cropped top-to-bottom, only the intentional
+   right-edge bleed gets clipped by the section's `overflow: clip`. */
+
+.plate {
+  position: absolute;
+  top: 50%;
+  right: -27%;
+  z-index: 0;
+  width: 60vw;
+  aspect-ratio: 3186 / 3083;
+  transform: translateY(-50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.plateImage {
+  object-fit: cover;
+}
+
+/* ---------------------------- card --------------------------------- */
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 780px;
+  margin-left: calc(var(--gutter) * 2);
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vh, 48px);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1.2;
+  color: #12151c;
+  text-wrap: balance;
+}
+
+/* ---------------------------- form ---------------------------------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 4.4vh, 48px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(28px, 4vw, 60px);
+  row-gap: clamp(26px, 3.6vh, 36px);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fieldNumber {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--azure);
+}
+
+.fieldLabelText {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a4456;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0 0 clamp(12px, 1.6vh, 16px);
+  border: 0;
+  border-bottom: 1px solid rgba(18, 21, 28, 0.15);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: #12151c;
+  transition: border-color 320ms var(--ease-soft);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(58, 68, 86, 0.55);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-bottom-color: var(--azure);
+}
+
+.textarea {
+  resize: none;
+  min-height: 1.6em;
+}
+
+/* ---------------------------- submit ---------------------------------- */
+
+.submitRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.submit {
+  --cn: var(--notch-sm);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+
+  background: var(--azure);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+  transition: background 380ms var(--ease-soft);
+}
+
+.submit:hover {
+  background: var(--sapphire);
+}
+
+.note {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(58, 68, 86, 0.8);
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .section {
+    flex-direction: column;
+    align-items: stretch;
+    padding-inline: calc(var(--gutter) * 1.4);
+    padding-bottom: clamp(48px, 8vh, 96px);
+    min-height: 0;
+  }
+
+  .plate {
+    position: relative;
+    top: auto;
+    right: -5%;
+    transform: none;
+    width: calc(100% + var(--gutter) * 2);
+    margin: 0 calc(var(--gutter) * -1) clamp(32px, 6vh, 48px);
+    /* Inherits the base rule's 3186/3083 aspect ratio — the image's
+       real proportions — instead of a mismatched 4:3 box that made
+       `object-fit: cover` crop the top and bottom to fill it. */
+  }
+
+  .card {
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+
+  .textarea {
+    min-height: 4.2em;
+  }
+}
