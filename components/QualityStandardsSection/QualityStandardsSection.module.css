@@ -20,9 +20,14 @@
   height: 640px;
   transform: translateX(50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 100, 202, 0.45) 0%, rgba(37, 100, 202, 0) 72%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 100, 202, 0.45) 0%,
+    rgba(37, 100, 202, 0) 72%
+  );
   filter: blur(100px);
   pointer-events: none;
+  opacity: 0.5;
 }
 
 .head {
@@ -92,7 +97,14 @@
   margin: 0 auto;
   overflow-x: auto;
   background: rgba(255, 255, 255, 0.05);
-  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, var(--cn) 100%, 0 calc(100% - var(--cn)));
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
 }
 
 .table {
@@ -182,7 +194,13 @@
   flex: none;
   padding: 15px 26px;
   background: var(--azure);
-  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    0 100%
+  );
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
