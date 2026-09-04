@@ -370,17 +370,24 @@ export const craftingSection = {
 ------------------------------------------------------------------- */
 
 export const aboutHeroSection = {
-  breadcrumb: [{ label: "Home", href: "/" }, { label: "About" }],
-  title: "A Family Legacy in Diamond Crafting Since 1994",
+  titleLines: ["A Family Legacy", "Since 1971"],
   body: "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.",
-  image: "/images/about/hero-diamonds.png",
-  alt: "A round brilliant diamond held in tweezers, scattered diamonds on a dark field",
+  image: "/images/about/hero-legacy.jpg",
+  alt: "A round brilliant diamond held in tweezers above a dark, sparkling surface",
+};
+
+export type SpecTableRow = {
+  id: string;
+  category: string;
+  /* One value per column after "Category", in column order. */
+  values: string[];
 };
 
 export const legacySection = {
   eyebrow: "About Us",
-  title: "Your Trusted Diamond Manufacturer Since 1994",
-  body: "At Bhargovi Gems, diamonds are more than what we manufacture — they are a craft we have refined over decades. With in-house cutting and polishing capabilities and a strong focus on precision, consistency and quality, we bring generations of diamond expertise into every stone we create.",
+  /* Split so the trailing clause can carry the accent colour. */
+  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1971" },
+  body: "With in-house cutting and polishing facilities and an extensive inventory, Bhargovi Gems caters to the growing needs of jewellery manufacturers and retail brands across India and abroad.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
      interlock exactly the way they were designed, no matter how the
@@ -415,13 +422,93 @@ export const legacySection = {
       height: 40.32,
     },
   ],
-  features: [
-    "30+ Years of Diamond",
-    "Manufacturing Expertise",
-    "In-house Cutting & Polishing",
-    "Precision Across Shapes & Sizes",
-    "Quality-led Manufacturing",
-  ],
+  specTable: {
+    columns: ["Category", "Clarity Range", "Colour Range", "Size Range"],
+    rows: [
+      {
+        id: "round-brilliant",
+        category: "Round Brilliant",
+        values: ["VVS-VS", "D - E - F", "3 cents - 1.50 ct"],
+      },
+      {
+        id: "fancy-shapes",
+        category: "Fancy Shapes",
+        values: ["VVS", "D – F - F", "30 cents - 1 ct"],
+      },
+    ] satisfies SpecTableRow[],
+  },
+};
+
+export type WhyChooseUsItem = {
+  id: string;
+  icon: string;
+  title: string;
+  body: string;
+};
+
+export const whyChooseUsSection = {
+  eyebrow: "Held to a Higher Cut",
+  title: "Why Choose Us",
+  body: "A brilliant is read facet by facet. So is a supplier. These are the five we are judged on, and the five we will not trade away.",
+  /* Cut-out artwork with its own alpha — it bleeds off the left edge of
+     the viewport, so it must stay transparent, not a boxed photo. */
+  image: "/images/about/why-choose-us-ribbon.png",
+  alt: "A solitaire diamond ring threaded onto a knotted blue silk ribbon",
+  items: [
+    {
+      id: "budget",
+      icon: "/icons/about/budget.png",
+      title: "Easier on the Budget",
+      body: "Advances in growing technology put a larger, higher-grade stone within the same budget.",
+    },
+    {
+      id: "earth",
+      icon: "/icons/about/earth.png",
+      title: "Gentler on the Earth",
+      body: "Our process leaves natural ecosystem undisturbed nothing dug, nothing displaced, nothing drained.",
+    },
+    {
+      id: "purity",
+      icon: "/icons/about/purity.png",
+      title: "Purity as Standard",
+      body: "Each lab-grown rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine its ideal cutting plan.",
+    },
+    {
+      id: "conflict-free",
+      icon: "/icons/about/conflict-free.png",
+      title: "Guaranteed Conflict-Free",
+      body: "Chemically, physically and optically identical to an earth-mined diamond and, unlike one, guaranteed free of conflict.",
+    },
+  ] satisfies WhyChooseUsItem[],
+};
+
+export const founderNoteSection = {
+  eyebrow: "Our Founder",
+  title: {
+    lead: "A better way to bring ",
+    accent: "brilliance",
+    trail: " into the world.",
+  },
+  quote:
+    "When I founded Bhargovi Gems in 1971, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
+  name: "Bhagwanbhai Patel",
+  role: "Founder, Bhargovi Gems",
+  /* PLACEHOLDER — the Figma comp uses a watermarked Unsplash+ stock
+     portrait. Swap for the real founder photograph before launch. */
+  image: "/images/about/founder-portrait.jpg",
+  alt: "Portrait of the founder of Bhargovi Gems",
+};
+
+export const visionSection = {
+  eyebrow: "Our Vision",
+  title: {
+    lead: "Every stone we release should give back ",
+    accent: "more light than it was asked for",
+    trail: ".",
+  },
+  body: "Brilliance is not a grade on a certificate. It is what the light does when it leaves the table, and it is the only thing the customer ever really sees.",
+  image: "/images/about/vision-hands.jpg",
+  alt: "Several hands resting together on the trunk of an old tree",
 };
 
 export type Milestone = {

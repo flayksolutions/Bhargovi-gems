@@ -37,6 +37,8 @@
   --notch-sm: 12px;
   --header-h: clamp(62px, 5.4vw, 92px);
   --gutter: clamp(20px, 4.4vw, 72px);
+  /* Widest a section's content may run, measured inside the gutter. */
+  --content-max: 1360px;
 
 }
 

@@ -9,7 +9,7 @@ import FacilityCarousel from "@/components/archived-components/FacilityCarousel/
 import TestimonialsSection from "@/components/archived-components/TestimonialsSection/TestimonialsSection";
 import GlobalOfficesSection from "@/components/archived-components/GlobalOfficesSection/GlobalOfficesSection";
 import CraftingSection from "@/components/archived-components/CraftingSection/CraftingSection";
-import CertificationsSection from "@/components/CertificationsSection/CertificationsSection";
+import CertificationsSection from "@/components/archived-components/CertificationsSection/CertificationsSection";
 import SiteFooter from "@/components/archived-components/SiteFooter/SiteFooter";
 import {
   aboutSection,

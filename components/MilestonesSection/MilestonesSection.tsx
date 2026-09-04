@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import CrystalField from "../CrystalField/CrystalField";
 import styles from "./MilestonesSection.module.css";
 import type { Milestone } from "@/lib/content";
 
@@ -91,6 +92,8 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="milestones-title">
       <div className={styles.pin}>
+        <CrystalField />
+
         <header className={styles.head}>
           <p className={styles.eyebrow}>{eyebrow}</p>
           <h2 id="milestones-title" className={styles.title}>

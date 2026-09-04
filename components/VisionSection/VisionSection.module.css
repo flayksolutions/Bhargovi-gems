@@ -1,0 +1,139 @@
+/* ==================================================================
+   VISION — statement copy on the left, a half-width photograph pinned
+   to the right edge of the viewport with a single top-left chamfer,
+   over the same faceted crystal pattern as the founder note.
+
+   Comp (1440 × 804): copy 517 wide at x=103; image 720 × 610 running
+   from x=720 to the right edge, centred vertically.
+   ================================================================== */
+
+.section {
+  position: relative;
+  overflow: clip;
+  background: var(--paper);
+  /* No padding at all: the photograph reaches the right edge *and* the
+     section's top and bottom edges, so both insets live on the copy.
+     min-height keeps the section at the comp's stature now that the
+     image no longer sets the height through an aspect ratio. */
+  display: flex;
+  min-height: clamp(520px, 55.8vw, 804px);
+  padding: 100px 0;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: clamp(560px, 62.9vw, 906px);
+  transform: translateY(-50%);
+  background: url("/images/about/crystal-pattern.png") center / cover no-repeat;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 50%;
+  align-items: stretch;
+}
+
+/* ---------------------------- copy -------------------------------- */
+
+/* Right-aligned inside the left half so it lands 103px from the left
+   edge at the comp width and keeps a sane gutter below that. */
+.copy {
+  justify-self: end;
+  align-self: center;
+  /* The gutter is subtracted rather than added as padding so the copy's
+     own measure stays at the comp's 517px. */
+  width: min(517px, 100% - var(--gutter));
+  margin-right: clamp(24px, 6.9vw, 100px);
+  padding-block: clamp(48px, 9vh, 97px);
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-family: var(--font-body);
+  font-size: clamp(12px, 0.95vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.title {
+  margin: 0 0 clamp(18px, 2.6vh, 24px);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(30px, 3.35vw, 48px);
+  line-height: 1.17;
+  color: var(--ink-navy);
+  text-wrap: pretty;
+}
+
+.titleAccent {
+  color: #0049bc;
+}
+
+.body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.1vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #12151c;
+  text-wrap: pretty;
+}
+
+/* ---------------------------- figure ------------------------------ */
+
+.figure {
+  --cn: clamp(30px, 3.7vw, 53px);
+
+  position: relative;
+  margin: 0;
+  /* Stretched by the grid: the photograph runs the full height of the
+     section rather than sitting inset within it. */
+  height: 100%;
+  background: var(--ink-navy);
+  clip-path: polygon(var(--cn) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cn));
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 960px) {
+  .section {
+    /* Stacked, the copy no longer holds the section open on its own. */
+    min-height: 0;
+    padding-bottom: clamp(48px, 8vh, 72px);
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(32px, 5vh, 48px);
+  }
+
+  .copy {
+    justify-self: stretch;
+    width: auto;
+    margin-inline: var(--gutter);
+    padding-bottom: 0;
+  }
+
+  /* Back to an intrinsic height: there is no full-height column to
+     stretch against once the two stack. */
+  .figure {
+    height: auto;
+    aspect-ratio: 16 / 11;
+  }
+}

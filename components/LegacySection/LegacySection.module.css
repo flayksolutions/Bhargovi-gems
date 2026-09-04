@@ -1,23 +1,34 @@
 /* ==================================================================
-   LEGACY — collage of interlocking photos + feature list
+   LEGACY — interlocking photo collage on the left, intro copy and the
+   category spec table on the right, over the crystal watermark field.
+
+   Comp (1440): 100px / 80px padding, 520 collage + 80 gap + 646 copy,
+   bottom-aligned so the collage and the table share a baseline.
    ================================================================== */
 
 .section {
+  position: relative;
+  overflow: clip;
   background: var(--paper);
-  padding: 100px var(--gutter);
+  padding: clamp(64px, 10vh, 100px) var(--gutter);
 }
 
 .inner {
-  max-width: 1640px;
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 520fr) minmax(0, 630fr);
-  gap: clamp(48px, 8vw, 134px);
-  align-items: center;
+  grid-template-columns: minmax(0, 520fr) minmax(0, 646fr);
+  gap: clamp(40px, 5.6vw, 80px);
+  align-items: end;
 }
 
 /* ---------------------------- collage ----------------------------- */
 
+/* Pre-composited tiles: each PNG carries its own diagonal alpha cut, so
+   the three interlock exactly as designed at any scale. Offsets are the
+   % positions of the original 520 × 514.5 composition. */
 .collage {
   position: relative;
   width: 100%;
@@ -41,64 +52,149 @@
 .eyebrow {
   margin: 0 0 clamp(12px, 1.6vh, 18px);
   font-family: var(--font-body);
-  font-size: clamp(11px, 0.78vw, 13px);
+  font-size: clamp(12px, 0.95vw, 14px);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--azure);
 }
 
 .title {
-  margin: 0 0 clamp(16px, 2.2vh, 24px);
+  margin: 0 0 clamp(14px, 1.9vh, 18px);
+  max-width: 630px;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(26px, 2.75vw, 44px);
-  line-height: 1.16;
-  letter-spacing: 0.005em;
-  color: var(--ink-deep);
+  font-size: clamp(28px, 3.05vw, 44px);
+  line-height: 1.1;
+  color: #12151c;
   text-wrap: balance;
 }
 
+.titleAccent {
+  color: #0049bc;
+}
+
 .body {
-  margin: 0 0 clamp(24px, 3.4vh, 40px);
-  max-width: 52ch;
+  margin: 0 0 clamp(28px, 4vh, 40px);
+  max-width: 630px;
   font-family: var(--font-body);
-  font-size: clamp(15px, 1.15vw, 19px);
+  font-size: clamp(15px, 1.1vw, 16px);
   font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-muted);
+  line-height: 1.5;
+  color: rgba(18, 21, 28, 0.75);
   text-wrap: pretty;
 }
 
-.features {
-  list-style: none;
-  margin: 0;
+/* ---------------------------- spec table --------------------------- */
+
+.specTable {
+  --cn: clamp(20px, 2.4vw, 34px);
+
+  background: #f7fbff;
+  /* Top-right chamfer, the same cut the site uses on image frames. */
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    0 100%
+  );
+  /* The table itself scrolls rather than the page when the four columns
+     can no longer fit. */
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 460px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+/* Column boundaries from the comp: 188 / 345 / 498 of 646. */
+.th:nth-child(1) {
+  width: 29.1%;
+}
+
+.th:nth-child(2) {
+  width: 24.3%;
+}
+
+.th:nth-child(3) {
+  width: 23.7%;
+}
+
+.th:nth-child(4) {
+  width: 22.9%;
+}
+
+.th {
+  height: 56px;
   padding: 0;
-  max-width: 40ch;
-}
-
-.feature {
-  padding-block: clamp(10px, 1.4vh, 15px);
-  border-bottom: 1px solid var(--frost);
+  background: #e8f2ff;
   font-family: var(--font-body);
-  font-size: clamp(14px, 0.98vw, 16px);
-  font-weight: 400;
-  color: var(--ink-deep);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #666;
+  white-space: nowrap;
 }
 
-.feature:last-child {
-  border-bottom: none;
+.th:first-child,
+.category {
+  padding-left: 27px;
+}
+
+.category,
+.td {
+  height: 80px;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.table tbody tr + tr .category,
+.table tbody tr + tr .td {
+  border-top: 1px solid #d9eafb;
+}
+
+.category {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(15px, 1.18vw, 17px);
+  letter-spacing: -0.01em;
+  color: #0a42ac;
+}
+
+.td {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
 }
 
 /* ---------------------------- responsive -------------------------- */
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .inner {
     grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
+    gap: clamp(36px, 6vh, 56px);
   }
 
   .collage {
     max-width: 460px;
+  }
+
+  .th:first-child,
+  .category {
+    padding-left: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .category,
+  .td {
+    height: 68px;
   }
 }
