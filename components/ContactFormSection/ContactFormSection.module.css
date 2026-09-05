@@ -192,7 +192,7 @@
   letter-spacing: 0.02em;
   color: #fff;
 
-  background: var(--azure);
+  background: var(--sapphire);
   clip-path: polygon(
     0 0,
     calc(100% - var(--cn)) 0,
@@ -205,7 +205,7 @@
 }
 
 .submit:hover {
-  background: var(--sapphire);
+  background: var(--ink);
 }
 
 .note {
