@@ -81,7 +81,7 @@ export default function LabGrownVsMinedSection({
                     <dd className={styles.rowValue}>
                       {column.emphasis ? (
                         <Image
-                          src="/brand/monogram.svg"
+                          src="/brand/secondary-logo.svg"
                           alt=""
                           aria-hidden="true"
                           width={16}
