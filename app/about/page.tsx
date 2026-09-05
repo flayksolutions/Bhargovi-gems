@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import AboutHero from "@/components/AboutHero/AboutHero";
 import LegacySection from "@/components/LegacySection/LegacySection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection/WhyChooseUsSection";
+import FounderNoteSection from "@/components/FounderNoteSection/FounderNoteSection";
 import MilestonesSection from "@/components/MilestonesSection/MilestonesSection";
-import FacilitiesSection from "@/components/FacilitiesSection/FacilitiesSection";
-import ValuesSection from "@/components/ValuesSection/ValuesSection";
-import CertificationsSection from "@/components/CertificationsSection/CertificationsSection";
+import VisionSection from "@/components/VisionSection/VisionSection";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
-  aboutValuesSection,
   aboutHeroSection,
-  certificationsSection,
-  facilitiesPageSection,
   footer,
+  founderNoteSection,
   legacySection,
   milestonesSection,
   site,
+  visionSection,
+  whyChooseUsSection,
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -31,11 +31,14 @@ export default function AboutPage() {
 
       <main>
         <AboutHero {...aboutHeroSection} />
-        <LegacySection {...legacySection} />
-        <MilestonesSection {...milestonesSection} />
-        <FacilitiesSection {...facilitiesPageSection} />
-        <ValuesSection {...aboutValuesSection} />
-        <CertificationsSection {...certificationsSection} />
+
+        <div className="scroll-stack">
+          <LegacySection {...legacySection} />
+          <WhyChooseUsSection {...whyChooseUsSection} />
+          <FounderNoteSection {...founderNoteSection} />
+          <MilestonesSection {...milestonesSection} />
+          <VisionSection {...visionSection} />
+        </div>
       </main>
 
       <SiteFooter brand={site.brand} {...footer} />

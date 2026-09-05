@@ -1,0 +1,157 @@
+/* ==================================================================
+   DIAMOND INFORMATION HERO — full-bleed plate, breadcrumb + two-line
+   display headline, copy held to the left third over a dark scrim.
+   ================================================================== */
+
+.hero {
+  /* z-index must clear the footer's sticky z-index:0 layer, or the
+     footer (pinned to the viewport bottom from scroll 0) paints over
+     the lower part of the hero instead of staying hidden behind it. */
+  position: relative;
+  z-index: 1;
+  min-height: clamp(460px, 60vh, 644px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--ink-navy);
+  isolation: isolate;
+}
+
+.plate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.image {
+  object-fit: cover;
+  /* Keeps the stone + branch cluster in frame as the viewport narrows. */
+  object-position: 72% 50%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(4, 14, 38, 0.9) 0%,
+      rgba(4, 14, 38, 0.72) 26%,
+      rgba(4, 14, 38, 0.32) 50%,
+      rgba(4, 14, 38, 0) 72%
+    ),
+    linear-gradient(to top, rgba(4, 14, 38, 0.6), rgba(4, 14, 38, 0) 46%);
+}
+
+/* ---------------------------- content ---------------------------- */
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(64px, 12vh, 128px) var(--gutter) clamp(52px, 10vh, 108px);
+}
+
+.breadcrumb {
+  margin-bottom: clamp(18px, 2.4vh, 30px);
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.crumbItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crumbLink {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 320ms var(--ease-soft);
+}
+
+.crumbLink:hover {
+  color: #fff;
+}
+
+.crumbCurrent {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.crumbSep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.title {
+  margin: 0 0 clamp(20px, 3vh, 32px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.1vw, 56px);
+  line-height: 1.14;
+  letter-spacing: 0.004em;
+  color: #fff;
+}
+
+.title span {
+  display: block;
+}
+
+.body {
+  margin: 0;
+  max-width: 52ch;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 16.5px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.76);
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .image {
+    object-position: 68% 46%;
+  }
+
+  .scrim {
+    background:
+      linear-gradient(
+        100deg,
+        rgba(4, 14, 38, 0.92) 0%,
+        rgba(4, 14, 38, 0.78) 46%,
+        rgba(4, 14, 38, 0.42) 100%
+      ),
+      linear-gradient(to top, rgba(4, 14, 38, 0.66), rgba(4, 14, 38, 0) 52%);
+  }
+
+  .title {
+    font-size: clamp(28px, 5.4vw, 42px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .title {
+    font-size: clamp(26px, 7.6vw, 36px);
+  }
+
+  .body {
+    max-width: 100%;
+    font-size: 14px;
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./DiamondInfoFaqSection.module.css";
 import type { FAQItem } from "@/lib/content";
 
@@ -10,6 +11,7 @@ type Props = {
   titleLines: string[];
   body: string;
   panelLabel: string;
+  background: string;
   items: FAQItem[];
 };
 
@@ -19,6 +21,7 @@ export default function DiamondInfoFaqSection({
   titleLines,
   body,
   panelLabel,
+  background,
   items,
 }: Props) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
@@ -26,6 +29,10 @@ export default function DiamondInfoFaqSection({
   return (
     <section id={id} className={styles.section} aria-labelledby="faq-title">
       <span className={styles.glow} aria-hidden="true" />
+
+      <div className={styles.plate} aria-hidden="true">
+        <Image src={background} alt="" fill sizes="(max-width: 960px) 60vw, 40vw" className={styles.plateImage} />
+      </div>
 
       <div className={styles.inner}>
         <header className={styles.head}>

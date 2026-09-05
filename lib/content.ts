@@ -370,17 +370,24 @@ export const craftingSection = {
 ------------------------------------------------------------------- */
 
 export const aboutHeroSection = {
-  breadcrumb: [{ label: "Home", href: "/" }, { label: "About" }],
-  title: "A Family Legacy in Diamond Crafting Since 1994",
+  titleLines: ["A Family Legacy", "Since 1971"],
   body: "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.",
-  image: "/images/about/hero-diamonds.png",
-  alt: "A round brilliant diamond held in tweezers, scattered diamonds on a dark field",
+  image: "/images/about/hero-legacy.jpg",
+  alt: "A round brilliant diamond held in tweezers above a dark, sparkling surface",
+};
+
+export type SpecTableRow = {
+  id: string;
+  category: string;
+  /* One value per column after "Category", in column order. */
+  values: string[];
 };
 
 export const legacySection = {
   eyebrow: "About Us",
-  title: "Your Trusted Diamond Manufacturer Since 1994",
-  body: "At Bhargovi Gems, diamonds are more than what we manufacture — they are a craft we have refined over decades. With in-house cutting and polishing capabilities and a strong focus on precision, consistency and quality, we bring generations of diamond expertise into every stone we create.",
+  /* Split so the trailing clause can carry the accent colour. */
+  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1971" },
+  body: "With in-house cutting and polishing facilities and an extensive inventory, Bhargovi Gems caters to the growing needs of jewellery manufacturers and retail brands across India and abroad.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
      interlock exactly the way they were designed, no matter how the
@@ -415,13 +422,93 @@ export const legacySection = {
       height: 40.32,
     },
   ],
-  features: [
-    "30+ Years of Diamond",
-    "Manufacturing Expertise",
-    "In-house Cutting & Polishing",
-    "Precision Across Shapes & Sizes",
-    "Quality-led Manufacturing",
-  ],
+  specTable: {
+    columns: ["Category", "Clarity Range", "Colour Range", "Size Range"],
+    rows: [
+      {
+        id: "round-brilliant",
+        category: "Round Brilliant",
+        values: ["VVS-VS", "D - E - F", "3 cents - 1.50 ct"],
+      },
+      {
+        id: "fancy-shapes",
+        category: "Fancy Shapes",
+        values: ["VVS", "D – F - F", "30 cents - 1 ct"],
+      },
+    ] satisfies SpecTableRow[],
+  },
+};
+
+export type WhyChooseUsItem = {
+  id: string;
+  icon: string;
+  title: string;
+  body: string;
+};
+
+export const whyChooseUsSection = {
+  eyebrow: "Held to a Higher Cut",
+  title: "Why Choose Us",
+  body: "A brilliant is read facet by facet. So is a supplier. These are the five we are judged on, and the five we will not trade away.",
+  /* Cut-out artwork with its own alpha — it bleeds off the left edge of
+     the viewport, so it must stay transparent, not a boxed photo. */
+  image: "/images/about/why-choose-us-ribbon.png",
+  alt: "A solitaire diamond ring threaded onto a knotted blue silk ribbon",
+  items: [
+    {
+      id: "budget",
+      icon: "/icons/about/budget.png",
+      title: "Easier on the Budget",
+      body: "Advances in growing technology put a larger, higher-grade stone within the same budget.",
+    },
+    {
+      id: "earth",
+      icon: "/icons/about/earth.png",
+      title: "Gentler on the Earth",
+      body: "Our process leaves natural ecosystem undisturbed nothing dug, nothing displaced, nothing drained.",
+    },
+    {
+      id: "purity",
+      icon: "/icons/about/purity.png",
+      title: "Purity as Standard",
+      body: "Each lab-grown rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine its ideal cutting plan.",
+    },
+    {
+      id: "conflict-free",
+      icon: "/icons/about/conflict-free.png",
+      title: "Guaranteed Conflict-Free",
+      body: "Chemically, physically and optically identical to an earth-mined diamond and, unlike one, guaranteed free of conflict.",
+    },
+  ] satisfies WhyChooseUsItem[],
+};
+
+export const founderNoteSection = {
+  eyebrow: "Our Founder",
+  title: {
+    lead: "A better way to bring ",
+    accent: "brilliance",
+    trail: " into the world.",
+  },
+  quote:
+    "When I founded Bhargovi Gems in 1971, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
+  name: "Bhagwanbhai Patel",
+  role: "Founder, Bhargovi Gems",
+  /* PLACEHOLDER — the Figma comp uses a watermarked Unsplash+ stock
+     portrait. Swap for the real founder photograph before launch. */
+  image: "/images/about/founder-portrait.jpg",
+  alt: "Portrait of the founder of Bhargovi Gems",
+};
+
+export const visionSection = {
+  eyebrow: "Our Vision",
+  title: {
+    lead: "Every stone we release should give back ",
+    accent: "more light than it was asked for",
+    trail: ".",
+  },
+  body: "Brilliance is not a grade on a certificate. It is what the light does when it leaves the table, and it is the only thing the customer ever really sees.",
+  image: "/images/about/vision-hands.jpg",
+  alt: "Several hands resting together on the trunk of an old tree",
 };
 
 export type Milestone = {
@@ -770,10 +857,10 @@ export const planetSection = {
 
 export const diamondInfoHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Diamond Information" }],
-  title: "Understanding Diamonds — The Complete Buyer's Guide",
-  body: "From the 4Cs to certification and our own quality standards — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
-  image: "/images/diamond-info/hero-diamonds.png",
-  alt: "Loose polished diamonds of varying cuts and colours scattered on a dark, sparkling surface",
+  titleLines: ["Understanding Diamonds", "The Complete Buyer's Guide"],
+  body: "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
+  image: "/images/diamond-info/hero-guide.jpg",
+  alt: "Round, pear, emerald and marquise cut diamonds resting on a moss-covered stone beside a bare branch",
 };
 
 export type Chapter = { id: string; number: string; label: string };
@@ -783,201 +870,262 @@ export const chapterRailSection = {
     { id: "the-4cs", number: "01", label: "The 4Cs" },
     { id: "shapes", number: "02", label: "Shapes" },
     { id: "lab-grown-vs-mined", number: "03", label: "Lab-Grown vs Mined" },
-    { id: "certification", number: "04", label: "Certification" },
-    { id: "our-process", number: "05", label: "Our Process" },
-    { id: "quality-standards", number: "06", label: "Quality Standards" },
-    { id: "glossary", number: "07", label: "Glossary" },
-    { id: "faqs", number: "08", label: "FAQs" },
+    { id: "glossary", number: "04", label: "Glossary" },
+    { id: "faqs", number: "05", label: "FAQs" },
   ] satisfies Chapter[],
 };
 
-export type FourCSegment = { label: string; strong?: boolean; dim?: boolean };
-export type FourCRow = {
+/* The note under each 4Cs card reads as one sentence with a single
+   emphasised range in the middle — `accent` is the part rendered blue. */
+export type FourCNote = { lead?: string; accent: string; trail?: string };
+
+export type FourCItem = {
+  id: string;
+  label: string;
+  /** loupe / carat cards: line-art SVG */
+  icon?: string;
+  /** colour card: warm overlay approximating body tone at that grade */
+  tint?: string;
+  /** carat card: rendered edge length at the 1440px reference width */
+  size?: number;
+};
+
+export type FourCCard = {
   id: string;
   number: string;
   name: string;
-  description: string;
-  segments: FourCSegment[];
-  rangeSpan: number;
-  callout: string;
+  caption: string;
+  /** which graphic the card renders — each has its own layout */
+  kind: "scale" | "gems" | "loupes" | "carats";
+  /** kind "scale" only */
+  diagram?: string;
+  ticks?: string[];
+  /** fraction of the scale track covered by the highlight (0–1) */
+  fill?: number;
+  /** kind "gems" only — one photo, re-tinted per grade */
+  photo?: string;
+  items?: FourCItem[];
+  note: FourCNote;
 };
 
 export const fourCsSection = {
   id: "the-4cs",
   eyebrow: "Diamond Education",
-  titleLines: ["The Four Cs", "of a Diamond"],
-  body: "Every stone we grade and export is assessed against the same four universal standards.",
-  rows: [
+  titleLines: ["The Four C’s", "of a Diamond"],
+  body: "Every stone we grade and export is assessed against these four universal standards.",
+  cards: [
     {
       id: "cut",
       number: "01",
       name: "Cut",
-      description: "How a diamond’s facets return light.",
-      segments: [
-        { label: "Excellent", strong: true },
-        { label: "Very Good", strong: true },
-        { label: "Good", dim: true },
-        { label: "Fair", dim: true },
-        { label: "Poor", dim: true },
-      ],
-      rangeSpan: 2,
-      callout: "We ship Excellent–Very Good only",
+      caption: "Facet brilliance",
+      kind: "scale",
+      diagram: "/images/diamond-info/4cs/cut-light-path.svg",
+      ticks: ["EX", "VG", "G", "F", "P"],
+      fill: 0.4,
+      note: { lead: "Ships", accent: "EX–VG", trail: "only" },
     },
     {
       id: "colour",
       number: "02",
       name: "Colour",
-      description: "Graded D (colourless) through Z (visible tint)",
-      segments: [
-        { label: "D", strong: true },
-        { label: "G", strong: true },
-        { label: "J", strong: true },
-        { label: "M", strong: true },
-        { label: "Z", dim: true },
+      caption: "Body tone, D→Z",
+      kind: "gems",
+      photo: "/images/shapes/round-brilliant.png",
+      items: [
+        { id: "d", label: "D", tint: "rgba(255, 255, 255, 0)" },
+        { id: "g", label: "G", tint: "rgba(246, 236, 196, 0.24)" },
+        { id: "j", label: "J", tint: "rgba(243, 228, 166, 0.44)" },
+        { id: "m", label: "M", tint: "rgba(238, 219, 148, 0.6)" },
+        { id: "z", label: "Z", tint: "rgba(233, 209, 120, 0.74)" },
       ],
-      rangeSpan: 4,
-      callout: "Standard supply range D–M",
+      note: { lead: "Standard range", accent: "D–M" },
     },
     {
       id: "clarity",
       number: "03",
       name: "Clarity",
-      description: "Graded at 10× magnification, from Flawless to Included.",
-      segments: [
-        { label: "FL", strong: true },
-        { label: "VVS", strong: true },
-        { label: "VS", strong: true },
-        { label: "SI", strong: true },
-        { label: "I1–I3", dim: true },
+      caption: "Inclusions, 10×",
+      kind: "loupes",
+      items: [
+        { id: "fl", label: "FL", icon: "/images/diamond-info/4cs/clarity-fl.svg" },
+        { id: "vvs", label: "VVS", icon: "/images/diamond-info/4cs/clarity-vvs.svg" },
+        { id: "vs", label: "VS", icon: "/images/diamond-info/4cs/clarity-vs.svg" },
+        { id: "si", label: "SI", icon: "/images/diamond-info/4cs/clarity-si.svg" },
+        { id: "i1-3", label: "I1–3", icon: "/images/diamond-info/4cs/clarity-i1-3.svg" },
       ],
-      rangeSpan: 4,
-      callout: "Certified goods IF–SI2",
+      note: { lead: "Certified", accent: "IF–SI2" },
     },
     {
       id: "carat",
       number: "04",
       name: "Carat",
-      description: "One carat = 200 mg. Price rises sharply with size.",
-      segments: [
-        { label: "0.25", strong: true },
-        { label: "0.50", strong: true },
-        { label: "1.00", strong: true },
-        { label: "1.50", strong: true },
-        { label: "2.00+", strong: true },
+      caption: "1ct = 200mg",
+      kind: "carats",
+      items: [
+        { id: "025", label: ".25", icon: "/images/diamond-info/4cs/carat-025.svg", size: 22 },
+        { id: "050", label: ".50", icon: "/images/diamond-info/4cs/carat-050.svg", size: 30 },
+        { id: "100", label: "1.00", icon: "/images/diamond-info/4cs/carat-100.svg", size: 40 },
+        { id: "150", label: "1.50", icon: "/images/diamond-info/4cs/carat-150.svg", size: 50 },
+        { id: "200", label: "2.00+", icon: "/images/diamond-info/4cs/carat-200.svg", size: 64 },
       ],
-      rangeSpan: 5,
-      callout: "Melee 0.005ct up to 3.00ct",
+      note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
     },
-  ] satisfies FourCRow[],
+  ] satisfies FourCCard[],
 };
 
-export type ShapeChip = {
+export type ShapeStat = { label: string; value: string };
+
+export type ShapeItem = {
   id: string;
   name: string;
-  facets: string;
-  icon: string;
+  /** transparent PNG used both in the dock and on the stage */
+  photo: string;
+  alt: string;
+  /** one line under the stage name */
+  caption: string;
   featured?: boolean;
   tag?: string;
-  caption?: string;
-  photo?: string;
-  photoAlt?: string;
+  /* Proportion bands quoted on our own grading sheets. Verify against the
+     current spec sheet before publishing changes to these numbers. */
+  stats: ShapeStat[];
 };
+
+const shapeStats = (table: string, depth: string): ShapeStat[] => [
+  { label: "Table %", value: table },
+  { label: "Depth %", value: depth },
+  { label: "Girdle", value: "Thin – Sl. Thick" },
+  { label: "Polish", value: "Ex / VG" },
+];
 
 export const shapesCutsSection = {
   id: "shapes",
   eyebrow: "Shapes We Cut",
-  titleLines: ["Ten Shapes,", "Cut & Polished In-House"],
-  body: "From the classic round brilliant to fancy silhouettes, every shape is planned, sawn, bruted and polished on our own floor",
+  titleLines: ["Twelve Shapes,", "Cut & Polished In-House"],
+  body: "From the classic round brilliant to fancy silhouettes, every shape is planned, sawn, bruted and polished on our own floor.",
   stageRings: {
     outer: "/images/diamond-info/stage-ring-outer.svg",
     inner: "/images/diamond-info/stage-ring-inner.svg",
   },
-  chips: [
+  shapes: [
     {
       id: "round",
-      name: "Round",
-      facets: "58 facets",
-      icon: "/images/diamond-info/shapes/round.svg",
+      name: "Round Brilliant",
+      photo: "/images/shapes/round-brilliant.png",
+      alt: "A round brilliant cut diamond viewed from the crown",
+      caption: "58 facets · the benchmark for light return",
       featured: true,
       tag: "Most Requested",
-      caption: "58 facets · the benchmark for light return",
-      photo: "/images/diamond-info/round-cut.png",
-      photoAlt: "A round brilliant cut diamond viewed from the crown",
+      stats: shapeStats("54 – 58", "59 – 63"),
     },
     {
       id: "princess",
       name: "Princess",
-      facets: "76 facets",
-      icon: "/images/diamond-info/shapes/princess.svg",
+      photo: "/images/shapes/princess.png",
+      alt: "A princess cut diamond viewed from above",
       caption: "76 facets · sharp, modern corners",
-      photo: "/images/diamond-info/princess-cut.png",
-      photoAlt: "A princess cut diamond viewed from above",
-    },
-    {
-      id: "oval",
-      name: "Oval",
-      facets: "58 facets",
-      icon: "/images/diamond-info/shapes/oval.svg",
+      stats: shapeStats("67 – 72", "64 – 75"),
     },
     {
       id: "emerald",
       name: "Emerald",
-      facets: "57 facets",
-      icon: "/images/diamond-info/shapes/emerald.svg",
+      photo: "/images/shapes/emerald.png",
+      alt: "An emerald cut diamond viewed from above",
       caption: "57 facets · step-cut, hall-of-mirrors effect",
-      photo: "/images/diamond-info/emerald-cut.png",
-      photoAlt: "An emerald cut diamond viewed from above",
+      stats: shapeStats("61 – 69", "61 – 67"),
+    },
+    {
+      id: "oval",
+      name: "Oval",
+      photo: "/images/shapes/oval.png",
+      alt: "An oval cut diamond viewed from above",
+      caption: "58 facets · elongated, finger-lengthening",
+      stats: shapeStats("53 – 63", "58 – 65"),
+    },
+    {
+      id: "pear",
+      name: "Pear",
+      photo: "/images/shapes/pear.png",
+      alt: "A pear cut diamond viewed from above",
+      caption: "58 facets · brilliance with a single point",
+      stats: shapeStats("53 – 65", "58 – 66"),
+    },
+    {
+      id: "heart",
+      name: "Heart",
+      photo: "/images/shapes/heart.png",
+      alt: "A heart cut diamond viewed from above",
+      caption: "59 facets · the most demanding outline to cut",
+      stats: shapeStats("53 – 63", "56 – 66"),
     },
     {
       id: "marquise",
       name: "Marquise",
-      facets: "58 facets",
-      icon: "/images/diamond-info/shapes/marquise.svg",
+      photo: "/images/shapes/marquise.png",
+      alt: "A marquise cut diamond viewed from above",
+      caption: "58 facets · maximum spread per carat",
+      stats: shapeStats("53 – 63", "58 – 66"),
     },
     {
-      id: "cushion",
-      name: "Cushion",
-      facets: "64 facets",
-      icon: "/images/diamond-info/shapes/cushion.svg",
-      caption: "64 facets · soft corners, pillowed brilliance",
-      photo: "/images/diamond-info/cushion-cut.png",
-      photoAlt: "A cushion cut diamond viewed from above",
+      id: "half-moon",
+      name: "Half Moon",
+      photo: "/images/shapes/half-moon.png",
+      alt: "A half moon cut diamond viewed from above",
+      caption: "16 facets · a side stone, cut in matched pairs",
+      stats: shapeStats("55 – 65", "55 – 68"),
     },
     {
-      id: "radiant",
-      name: "Radiant",
-      facets: "70 facets",
-      icon: "/images/diamond-info/shapes/radiant.svg",
+      id: "trillion",
+      name: "Trillion",
+      photo: "/images/shapes/trillian.png",
+      alt: "A trillion cut diamond viewed from above",
+      caption: "31 facets · triangular, shallow and bright",
+      stats: shapeStats("55 – 70", "32 – 44"),
     },
     {
-      id: "asscher",
-      name: "Asscher",
-      facets: "58 facets",
-      icon: "/images/diamond-info/shapes/asscher.svg",
+      id: "octagon",
+      name: "Octagon",
+      photo: "/images/shapes/octagon.png",
+      alt: "An octagon cut diamond viewed from above",
+      caption: "53 facets · step-cut with clipped corners",
+      stats: shapeStats("60 – 70", "60 – 70"),
     },
-  ] satisfies ShapeChip[],
+    {
+      id: "lozenge",
+      name: "Lozenge",
+      photo: "/images/shapes/lozenge.png",
+      alt: "A lozenge cut diamond viewed from above",
+      caption: "24 facets · a geometric accent stone",
+      stats: shapeStats("55 – 68", "35 – 48"),
+    },
+    {
+      id: "baguette",
+      name: "Baguette",
+      photo: "/images/shapes/baguette.png",
+      alt: "A baguette cut diamond viewed from above",
+      caption: "14 facets · clean steps for channel setting",
+      stats: shapeStats("60 – 72", "38 – 52"),
+    },
+  ] satisfies ShapeItem[],
   catalogueLink: { label: "View the full shape catalogue", href: "/products" },
 };
+
+export type ComparisonRow = { id: string; label: string; values: [string, string] };
 
 export const labGrownVsMinedSection = {
   id: "lab-grown-vs-mined",
   eyebrow: "Our Technology",
   title: "Grown in Weeks, Not Eons",
   body: "Buyers increasingly ask about origin. Here is how the two compare — and exactly where we stand.",
-  cards: [
+  background: "/images/diamond-info/lab-bench.jpg",
+  backgroundAlt: "",
+  columns: [
     {
       id: "lab-grown",
       tag: "Our Specialty",
       emphasis: true,
       title: "Lab-Grown Diamonds",
       subtitle: "HPHT & CVD · 100% of our output",
-      bullets: [
-        "Grown in three to ten weeks under HPHT or CVD conditions",
-        "Chemically, optically and physically identical to mined stone",
-        "Graded on the same universal 4Cs, by the same laboratories",
-        "Consistent supply, so repeat parcels stay true to spec",
-        "Every Bhargovi stone independently graded and certified",
-      ],
     },
     {
       id: "mined",
@@ -985,15 +1133,50 @@ export const labGrownVsMinedSection = {
       emphasis: false,
       title: "Mined (Natural) Diamonds",
       subtitle: "Not part of our current range",
-      bullets: [
-        "Formed one to three billion years ago in the earth’s mantle",
-        "Chemically identical, and graded on exactly the same 4Cs",
-        "Finite supply drives higher and more volatile price points",
-        "Origin traceability depends on chain-of-custody schemes",
-        "Supplied on request through partners, never in-house",
-      ],
     },
   ],
+  rows: [
+    {
+      id: "formation",
+      label: "Formation",
+      values: [
+        "Grown in 3–10 weeks under HPHT or CVD conditions",
+        "Formed 1–3 billion years ago in the earth’s mantle",
+      ],
+    },
+    {
+      id: "composition",
+      label: "Composition",
+      values: [
+        "Chemically, optically and physically identical to mined stone",
+        "Chemically identical — same crystal structure, same carbon",
+      ],
+    },
+    {
+      id: "grading",
+      label: "Grading",
+      values: [
+        "Graded on the same universal 4Cs, by the same laboratories",
+        "Graded on exactly the same 4Cs, by the same laboratories",
+      ],
+    },
+    {
+      id: "supply",
+      label: "Supply",
+      values: [
+        "Consistent supply, so repeat parcels stay true to spec",
+        "Finite supply drives higher, more volatile price points",
+      ],
+    },
+    {
+      id: "sourcing",
+      label: "Sourcing",
+      values: [
+        "Every Bhargovi stone graded, certified and supplied in-house",
+        "Traceability depends on partners’ chain-of-custody, not in-house",
+      ],
+    },
+  ] satisfies ComparisonRow[],
   disclaimer:
     "Bhargovi Gems manufactures lab-grown diamonds exclusively. This comparison is published for buyer education, not as a sales position.",
 };
@@ -1133,70 +1316,6 @@ export const roughToPolishedSection = {
   ] satisfies RoughStage[],
 };
 
-export type SpecRow = {
-  id: string;
-  category: string;
-  clarity: string;
-  colour: string;
-  size: string;
-  certification: string;
-  certified: boolean;
-};
-
-export const qualityStandardsSection = {
-  id: "quality-standards",
-  eyebrow: "Our Standards",
-  titleLines: ["What We Actually Ship", "by category"],
-  body: "The ranges we manufacture and supply as standard. This is where education becomes a sourcing decision — everything outside these bands is quoted case by case.",
-  columns: [
-    "Category",
-    "Clarity Range",
-    "Colour Range",
-    "Size Range",
-    "Certification",
-  ],
-  rows: [
-    {
-      id: "certified-round",
-      category: "Certified Round Brilliant",
-      clarity: "IF – SI2",
-      colour: "D – M",
-      size: "0.18 ct – 3.00 ct",
-      certification: "GIA / IGI",
-      certified: true,
-    },
-    {
-      id: "certified-fancy",
-      category: "Certified Fancy Shapes",
-      clarity: "IF – SI2",
-      colour: "D – M",
-      size: "0.30 ct – 3.00 ct",
-      certification: "GIA / IGI",
-      certified: true,
-    },
-    {
-      id: "non-certified-round",
-      category: "Non-Certified Round",
-      clarity: "IF – Pique",
-      colour: "D – L",
-      size: "0.005 ct – 3.00 ct",
-      certification: "On request",
-      certified: false,
-    },
-    {
-      id: "non-certified-fancy",
-      category: "Non-Certified Fancy",
-      clarity: "VVS – Pique",
-      colour: "D – L",
-      size: "0.005 ct – 3.00 ct",
-      certification: "On request",
-      certified: false,
-    },
-  ] satisfies SpecRow[],
-  note: "Custom assortments by clarity, colour, size or shape are assembled to order — minimums depend on the band.",
-  cta: { label: "Request a parcel spec", href: "/contact" },
-};
-
 export type GlossaryTerm = { id: string; term: string; definition: string };
 
 export const anatomyGlossarySection = {
@@ -1286,6 +1405,7 @@ export const diamondInfoFaqSection = {
   titleLines: ["What Buyers", "Ask Us Most"],
   body: "Five things that come up in almost every first conversation with a new sourcing partner.",
   panelLabel: "Frequently Asked",
+  background: "/images/diamond-info/faq-diamonds.jpg",
   items: [
     {
       id: "certified",
@@ -1421,4 +1541,78 @@ export const processSection = {
       alt: "Fifty-seven facets polished onto a brilliant cut",
     }
   ] satisfies ProcessStep[],
+};
+
+/* ------------------------------------------------------------------
+   Contact page (/contact)
+------------------------------------------------------------------- */
+
+export const contactHeroSection = {
+  eyebrow: "Get in Touch",
+  titleLines: ["We'd Love to Hear", "From You"],
+  phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
+  email: {
+    label: "bhargovigems4445@gmail.com",
+    href: "mailto:bhargovigems4445@gmail.com",
+  },
+};
+
+export type ContactFormField = {
+  id: string;
+  number: string;
+  label: string;
+  name: string;
+  type: "text" | "email" | "tel" | "textarea";
+  placeholder: string;
+};
+
+export const contactFormSection = {
+  eyebrow: "Send a Message",
+  title: "Tell Us What You're Looking For",
+  fields: [
+    {
+      id: "full-name",
+      number: "01",
+      label: "Full Name",
+      name: "fullName",
+      type: "text",
+      placeholder: "Jane Doe",
+    },
+    {
+      id: "company-name",
+      number: "02",
+      label: "Company Name",
+      name: "companyName",
+      type: "text",
+      placeholder: "Doe Jewellery Co.",
+    },
+    {
+      id: "email-address",
+      number: "03",
+      label: "Email Address",
+      name: "email",
+      type: "email",
+      placeholder: "jane@company.com",
+    },
+    {
+      id: "phone-number",
+      number: "04",
+      label: "Phone Number",
+      name: "phone",
+      type: "tel",
+      placeholder: "+1 (000) 000-0000",
+    },
+    {
+      id: "message",
+      number: "05",
+      label: "Tell Us What You Need",
+      name: "message",
+      type: "textarea",
+      placeholder: "Volume, specifications, timeline, or partnership details…",
+    },
+  ] satisfies ContactFormField[],
+  submit: { label: "Submit Enquiry" },
+  note: "Confidential enquiry · We respond within one business day",
+  image: "/images/contact-form-tray.png",
+  alt: "Loose polished diamonds scattered across a jewellery tray",
 };

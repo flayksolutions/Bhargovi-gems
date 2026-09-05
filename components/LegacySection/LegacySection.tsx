@@ -1,5 +1,7 @@
 import Image from "next/image";
+import CrystalField from "../CrystalField/CrystalField";
 import styles from "./LegacySection.module.css";
+import type { SpecTableRow } from "@/lib/content";
 
 export type LegacyImage = {
   id: string;
@@ -13,10 +15,13 @@ export type LegacyImage = {
 
 type Props = {
   eyebrow: string;
-  title: string;
+  title: { lead: string; accent: string };
   body: string;
   images: LegacyImage[];
-  features: string[];
+  specTable: {
+    columns: string[];
+    rows: SpecTableRow[];
+  };
 };
 
 export default function LegacySection({
@@ -24,10 +29,12 @@ export default function LegacySection({
   title,
   body,
   images,
-  features,
+  specTable,
 }: Props) {
   return (
     <section className={styles.section} aria-labelledby="legacy-title">
+      <CrystalField />
+
       <div className={styles.inner}>
         <div className={styles.collage}>
           {images.map((image) => (
@@ -45,7 +52,7 @@ export default function LegacySection({
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="(max-width: 900px) 92vw, 44vw"
+                sizes="(max-width: 900px) 92vw, 40vw"
                 className={styles.collageImage}
               />
             </div>
@@ -55,17 +62,38 @@ export default function LegacySection({
         <div className={styles.copy}>
           <p className={styles.eyebrow}>{eyebrow}</p>
           <h2 id="legacy-title" className={styles.title}>
-            {title}
+            {title.lead}
+            <span className={styles.titleAccent}>{title.accent}</span>
           </h2>
           <p className={styles.body}>{body}</p>
 
-          <ul className={styles.features}>
-            {features.map((feature) => (
-              <li key={feature} className={styles.feature}>
-                {feature}
-              </li>
-            ))}
-          </ul>
+          <div className={styles.specTable}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  {specTable.columns.map((column) => (
+                    <th key={column} scope="col" className={styles.th}>
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {specTable.rows.map((row) => (
+                  <tr key={row.id}>
+                    <th scope="row" className={styles.category}>
+                      {row.category}
+                    </th>
+                    {row.values.map((value, i) => (
+                      <td key={specTable.columns[i + 1]} className={styles.td}>
+                        {value}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>

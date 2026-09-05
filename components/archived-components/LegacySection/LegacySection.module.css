@@ -1,0 +1,104 @@
+/* ==================================================================
+   LEGACY — collage of interlocking photos + feature list
+   ================================================================== */
+
+.section {
+  background: var(--paper);
+  padding: 100px var(--gutter);
+}
+
+.inner {
+  max-width: 1640px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 520fr) minmax(0, 630fr);
+  gap: clamp(48px, 8vw, 134px);
+  align-items: center;
+}
+
+/* ---------------------------- collage ----------------------------- */
+
+.collage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 520 / 514.534;
+}
+
+.collageTile {
+  position: absolute;
+}
+
+.collageImage {
+  object-fit: contain;
+}
+
+/* ---------------------------- copy -------------------------------- */
+
+.copy {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 clamp(12px, 1.6vh, 18px);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.title {
+  margin: 0 0 clamp(16px, 2.2vh, 24px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 2.75vw, 44px);
+  line-height: 1.16;
+  letter-spacing: 0.005em;
+  color: var(--ink-deep);
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0 0 clamp(24px, 3.4vh, 40px);
+  max-width: 52ch;
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.15vw, 19px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 40ch;
+}
+
+.feature {
+  padding-block: clamp(10px, 1.4vh, 15px);
+  border-bottom: 1px solid var(--frost);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.98vw, 16px);
+  font-weight: 400;
+  color: var(--ink-deep);
+}
+
+.feature:last-child {
+  border-bottom: none;
+}
+
+/* ---------------------------- responsive -------------------------- */
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .collage {
+    max-width: 460px;
+  }
+}

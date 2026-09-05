@@ -47,13 +47,8 @@
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
 
-  mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    #000 60%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to bottom, #000 0%, #000 65%, #0000 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 65%, #0000 100%);
   mask-size: 100% 100%;
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;
@@ -68,7 +63,7 @@
 
 /* Second section has reached the top: blur what's behind it. */
 .scrolled .backdrop {
-  background: rgba(255, 255, 255, 0.05);
+  /* background: rgba(255, 255, 255, 0.05); */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }

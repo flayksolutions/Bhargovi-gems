@@ -1,0 +1,38 @@
+/* ==================================================================
+   CRYSTAL FIELD — decorative gem-outline watermarks.
+
+   Size, opacity, tilt and corner offsets are lifted from the shapes &
+   cuts section on the diamond information page, so the motif reads the
+   same wherever it appears: one crystal off each top corner, tilted
+   14° and held far enough back to stay a watermark.
+   ================================================================== */
+
+.field {
+  --crystal-opacity: 0.16;
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* `clip` rather than `hidden`: these sections sit near sticky panels
+     and `hidden` would create a scroll container. */
+  overflow: clip;
+  pointer-events: none;
+}
+
+.crystal {
+  position: absolute;
+  width: clamp(300px, 40vw, 800px);
+  height: auto;
+  opacity: var(--crystal-opacity);
+  transform: rotate(14deg);
+}
+
+.crystalLeft {
+  top: clamp(-60px, -3vw, -20px);
+  left: clamp(-360px, -19vw, -110px);
+}
+
+.crystalRight {
+  top: clamp(-280px, -22vw, -140px);
+  right: clamp(-360px, -19vw, -110px);
+}

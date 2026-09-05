@@ -1,0 +1,21 @@
+<svg width="220" height="191" viewBox="0 0 220 191" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Cut Light Path Diagram">
+<path id="Vector" d="M86.125 42.975H133.875L200.725 95.5L110 171.9L19.275 95.5L86.125 42.975Z" fill="#F4F8FE"/>
+<path id="Vector_2" d="M86.125 42.975H133.875" stroke="#0A42AC" stroke-width="1.528"/>
+<path id="Vector_3" d="M86.125 42.975L19.275 95.5" stroke="#0A42AC" stroke-width="1.528"/>
+<path id="Vector_4" d="M133.875 42.975L200.725 95.5" stroke="#0A42AC" stroke-width="1.528"/>
+<path id="Vector_5" opacity="0.5" d="M86.125 42.975L71.8 95.5" stroke="#2564CA" stroke-width="0.955"/>
+<path id="Vector_6" opacity="0.5" d="M133.875 42.975L148.2 95.5" stroke="#2564CA" stroke-width="0.955"/>
+<path id="Vector_7" d="M19.275 95.5H200.725" stroke="#0A42AC" stroke-width="1.528"/>
+<path id="Vector_8" d="M19.275 95.5L110 171.9" stroke="#0A42AC" stroke-width="1.528"/>
+<path id="Vector_9" d="M200.725 95.5L110 171.9" stroke="#0A42AC" stroke-width="1.528"/>
+<path id="Vector_10" opacity="0.5" d="M62.25 95.5L110 171.9" stroke="#2564CA" stroke-width="0.955"/>
+<path id="Vector_11" opacity="0.5" d="M157.75 95.5L110 171.9" stroke="#2564CA" stroke-width="0.955"/>
+<path id="Vector_12" d="M62.25 9.55L95.675 42.975L141.515 145.16L53.655 124.15L124.325 42.975L152.975 9.55" stroke="#2564CA" stroke-width="1.91" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_13" d="M62.25 11.842C63.5158 11.842 64.542 10.8158 64.542 9.55C64.542 8.28416 63.5158 7.258 62.25 7.258C60.9842 7.258 59.958 8.28416 59.958 9.55C59.958 10.8158 60.9842 11.842 62.25 11.842Z" fill="#2564CA"/>
+<path id="Vector_14" d="M141.515 147.643C142.886 147.643 143.998 146.531 143.998 145.16C143.998 143.789 142.886 142.677 141.515 142.677C140.144 142.677 139.032 143.789 139.032 145.16C139.032 146.531 140.144 147.643 141.515 147.643Z" fill="#2564CA"/>
+<path id="Vector_15" d="M53.655 126.633C55.0263 126.633 56.138 125.521 56.138 124.15C56.138 122.779 55.0263 121.667 53.655 121.667C52.2837 121.667 51.172 122.779 51.172 124.15C51.172 125.521 52.2837 126.633 53.655 126.633Z" fill="#2564CA"/>
+<path id="Vector_16" d="M152.975 9.55L150.874 17.8585L145.144 12.8925L152.975 9.55Z" fill="#2564CA"/>
+<path id="Vector_17" opacity="0.75" d="M136.74 24.83L139.127 29.605L143.902 30.0825L140.369 33.234L141.324 37.9135L136.74 35.335L132.156 37.9135L133.111 33.234L129.577 30.0825L134.352 29.605L136.74 24.83Z" fill="#2564CA"/>
+</g>
+</svg>

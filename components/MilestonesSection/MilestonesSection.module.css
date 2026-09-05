@@ -40,6 +40,15 @@
   }
 }
 
+/* The crystal watermark field is absolutely positioned at z-index 0, so
+   everything in the pin needs its own positioned layer above it. */
+.head,
+.wave,
+.mobileWrap {
+  position: relative;
+  z-index: 1;
+}
+
 .head {
   width: 100%;
   margin: 0 auto clamp(40px, 6vh, 64px);
@@ -69,9 +78,14 @@
 
 /* ---------------------------- wave -------------------------------- */
 
+/* The first and last nodes centre a 200px label on a badge sitting at
+   the very edge of the track, so the track needs its own inset or those
+   two labels run into (and past) the section gutter. The inset is added
+   on top of --content-max so the line itself still reaches 1360px. */
 .wave {
   width: 100%;
-  max-width: 1280px;
+  max-width: calc(var(--content-max) + 88px);
+  padding-inline: 44px;
   margin: 0 auto;
 }
 
