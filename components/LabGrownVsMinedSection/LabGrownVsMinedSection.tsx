@@ -79,7 +79,18 @@ export default function LabGrownVsMinedSection({
                   <div key={row.id} className={styles.row}>
                     <dt className={styles.rowLabel}>{row.label}</dt>
                     <dd className={styles.rowValue}>
-                      <span className={styles.glyph} aria-hidden="true" />
+                      {column.emphasis ? (
+                        <Image
+                          src="/brand/monogram.svg"
+                          alt=""
+                          aria-hidden="true"
+                          width={16}
+                          height={16}
+                          className={styles.glyphMark}
+                        />
+                      ) : (
+                        <span className={styles.glyph} aria-hidden="true" />
+                      )}
                       {row.values[colIndex]}
                     </dd>
                   </div>

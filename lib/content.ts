@@ -779,14 +779,14 @@ export const commitmentsSection = {
     {
       id: "ethically-sourced",
       title: "Ethically Sourced",
-      media: "/videos/ethically-sourced.mp4" as string | null,
+      media: "/images/commitments/ethically-sourced.png" as string | null,
       alt: "A polished diamond on handmade paper among raw minerals",
     },
     {
       id: "environment-friendly",
       title: "Environment Friendly",
-      media: "/videos/environment-friendly.mp4" as string | null,
-      alt: "Aerial view of a dense green forest canopy",
+      media: "/images/commitments/environment-friendly.png" as string | null,
+      alt: "A row of polished diamonds on a leaf beaded with water droplets",
       captionAbove: true,
     },
   ],

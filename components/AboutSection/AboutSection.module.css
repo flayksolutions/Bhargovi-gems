@@ -25,6 +25,33 @@
   place-items: center;
 }
 
+/* -------------------------- crystal vectors ------------------------ */
+/* Same faceted-gem outline and positions as the homepage commitments
+   section; here opacity tracks the card's own growth progress so the
+   pair reveals in step with the pin/scroll animation. */
+
+.crystalLeft,
+.crystalRight {
+  position: absolute;
+  z-index: 1;
+  width: clamp(320px, 30vw, 520px);
+  height: auto;
+  opacity: calc(var(--pf) * 0.2);
+  pointer-events: none;
+}
+
+.crystalLeft {
+  top: 62%;
+  left: clamp(-160px, -9vw, -60px);
+  transform: translateY(-50%) rotate(15deg);
+}
+
+.crystalRight {
+  top: 0;
+  right: clamp(-160px, -9vw, -60px);
+  transform: translateY(-50%) rotate(15deg);
+}
+
 /* ---------------------------- backdrop --------------------------- */
 
 .backdrop {

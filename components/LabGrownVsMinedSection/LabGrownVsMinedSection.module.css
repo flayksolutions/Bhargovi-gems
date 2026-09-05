@@ -179,6 +179,10 @@
   border-top: 1px solid rgba(37, 100, 202, 0.14);
 }
 
+.row:last-child {
+  padding-bottom: clamp(26px, 3.4vw, 42px);
+}
+
 .columnEmphasis .row {
   border-top-color: rgba(255, 255, 255, 0.14);
 }
@@ -213,7 +217,8 @@
   color: rgba(255, 255, 255, 0.94);
 }
 
-/* Small rotated square standing in for the brand monogram. */
+/* Small rotated square standing in for the brand monogram, used on the
+   "for reference" column. */
 .glyph {
   flex: none;
   position: relative;
@@ -227,6 +232,16 @@
 .columnEmphasis .glyph {
   background: none;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+/* The actual brand gem mark, used on the lab-grown ("our specialty")
+   column so its points read as Bhargovi-certified rather than generic. */
+.glyphMark {
+  flex: none;
+  position: relative;
+  top: -1px;
+  width: 12px;
+  height: 12px;
 }
 
 /* ---------------------------- disclaimer ------------------------- */
