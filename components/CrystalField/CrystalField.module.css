@@ -59,3 +59,25 @@
   top: 38%;
   right: -14%;
 }
+
+/* ---------------------------- card variant -------------------------- */
+
+/* Same size, tilt and corner placement as the crystals inside the
+   homepage About section's growing card, so both "About Us" treatments
+   read as the same motif. */
+.fieldCard .crystal {
+  width: clamp(320px, 30vw, 520px);
+  height: auto;
+}
+
+.fieldCard .crystalLeft {
+  top: 62%;
+  left: clamp(-160px, -9vw, -60px);
+  transform: translateY(-50%) rotate(15deg);
+}
+
+.fieldCard .crystalRight {
+  top: 0;
+  right: clamp(-160px, -9vw, -60px);
+  transform: translateY(-50%) rotate(15deg);
+}

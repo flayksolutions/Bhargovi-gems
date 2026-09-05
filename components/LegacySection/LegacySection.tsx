@@ -33,7 +33,7 @@ export default function LegacySection({
 }: Props) {
   return (
     <section className={styles.section} aria-labelledby="legacy-title">
-      <CrystalField full />
+      <CrystalField card />
 
       <div className={styles.inner}>
         <div className={styles.collage}>

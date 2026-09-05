@@ -16,12 +16,20 @@ type Props = {
      clamping to a sliver pinned under the top edge. Off by default to
      leave the diamond-information corner-accent look untouched. */
   full?: boolean;
+  /* Same size, tilt and left/right placement as the homepage About
+     section's growing card, for sections that want the two "About Us"
+     treatments to read as the same motif. */
+  card?: boolean;
 };
 
-export default function CrystalField({ opacity, full }: Props) {
+export default function CrystalField({ opacity, full, card }: Props) {
   return (
     <div
-      className={[styles.field, full ? styles.fieldFull : ""]
+      className={[
+        styles.field,
+        full ? styles.fieldFull : "",
+        card ? styles.fieldCard : "",
+      ]
         .filter(Boolean)
         .join(" ")}
       aria-hidden="true"
