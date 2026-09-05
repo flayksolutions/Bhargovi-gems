@@ -44,7 +44,7 @@
 
   position: relative;
   margin: 0;
-  aspect-ratio: 490 / 461;
+  aspect-ratio: 490 / 410;
   background: var(--ink-navy);
   /* Top-right and bottom-left corners cut — the site's standard
      chamfer, mirrored across the diagonal. */

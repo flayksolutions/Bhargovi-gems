@@ -9,7 +9,7 @@
      the lower part of the hero instead of staying hidden behind it. */
   position: relative;
   z-index: 1;
-  min-height: clamp(460px, 60vh, 644px);
+  min-height: clamp(460px, 80vh, 860px);
   display: flex;
   align-items: center;
   overflow: hidden;

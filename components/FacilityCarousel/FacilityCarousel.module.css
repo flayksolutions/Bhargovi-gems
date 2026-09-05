@@ -5,7 +5,7 @@
 .section {
   position: relative;
   background: #08194a;
-  padding-block: clamp(56px, 9vh, 100px);
+  padding-block: clamp(80px, 13vh, 150px);
   overflow: hidden;
 }
 
@@ -162,6 +162,12 @@
 }
 
 /* ---------------------------- responsive ------------------------- */
+
+@media (min-width: 961px) {
+  .section {
+    padding-block: clamp(110px, 17vh, 200px);
+  }
+}
 
 @media (max-width: 960px) {
   .accent {

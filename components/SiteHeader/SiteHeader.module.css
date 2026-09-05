@@ -261,7 +261,7 @@
 }
 
 .drawerLogo {
-  width: clamp(140px, 34vw, 180px);
+  width: clamp(200px, 50vw, 280px);
   height: auto;
   color: var(--ink);
 }
@@ -278,7 +278,7 @@
 
 .drawerLink {
   font-family: var(--font-heading);
-  font-size: clamp(20px, 4.6vw, 28px);
+  font-size: clamp(24px, 5.8vw, 34px);
   font-weight: 400;
   color: var(--ink);
   text-decoration: none;
@@ -330,7 +330,7 @@
   }
 
   .drawerLogo {
-    width: clamp(110px, 22vh, 150px);
+    width: clamp(150px, 30vh, 210px);
   }
 
   .drawerList {
@@ -338,7 +338,7 @@
   }
 
   .drawerLink {
-    font-size: clamp(17px, 3.6vh, 24px);
+    font-size: clamp(19px, 4.2vh, 28px);
   }
 }
 
@@ -351,6 +351,11 @@
   }
 
   .nav {
+    display: none;
+  }
+
+  /* Already available inside the drawer, so drop it from the bar. */
+  .cta {
     display: none;
   }
 
