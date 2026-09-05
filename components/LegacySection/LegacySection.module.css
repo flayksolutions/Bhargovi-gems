@@ -90,7 +90,7 @@
 .specTable {
   --cn: clamp(20px, 2.4vw, 34px);
 
-  background: #f7fbff;
+  position: relative;
   /* Top-right chamfer, the same cut the site uses on image frames. */
   clip-path: polygon(
     0 0,
@@ -100,8 +100,20 @@
     0 100%
   );
   /* The table itself scrolls rather than the page when the four columns
-     can no longer fit. */
+     can no longer fit. Edge fades (see ::before/::after) fake a scroll
+     shadow that scrolls with the content, so it only shows on the side
+     that still has more columns to reveal, with no JS required. */
   overflow-x: auto;
+  background:
+    linear-gradient(to right, #f7fbff, rgba(247, 251, 255, 0)) left / 28px
+      100% no-repeat local,
+    linear-gradient(to left, #f7fbff, rgba(247, 251, 255, 0)) right / 28px
+      100% no-repeat local,
+    linear-gradient(to right, rgba(10, 32, 66, 0.14), rgba(10, 32, 66, 0))
+      left / 10px 100% no-repeat scroll,
+    linear-gradient(to left, rgba(10, 32, 66, 0.14), rgba(10, 32, 66, 0))
+      right / 10px 100% no-repeat scroll,
+    #f7fbff;
 }
 
 .table {
@@ -196,5 +208,44 @@
   .category,
   .td {
     height: 68px;
+  }
+
+  /* Columns shrink to their content and headers wrap to two lines
+     instead of forcing a fixed % width — this is what lets the table
+     fit inside phone widths without triggering the scroll fallback. */
+  .table {
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  .th:nth-child(1),
+  .th:nth-child(2),
+  .th:nth-child(3),
+  .th:nth-child(4) {
+    width: auto;
+  }
+
+  .th {
+    height: auto;
+    min-height: 40px;
+    padding-block: 8px;
+    font-size: 8.5px;
+    letter-spacing: 0.09em;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .th:first-child,
+  .category {
+    padding-left: 16px;
+  }
+
+  .category {
+    font-size: 13px;
+  }
+
+  .td {
+    padding-right: 10px;
+    font-size: 12px;
   }
 }

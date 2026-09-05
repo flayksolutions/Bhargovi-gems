@@ -23,11 +23,7 @@
 .section::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: clamp(560px, 62.9vw, 906px);
-  transform: translateY(-50%);
+  inset: 0;
   background: url("/images/about/crystal-pattern.png") center / cover no-repeat;
   opacity: 0.4;
   pointer-events: none;

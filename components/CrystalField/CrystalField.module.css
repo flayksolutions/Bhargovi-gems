@@ -36,3 +36,26 @@
   top: clamp(-280px, -22vw, -140px);
   right: clamp(-360px, -19vw, -110px);
 }
+
+/* ---------------------------- full variant -------------------------- */
+
+/* Sized in % of the section box (the .field wrapper is inset: 0) so the
+   watermark scales with the section's actual height, rather than a
+   viewport-width clamp whose height:auto can leave most of a tall
+   section — like Legacy's photo collage or Milestones' timeline —
+   without any watermark at all. */
+.fieldFull .crystal {
+  width: 46%;
+  height: 46%;
+  object-fit: contain;
+}
+
+.fieldFull .crystalLeft {
+  top: -6%;
+  left: -14%;
+}
+
+.fieldFull .crystalRight {
+  top: 38%;
+  right: -14%;
+}

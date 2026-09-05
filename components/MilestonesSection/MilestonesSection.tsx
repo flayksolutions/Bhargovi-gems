@@ -92,7 +92,7 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="milestones-title">
       <div className={styles.pin}>
-        <CrystalField />
+        <CrystalField full />
 
         <header className={styles.head}>
           <p className={styles.eyebrow}>{eyebrow}</p>

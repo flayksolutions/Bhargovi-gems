@@ -14,17 +14,12 @@
   padding: clamp(72px, 11vh, 108px) var(--gutter);
 }
 
-/* Faceted pattern: 1442 × 906 in the comp, held at 40% over white and
-   taller than the section so its torn edges run off the top and
-   bottom. */
+/* Faceted pattern, held at 40% over white and covering the section's
+   full box so it always reaches every edge, at any section height. */
 .section::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: clamp(560px, 62.9vw, 906px);
-  transform: translateY(-50%);
+  inset: 0;
   background: url("/images/about/crystal-pattern.png") center / cover
     no-repeat;
   opacity: 0.4;
