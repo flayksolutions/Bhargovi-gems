@@ -11,6 +11,54 @@
   border-bottom: 1px solid rgba(217, 217, 217, 0.9);
 }
 
+/* Scroll affordance: a fade on whichever edge still hides chapters.
+   `.rail` is already `position: sticky`, so it is a positioned ancestor
+   for these overlays — no `transform`/`filter`/`contain` is introduced,
+   which would break its own sticky pinning. `data-fade` is written by
+   useScrollEdges: none | start | end | both. */
+.rail::before,
+.rail::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(72px, 15vw, 140px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms var(--ease-soft);
+}
+
+.rail::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--paper) 0,
+    var(--paper) 15%,
+    transparent
+  );
+}
+
+.rail::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--paper) 0,
+    var(--paper) 15%,
+    transparent
+  );
+}
+
+.rail[data-fade="start"]::before,
+.rail[data-fade="both"]::before {
+  opacity: 1;
+}
+
+.rail[data-fade="end"]::after,
+.rail[data-fade="both"]::after {
+  opacity: 1;
+}
+
 .list {
   display: flex;
   align-items: stretch;

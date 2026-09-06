@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./ChapterRail.module.css";
+import { useScrollEdges } from "@/lib/useScrollEdges";
 import type { Chapter } from "@/lib/content";
 
 type Props = {
@@ -16,7 +17,11 @@ declare global {
 
 export default function ChapterRail({ chapters }: Props) {
   const [activeId, setActiveId] = useState(chapters[0]?.id);
-  const railRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLOListElement>(null);
+
+  // Fades the rail's leading/trailing edge while chapters overflow it.
+  useScrollEdges(listRef, railRef);
 
   useEffect(() => {
     const sections = chapters
@@ -53,8 +58,8 @@ export default function ChapterRail({ chapters }: Props) {
   };
 
   return (
-    <nav className={styles.rail} aria-label="Page chapters" ref={railRef}>
-      <ol className={styles.list}>
+    <nav className={styles.rail} aria-label="Page chapters" ref={railRef} data-fade="none">
+      <ol className={styles.list} ref={listRef}>
         {chapters.map((chapter) => (
           <li key={chapter.id} className={styles.item}>
             <a

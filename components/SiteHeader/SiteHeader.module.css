@@ -256,13 +256,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
   gap: 10px;
   text-decoration: none;
 }
 
 .drawerLogo {
-  width: clamp(200px, 50vw, 280px);
+  /* ~1.5x the previous scale; min() keeps it inside the drawer padding on
+     the narrowest phones. Width-only + height:auto, so the inline SVG
+     keeps its 879.38 x 229.59 aspect ratio and stays vector-crisp. */
+  width: min(clamp(300px, 74vw, 420px), 100%);
   height: auto;
+  margin-inline: auto;
   color: var(--ink);
 }
 
@@ -330,7 +337,7 @@
   }
 
   .drawerLogo {
-    width: clamp(150px, 30vh, 210px);
+    width: min(clamp(220px, 45vh, 310px), 100%);
   }
 
   .drawerList {

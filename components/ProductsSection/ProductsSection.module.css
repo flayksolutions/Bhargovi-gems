@@ -186,11 +186,35 @@
 }
 
 /* A shape line-up only reads as a comparison chart when several
-   shapes stay in view together, so phone drops to two columns rather
+   shapes stay in view together, so phone keeps three columns rather
    than collapsing to one — six stacked full-width diamonds would lose
    the side-by-side comparison the section exists to show. */
 @media (max-width: 640px) {
   .shapesRow {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    /* Tighter gutters buy back the width the third column costs, so
+       the longest name ("Round Brilliant") still fits on two lines. */
+    gap: clamp(8px, 2.4vw, 16px);
+  }
+
+  .tagline {
+    font-size: clamp(19px, 5.6vw, 25px);
+  }
+
+  .shapeCard {
+    /* 4px instead of 8px: another 8px of usable label width per tile. */
+    padding: 4px;
+    min-width: 0;
+  }
+
+  .shapeName {
+    /* Letter-spacing eased back so the longest single word
+       ("BRILLIANT") clears the narrower three-up column. */
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-wrap: balance;
+    /* Last-resort guard: never let a name spill out of its column. */
+    overflow-wrap: break-word;
+    hyphens: none;
   }
 }

@@ -260,12 +260,19 @@ export const footer = {
     {
       title: "Contact",
       items: [
-        { label: "+91 XXXXX XXXXX", href: "tel:+91" },
+        { label: "+91 85910 95691", href: "tel:+918591095691" },
         {
-          label: "sales@bhargovigems.com",
-          href: "mailto:sales@bhargovigems.com",
+          label: "bhargovigems4445@gmail.com",
+          href: "mailto:bhargovigems4445@gmail.com",
         },
-        { label: "Mumbai, India" },
+        {
+          heading: "Mumbai",
+          label: "Bharat Diamond Bourse, BKC, Mumbai, India",
+        },
+        {
+          heading: "Surat",
+          label: "Manufacturing Facility, Surat, Gujarat, India",
+        },
       ],
     },
   ],

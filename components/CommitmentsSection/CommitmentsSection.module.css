@@ -194,4 +194,20 @@
   .blockOffset {
     margin-top: 0;
   }
+
+  /* Stacked, the staggered caption reads as a stray line of text
+     floating above an unrelated plate, so both blocks go
+     image-then-caption on small screens. Overrides the
+     column-reverse the desktop stagger sets. */
+  .block,
+  .block.captionFirst,
+  .captionFirst {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .block > .plate,
+  .block > .title {
+    order: 0;
+  }
 }

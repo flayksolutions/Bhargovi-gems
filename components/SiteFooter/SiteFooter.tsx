@@ -3,7 +3,7 @@ import Link from "next/link";
 import BrandLogo from "../BrandLogo/BrandLogo";
 import styles from "./SiteFooter.module.css";
 
-export type FooterItem = { label: string; href?: string };
+export type FooterItem = { label: string; href?: string; heading?: string };
 export type FooterColumn = { title: string; items: FooterItem[] };
 
 type Props = {
@@ -57,6 +57,13 @@ export default function SiteFooter({
                       <Link href={item.href} className={styles.columnLink}>
                         {item.label}
                       </Link>
+                    ) : item.heading ? (
+                      <div className={styles.address}>
+                        <span className={styles.addressTitle}>
+                          {item.heading}
+                        </span>
+                        <span className={styles.addressText}>{item.label}</span>
+                      </div>
                     ) : (
                       <span className={styles.columnText}>{item.label}</span>
                     )}
