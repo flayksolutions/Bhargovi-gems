@@ -48,11 +48,11 @@ export default function DiamondInfoFaqSection({
         </header>
 
         <div className={styles.accordion}>
-          <div className={styles.panelHeader}>
-            <p>{panelLabel}</p>
+          {/* <div className={styles.panelHeader}>
+            <p>{panelLabel}</p> */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/monogram.svg" alt="" aria-hidden="true" className={styles.monogram} />
-          </div>
+            {/* <img src="/brand/monogram.svg" alt="" aria-hidden="true" className={styles.monogram} />
+          </div> */}
 
           <ul className={styles.list}>
             {items.map((item, i) => {
