@@ -176,6 +176,179 @@
   background: var(--ink);
 }
 
+/* ---------------------------- actions ----------------------------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ------------------------ mobile menu toggle ---------------------- */
+
+.menuToggle {
+  position: relative;
+  z-index: 51;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.menuLine {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  transition: transform 420ms var(--ease-soft), opacity 420ms var(--ease-soft),
+    background 420ms var(--ease-soft);
+}
+
+.scrolled .menuLine {
+  background: var(--ink);
+}
+
+.menuToggle[aria-expanded="true"] .menuLine {
+  background: var(--ink);
+}
+
+.menuToggle[aria-expanded="true"] .menuLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuToggle[aria-expanded="true"] .menuLine:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle[aria-expanded="true"] .menuLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ------------------------ mobile drawer ---------------------------- */
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  width: 100vw;
+  height: 100dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: clamp(28px, 6vh, 56px);
+  padding: clamp(24px, 6vh, 48px) clamp(28px, 6vw, 40px);
+  background: var(--paper) url("/images/shapes-bg.png") center / cover
+    no-repeat;
+  transform: translateX(100%);
+  transition: transform 520ms var(--ease-out-expo);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.drawerBrand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.drawerLogo {
+  /* ~1.5x the previous scale; min() keeps it inside the drawer padding on
+     the narrowest phones. Width-only + height:auto, so the inline SVG
+     keeps its 879.38 x 229.59 aspect ratio and stays vector-crisp. */
+  width: min(clamp(300px, 74vw, 420px), 100%);
+  height: auto;
+  margin-inline: auto;
+  color: var(--ink);
+}
+
+.drawerList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 3.4vh, 28px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drawerLink {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 5.8vw, 34px);
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.drawerCta {
+  --cn: var(--notch-sm);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 2.6vh, 16px) clamp(22px, 5vw, 32px);
+
+  font-family: var(--font-body);
+  font-size: clamp(13.5px, 3.4vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  color: #fff;
+  text-decoration: none;
+
+  background: var(--sapphire);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer {
+    transition: none;
+  }
+}
+
+/* Short viewports (phones/tablets in landscape): keep the drawer compact
+   instead of stretching links across the full height. */
+@media (max-height: 640px) {
+  .drawer {
+    justify-content: flex-start;
+    gap: clamp(16px, 4vh, 28px);
+    padding-block: clamp(18px, 5vh, 28px);
+  }
+
+  .drawerBrand {
+    gap: 6px;
+  }
+
+  .drawerLogo {
+    width: min(clamp(220px, 45vh, 310px), 100%);
+  }
+
+  .drawerList {
+    gap: clamp(10px, 2.4vh, 18px);
+  }
+
+  .drawerLink {
+    font-size: clamp(19px, 4.2vh, 28px);
+  }
+}
+
 /* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 960px) {
@@ -185,6 +358,21 @@
   }
 
   .nav {
+    display: none;
+  }
+
+  /* Already available inside the drawer, so drop it from the bar. */
+  .cta {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 961px) {
+  .drawer {
     display: none;
   }
 }

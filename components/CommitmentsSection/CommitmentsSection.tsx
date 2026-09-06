@@ -64,6 +64,21 @@ export default function CommitmentsSection({ background, blocks }: Props) {
         />
       </div>
 
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/icons/sustainability/crystal-outline.svg"
+        alt=""
+        aria-hidden="true"
+        className={styles.crystalLeft}
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/icons/sustainability/crystal-outline.svg"
+        alt=""
+        aria-hidden="true"
+        className={styles.crystalRight}
+      />
+
       <div className={styles.inner} ref={rootRef}>
         {blocks.map((block) => {
           const isVideo = !!block.media && block.media.endsWith(".mp4");

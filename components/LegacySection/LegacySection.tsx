@@ -33,7 +33,7 @@ export default function LegacySection({
 }: Props) {
   return (
     <section className={styles.section} aria-labelledby="legacy-title">
-      <CrystalField />
+      <CrystalField card />
 
       <div className={styles.inner}>
         <div className={styles.collage}>
@@ -85,7 +85,11 @@ export default function LegacySection({
                       {row.category}
                     </th>
                     {row.values.map((value, i) => (
-                      <td key={specTable.columns[i + 1]} className={styles.td}>
+                      <td
+                        key={specTable.columns[i + 1]}
+                        className={styles.td}
+                        data-label={specTable.columns[i + 1]}
+                      >
                         {value}
                       </td>
                     ))}

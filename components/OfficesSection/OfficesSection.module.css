@@ -82,7 +82,7 @@
 }
 
 .title {
-  margin: 0 0 clamp(20px, 2.6vh, 34px);
+  margin: 0 0 clamp(30px, 4vh, 48px);
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(24px, 2.1vw, 38px);

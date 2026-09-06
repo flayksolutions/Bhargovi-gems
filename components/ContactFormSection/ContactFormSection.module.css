@@ -192,7 +192,7 @@
   letter-spacing: 0.02em;
   color: #fff;
 
-  background: var(--azure);
+  background: var(--sapphire);
   clip-path: polygon(
     0 0,
     calc(100% - var(--cn)) 0,
@@ -205,7 +205,7 @@
 }
 
 .submit:hover {
-  background: var(--sapphire);
+  background: var(--ink);
 }
 
 .note {
@@ -229,10 +229,10 @@
   .plate {
     position: relative;
     top: auto;
-    right: -5%;
+    right: -12%;
     transform: none;
-    width: calc(100% + var(--gutter) * 2);
-    margin: 0 calc(var(--gutter) * -1) clamp(32px, 6vh, 48px);
+    width: calc(92% + var(--gutter) * 2);
+    margin: -12px 0 clamp(32px, 6vh, 48px);
     /* Inherits the base rule's 3186/3083 aspect ratio — the image's
        real proportions — instead of a mismatched 4:3 box that made
        `object-fit: cover` crop the top and bottom to fill it. */

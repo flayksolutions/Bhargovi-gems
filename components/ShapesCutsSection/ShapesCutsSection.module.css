@@ -156,6 +156,30 @@
 .stagePhoto {
   object-fit: contain;
   filter: drop-shadow(0 18px 34px rgba(2, 38, 113, 0.16));
+  /* `key={selected.id}` on the <Image> remounts it on every shape
+     change, so this plays fresh each time a new shape is picked. */
+  animation: stagePhotoPop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes stagePhotoPop {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stagePhoto {
+    animation: none;
+  }
 }
 
 .stageName {
@@ -231,6 +255,49 @@
   background: var(--paper);
   box-shadow: 0 18px 44px rgba(2, 38, 113, 0.08);
   clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%);
+}
+
+/* Scroll affordance: a fade on whichever edge still hides shapes. Each
+   overlay spans the full bar and carries the bar's own clip-path, so the
+   notched top-right corner stays cut — the gradient itself is confined to
+   one edge. Colour is the bar's own `--paper`, not a guessed value.
+   `data-fade` is written by useScrollEdges: none | start | end | both. */
+.dockFade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100% - 28px);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms var(--ease-soft);
+  clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%);
+}
+
+.dockFadeStart {
+  background: linear-gradient(
+    to right,
+    var(--paper) 0,
+    var(--paper) 16px,
+    transparent clamp(80px, 14vw, 150px)
+  );
+}
+
+.dockFadeEnd {
+  background: linear-gradient(
+    to left,
+    var(--paper) 0,
+    var(--paper) 16px,
+    transparent clamp(80px, 14vw, 150px)
+  );
+}
+
+.dock[data-fade="start"] .dockFadeStart,
+.dock[data-fade="both"] .dockFadeStart,
+.dock[data-fade="end"] .dockFadeEnd,
+.dock[data-fade="both"] .dockFadeEnd {
+  opacity: 1;
 }
 
 .dockRow {
@@ -406,7 +473,8 @@
     border-left: 1px solid rgba(37, 100, 202, 0.2);
   }
 
-  .dockBar {
+  .dockBar,
+  .dockFade {
     clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
   }
 

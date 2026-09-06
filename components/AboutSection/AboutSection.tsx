@@ -122,6 +122,20 @@ export default function AboutSection({
 
         <div className={styles.cardWrap}>
           <article className={styles.card}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/icons/sustainability/crystal-outline.svg"
+              alt=""
+              aria-hidden="true"
+              className={styles.crystalLeft}
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/icons/sustainability/crystal-outline.svg"
+              alt=""
+              aria-hidden="true"
+              className={styles.crystalRight}
+            />
             <Image
               src="/images/about-cushion.png"
               alt=""

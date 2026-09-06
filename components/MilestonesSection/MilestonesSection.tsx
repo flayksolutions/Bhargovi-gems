@@ -23,11 +23,11 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
     const items = Array.from(
       section.querySelectorAll<HTMLElement>("[data-milestone-index]")
     );
-    // First milestone reveals just after p leaves 0 (in sync with the
-    // line starting to draw), not at p itself — otherwise it's already
-    // "revealed" the instant the pin engages and never visibly animates.
-    // The rest are spaced evenly across the remaining scroll distance.
-    const firstThreshold = 0.02;
+    // First milestone should already be revealed the instant the pin
+    // engages, so it reads as visible on scroll rather than requiring
+    // extra scroll distance before it appears. The rest are spaced
+    // evenly across the remaining scroll distance.
+    const firstThreshold = 0;
     const thresholds = items.map((el) => {
       const i = Number(el.dataset.milestoneIndex);
       const spacing = milestones.length > 1 ? i / (milestones.length - 1) : 0;
@@ -92,7 +92,7 @@ export default function MilestonesSection({ eyebrow, title, milestones }: Props)
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="milestones-title">
       <div className={styles.pin}>
-        <CrystalField />
+        <CrystalField full />
 
         <header className={styles.head}>
           <p className={styles.eyebrow}>{eyebrow}</p>

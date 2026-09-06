@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ShapesCutsSection.module.css";
+import { useScrollEdges } from "@/lib/useScrollEdges";
 import type { ShapeItem } from "@/lib/content";
 
 type Props = {
@@ -26,6 +27,12 @@ export default function ShapesCutsSection({
   const defaultShape = shapes.find((s) => s.featured) ?? shapes[0];
   const [selectedId, setSelectedId] = useState(defaultShape.id);
   const selected = shapes.find((s) => s.id === selectedId) ?? defaultShape;
+
+  const dockRef = useRef<HTMLDivElement>(null);
+  const dockRowRef = useRef<HTMLUListElement>(null);
+
+  // Fades the dock's leading/trailing edge while shapes overflow the row.
+  useScrollEdges(dockRowRef, dockRef);
 
   return (
     <section id={id} className={styles.section} aria-labelledby="shapes-title">
@@ -90,9 +97,11 @@ export default function ShapesCutsSection({
           </dl>
         </div>
 
-        <div className={styles.dock}>
+        <div className={styles.dock} ref={dockRef} data-fade="none">
           <span className={styles.dockBar} aria-hidden="true" />
-          <ul className={styles.dockRow} aria-label="Diamond shapes">
+          <span className={`${styles.dockFade} ${styles.dockFadeStart}`} aria-hidden="true" />
+          <span className={`${styles.dockFade} ${styles.dockFadeEnd}`} aria-hidden="true" />
+          <ul className={styles.dockRow} aria-label="Diamond shapes" ref={dockRowRef}>
             {shapes.map((shape) => {
               const active = shape.id === selectedId;
               return (

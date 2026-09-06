@@ -164,7 +164,7 @@
 
 .itemButton {
   display: flex;
-  align-items: flex-end; /* number sits at the bottom of the name */
+  align-items: baseline; /* number and name share the same text baseline */
   gap: var(--num-gap);
   width: 100%;
 }
@@ -172,7 +172,6 @@
 .num {
   flex: 0 0 var(--num-col);
   width: var(--num-col);
-  padding-bottom: 0.26em; /* optical lift off the descender line */
   line-height: 1;
   font-family: var(--font-body);
   font-size: clamp(14px, 0.75vw, 15px);
@@ -237,7 +236,7 @@
 .body {
   margin: clamp(8px, 1.1vh, 14px) 0 clamp(6px, 0.9vh, 12px);
   padding-left: calc(var(--num-col) + var(--num-gap));
-  max-width: 46ch;
+  max-width: 66ch;
   font-family: var(--font-body);
   font-size: clamp(16px, 0.95vw, 17px);
   font-weight: 400;
