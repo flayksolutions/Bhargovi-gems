@@ -5,8 +5,8 @@
 .header {
   /* Fixed and out of the document flow, so the hero can claim the
      full viewport underneath it. Starts see-through so the hero
-     shows through it, then gains a blurred backing once the second
-     section reaches the top of the screen. */
+     shows through it, then gains a solid white backing once the
+     second section reaches the top of the screen. */
   position: fixed;
   top: 0;
   left: 0;
@@ -32,40 +32,25 @@
 }
 
 /* Full-bleed backing div, sitting behind the content. Carries the
-   background/blur, masked so the blur fades out toward the bottom
-   edge instead of cutting off sharply. Kept separate from .header
-   itself so the mask only affects this layer, not the nav text/CTA
-   sitting on top of it. */
+   background. Kept separate from .header itself so it only affects
+   this layer, not the nav text/CTA sitting on top of it. */
 .backdrop {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 140%;
+  height: 100%;
   z-index: -1;
   background: transparent;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-
-  mask-image: linear-gradient(to bottom, #000 0%, #000 65%, #0000 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 65%, #0000 100%);
-  mask-size: 100% 100%;
-  -webkit-mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
 
   pointer-events: none;
 
-  transition:
-    background 480ms var(--ease-soft),
-    backdrop-filter 480ms var(--ease-soft);
+  transition: background 480ms var(--ease-soft);
 }
 
-/* Second section has reached the top: blur what's behind it. */
+/* Second section has reached the top: solid white backing. */
 .scrolled .backdrop {
-  /* background: rgba(255, 255, 255, 0.05); */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #fff;
 }
 
 /* ---------------------------- brand ------------------------------ */

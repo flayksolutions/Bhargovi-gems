@@ -99,9 +99,19 @@ export default function ShapesCutsSection({
 
         <div className={styles.dock} ref={dockRef} data-fade="none">
           <span className={styles.dockBar} aria-hidden="true" />
-          <span className={`${styles.dockFade} ${styles.dockFadeStart}`} aria-hidden="true" />
-          <span className={`${styles.dockFade} ${styles.dockFadeEnd}`} aria-hidden="true" />
-          <ul className={styles.dockRow} aria-label="Diamond shapes" ref={dockRowRef}>
+          <span
+            className={`${styles.dockFade} ${styles.dockFadeStart}`}
+            aria-hidden="true"
+          />
+          <span
+            className={`${styles.dockFade} ${styles.dockFadeEnd}`}
+            aria-hidden="true"
+          />
+          <ul
+            className={styles.dockRow}
+            aria-label="Diamond shapes"
+            ref={dockRowRef}
+          >
             {shapes.map((shape) => {
               const active = shape.id === selectedId;
               return (
@@ -109,7 +119,10 @@ export default function ShapesCutsSection({
                   <button
                     type="button"
                     aria-pressed={active}
-                    className={[styles.dockButton, active ? styles.dockButtonActive : ""]
+                    className={[
+                      styles.dockButton,
+                      active ? styles.dockButtonActive : "",
+                    ]
                       .filter(Boolean)
                       .join(" ")}
                     onClick={() => setSelectedId(shape.id)}
@@ -133,7 +146,7 @@ export default function ShapesCutsSection({
           </ul>
         </div>
 
-        <Link href={catalogueLink.href} className={styles.catalogueLink}>
+        {/* <Link href={catalogueLink.href} className={styles.catalogueLink}>
           {catalogueLink.label}
           <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
             <path
@@ -144,7 +157,7 @@ export default function ShapesCutsSection({
               strokeLinejoin="round"
             />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </section>
   );
