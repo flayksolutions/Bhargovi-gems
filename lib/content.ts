@@ -1583,7 +1583,7 @@ export const contactFormSection = {
       label: "Full Name",
       name: "fullName",
       type: "text",
-      placeholder: "Jane Doe",
+      placeholder: "Your Name",
     },
     {
       id: "company-name",
@@ -1591,7 +1591,7 @@ export const contactFormSection = {
       label: "Company Name",
       name: "companyName",
       type: "text",
-      placeholder: "Doe Jewellery Co.",
+      placeholder: "Your Company Name",
     },
     {
       id: "email-address",
@@ -1599,7 +1599,7 @@ export const contactFormSection = {
       label: "Email Address",
       name: "email",
       type: "email",
-      placeholder: "jane@company.com",
+      placeholder: "your@email.com",
     },
     {
       id: "phone-number",
@@ -1607,7 +1607,7 @@ export const contactFormSection = {
       label: "Phone Number",
       name: "phone",
       type: "tel",
-      placeholder: "+1 (000) 000-0000",
+      placeholder: "+91 (000) 000-0000",
     },
     {
       id: "message",
@@ -1615,7 +1615,7 @@ export const contactFormSection = {
       label: "Tell Us What You Need",
       name: "message",
       type: "textarea",
-      placeholder: "Volume, specifications, timeline, or partnership details…",
+      placeholder: "Your Message",
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
