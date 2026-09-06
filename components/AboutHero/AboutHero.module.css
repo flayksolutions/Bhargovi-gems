@@ -17,8 +17,7 @@
 
   display: flex;
   align-items: flex-end;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 80svh;
   background: var(--ink-navy);
 }
 
