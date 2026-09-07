@@ -463,31 +463,31 @@ export const whyChooseUsSection = {
   items: [
     {
       id: "precision",
-      icon: "/icons/about/budget.png",
+      icon: "/icons/about/precision.svg",
       title: "Precision in Every Cut",
       body: "Our in-house cutting and polishing capabilities allow us to maintain close control over every stage of the manufacturing process, from rough planning to final polish.",
     },
     {
       id: "consistency",
-      icon: "/icons/about/earth.png",
+      icon: "/icons/about/consistency.svg",
       title: "Consistency You Can Rely On",
       body: "We focus on delivering consistent quality across size, shape, colour and clarity, supported by systematic evaluation and controlled manufacturing processes.",
     },
     {
       id: "modern",
-      icon: "/icons/about/purity.png",
+      icon: "/icons/about/modern.svg",
       title: "Modern Lab-Grown Manufacturing",
       body: "Our expertise has evolved from natural diamonds to the next generation of diamond manufacturing. Today, our focus is entirely on lab-grown diamonds.",
     },
     {
       id: "quality",
-      icon: "/icons/about/conflict-free.png",
+      icon: "/icons/about/quality.svg",
       title: "Quality by Design",
       body: "Every rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine the most suitable cutting plan.",
     },
     {
       id: "long-term",
-      icon: "/icons/about/conflict-free.png",
+      icon: "/icons/about/long-term.svg",
       title: "Built for Long-Term Partnerships",
       body: "We believe strong business relationships are built on transparency, consistency and dependable service — not just individual transactions.",
     },
