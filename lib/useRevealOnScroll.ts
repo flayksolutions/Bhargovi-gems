@@ -14,7 +14,7 @@ import { useEffect, type RefObject } from "react";
 export function useRevealOnScroll<T extends HTMLElement>(
   ref: RefObject<T | null>,
   selector?: string,
-  rootMargin = "0px 0px -10% 0px"
+  rootMargin = "0px 0px -25% 0px"
 ) {
   useEffect(() => {
     const root = ref.current;
