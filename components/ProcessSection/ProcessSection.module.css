@@ -172,7 +172,7 @@
 }
 
 .item {
-  padding-block: clamp(9px, 1.15vh, 15px);
+  padding-block: clamp(0.5rem, 0.8rem, 1rem);
 }
 
 .itemButton {
