@@ -38,7 +38,7 @@ export default function LabGrownVsMinedSection({
   disclaimer,
 }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
-  useRevealOnScroll(sectionRef);
+  useRevealOnScroll(sectionRef, undefined, "0px 0px -40% 0px");
 
   return (
     <section id={id} className={styles.section} aria-labelledby="lab-vs-mined-title" ref={sectionRef}>
@@ -82,8 +82,12 @@ export default function LabGrownVsMinedSection({
               </div>
 
               <dl className={styles.rows}>
-                {rows.map((row) => (
-                  <div key={row.id} className={styles.row}>
+                {rows.map((row, rowIndex) => (
+                  <div
+                    key={row.id}
+                    className={styles.row}
+                    style={{ ["--i" as string]: rowIndex }}
+                  >
                     <dt className={styles.rowLabel}>{row.label}</dt>
                     <dd className={styles.rowValue}>
                       {column.emphasis ? (

@@ -439,7 +439,7 @@ export const legacySection = {
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – F - F", "30 cents to 1 carat"],
+        values: ["VVS", "D – E - F", "10 cents to 1 carat"],
       },
     ] satisfies SpecTableRow[],
   },

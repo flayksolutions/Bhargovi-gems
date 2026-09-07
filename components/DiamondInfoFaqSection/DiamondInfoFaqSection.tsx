@@ -28,7 +28,6 @@ export default function DiamondInfoFaqSection({
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
   const sectionRef = useRef<HTMLElement>(null);
   useRevealOnScroll(sectionRef);
-  useRevealOnScroll(sectionRef, `.${styles.item}`);
 
   return (
     <section id={id} className={styles.section} aria-labelledby="faq-title" ref={sectionRef}>

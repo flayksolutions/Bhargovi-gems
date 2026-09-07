@@ -29,7 +29,7 @@
     #000 46%,
     transparent 84%
   );
-  mask-image: radial-gradient(125% 115% at 0% 100%, #000 46%, transparent 84%);
+  mask-image: radial-gradient(125% 115% at 0% 100%, #000 60%, transparent 84%);
 }
 
 .plateImage {
@@ -56,7 +56,9 @@
   filter: blur(80px);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 800ms var(--ease-soft), transform 800ms var(--ease-soft);
+  transition:
+    opacity 800ms var(--ease-soft),
+    transform 800ms var(--ease-soft);
 }
 
 .section[data-revealed="true"] .glow {
@@ -199,11 +201,12 @@
   color: rgba(255, 255, 255, 0.42);
   opacity: 0;
   transform: translateX(-16px);
-  transition: opacity 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms),
+  transition:
+    opacity 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms),
     transform 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms);
 }
 
-.item[data-revealed="true"] .number {
+.section[data-revealed="true"] .item .number {
   opacity: 1;
   transform: translateX(0);
 }
@@ -220,11 +223,12 @@
   color: rgba(255, 255, 255, 0.88);
   opacity: 0;
   transform: translateX(16px);
-  transition: opacity 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms),
+  transition:
+    opacity 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms),
     transform 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms);
 }
 
-.item[data-revealed="true"] .questionText {
+.section[data-revealed="true"] .item .questionText {
   opacity: 1;
   transform: translateX(0);
 }
@@ -263,6 +267,16 @@
   font-size: 14.5px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 550ms var(--ease-soft) calc(var(--i, 0) * 60ms + 160ms),
+    transform 550ms var(--ease-soft) calc(var(--i, 0) * 60ms + 160ms);
+}
+
+.section[data-revealed="true"] .item .answer {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .itemOpen .answer {
@@ -307,7 +321,8 @@
 @media (prefers-reduced-motion: reduce) {
   .glow,
   .number,
-  .questionText {
+  .questionText,
+  .answer {
     transition: none;
   }
 }

@@ -35,8 +35,8 @@ export default function ShapesCutsSection({
 
   // Fades the dock's leading/trailing edge while shapes overflow the row.
   useScrollEdges(dockRowRef, dockRef);
-  useRevealOnScroll(sectionRef);
-  useRevealOnScroll(sectionRef, `.${styles.dockItem}`);
+  useRevealOnScroll(sectionRef, undefined, "0px 0px -45% 0px");
+  useRevealOnScroll(sectionRef, `.${styles.dockItem}`, "0px 0px -10% 0px");
 
   return (
     <section id={id} className={styles.section} aria-labelledby="shapes-title" ref={sectionRef}>

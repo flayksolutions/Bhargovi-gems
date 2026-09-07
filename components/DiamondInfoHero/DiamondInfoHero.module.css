@@ -21,7 +21,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  animation: heroPlateWipe 900ms var(--ease-out-expo) both;
+  animation: heroPlateWipe 1800ms var(--ease-out-expo) both;
 }
 
 @keyframes heroPlateWipe {
