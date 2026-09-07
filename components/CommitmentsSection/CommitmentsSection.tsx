@@ -79,6 +79,8 @@ export default function CommitmentsSection({ background, blocks }: Props) {
         className={styles.crystalRight}
       />
 
+      <div className={styles.topFade} aria-hidden="true" />
+
       <div className={styles.inner} ref={rootRef}>
         {blocks.map((block) => {
           const isVideo = !!block.media && block.media.endsWith(".mp4");

@@ -6,7 +6,7 @@
 .section {
   position: relative;
   isolation: isolate;
-  background: #fcfdfe;
+  background: var(--paper);
   min-height: clamp(680px, 112svh, 1240px);
   padding: clamp(110px, 17vh, 230px) var(--gutter) clamp(72px, 11vh, 150px);
   overflow: clip;
@@ -33,6 +33,19 @@
 .plateImage {
   object-fit: cover;
   object-position: right bottom;
+}
+
+/* Fade the photograph into the section below instead of cutting off
+   hard at the bottom edge. */
+.plate::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(120px, 20vh, 260px);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--paper));
+  pointer-events: none;
 }
 
 /* ---------------------------- content ---------------------------- */
@@ -95,7 +108,7 @@
     right: 0;
     bottom: 0;
     height: clamp(80px, 20vw, 160px);
-    background: linear-gradient(to bottom, rgba(252, 253, 254, 0), #fcfdfe);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--paper));
     pointer-events: none;
   }
 
