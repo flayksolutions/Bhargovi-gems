@@ -17,7 +17,7 @@ export const site = {
 
 export const heroSection = {
   titleLines: ["Manufacturing", "Lab Grown Diamonds"],
-  body: "Precision-cut, ethically sourced diamonds \u2014 trusted by jewellery manufacturers and retail brands worldwide.",
+  body: "Crafting exceptional diamonds through precision, innovation and decades of manufacturing experience.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-diamond.jpg",
   video: "/videos/hero-2.mp4",
@@ -37,8 +37,8 @@ export const heroSection = {
 
 export const aboutSection = {
   eyebrow: "About Us",
-  title: "A Family Legacy in Diamond Crafting Since 1994",
-  body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory, serving jewellery brands across India and abroad.",
+  title: "A Family Legacy in Diamond Crafting Since 1971",
+  body: "At Bhargovi Gems, every diamond reflects a balance of precision, craftsmanship and innovation, shaped through decades of experience in diamond manufacturing.",
   image: "/images/facility-2.jpg",
   video: "/videos/house-tour.mp4",
   alt: "The Bhargovi Gems Surat facility",
@@ -351,7 +351,7 @@ export const officesSection = {
     {
       id: "mumbai",
       name: "Mumbai (HQ)",
-      address: "Bharat Diamond Bourse, BKC, Mumbai, India",
+      address: "Corporate Office, Mumbai, India",
       icon: "/icons/office-mumbai.svg",
     },
     {
@@ -1512,7 +1512,7 @@ export const processSection = {
       name: "Rough Diamond Selection",
       description:
         "Each lab-grown rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine its ideal cutting plan.",
-      image: PLACEHOLDER_IMAGE,
+      image: "/images/home-our-process/rough-diamond-selection.webp",
       alt: "Rough octahedral diamond crystal resting on dark stone",
     },
     {
@@ -1520,7 +1520,7 @@ export const processSection = {
       name: "Planning & Mapping",
       description:
         "Advanced planning technology is used to analyse the rough and identify the optimal way to maximise beauty, proportions and yield.",
-      image: PLACEHOLDER_IMAGE,
+      image: "/images/home-our-process/planning-mapping.webp",
       alt: "Rough diamond mapped for planning and marking",
     },
     {
@@ -1528,7 +1528,7 @@ export const processSection = {
       name: "Precision Cutting",
       description:
         "The rough is precisely sawn and shaped to create the desired diamond form, with careful attention to proportions and symmetry.",
-      image: PLACEHOLDER_IMAGE,
+      image: "/images/home-our-process/cutting.webp",
       alt: "Diamond being sawn along its crystal plane",
     },
     {
@@ -1536,7 +1536,7 @@ export const processSection = {
       name: "Polishing",
       description:
         "Skilled craftsmen meticulously polish each facet, transforming the cut diamond into a smooth, highly reflective surface that enhances its brilliance.",
-      image: PLACEHOLDER_IMAGE,
+      image: "/images/home-our-process/polishing.webp",
       alt: "Diamond girdle shaped on the bruting lathe",
     },
     {
@@ -1544,7 +1544,7 @@ export const processSection = {
       name: "Final Inspection",
       description:
         "Every polished diamond undergoes detailed quality inspection for cut, symmetry, polish and overall finish before it is ready for certification or further use.",
-      image: PLACEHOLDER_IMAGE,
+      image: "/images/home-our-process/inspection.webp",
       alt: "Fifty-seven facets polished onto a brilliant cut",
     }
   ] satisfies ProcessStep[],
