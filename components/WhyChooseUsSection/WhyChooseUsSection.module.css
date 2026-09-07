@@ -95,7 +95,7 @@
 
 .item {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: clamp(16px, 1.7vw, 24px);
 }
 
@@ -110,13 +110,13 @@
 .iconFrame {
   flex: none;
   display: block;
-  width: 89px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
 }
 
 .icon {
-  width: 89px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
 }
 
