@@ -2,6 +2,11 @@
    CONTACT HERO — compact navy banner, gradient + a single glow blob.
    No photography yet: pinned like the main Hero so the form section
    slides up and over it, same reveal pattern used site-wide.
+
+   Per the Figma the band is short (265px of content below the nav):
+   headline sits bottom-left, the quick-contact row bottom-right, both
+   sharing one baseline. Height is driven by the padding below rather
+   than a min-height, so the two columns stay bottom-aligned.
    ================================================================== */
 
 .hero {
@@ -12,9 +17,9 @@
   overflow: hidden;
 
   display: flex;
-  align-items: center;
-  min-height: clamp(420px, 58vh, 580px);
-  padding: var(--header-h) var(--gutter) 0;
+  align-items: flex-end;
+  padding: calc(var(--header-h) + clamp(48px, 7vh, 89px)) var(--gutter)
+    clamp(40px, 6vh, 68px);
 
   background: linear-gradient(100deg, #0f1729 0%, #000d34 100%);
 }
@@ -44,51 +49,20 @@
 .content {
   position: relative;
   z-index: 1;
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.headline {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(18px, 2.6vh, 24px);
-  max-width: 620px;
-}
-
-.breadcrumb {
-  margin: 0;
-}
-
-.breadcrumbList {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.crumbItem {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.crumbLink {
-  color: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-  transition: color 320ms var(--ease-soft);
-}
-
-.crumbLink:hover {
-  color: #fff;
-}
-
-.crumbCurrent {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.crumbSep {
-  color: rgba(255, 255, 255, 0.35);
+  gap: 16px;
+  min-width: 0;
 }
 
 .eyebrow {
@@ -108,10 +82,7 @@
   font-size: clamp(34px, 4.4vw, 56px);
   line-height: 1.18;
   color: #fff;
-}
-
-.line {
-  display: block;
+  text-wrap: balance;
 }
 
 .contactRow {
@@ -143,11 +114,15 @@
 
 /* ---------------------------- responsive ------------------------- */
 
-@media (max-width: 960px) {
-  .hero {
-    min-height: clamp(360px, 66vh, 520px);
+@media (max-width: 1100px) {
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(20px, 3.4vh, 32px);
   }
+}
 
+@media (max-width: 960px) {
   .title {
     font-size: clamp(30px, 8vw, 44px);
   }
@@ -155,15 +130,12 @@
 
 @media (max-width: 640px) {
   .contactRow {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
   }
 
   .dot {
     display: none;
-  }
-
-  .contactRow {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }

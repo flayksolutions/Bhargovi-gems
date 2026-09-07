@@ -1619,9 +1619,8 @@ export const processSection = {
 ------------------------------------------------------------------- */
 
 export const contactHeroSection = {
-  breadcrumb: [{ label: "Home", href: "/" }, { label: "Contact" }],
   eyebrow: "Get in Touch",
-  titleLines: ["We'd Love to Hear", "From You"],
+  title: "We'd Love to Hear From You",
   phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
   email: {
     label: "bhargovigems4445@gmail.com",
@@ -1638,9 +1637,15 @@ export type ContactFormField = {
   placeholder: string;
 };
 
+export type ContactOffice = {
+  id: string;
+  name: string;
+  label: string;
+  address: string;
+};
+
 export const contactFormSection = {
   eyebrow: "Send a Message",
-  title: "Tell Us What You're Looking For",
   fields: [
     {
       id: "full-name",
@@ -1648,7 +1653,7 @@ export const contactFormSection = {
       label: "Full Name",
       name: "fullName",
       type: "text",
-      placeholder: "Your Name",
+      placeholder: "Jane Doe",
     },
     {
       id: "company-name",
@@ -1656,7 +1661,7 @@ export const contactFormSection = {
       label: "Company Name",
       name: "companyName",
       type: "text",
-      placeholder: "Your Company Name",
+      placeholder: "Doe Jewellery Co.",
     },
     {
       id: "email-address",
@@ -1664,7 +1669,7 @@ export const contactFormSection = {
       label: "Email Address",
       name: "email",
       type: "email",
-      placeholder: "your@email.com",
+      placeholder: "jane@company.com",
     },
     {
       id: "phone-number",
@@ -1672,7 +1677,7 @@ export const contactFormSection = {
       label: "Phone Number",
       name: "phone",
       type: "tel",
-      placeholder: "+91 (000) 000-0000",
+      placeholder: "+1 (000) 000-0000",
     },
     {
       id: "message",
@@ -1680,11 +1685,26 @@ export const contactFormSection = {
       label: "Tell Us What You Need",
       name: "message",
       type: "textarea",
-      placeholder: "Your Message",
+      placeholder: "Volume, specifications, timeline, or partnership details…",
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
-  note: "Confidential enquiry · We respond within one business day",
+  note: "Confidential enquiry · We respond within 3-4 business days",
   image: "/images/contact-form-tray.png",
   alt: "Loose polished diamonds scattered across a jewellery tray",
+  officesTitle: "Our Offices",
+  offices: [
+    {
+      id: "mumbai",
+      name: "Mumbai",
+      label: "Headquarters",
+      address: "Bharat Diamond Bourse, BKC, Mumbai, India",
+    },
+    {
+      id: "surat",
+      name: "Surat",
+      label: "Manufacturing Facility",
+      address: "Manufacturing Facility, Surat, Gujarat, India",
+    },
+  ] satisfies ContactOffice[],
 };
