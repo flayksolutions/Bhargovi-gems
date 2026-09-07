@@ -103,6 +103,12 @@
   transform-origin: center right;
 }
 
+@media (min-width: 1920px) {
+  .gem {
+    width: clamp(120px, 16vw, 360px);
+  }
+}
+
 @media (max-width: 960px) {
   .gem {
     width: clamp(90px, 26vw, 160px);
@@ -117,16 +123,18 @@
   display: grid;
   place-items: center;
   width: 100%;
-  /* Gutter closes to zero so the card can reach the frame edge. */
-  padding-inline: calc(clamp(20px, 5vw, 80px) * (1 - var(--pf)));
+  /* Gutter closes to zero so the card can reach the frame edge.
+     `%` (of this element's own box), not `vw` — `vw` includes the
+     scrollbar gutter while this box does not, so near full growth
+     the two disagree and the whole grid track gets dragged wider to
+     fit, snapping the card off-center. Percentages can't diverge
+     from their own container like that. */
+  padding-inline: calc(clamp(20px, 5%, 80px) * (1 - var(--pf)));
 }
 
 .card {
-  /* Chamfer closes as the card takes the full frame. */
-  --cn: calc(30px * (1 - var(--pf)));
-
   position: relative;
-  width: calc(30vw + 70vw * var(--pf));
+  width: calc(30% + 70% * var(--pf));
   min-width: min(320px, 100%);
   /* Overshoots 100vh slightly at full so there is no seam; the
      pinned viewport clips it. */
@@ -137,10 +145,28 @@
   padding-block: calc(46px + 26px * var(--pf));
   padding-inline: calc(38px + 24px * var(--pf));
 
-  background: var(--paper);
   color: var(--ink-deep);
   text-align: center;
+}
 
+/* Decorative background plate only — painted separately from `.card`
+   so its growth can run on `transform: scale()` instead of animating
+   width/height/clip-path on the box that also lays out the text.
+   A transform never triggers layout, so nothing here can cause the
+   text to reflow or jump when the pin finishes. Anchored to
+   `.viewport` (a sibling, not an ancestor of `.card`) because that
+   box never changes size across the pin — unlike `.card`, it makes a
+   stable 0–1 scale basis with no risk of the width/height mismatch
+   above. */
+.cardPlate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  --cn: calc(48px * (1 - var(--pf)));
+
+  background: var(--paper);
+  transform: scale(calc(0.3 + 0.7 * var(--pf)), calc(0.42 + 0.58 * var(--pf)));
+  will-change: transform;
   clip-path: polygon(
     0 0,
     calc(100% - var(--cn)) 0,
@@ -152,6 +178,8 @@
 }
 
 .cardInner {
+  position: relative;
+  z-index: 1;
   max-width: 62ch;
 }
 
@@ -210,10 +238,17 @@
   }
 
   .card {
-    width: calc(74vw + 26vw * var(--pf));
+    width: calc(74% + 26% * var(--pf));
     padding-block: calc(38px + 20px * var(--pf));
     padding-inline: calc(26px + 14px * var(--pf));
-    --cn: calc(22px * (1 - var(--pf)));
+  }
+
+  .cardPlate {
+    --cn: calc(34px * (1 - var(--pf)));
+    transform: scale(
+      calc(0.74 + 0.26 * var(--pf)),
+      calc(0.42 + 0.58 * var(--pf))
+    );
   }
 
   .title {
