@@ -147,7 +147,7 @@
   transition: transform 500ms var(--ease-out-expo) calc(var(--i, 0) * 60ms);
 }
 
-.term[data-revealed="true"] dt::after {
+.section[data-revealed="true"] .term dt::after {
   transform: scaleX(1);
 }
 
@@ -164,7 +164,7 @@
     transform 500ms var(--ease-soft) calc(var(--i, 0) * 60ms + 260ms);
 }
 
-.term[data-revealed="true"] dd {
+.section[data-revealed="true"] .term dd {
   opacity: 1;
   transform: translateY(0);
 }

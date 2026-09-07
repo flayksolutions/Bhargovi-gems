@@ -29,7 +29,6 @@ export default function AnatomyGlossarySection({
 }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   useRevealOnScroll(sectionRef);
-  useRevealOnScroll(sectionRef, `.${styles.term}`);
 
   return (
     <section id={id} className={styles.section} aria-labelledby="anatomy-title" ref={sectionRef}>

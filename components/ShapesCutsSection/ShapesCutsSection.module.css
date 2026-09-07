@@ -136,8 +136,8 @@
   position: absolute;
   border-radius: 50%;
   opacity: 0;
-  transform: scale(0.8) rotate(-90deg);
-  transition: opacity 600ms var(--ease-soft), transform 600ms var(--ease-soft);
+  transform: scale(0.35) rotate(-160deg);
+  transition: opacity 750ms var(--ease-soft), transform 750ms var(--ease-soft);
 }
 
 .ringOuter {
@@ -148,7 +148,7 @@
 .ringInner {
   inset: 13.5%;
   border: 1px solid rgba(37, 100, 202, 0.14);
-  transition-delay: 80ms;
+  transition-delay: 150ms;
 }
 
 .section[data-revealed="true"] .ringOuter,
@@ -162,8 +162,8 @@
   width: 92%;
   height: 92%;
   opacity: 0;
-  transform: scale(0.92) rotate(-6deg);
-  transition: opacity 700ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
+  transform: scale(0.7) rotate(-16deg);
+  transition: opacity 800ms var(--ease-out-expo), transform 800ms var(--ease-out-expo);
 }
 
 .section[data-revealed="true"] .stagePhotoWrap {

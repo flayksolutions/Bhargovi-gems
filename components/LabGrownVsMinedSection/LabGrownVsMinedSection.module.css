@@ -20,8 +20,8 @@
 .image {
   object-fit: cover;
   object-position: 50% 50%;
-  transform: scale(1.06) translateY(16px);
-  transition: transform 900ms var(--ease-out-expo);
+  transform: scale(1.18) translateY(46px);
+  transition: transform 1100ms var(--ease-out-expo);
 }
 
 .section[data-revealed="true"] .image {
@@ -111,8 +111,8 @@
   /* Chamfer the outer top-right corner of the pair. */
   clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 0 100%);
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 650ms var(--ease-out-expo), transform 650ms var(--ease-out-expo);
+  transform: translateY(46px);
+  transition: opacity 700ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
 }
 
 .section[data-revealed="true"] .column {
