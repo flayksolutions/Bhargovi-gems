@@ -24,7 +24,6 @@ export const heroSection = {
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
 
-
 // export const aboutSection = {
 //   eyebrow: "About Us",
 //   title: "A Family Legacy in Diamond Crafting Since 1994",
@@ -378,7 +377,7 @@ export const craftingSection = {
 
 export const aboutHeroSection = {
   titleLines: ["A Family Legacy", "Since 1971"],
-  body: "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.",
+  body: "Built on over five decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
   image: "/images/about/hero-legacy.jpg",
   alt: "A round brilliant diamond held in tweezers above a dark, sparkling surface",
 };
@@ -394,7 +393,7 @@ export const legacySection = {
   eyebrow: "About Us",
   /* Split so the trailing clause can carry the accent colour. */
   title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1971" },
-  body: "With in-house cutting and polishing facilities and an extensive inventory, Bhargovi Gems caters to the growing needs of jewellery manufacturers and retail brands across India and abroad.",
+  body: "With in-house cutting and polishing capabilities and a strong inventory, Bhargovi Gems delivers precision-manufactured lab-grown diamonds to clients across India.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
      interlock exactly the way they were designed, no matter how the
@@ -435,12 +434,12 @@ export const legacySection = {
       {
         id: "round-brilliant",
         category: "Round Brilliant",
-        values: ["VVS-VS", "D - E - F", "3 cents - 1.50 ct"],
+        values: ["VVS-VS", "D - E - F", "3 cents to 1.50 carat"],
       },
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – F - F", "30 cents - 1 ct"],
+        values: ["VVS", "D – F - F", "30 cents to 1 carat"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -463,28 +462,34 @@ export const whyChooseUsSection = {
   alt: "A solitaire diamond ring threaded onto a knotted blue silk ribbon",
   items: [
     {
-      id: "budget",
+      id: "precision",
       icon: "/icons/about/budget.png",
-      title: "Easier on the Budget",
-      body: "Advances in growing technology put a larger, higher-grade stone within the same budget.",
+      title: "Precision in Every Cut",
+      body: "Our in-house cutting and polishing capabilities allow us to maintain close control over every stage of the manufacturing process, from rough planning to final polish.",
     },
     {
-      id: "earth",
+      id: "consistency",
       icon: "/icons/about/earth.png",
-      title: "Gentler on the Earth",
-      body: "Our process leaves natural ecosystem undisturbed nothing dug, nothing displaced, nothing drained.",
+      title: "Consistency You Can Rely On",
+      body: "We focus on delivering consistent quality across size, shape, colour and clarity, supported by systematic evaluation and controlled manufacturing processes.",
     },
     {
-      id: "purity",
+      id: "modern",
       icon: "/icons/about/purity.png",
-      title: "Purity as Standard",
-      body: "Each lab-grown rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine its ideal cutting plan.",
+      title: "Modern Lab-Grown Manufacturing",
+      body: "Our expertise has evolved from natural diamonds to the next generation of diamond manufacturing. Today, our focus is entirely on lab-grown diamonds.",
     },
     {
-      id: "conflict-free",
+      id: "quality",
       icon: "/icons/about/conflict-free.png",
-      title: "Guaranteed Conflict-Free",
-      body: "Chemically, physically and optically identical to an earth-mined diamond and, unlike one, guaranteed free of conflict.",
+      title: "Quality by Design",
+      body: "Every rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine the most suitable cutting plan.",
+    },
+    {
+      id: "long-term",
+      icon: "/icons/about/conflict-free.png",
+      title: "Built for Long-Term Partnerships",
+      body: "We believe strong business relationships are built on transparency, consistency and dependable service — not just individual transactions.",
     },
   ] satisfies WhyChooseUsItem[],
 };
@@ -754,7 +759,12 @@ export const commitmentSection = {
   body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
 };
 
-export type PillarCard = { id: string; name: string; body: string; icon: string };
+export type PillarCard = {
+  id: string;
+  name: string;
+  body: string;
+  icon: string;
+};
 
 export const pillarsSection = {
   background: "/images/sustainability/commitment-bg.png",
@@ -802,7 +812,11 @@ export const commitmentsSection = {
 export const integritySection = {
   title: "Product Integrity & Traceability",
   body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
-  points: ["Certified Authenticity", "Full Traceability", "Ethical Craftsmanship"],
+  points: [
+    "Certified Authenticity",
+    "Full Traceability",
+    "Ethical Craftsmanship",
+  ],
   images: [
     {
       src: "/images/sustainability/integrity-1.png",
@@ -955,11 +969,31 @@ export const fourCsSection = {
       caption: "Inclusions, 10×",
       kind: "loupes",
       items: [
-        { id: "fl", label: "FL", icon: "/images/diamond-info/4cs/clarity-fl.svg" },
-        { id: "vvs", label: "VVS", icon: "/images/diamond-info/4cs/clarity-vvs.svg" },
-        { id: "vs", label: "VS", icon: "/images/diamond-info/4cs/clarity-vs.svg" },
-        { id: "si", label: "SI", icon: "/images/diamond-info/4cs/clarity-si.svg" },
-        { id: "i1-3", label: "I1–3", icon: "/images/diamond-info/4cs/clarity-i1-3.svg" },
+        {
+          id: "fl",
+          label: "FL",
+          icon: "/images/diamond-info/4cs/clarity-fl.svg",
+        },
+        {
+          id: "vvs",
+          label: "VVS",
+          icon: "/images/diamond-info/4cs/clarity-vvs.svg",
+        },
+        {
+          id: "vs",
+          label: "VS",
+          icon: "/images/diamond-info/4cs/clarity-vs.svg",
+        },
+        {
+          id: "si",
+          label: "SI",
+          icon: "/images/diamond-info/4cs/clarity-si.svg",
+        },
+        {
+          id: "i1-3",
+          label: "I1–3",
+          icon: "/images/diamond-info/4cs/clarity-i1-3.svg",
+        },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
     },
@@ -970,11 +1004,36 @@ export const fourCsSection = {
       caption: "1ct = 200mg",
       kind: "carats",
       items: [
-        { id: "025", label: ".25", icon: "/images/diamond-info/4cs/carat-025.svg", size: 22 },
-        { id: "050", label: ".50", icon: "/images/diamond-info/4cs/carat-050.svg", size: 30 },
-        { id: "100", label: "1.00", icon: "/images/diamond-info/4cs/carat-100.svg", size: 40 },
-        { id: "150", label: "1.50", icon: "/images/diamond-info/4cs/carat-150.svg", size: 50 },
-        { id: "200", label: "2.00+", icon: "/images/diamond-info/4cs/carat-200.svg", size: 64 },
+        {
+          id: "025",
+          label: ".25",
+          icon: "/images/diamond-info/4cs/carat-025.svg",
+          size: 22,
+        },
+        {
+          id: "050",
+          label: ".50",
+          icon: "/images/diamond-info/4cs/carat-050.svg",
+          size: 30,
+        },
+        {
+          id: "100",
+          label: "1.00",
+          icon: "/images/diamond-info/4cs/carat-100.svg",
+          size: 40,
+        },
+        {
+          id: "150",
+          label: "1.50",
+          icon: "/images/diamond-info/4cs/carat-150.svg",
+          size: 50,
+        },
+        {
+          id: "200",
+          label: "2.00+",
+          icon: "/images/diamond-info/4cs/carat-200.svg",
+          size: 64,
+        },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
     },
@@ -1117,7 +1176,11 @@ export const shapesCutsSection = {
   catalogueLink: { label: "View the full shape catalogue", href: "/products" },
 };
 
-export type ComparisonRow = { id: string; label: string; values: [string, string] };
+export type ComparisonRow = {
+  id: string;
+  label: string;
+  values: [string, string];
+};
 
 export const labGrownVsMinedSection = {
   id: "lab-grown-vs-mined",
@@ -1546,7 +1609,7 @@ export const processSection = {
         "Every polished diamond undergoes detailed quality inspection for cut, symmetry, polish and overall finish before it is ready for certification or further use.",
       image: PLACEHOLDER_IMAGE,
       alt: "Fifty-seven facets polished onto a brilliant cut",
-    }
+    },
   ] satisfies ProcessStep[],
 };
 
