@@ -20,7 +20,7 @@ export const heroSection = {
   body: "Precision-cut, ethically sourced diamonds \u2014 trusted by jewellery manufacturers and retail brands worldwide.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-diamond.jpg",
-  video: "/videos/hero-2.mp4",
+  video: "/videos/hero-3.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
 
