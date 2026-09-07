@@ -61,15 +61,18 @@ export default function ProcessSection({ eyebrow, title, steps }: Props) {
 
   return (
     <section className={styles.section} aria-labelledby="process-title">
-      {/* Full-height rail so the accent can stick to the top of the
-          viewport for the whole section instead of scrolling away. */}
+      {/* Sticky rail so the accent stays pinned to the top of the
+          viewport for the section, then scrolls away with the content
+          once the section's bottom reaches the bottom of the screen. */}
       <div className={styles.accentRail} aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/accents/tweezers-stone.png"
-          alt=""
-          className={styles.accent}
-        />
+        <div className={styles.accentSticky}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/accents/tweezers-stone.png"
+            alt=""
+            className={styles.accent}
+          />
+        </div>
       </div>
 
       <div className={styles.inner}>
