@@ -36,6 +36,7 @@ export default function SiteFooter({
           quality={90}
           className={styles.plateImage}
         />
+        <div className={styles.plateOverlay} />
       </div>
 
       <div className={styles.inner}>
