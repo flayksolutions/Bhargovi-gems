@@ -58,6 +58,46 @@
   padding: var(--header-h) var(--gutter) clamp(40px, 7vh, 60px);
 }
 
+.breadcrumb {
+  margin-bottom: clamp(16px, 2.2vh, 26px);
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.crumbItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crumbLink {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 320ms var(--ease-soft);
+}
+
+.crumbLink:hover {
+  color: #fff;
+}
+
+.crumbCurrent {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.crumbSep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 .title {
   margin: 0 0 clamp(20px, 3.2vh, 33px);
   font-family: var(--font-display);

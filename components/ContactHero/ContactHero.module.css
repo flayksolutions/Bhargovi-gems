@@ -51,6 +51,46 @@
   max-width: 620px;
 }
 
+.breadcrumb {
+  margin: 0;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.crumbItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crumbLink {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 320ms var(--ease-soft);
+}
+
+.crumbLink:hover {
+  color: #fff;
+}
+
+.crumbCurrent {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.crumbSep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 .eyebrow {
   margin: 0;
   font-family: var(--font-body);

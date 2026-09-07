@@ -376,6 +376,7 @@ export const craftingSection = {
 ------------------------------------------------------------------- */
 
 export const aboutHeroSection = {
+  breadcrumb: [{ label: "Home", href: "/" }, { label: "About Us" }],
   titleLines: ["A Family Legacy", "Since 1971"],
   body: "Built on over five decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
   image: "/images/about/hero-legacy.jpg",
@@ -1618,6 +1619,7 @@ export const processSection = {
 ------------------------------------------------------------------- */
 
 export const contactHeroSection = {
+  breadcrumb: [{ label: "Home", href: "/" }, { label: "Contact" }],
   eyebrow: "Get in Touch",
   titleLines: ["We'd Love to Hear", "From You"],
   phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
