@@ -147,6 +147,14 @@
   width: min(220px, 62%);
   height: auto;
   margin: 0 auto clamp(14px, 2vw, 26px);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 600ms var(--ease-out-expo), transform 600ms var(--ease-out-expo);
+}
+
+.card[data-revealed="true"] .diagram {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .scaleTrack {
@@ -383,6 +391,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .diagram,
   .scaleFill,
   .gem,
   .loupe,
