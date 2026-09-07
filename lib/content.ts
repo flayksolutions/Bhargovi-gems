@@ -519,7 +519,7 @@ export const visionSection = {
     trail: ".",
   },
   body: "Brilliance is not a grade on a certificate. It is what the light does when it leaves the table, and it is the only thing the customer ever really sees.",
-  image: "/images/about/vision-hands.jpg",
+  image: "/images/about/diamond-on-table.jpg",
   alt: "Several hands resting together on the trunk of an old tree",
 };
 
