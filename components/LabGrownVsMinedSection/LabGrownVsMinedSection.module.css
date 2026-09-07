@@ -20,6 +20,12 @@
 .image {
   object-fit: cover;
   object-position: 50% 50%;
+  transform: scale(1.06) translateY(16px);
+  transition: transform 900ms var(--ease-out-expo);
+}
+
+.section[data-revealed="true"] .image {
+  transform: scale(1) translateY(0);
 }
 
 .scrim {
@@ -104,12 +110,21 @@
   background: #f7fbff;
   /* Chamfer the outer top-right corner of the pair. */
   clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 0 100%);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 650ms var(--ease-out-expo), transform 650ms var(--ease-out-expo);
+}
+
+.section[data-revealed="true"] .column {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .columnEmphasis {
   background: #002185;
   /* …and the outer bottom-left corner of the pair. */
   clip-path: polygon(0 0, 100% 0, 100% 100%, 48px 100%, 0 calc(100% - 48px));
+  transition-delay: 150ms;
 }
 
 /* --- column head --- */
@@ -242,6 +257,14 @@
   top: -1px;
   width: 12px;
   height: 12px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 450ms var(--ease-soft) 380ms, transform 450ms var(--ease-soft) 380ms;
+}
+
+.section[data-revealed="true"] .glyphMark {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ---------------------------- disclaimer ------------------------- */
@@ -281,5 +304,13 @@
 @media (max-width: 640px) {
   .rowValue {
     font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .column,
+  .glyphMark {
+    transition: none;
   }
 }
