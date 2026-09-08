@@ -46,6 +46,16 @@
   object-position: 50% 42%;
 }
 
+/* Separate full-bleed overlay (not on .plate) so its opacity/blend
+   don't interact with the luminosity blend already applied above. */
+.plateOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: #000;
+  opacity: 0.4;
+}
+
 /* ---------------------------- layout ----------------------------- */
 
 .inner {

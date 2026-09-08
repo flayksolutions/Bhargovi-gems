@@ -7,7 +7,10 @@
   position: relative;
   isolation: isolate;
   background: var(--paper);
-  padding: clamp(96px, 16vh, 200px) var(--gutter);
+  /* Top padding is the base clamp plus a bit extra for the top fade,
+     so the content clears the faded band without sitting under it. */
+  padding: calc(clamp(96px, 16vh, 200px) + clamp(48px, 8vh, 100px))
+    var(--gutter) clamp(96px, 16vh, 200px);
   overflow: clip;
 }
 
@@ -31,6 +34,20 @@
   width: clamp(320px, 30vw, 520px);
   height: auto;
   opacity: 0.14;
+  pointer-events: none;
+}
+
+/* Fade the backdrop in from the section above instead of starting
+   with a hard edge at the top. Sits above the crystals (z-index: 0)
+   so it fades them out too, rather than just the photo underneath. */
+.topFade {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: clamp(120px, 20vh, 260px);
+  background: linear-gradient(to bottom, var(--paper), rgba(255, 255, 255, 0));
   pointer-events: none;
 }
 

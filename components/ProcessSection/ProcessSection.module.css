@@ -17,7 +17,9 @@
 }
 
 /* Decorative stone in the tweezers: pinned to the right edge and held
-   there for the length of the section. */
+   there for the length of the section. Out-of-flow wrapper spans the
+   full section height, so the sticky rail inside has the whole
+   section as its containing block and releases right at its end. */
 .accentRail {
   position: absolute;
   top: 0;
@@ -28,9 +30,17 @@
   pointer-events: none;
 }
 
-.accent {
+.accentSticky {
   position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+}
+
+.accent {
+  position: absolute;
   top: clamp(10px, 2.5vh, 34px);
+  left: 0;
   display: block;
   width: 100%;
   height: auto;
@@ -85,8 +95,10 @@
   transform: scale(1.075);
   opacity: 0.62;
   filter: saturate(0.82);
-  transition: transform 1400ms var(--ease-out-expo),
-    opacity 900ms var(--ease-soft), filter 900ms var(--ease-soft);
+  transition:
+    transform 1400ms var(--ease-out-expo),
+    opacity 900ms var(--ease-soft),
+    filter 900ms var(--ease-soft);
   will-change: transform, opacity;
 }
 
@@ -101,7 +113,8 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       120% 80% at 18% 8%,
       rgba(37, 100, 202, 0.22),
       transparent 62%
@@ -192,7 +205,9 @@
   line-height: 1.18;
   letter-spacing: 0.004em;
   color: var(--text-ghost);
-  transition: color 620ms var(--ease-soft), opacity 620ms var(--ease-soft);
+  transition:
+    color 620ms var(--ease-soft),
+    opacity 620ms var(--ease-soft);
 }
 
 .itemActive .name {
@@ -217,14 +232,16 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 720ms var(--ease-out-expo),
+  transition:
+    grid-template-rows 720ms var(--ease-out-expo),
     opacity 460ms var(--ease-soft);
 }
 
 .revealOpen {
   grid-template-rows: 1fr;
   opacity: 1;
-  transition: grid-template-rows 720ms var(--ease-out-expo),
+  transition:
+    grid-template-rows 720ms var(--ease-out-expo),
     opacity 640ms var(--ease-soft) 120ms;
 }
 

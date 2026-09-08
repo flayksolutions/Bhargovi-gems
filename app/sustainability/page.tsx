@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import SustainabilityHero from "@/components/SustainabilityHero/SustainabilityHero";
-import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
+import SustainabilityCommitmentSection from "@/components/SustainabilityCommitmentSection/SustainabilityCommitmentSection";
 import PillarsSection from "@/components/PillarsSection/PillarsSection";
 import IntegritySection from "@/components/IntegritySection/IntegritySection";
-import CaringSection from "@/components/CaringSection/CaringSection";
-import PlanetSection from "@/components/PlanetSection/PlanetSection";
+import SustainabilityEnvironmentSection from "@/components/SustainabilityEnvironmentSection/SustainabilityEnvironmentSection";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
-  caringSection,
   commitmentSection,
+  environmentSection,
   footer,
   integritySection,
   pillarsSection,
-  planetSection,
   site,
   sustainabilityHeroSection,
 } from "@/lib/content";
@@ -31,11 +29,13 @@ export default function SustainabilityPage() {
 
       <main>
         <SustainabilityHero {...sustainabilityHeroSection} />
-        <CommitmentSection {...commitmentSection} />
-        <PillarsSection {...pillarsSection} />
-        <IntegritySection {...integritySection} />
-        <CaringSection {...caringSection} />
-        <PlanetSection {...planetSection} />
+
+        <div className="scroll-stack">
+          <SustainabilityCommitmentSection {...commitmentSection} />
+          <PillarsSection {...pillarsSection} />
+          <IntegritySection {...integritySection} />
+          <SustainabilityEnvironmentSection {...environmentSection} />
+        </div>
       </main>
 
       <SiteFooter brand={site.brand} {...footer} />

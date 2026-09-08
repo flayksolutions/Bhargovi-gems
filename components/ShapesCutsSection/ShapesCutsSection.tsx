@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./ShapesCutsSection.module.css";
 import { useScrollEdges } from "@/lib/useScrollEdges";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 import type { ShapeItem } from "@/lib/content";
 
 type Props = {
@@ -30,12 +31,15 @@ export default function ShapesCutsSection({
 
   const dockRef = useRef<HTMLDivElement>(null);
   const dockRowRef = useRef<HTMLUListElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Fades the dock's leading/trailing edge while shapes overflow the row.
   useScrollEdges(dockRowRef, dockRef);
+  useRevealOnScroll(sectionRef, undefined, "0px 0px -45% 0px");
+  useRevealOnScroll(sectionRef, `.${styles.dockItem}`, "0px 0px -10% 0px");
 
   return (
-    <section id={id} className={styles.section} aria-labelledby="shapes-title">
+    <section id={id} className={styles.section} aria-labelledby="shapes-title" ref={sectionRef}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/diamond-info/crystal-outline.svg"
@@ -112,10 +116,14 @@ export default function ShapesCutsSection({
             aria-label="Diamond shapes"
             ref={dockRowRef}
           >
-            {shapes.map((shape) => {
+            {shapes.map((shape, i) => {
               const active = shape.id === selectedId;
               return (
-                <li key={shape.id} className={styles.dockItem}>
+                <li
+                  key={shape.id}
+                  className={styles.dockItem}
+                  style={{ ["--i" as string]: i }}
+                >
                   <button
                     type="button"
                     aria-pressed={active}

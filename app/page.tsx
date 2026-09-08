@@ -33,9 +33,9 @@ export default function Home() {
           <ProductsSection {...productsSection} />
           <AboutSection {...aboutSection} />
           <ProcessSection {...processSection} />
-          <FacilityCarousel {...facilitySection} />
-          <CraftingSection {...craftingSection} />
+          {/* <FacilityCarousel {...facilitySection} /> */}
           <OfficesSection {...officesSection} />
+          <CraftingSection {...craftingSection} />
           <CommitmentsSection {...commitmentsSection} />
         </div>
       </main>

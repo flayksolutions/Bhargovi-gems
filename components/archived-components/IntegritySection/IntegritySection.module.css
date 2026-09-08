@@ -1,0 +1,154 @@
+/* ==================================================================
+   PRODUCT INTEGRITY — white band. Title/body/points sit left of a
+   single chamfered lifestyle photo; a second, mostly off-canvas
+   photo bleeds a sliver in from the section's left edge, matching
+   the Figma "Stage — Cut Panel" pair (523 x 511 in a 1440 frame).
+   ================================================================== */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* ---------------------------- sliver --------------------------------- */
+
+.sliver {
+  --w: clamp(200px, 20vw, 340px);
+  /* Only a fixed sliver peeks past the section's clipped left edge —
+     comfortably narrower than the gutter so it never reaches the
+     content text (see .inner padding). */
+  --peek: 5%;
+
+  position: absolute;
+  left: calc(-1 * var(--w) + var(--peek));
+  top: 50%;
+  transform: translateY(-50%);
+  /* --stage-h is synced from .stage's actual rendered height via
+     ResizeObserver in IntegritySection.tsx, so this always matches
+     .stage exactly regardless of flex-shrink/breakpoint. */
+  height: var(--stage-h, 511px);
+  width: var(--w);
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(11, 14, 25, 0.16);
+}
+
+/* ---------------------------- inner ----------------------------------- */
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(40px, 6vw, 96px);
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(72px, 11vh, 128px) var(--gutter);
+}
+
+.content {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 clamp(28px, 4vh, 48px);
+  /* max-width: 13ch; */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1.06;
+  color: var(--ink-navy);
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.body {
+  margin: 0;
+  max-width: 40ch;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.point {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--frost);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-navy);
+}
+
+.point:last-child {
+  border-bottom: none;
+}
+
+/* ---------------------------- stage --------------------------------- */
+
+.stage {
+  --cn: clamp(28px, 3.2vw, 56px);
+
+  position: relative;
+  flex: 0 1 523px;
+  width: 100%;
+  aspect-ratio: 523 / 511;
+  overflow: hidden;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+  box-shadow: 0 24px 52px rgba(11, 14, 25, 0.18);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ---------------------------- responsive ---------------------------- */
+
+@media (max-width: 900px) {
+  .sliver {
+    display: none;
+  }
+
+  .inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+
+  .stage {
+    flex-basis: auto;
+    order: -1;
+  }
+}

@@ -1,6 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./FourCsSection.module.css";
 import type { FourCCard, FourCNote } from "@/lib/content";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   id: string;
@@ -47,8 +51,8 @@ function CardGraphic({ card }: { card: FourCCard }) {
     return (
       <div className={styles.graphic}>
         <ul className={styles.gemRow}>
-          {card.items?.map((item) => (
-            <li key={item.id} className={styles.gem}>
+          {card.items?.map((item, i) => (
+            <li key={item.id} className={styles.gem} style={{ ["--i" as string]: i }}>
               <span className={styles.gemDisc}>
                 {card.photo && (
                   <Image
@@ -78,8 +82,8 @@ function CardGraphic({ card }: { card: FourCCard }) {
     return (
       <div className={styles.graphic}>
         <ul className={styles.loupeRow}>
-          {card.items?.map((item) => (
-            <li key={item.id} className={styles.loupe}>
+          {card.items?.map((item, i) => (
+            <li key={item.id} className={styles.loupe} style={{ ["--i" as string]: i }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={item.icon} alt="" aria-hidden="true" className={styles.loupeIcon} />
               <span className={styles.itemLabel}>{item.label}</span>
@@ -93,8 +97,12 @@ function CardGraphic({ card }: { card: FourCCard }) {
   return (
     <div className={styles.graphic}>
       <ul className={styles.caratRow}>
-        {card.items?.map((item) => (
-          <li key={item.id} className={styles.carat} style={{ ["--s" as string]: item.size }}>
+        {card.items?.map((item, i) => (
+          <li
+            key={item.id}
+            className={styles.carat}
+            style={{ ["--s" as string]: item.size, ["--i" as string]: i }}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={item.icon} alt="" aria-hidden="true" className={styles.caratIcon} />
             <span className={styles.itemLabel}>{item.label}</span>
@@ -106,8 +114,11 @@ function CardGraphic({ card }: { card: FourCCard }) {
 }
 
 export default function FourCsSection({ id, eyebrow, titleLines, body, cards }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef, `.${styles.card}`);
+
   return (
-    <section id={id} className={styles.section} aria-labelledby="four-cs-title">
+    <section id={id} className={styles.section} aria-labelledby="four-cs-title" ref={sectionRef}>
       <div className={styles.inner}>
         <header className={styles.head}>
           <div className={styles.headLeft}>
@@ -124,8 +135,8 @@ export default function FourCsSection({ id, eyebrow, titleLines, body, cards }: 
         </header>
 
         <ol className={styles.grid}>
-          {cards.map((card) => (
-            <li key={card.id} className={styles.card}>
+          {cards.map((card, i) => (
+            <li key={card.id} className={styles.card} style={{ ["--i" as string]: i }}>
               <h3 className={styles.cardHead}>
                 <span className={styles.cardNumber}>{card.number}</span>
                 <span className={styles.cardName}>{card.name}</span>

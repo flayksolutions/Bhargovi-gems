@@ -58,8 +58,15 @@ export default function DiamondInfoHero({
         </nav>
 
         <h1 id="diamond-info-hero-title" className={styles.title}>
-          {titleLines.map((line) => (
-            <span key={line}>{line}</span>
+          {titleLines.map((line, i) => (
+            <span key={line} className={styles.titleLineMask}>
+              <span
+                className={styles.titleLine}
+                style={{ ["--i" as string]: i }}
+              >
+                {line}
+              </span>
+            </span>
           ))}
         </h1>
 

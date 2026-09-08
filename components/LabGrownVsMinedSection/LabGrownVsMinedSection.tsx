@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./LabGrownVsMinedSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 import type { ComparisonRow } from "@/lib/content";
 
 type Column = {
@@ -33,8 +37,11 @@ export default function LabGrownVsMinedSection({
   rows,
   disclaimer,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef, undefined, "0px 0px -40% 0px");
+
   return (
-    <section id={id} className={styles.section} aria-labelledby="lab-vs-mined-title">
+    <section id={id} className={styles.section} aria-labelledby="lab-vs-mined-title" ref={sectionRef}>
       <div className={styles.plate}>
         <Image
           src={background}
@@ -75,8 +82,12 @@ export default function LabGrownVsMinedSection({
               </div>
 
               <dl className={styles.rows}>
-                {rows.map((row) => (
-                  <div key={row.id} className={styles.row}>
+                {rows.map((row, rowIndex) => (
+                  <div
+                    key={row.id}
+                    className={styles.row}
+                    style={{ ["--i" as string]: rowIndex }}
+                  >
                     <dt className={styles.rowLabel}>{row.label}</dt>
                     <dd className={styles.rowValue}>
                       {column.emphasis ? (

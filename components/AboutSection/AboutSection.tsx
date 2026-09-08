@@ -120,6 +120,8 @@ export default function AboutSection({
           )}
         </div>
 
+        <div className={styles.cardPlate} aria-hidden="true" />
+
         <div className={styles.cardWrap}>
           <article className={styles.card}>
             {/* eslint-disable-next-line @next/next/no-img-element */}

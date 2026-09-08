@@ -20,6 +20,12 @@
 .image {
   object-fit: cover;
   object-position: 50% 50%;
+  transform: scale(1.18) translateY(46px);
+  transition: transform 1100ms var(--ease-out-expo);
+}
+
+.section[data-revealed="true"] .image {
+  transform: scale(1) translateY(0);
 }
 
 .scrim {
@@ -104,12 +110,21 @@
   background: #f7fbff;
   /* Chamfer the outer top-right corner of the pair. */
   clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 0 100%);
+  opacity: 0;
+  transform: translateY(46px);
+  transition: opacity 700ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
+}
+
+.section[data-revealed="true"] .column {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .columnEmphasis {
   background: #002185;
   /* …and the outer bottom-left corner of the pair. */
   clip-path: polygon(0 0, 100% 0, 100% 100%, 48px 100%, 0 calc(100% - 48px));
+  transition-delay: 150ms;
 }
 
 /* --- column head --- */
@@ -129,6 +144,14 @@
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--sapphire);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-soft) 150ms, transform 500ms var(--ease-soft) 150ms;
+}
+
+.section[data-revealed="true"] .tag {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .columnEmphasis .tag {
@@ -143,6 +166,14 @@
   font-size: clamp(22px, 2.2vw, 32px);
   line-height: 1.2;
   color: var(--ink);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 550ms var(--ease-out-expo) 220ms, transform 550ms var(--ease-out-expo) 220ms;
+}
+
+.section[data-revealed="true"] .columnTitle {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .columnEmphasis .columnTitle {
@@ -154,6 +185,14 @@
   font-family: var(--font-body);
   font-size: 13.5px;
   color: var(--azure);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-soft) 300ms, transform 500ms var(--ease-soft) 300ms;
+}
+
+.section[data-revealed="true"] .subtitle {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .columnEmphasis .subtitle {
@@ -177,6 +216,15 @@
   min-height: 76px;
   padding: 14px clamp(22px, 3vw, 44px);
   border-top: 1px solid rgba(37, 100, 202, 0.14);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 380ms),
+    transform 500ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 380ms);
+}
+
+.section[data-revealed="true"] .row {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .row:last-child {
@@ -242,6 +290,14 @@
   top: -1px;
   width: 12px;
   height: 12px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 450ms var(--ease-soft) 380ms, transform 450ms var(--ease-soft) 380ms;
+}
+
+.section[data-revealed="true"] .glyphMark {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ---------------------------- disclaimer ------------------------- */
@@ -281,5 +337,17 @@
 @media (max-width: 640px) {
   .rowValue {
     font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .column,
+  .glyphMark,
+  .tag,
+  .columnTitle,
+  .subtitle,
+  .row {
+    transition: none;
   }
 }

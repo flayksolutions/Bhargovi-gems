@@ -20,10 +20,9 @@ export const heroSection = {
   body: "Crafting exceptional diamonds through precision, innovation and decades of manufacturing experience.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-diamond.jpg",
-  video: "/videos/hero-2.mp4",
+  video: "/videos/hero-3.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
-
 
 // export const aboutSection = {
 //   eyebrow: "About Us",
@@ -377,8 +376,9 @@ export const craftingSection = {
 ------------------------------------------------------------------- */
 
 export const aboutHeroSection = {
+  breadcrumb: [{ label: "Home", href: "/" }, { label: "About Us" }],
   titleLines: ["A Family Legacy", "Since 1971"],
-  body: "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.",
+  body: "Built on over five decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
   image: "/images/about/hero-legacy.jpg",
   alt: "A round brilliant diamond held in tweezers above a dark, sparkling surface",
 };
@@ -394,7 +394,7 @@ export const legacySection = {
   eyebrow: "About Us",
   /* Split so the trailing clause can carry the accent colour. */
   title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1971" },
-  body: "With in-house cutting and polishing facilities and an extensive inventory, Bhargovi Gems caters to the growing needs of jewellery manufacturers and retail brands across India and abroad.",
+  body: "With in-house cutting and polishing capabilities and a strong inventory, Bhargovi Gems delivers precision-manufactured lab-grown diamonds to clients across India.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
      interlock exactly the way they were designed, no matter how the
@@ -435,12 +435,12 @@ export const legacySection = {
       {
         id: "round-brilliant",
         category: "Round Brilliant",
-        values: ["VVS-VS", "D - E - F", "3 cents - 1.50 ct"],
+        values: ["VVS-VS", "D - E - F", "3 cents to 1.50 carat"],
       },
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – F - F", "30 cents - 1 ct"],
+        values: ["VVS", "D – E - F", "10 cents to 1 carat"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -463,28 +463,34 @@ export const whyChooseUsSection = {
   alt: "A solitaire diamond ring threaded onto a knotted blue silk ribbon",
   items: [
     {
-      id: "budget",
-      icon: "/icons/about/budget.png",
-      title: "Easier on the Budget",
-      body: "Advances in growing technology put a larger, higher-grade stone within the same budget.",
+      id: "precision",
+      icon: "/icons/about/precision.svg",
+      title: "Precision in Every Cut",
+      body: "Our in-house cutting and polishing capabilities allow us to maintain close control over every stage of the manufacturing process, from rough planning to final polish.",
     },
     {
-      id: "earth",
-      icon: "/icons/about/earth.png",
-      title: "Gentler on the Earth",
-      body: "Our process leaves natural ecosystem undisturbed nothing dug, nothing displaced, nothing drained.",
+      id: "consistency",
+      icon: "/icons/about/consistency.svg",
+      title: "Consistency You Can Rely On",
+      body: "We focus on delivering consistent quality across size, shape, colour and clarity, supported by systematic evaluation and controlled manufacturing processes.",
     },
     {
-      id: "purity",
-      icon: "/icons/about/purity.png",
-      title: "Purity as Standard",
-      body: "Each lab-grown rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine its ideal cutting plan.",
+      id: "modern",
+      icon: "/icons/about/modern.svg",
+      title: "Modern Lab-Grown Manufacturing",
+      body: "Our expertise has evolved from natural diamonds to the next generation of diamond manufacturing. Today, our focus is entirely on lab-grown diamonds.",
     },
     {
-      id: "conflict-free",
-      icon: "/icons/about/conflict-free.png",
-      title: "Guaranteed Conflict-Free",
-      body: "Chemically, physically and optically identical to an earth-mined diamond and, unlike one, guaranteed free of conflict.",
+      id: "quality",
+      icon: "/icons/about/quality.svg",
+      title: "Quality by Design",
+      body: "Every rough diamond is carefully evaluated for its size, shape, clarity and internal characteristics to determine the most suitable cutting plan.",
+    },
+    {
+      id: "long-term",
+      icon: "/icons/about/long-term.svg",
+      title: "Built for Long-Term Partnerships",
+      body: "We believe strong business relationships are built on transparency, consistency and dependable service — not just individual transactions.",
     },
   ] satisfies WhyChooseUsItem[],
 };
@@ -514,7 +520,7 @@ export const visionSection = {
     trail: ".",
   },
   body: "Brilliance is not a grade on a certificate. It is what the light does when it leaves the table, and it is the only thing the customer ever really sees.",
-  image: "/images/about/vision-hands.jpg",
+  image: "/images/about/diamond-on-table.jpg",
   alt: "Several hands resting together on the trunk of an old tree",
 };
 
@@ -744,19 +750,28 @@ export const sustainabilityHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Sustainability" }],
   title: "Responsible by Design",
   body: "From lab to jewel, every stone we grow reflects our commitment to people and the planet.",
-  image: "/images/sustainability/hero-bg.png",
-  alt: "A lab-grown diamond suspended in a dark, softly lit field",
+  image: "/images/sustainability/hero-lily.png",
+  alt: "A diamond ring and loose polished diamonds cascading from a white calla lily",
 };
 
-export const commitmentSection = {
+/* Frozen pre-redesign copies, used only by
+   app/_archived-pages/sustainability/page.tsx — do not edit these when
+   changing the live sustainability content below. */
+
+export const legacyCommitmentSection = {
   eyebrow: "Our Commitment",
   title: "Rooted in Responsibility",
   body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
 };
 
-export type PillarCard = { id: string; name: string; body: string; icon: string };
+export type LegacyPillarCard = {
+  id: string;
+  name: string;
+  body: string;
+  icon: string;
+};
 
-export const pillarsSection = {
+export const legacyPillarsSection = {
   background: "/images/sustainability/commitment-bg.png",
   cards: [
     {
@@ -776,6 +791,63 @@ export const pillarsSection = {
       name: "Eco Responsibility",
       body: "We minimize waste, conserve energy, and work toward carbon neutrality across operations.",
       icon: "/icons/sustainability/recycle.svg",
+    },
+  ] satisfies LegacyPillarCard[],
+};
+
+export const legacyIntegritySection = {
+  title: "Product Integrity & Traceability",
+  body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
+  points: [
+    "Certified Authenticity",
+    "Full Traceability",
+    "Ethical Craftsmanship",
+  ],
+  images: [
+    {
+      src: "/images/sustainability/integrity-1.png",
+      alt: "A loupe and tweezers used to inspect a polished diamond",
+    },
+    {
+      src: "/images/sustainability/integrity-2.png",
+      alt: "A rough diamond crystal beside cutting tools",
+    },
+  ],
+};
+
+export const commitmentSection = {
+  eyebrow: "Our Commitment",
+  title: "Sustainable and Thriving Future For Our Planet",
+  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+};
+
+export type PillarCard = {
+  id: string;
+  name: string;
+  body: string;
+  hoverImage: string;
+};
+
+export const pillarsSection = {
+  background: "/images/sustainability/pillars-bg.png",
+  cards: [
+    {
+      id: "sustainable-growing",
+      name: "Sustainable Growing",
+      body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
+      hoverImage: "/images/sustainability/sustainable-growth.png",
+    },
+    {
+      id: "ethical-sourcing",
+      name: "Ethical Sourcing",
+      body: "Every stone is traceable from lab to market, backed by independent certification.",
+      hoverImage: "/images/sustainability/ethical-sourcing.png",
+    },
+    {
+      id: "people-community",
+      name: "People & Community",
+      body: "We invest in fair, safe workplaces and support the communities where we operate.",
+      hoverImage: "/images/sustainability/people-and-community.png",
     },
   ] satisfies PillarCard[],
 };
@@ -802,15 +874,19 @@ export const commitmentsSection = {
 export const integritySection = {
   title: "Product Integrity & Traceability",
   body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
-  points: ["Certified Authenticity", "Full Traceability", "Ethical Craftsmanship"],
+  points: [
+    "Certified Authenticity",
+    "Full Traceability",
+    "Ethical Craftsmanship",
+  ],
   images: [
     {
-      src: "/images/sustainability/integrity-1.png",
-      alt: "A loupe and tweezers used to inspect a polished diamond",
+      src: "/images/sustainability/integrity-flower.png",
+      alt: "A diamond ring nestled in the folds of a white calla lily",
     },
     {
-      src: "/images/sustainability/integrity-2.png",
-      alt: "A rough diamond crystal beside cutting tools",
+      src: "/images/sustainability/integrity-moss.png",
+      alt: "Loose polished diamonds resting on a moss-covered stone",
     },
   ],
 };
@@ -856,6 +932,13 @@ export const planetSection = {
   body: "Grown, not mined — our gems use far less land and water, and we keep reducing our footprint.",
   image: "/images/sustainability/caring-planet.png",
   alt: "A cluster of polished diamonds resting on a green leaf",
+};
+
+export const environmentSection = {
+  title: "Environment Friendly",
+  body: "Deep sourcing partnerships across mining regions, in-house Sarine 4D mapping and polishing under one roof, and an extensive ready inventory across shapes and sizes",
+  image: "/images/sustainability/environment-leaf.png",
+  alt: "A diamond-shaped frame over dew-covered pine branches",
 };
 
 /* ------------------------------------------------------------------
@@ -955,11 +1038,31 @@ export const fourCsSection = {
       caption: "Inclusions, 10×",
       kind: "loupes",
       items: [
-        { id: "fl", label: "FL", icon: "/images/diamond-info/4cs/clarity-fl.svg" },
-        { id: "vvs", label: "VVS", icon: "/images/diamond-info/4cs/clarity-vvs.svg" },
-        { id: "vs", label: "VS", icon: "/images/diamond-info/4cs/clarity-vs.svg" },
-        { id: "si", label: "SI", icon: "/images/diamond-info/4cs/clarity-si.svg" },
-        { id: "i1-3", label: "I1–3", icon: "/images/diamond-info/4cs/clarity-i1-3.svg" },
+        {
+          id: "fl",
+          label: "FL",
+          icon: "/images/diamond-info/4cs/clarity-fl.svg",
+        },
+        {
+          id: "vvs",
+          label: "VVS",
+          icon: "/images/diamond-info/4cs/clarity-vvs.svg",
+        },
+        {
+          id: "vs",
+          label: "VS",
+          icon: "/images/diamond-info/4cs/clarity-vs.svg",
+        },
+        {
+          id: "si",
+          label: "SI",
+          icon: "/images/diamond-info/4cs/clarity-si.svg",
+        },
+        {
+          id: "i1-3",
+          label: "I1–3",
+          icon: "/images/diamond-info/4cs/clarity-i1-3.svg",
+        },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
     },
@@ -970,11 +1073,36 @@ export const fourCsSection = {
       caption: "1ct = 200mg",
       kind: "carats",
       items: [
-        { id: "025", label: ".25", icon: "/images/diamond-info/4cs/carat-025.svg", size: 22 },
-        { id: "050", label: ".50", icon: "/images/diamond-info/4cs/carat-050.svg", size: 30 },
-        { id: "100", label: "1.00", icon: "/images/diamond-info/4cs/carat-100.svg", size: 40 },
-        { id: "150", label: "1.50", icon: "/images/diamond-info/4cs/carat-150.svg", size: 50 },
-        { id: "200", label: "2.00+", icon: "/images/diamond-info/4cs/carat-200.svg", size: 64 },
+        {
+          id: "025",
+          label: ".25",
+          icon: "/images/diamond-info/4cs/carat-025.svg",
+          size: 22,
+        },
+        {
+          id: "050",
+          label: ".50",
+          icon: "/images/diamond-info/4cs/carat-050.svg",
+          size: 30,
+        },
+        {
+          id: "100",
+          label: "1.00",
+          icon: "/images/diamond-info/4cs/carat-100.svg",
+          size: 40,
+        },
+        {
+          id: "150",
+          label: "1.50",
+          icon: "/images/diamond-info/4cs/carat-150.svg",
+          size: 50,
+        },
+        {
+          id: "200",
+          label: "2.00+",
+          icon: "/images/diamond-info/4cs/carat-200.svg",
+          size: 64,
+        },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
     },
@@ -1117,7 +1245,11 @@ export const shapesCutsSection = {
   catalogueLink: { label: "View the full shape catalogue", href: "/products" },
 };
 
-export type ComparisonRow = { id: string; label: string; values: [string, string] };
+export type ComparisonRow = {
+  id: string;
+  label: string;
+  values: [string, string];
+};
 
 export const labGrownVsMinedSection = {
   id: "lab-grown-vs-mined",
@@ -1546,7 +1678,7 @@ export const processSection = {
         "Every polished diamond undergoes detailed quality inspection for cut, symmetry, polish and overall finish before it is ready for certification or further use.",
       image: "/images/home-our-process/inspection.webp",
       alt: "Fifty-seven facets polished onto a brilliant cut",
-    }
+    },
   ] satisfies ProcessStep[],
 };
 
@@ -1556,7 +1688,7 @@ export const processSection = {
 
 export const contactHeroSection = {
   eyebrow: "Get in Touch",
-  titleLines: ["We'd Love to Hear", "From You"],
+  title: "We'd Love to Hear From You",
   phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
   email: {
     label: "bhargovigems4445@gmail.com",
@@ -1573,9 +1705,15 @@ export type ContactFormField = {
   placeholder: string;
 };
 
+export type ContactOffice = {
+  id: string;
+  name: string;
+  label: string;
+  address: string;
+};
+
 export const contactFormSection = {
   eyebrow: "Send a Message",
-  title: "Tell Us What You're Looking For",
   fields: [
     {
       id: "full-name",
@@ -1583,7 +1721,7 @@ export const contactFormSection = {
       label: "Full Name",
       name: "fullName",
       type: "text",
-      placeholder: "Your Name",
+      placeholder: "Jane Doe",
     },
     {
       id: "company-name",
@@ -1591,7 +1729,7 @@ export const contactFormSection = {
       label: "Company Name",
       name: "companyName",
       type: "text",
-      placeholder: "Your Company Name",
+      placeholder: "Doe Jewellery Co.",
     },
     {
       id: "email-address",
@@ -1599,7 +1737,7 @@ export const contactFormSection = {
       label: "Email Address",
       name: "email",
       type: "email",
-      placeholder: "your@email.com",
+      placeholder: "jane@company.com",
     },
     {
       id: "phone-number",
@@ -1607,7 +1745,7 @@ export const contactFormSection = {
       label: "Phone Number",
       name: "phone",
       type: "tel",
-      placeholder: "+91 (000) 000-0000",
+      placeholder: "+1 (000) 000-0000",
     },
     {
       id: "message",
@@ -1615,11 +1753,26 @@ export const contactFormSection = {
       label: "Tell Us What You Need",
       name: "message",
       type: "textarea",
-      placeholder: "Your Message",
+      placeholder: "Volume, specifications, timeline, or partnership details…",
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
-  note: "Confidential enquiry · We respond within one business day",
+  note: "Confidential enquiry · We respond within 3-4 business days",
   image: "/images/contact-form-tray.png",
   alt: "Loose polished diamonds scattered across a jewellery tray",
+  officesTitle: "Our Offices",
+  offices: [
+    {
+      id: "mumbai",
+      name: "Mumbai",
+      label: "Headquarters",
+      address: "Bharat Diamond Bourse, BKC, Mumbai, India",
+    },
+    {
+      id: "surat",
+      name: "Surat",
+      label: "Manufacturing Facility",
+      address: "Manufacturing Facility, Surat, Gujarat, India",
+    },
+  ] satisfies ContactOffice[],
 };

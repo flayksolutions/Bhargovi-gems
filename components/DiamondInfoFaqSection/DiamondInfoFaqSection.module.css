@@ -29,7 +29,7 @@
     #000 46%,
     transparent 84%
   );
-  mask-image: radial-gradient(125% 115% at 0% 100%, #000 46%, transparent 84%);
+  mask-image: radial-gradient(125% 115% at 0% 100%, #000 60%, transparent 84%);
 }
 
 .plateImage {
@@ -46,7 +46,7 @@
   top: -280px;
   width: min(1200px, 92vw);
   height: 760px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(0.85);
   border-radius: 50%;
   background: radial-gradient(
     ellipse,
@@ -55,7 +55,15 @@
   );
   filter: blur(80px);
   pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 800ms var(--ease-soft),
+    transform 800ms var(--ease-soft);
+}
+
+.section[data-revealed="true"] .glow {
   opacity: 0.5;
+  transform: translateX(-50%) scale(1);
 }
 
 .inner {
@@ -191,6 +199,16 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.42);
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms),
+    transform 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms);
+}
+
+.section[data-revealed="true"] .item .number {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .itemOpen .number {
@@ -203,6 +221,16 @@
   font-size: clamp(15px, 1.2vw, 17px);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
+  opacity: 0;
+  transform: translateX(16px);
+  transition:
+    opacity 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms),
+    transform 550ms var(--ease-out-expo) calc(var(--i, 0) * 60ms);
+}
+
+.section[data-revealed="true"] .item .questionText {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .itemOpen .questionText {
@@ -239,6 +267,16 @@
   font-size: 14.5px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 550ms var(--ease-soft) calc(var(--i, 0) * 60ms + 160ms),
+    transform 550ms var(--ease-soft) calc(var(--i, 0) * 60ms + 160ms);
+}
+
+.section[data-revealed="true"] .item .answer {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .itemOpen .answer {
@@ -277,5 +315,14 @@
   .number {
     min-width: 0;
     font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow,
+  .number,
+  .questionText,
+  .answer {
+    transition: none;
   }
 }

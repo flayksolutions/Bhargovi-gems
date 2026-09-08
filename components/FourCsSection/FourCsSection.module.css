@@ -147,6 +147,14 @@
   width: min(220px, 62%);
   height: auto;
   margin: 0 auto clamp(14px, 2vw, 26px);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 600ms var(--ease-out-expo), transform 600ms var(--ease-out-expo);
+}
+
+.card[data-revealed="true"] .diagram {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .scaleTrack {
@@ -164,11 +172,16 @@
   position: absolute;
   left: 0;
   top: 50%;
-  width: calc(var(--fill) * 100%);
+  width: 0;
   height: 12px;
   transform: translateY(-50%);
   border-radius: 999px;
   background: linear-gradient(to right, var(--sapphire), var(--azure));
+  transition: width 700ms var(--ease-out-expo) 150ms;
+}
+
+.card[data-revealed="true"] .scaleFill {
+  width: calc(var(--fill) * 100%);
 }
 
 .ticks {
@@ -205,6 +218,22 @@
   align-items: center;
   gap: 8px;
   min-width: 0;
+}
+
+.gem,
+.loupe,
+.carat {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-soft) calc(var(--i, 0) * 70ms + 150ms),
+    transform 500ms var(--ease-soft) calc(var(--i, 0) * 70ms + 150ms);
+}
+
+.card[data-revealed="true"] .gem,
+.card[data-revealed="true"] .loupe,
+.card[data-revealed="true"] .carat {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gemDisc {
@@ -358,5 +387,15 @@
 
   .ticks {
     font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diagram,
+  .scaleFill,
+  .gem,
+  .loupe,
+  .carat {
+    transition: none;
   }
 }

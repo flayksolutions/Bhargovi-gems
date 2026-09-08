@@ -135,6 +135,9 @@
 .ringInner {
   position: absolute;
   border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.35) rotate(-160deg);
+  transition: opacity 750ms var(--ease-soft), transform 750ms var(--ease-soft);
 }
 
 .ringOuter {
@@ -145,12 +148,27 @@
 .ringInner {
   inset: 13.5%;
   border: 1px solid rgba(37, 100, 202, 0.14);
+  transition-delay: 150ms;
+}
+
+.section[data-revealed="true"] .ringOuter,
+.section[data-revealed="true"] .ringInner {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .stagePhotoWrap {
   position: relative;
   width: 92%;
   height: 92%;
+  opacity: 0;
+  transform: scale(0.7) rotate(-16deg);
+  transition: opacity 800ms var(--ease-out-expo), transform 800ms var(--ease-out-expo);
+}
+
+.section[data-revealed="true"] .stagePhotoWrap {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .stagePhoto {
@@ -327,6 +345,15 @@
   /* Never narrower than the icon box, so the reserved circles cannot
      overlap their neighbours once every item is full-size. */
   min-width: 88px;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 500ms var(--ease-out-expo) calc(var(--i, 0) * 45ms),
+    transform 500ms var(--ease-out-expo) calc(var(--i, 0) * 45ms);
+}
+
+.dockItem[data-revealed="true"] {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .dockButton {
@@ -480,5 +507,14 @@
 
   .crystal {
     opacity: 0.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ringOuter,
+  .ringInner,
+  .stagePhotoWrap,
+  .dockItem {
+    transition: none;
   }
 }

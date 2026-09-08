@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./DiamondInfoFaqSection.module.css";
 import type { FAQItem } from "@/lib/content";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   id: string;
@@ -25,9 +26,11 @@ export default function DiamondInfoFaqSection({
   items,
 }: Props) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
 
   return (
-    <section id={id} className={styles.section} aria-labelledby="faq-title">
+    <section id={id} className={styles.section} aria-labelledby="faq-title" ref={sectionRef}>
       <span className={styles.glow} aria-hidden="true" />
 
       <div className={styles.plate} aria-hidden="true">
@@ -58,7 +61,11 @@ export default function DiamondInfoFaqSection({
             {items.map((item, i) => {
               const open = openId === item.id;
               return (
-                <li key={item.id} className={[styles.item, open ? styles.itemOpen : ""].filter(Boolean).join(" ")}>
+                <li
+                  key={item.id}
+                  className={[styles.item, open ? styles.itemOpen : ""].filter(Boolean).join(" ")}
+                  style={{ ["--i" as string]: i }}
+                >
                   <button
                     type="button"
                     className={styles.question}

@@ -1,6 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./AnatomyGlossarySection.module.css";
 import type { GlossaryTerm } from "@/lib/content";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   id: string;
@@ -23,8 +27,11 @@ export default function AnatomyGlossarySection({
   glossaryHeading,
   terms,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
+
   return (
-    <section id={id} className={styles.section} aria-labelledby="anatomy-title">
+    <section id={id} className={styles.section} aria-labelledby="anatomy-title" ref={sectionRef}>
       <div className={styles.inner}>
         <div className={styles.left}>
           <p className={styles.eyebrow}>
@@ -52,8 +59,8 @@ export default function AnatomyGlossarySection({
         <div className={styles.right}>
           <p className={styles.glossaryHeading}>{glossaryHeading}</p>
           <dl className={styles.terms}>
-            {terms.map((t) => (
-              <div key={t.id} className={styles.term}>
+            {terms.map((t, i) => (
+              <div key={t.id} className={styles.term} style={{ ["--i" as string]: i }}>
                 <dt>{t.term}</dt>
                 <dd>{t.definition}</dd>
               </div>
