@@ -1,19 +1,36 @@
 /* ==================================================================
    ENVIRONMENT FRIENDLY — full-bleed fern/leaf photo, cut to the
-   site's four-pointed star shape via a CSS mask (mask-size: 100% 100%
-   stretches the star to the section's exact box, so both the photo
-   and the star are full-bleed together) with the text block centered
-   over the star's left point.
+   site's four-pointed star shape via a CSS mask (mask-size stretches
+   the star to the section's exact box at rest, so both the photo and
+   the star are full-bleed together) with the text block centered over
+   the star's left point.
+
+   Scroll-driven reveal: `.section` is a 260vh scroll track (same
+   total height as AboutSection) with `.viewport` pinned via
+   `position: sticky` for the middle of that range. A scroll listener
+   in the component writes eased 0→1 progress into `--p`, and
+   `.plate`'s mask-size grows from 100% to 600% as `--p` goes 0→1 —
+   because the mask is centered, scaling it up zooms the star pattern
+   in around its own center, pushing the star's transparent corner
+   wedges outside the visible box until the box falls entirely inside
+   the star's solid area and the whole photo reads as visible.
    ================================================================== */
 
 .section {
   position: relative;
+  height: 260vh;
+  background: var(--paper);
+}
+
+.viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
-  min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   align-items: center;
-  background: var(--paper);
+  --p: 0;
 }
 
 .plate {
@@ -26,8 +43,8 @@
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  -webkit-mask-size: calc(100% + var(--p) * 500%) calc(100% + var(--p) * 500%);
+  mask-size: calc(100% + var(--p) * 500%) calc(100% + var(--p) * 500%);
 }
 
 .image {
@@ -78,10 +95,6 @@
 }
 
 @media (max-width: 640px) {
-  .section {
-    padding-block: 48px;
-  }
-
   .content {
     max-width: 100%;
   }
