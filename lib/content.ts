@@ -825,29 +825,33 @@ export type PillarCard = {
   id: string;
   name: string;
   body: string;
-  icon: string;
+  /* CSS object-position value — crops a different region of the
+     shared `pillarsSection.background` photo into this card's
+     swatch, matching Figma's "window into one photo" per-card
+     treatment instead of three separate images. */
+  focal: string;
 };
 
 export const pillarsSection = {
-  background: "/images/sustainability/commitment-bg.png",
+  background: "/images/sustainability/pillars-bg.png",
   cards: [
     {
       id: "sustainable-growing",
       name: "Sustainable Growing",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
-      icon: "/icons/sustainability/windmill.svg",
+      focal: "18% 30%",
     },
     {
       id: "ethical-sourcing",
       name: "Ethical Sourcing",
       body: "Every stone is traceable from lab to market, backed by independent certification.",
-      icon: "/icons/sustainability/ethical-sourcing.svg",
+      focal: "45% 35%",
     },
     {
-      id: "eco-responsibility",
-      name: "Eco Responsibility",
-      body: "We minimize waste, conserve energy, and work toward carbon neutrality across operations.",
-      icon: "/icons/sustainability/recycle.svg",
+      id: "people-community",
+      name: "People & Community",
+      body: "We invest in fair, safe workplaces and support the communities where we operate.",
+      focal: "82% 55%",
     },
   ] satisfies PillarCard[],
 };

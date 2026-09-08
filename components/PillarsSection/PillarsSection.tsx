@@ -20,11 +20,19 @@ export default function PillarsSection({ background, cards }: Props) {
         />
       </div>
 
-      <div className={styles.panel}>
+      <div className={styles.row}>
         {cards.map((card) => (
           <article key={card.id} className={styles.card}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={card.icon} alt="" className={styles.icon} width={40} height={40} />
+            <div className={styles.swatch}>
+              <Image
+                src={background}
+                alt=""
+                fill
+                sizes="(max-width: 960px) 90vw, 313px"
+                style={{ objectPosition: card.focal }}
+                className={styles.swatchImage}
+              />
+            </div>
             <h3 className={styles.cardTitle}>{card.name}</h3>
             <p className={styles.cardBody}>{card.body}</p>
           </article>
