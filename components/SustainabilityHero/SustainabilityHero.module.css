@@ -1,23 +1,17 @@
 /* ==================================================================
-   SUSTAINABILITY HERO — full-bleed plate, pinned behind the next
-   section on scroll (same fixed + spacer technique as Hero.module.css)
+   SUSTAINABILITY HERO — in-flow light photo band, dark ink text,
+   no scrim. Replaces the old fixed/pinned dark-navy hero treatment.
    ================================================================== */
 
 .hero {
-  position: fixed;
-  top: var(--header-h);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  background: var(--ink-navy);
-  isolation: isolate;
+  min-height: clamp(420px, 46vw, 644px);
+  background: var(--porcelain);
 }
-
-/* ---------------------------- plate ------------------------------ */
 
 .plate {
   position: absolute;
@@ -27,35 +21,20 @@
 
 .image {
   object-fit: cover;
-  object-position: 62% 42%;
+  object-position: 78% 50%;
 }
-
-.scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      100deg,
-      rgba(0, 13, 52, 0.86) 0%,
-      rgba(0, 13, 52, 0.55) 32%,
-      rgba(0, 13, 52, 0.14) 62%,
-      rgba(0, 13, 52, 0) 84%
-    ),
-    linear-gradient(to top, rgba(0, 13, 52, 0.6), rgba(0, 13, 52, 0) 46%);
-}
-
-/* ---------------------------- content ---------------------------- */
 
 .content {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: var(--gutter);
-  padding-top: clamp(90px, 20vh, 220px);
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: clamp(120px, 18vh, 172px) var(--gutter) clamp(48px, 8vh, 72px);
 }
 
 .breadcrumb {
-  margin-bottom: clamp(24px, 3.6vh, 44px);
+  margin-bottom: clamp(14px, 2vh, 20px);
 }
 
 .breadcrumbList {
@@ -66,9 +45,8 @@
   padding: 0;
   list-style: none;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.005em;
 }
 
 .crumbItem {
@@ -78,42 +56,42 @@
 }
 
 .crumbLink {
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(2, 38, 113, 0.42);
   text-decoration: none;
   transition: color 320ms var(--ease-soft);
 }
 
 .crumbLink:hover {
-  color: #fff;
+  color: var(--ink-navy);
 }
 
 .crumbCurrent {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(2, 38, 113, 0.85);
 }
 
 .crumbSep {
-  color: rgba(255, 255, 255, 0.32);
+  color: rgba(2, 38, 113, 0.32);
 }
 
 .title {
-  margin: 0 0 clamp(18px, 2.6vh, 28px);
-  max-width: 20ch;
+  margin: 0 0 clamp(16px, 2.4vh, 24px);
+  max-width: 15ch;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(36px, 4.8vw, 72px);
-  line-height: 1.08;
-  letter-spacing: -0.008em;
-  color: #fff;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink-navy);
 }
 
 .body {
   margin: 0;
-  max-width: 38ch;
+  max-width: 36ch;
   font-family: var(--font-body);
-  font-size: clamp(14px, 1.02vw, 17px);
+  font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
+  color: var(--text-muted);
   text-wrap: pretty;
 }
 
@@ -122,14 +100,24 @@
 @media (max-width: 960px) {
   .title {
     max-width: 100%;
-    font-size: clamp(31px, 8.4vw, 52px);
+    font-size: clamp(32px, 6.4vw, 48px);
+  }
+
+  .image {
+    object-position: 84% 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .title {
+    font-size: clamp(28px, 8vw, 36px);
   }
 
   .body {
     max-width: 100%;
-  }
-
-  .image {
-    object-position: 68% 42%;
   }
 }

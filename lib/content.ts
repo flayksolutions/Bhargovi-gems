@@ -750,8 +750,8 @@ export const sustainabilityHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Sustainability" }],
   title: "Responsible by Design",
   body: "From lab to jewel, every stone we grow reflects our commitment to people and the planet.",
-  image: "/images/sustainability/hero-bg.png",
-  alt: "A lab-grown diamond suspended in a dark, softly lit field",
+  image: "/images/sustainability/hero-lily.png",
+  alt: "A diamond ring and loose polished diamonds cascading from a white calla lily",
 };
 
 /* Frozen pre-redesign copies, used only by
