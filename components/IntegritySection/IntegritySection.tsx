@@ -16,7 +16,7 @@ export default function IntegritySection({ title, body, points, images }: Props)
 
   return (
     <section className={styles.section} aria-labelledby="integrity-title">
-      <CrystalField opacity={0.14} />
+      <CrystalField />
 
       <div className={styles.inner}>
         {left && (
