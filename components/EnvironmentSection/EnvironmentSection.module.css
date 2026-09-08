@@ -1,0 +1,80 @@
+/* ==================================================================
+   ENVIRONMENT FRIENDLY — full-bleed diamond-shaped leaf photo (the
+   diamond silhouette is baked into the exported PNG's alpha channel)
+   with a left-anchored text block over its light half.
+   ================================================================== */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(420px, 42vw, 811px);
+  display: flex;
+  align-items: center;
+  background: var(--paper);
+}
+
+.plate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 399px;
+  margin-left: clamp(24px, 20vw, 301px);
+  padding-inline: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.1;
+  color: #484848;
+}
+
+.body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #484848;
+  text-wrap: pretty;
+}
+
+/* ---------------------------- responsive ------------------------- */
+
+@media (max-width: 960px) {
+  .content {
+    margin-left: var(--gutter);
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    min-height: 340px;
+    padding-block: 48px;
+  }
+
+  .content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+}

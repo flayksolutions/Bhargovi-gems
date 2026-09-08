@@ -938,6 +938,13 @@ export const planetSection = {
   alt: "A cluster of polished diamonds resting on a green leaf",
 };
 
+export const environmentSection = {
+  title: "Environment Friendly",
+  body: "Deep sourcing partnerships across mining regions, in-house Sarine 4D mapping and polishing under one roof, and an extensive ready inventory across shapes and sizes",
+  image: "/images/sustainability/environment-leaf.png",
+  alt: "A diamond-shaped frame over dew-covered pine branches",
+};
+
 /* ------------------------------------------------------------------
    Diamond Information page (/diamond-information)
 ------------------------------------------------------------------- */
