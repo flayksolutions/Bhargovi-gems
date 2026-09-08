@@ -20,6 +20,7 @@
   position: relative;
   height: 260vh;
   background: var(--paper);
+  --p: 0;
 }
 
 .viewport {
@@ -30,7 +31,6 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  --p: 0;
 }
 
 .plate {
