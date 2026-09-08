@@ -4,16 +4,14 @@ import SustainabilityHero from "@/components/SustainabilityHero/SustainabilityHe
 import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
 import PillarsSection from "@/components/PillarsSection/PillarsSection";
 import IntegritySection from "@/components/IntegritySection/IntegritySection";
-import CaringSection from "@/components/CaringSection/CaringSection";
-import PlanetSection from "@/components/PlanetSection/PlanetSection";
+import EnvironmentSection from "@/components/EnvironmentSection/EnvironmentSection";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
-  caringSection,
   commitmentSection,
+  environmentSection,
   footer,
   integritySection,
   pillarsSection,
-  planetSection,
   site,
   sustainabilityHeroSection,
 } from "@/lib/content";
@@ -31,11 +29,13 @@ export default function SustainabilityPage() {
 
       <main>
         <SustainabilityHero {...sustainabilityHeroSection} />
-        <CommitmentSection {...commitmentSection} />
-        <PillarsSection {...pillarsSection} />
-        <IntegritySection {...integritySection} />
-        <CaringSection {...caringSection} />
-        <PlanetSection {...planetSection} />
+
+        <div className="scroll-stack">
+          <CommitmentSection {...commitmentSection} />
+          <PillarsSection {...pillarsSection} />
+          <IntegritySection {...integritySection} />
+          <EnvironmentSection {...environmentSection} />
+        </div>
       </main>
 
       <SiteFooter brand={site.brand} {...footer} />
