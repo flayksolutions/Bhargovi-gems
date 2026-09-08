@@ -754,6 +754,67 @@ export const sustainabilityHeroSection = {
   alt: "A lab-grown diamond suspended in a dark, softly lit field",
 };
 
+/* Frozen pre-redesign copies, used only by
+   app/_archived-pages/sustainability/page.tsx — do not edit these when
+   changing the live sustainability content below. */
+
+export const legacyCommitmentSection = {
+  eyebrow: "Our Commitment",
+  title: "Rooted in Responsibility",
+  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+};
+
+export type LegacyPillarCard = {
+  id: string;
+  name: string;
+  body: string;
+  icon: string;
+};
+
+export const legacyPillarsSection = {
+  background: "/images/sustainability/commitment-bg.png",
+  cards: [
+    {
+      id: "sustainable-growing",
+      name: "Sustainable Growing",
+      body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
+      icon: "/icons/sustainability/windmill.svg",
+    },
+    {
+      id: "ethical-sourcing",
+      name: "Ethical Sourcing",
+      body: "Every stone is traceable from lab to market, backed by independent certification.",
+      icon: "/icons/sustainability/ethical-sourcing.svg",
+    },
+    {
+      id: "eco-responsibility",
+      name: "Eco Responsibility",
+      body: "We minimize waste, conserve energy, and work toward carbon neutrality across operations.",
+      icon: "/icons/sustainability/recycle.svg",
+    },
+  ] satisfies LegacyPillarCard[],
+};
+
+export const legacyIntegritySection = {
+  title: "Product Integrity & Traceability",
+  body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
+  points: [
+    "Certified Authenticity",
+    "Full Traceability",
+    "Ethical Craftsmanship",
+  ],
+  images: [
+    {
+      src: "/images/sustainability/integrity-1.png",
+      alt: "A loupe and tweezers used to inspect a polished diamond",
+    },
+    {
+      src: "/images/sustainability/integrity-2.png",
+      alt: "A rough diamond crystal beside cutting tools",
+    },
+  ],
+};
+
 export const commitmentSection = {
   eyebrow: "Our Commitment",
   title: "Rooted in Responsibility",
