@@ -825,6 +825,7 @@ export type PillarCard = {
   id: string;
   name: string;
   body: string;
+  hoverImage: string;
 };
 
 export const pillarsSection = {
@@ -834,16 +835,19 @@ export const pillarsSection = {
       id: "sustainable-growing",
       name: "Sustainable Growing",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
+      hoverImage: "/images/sustainability/sustainable-growth.png",
     },
     {
       id: "ethical-sourcing",
       name: "Ethical Sourcing",
       body: "Every stone is traceable from lab to market, backed by independent certification.",
+      hoverImage: "/images/sustainability/ethical-sourcing.png",
     },
     {
       id: "people-community",
       name: "People & Community",
       body: "We invest in fair, safe workplaces and support the communities where we operate.",
+      hoverImage: "/images/sustainability/people-and-community.png",
     },
   ] satisfies PillarCard[],
 };

@@ -94,6 +94,13 @@ export default function PillarsSection({ background, cards }: Props) {
                     }}
                   />
                 )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={card.hoverImage}
+                  alt=""
+                  aria-hidden="true"
+                  className={styles.swatchHoverImage}
+                />
               </div>
               <h3 className={styles.cardTitle}>{card.name}</h3>
               <p className={styles.cardBody}>{card.body}</p>
