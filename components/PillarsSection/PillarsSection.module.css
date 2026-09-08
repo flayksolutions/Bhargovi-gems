@@ -1,12 +1,18 @@
 /* ==================================================================
-   PILLARS — full-bleed photo band with three white floating cards,
-   each showing a differently-cropped swatch of the same photo.
+   PILLARS — full-bleed photo band with three white floating cards.
+   Each card's swatch is a genuine "window": `.swatch` is
+   `position: relative; overflow: hidden` (a real containing block,
+   so the clip is real), and its image is sized to the section's own
+   box and shifted by the swatch's measured offset from that box
+   (computed in PillarsSection.tsx) — so the image is literally the
+   same size as `.plate` and lines up with it, with only the part
+   inside the swatch's small rect visible.
    ================================================================== */
 
 .section {
   position: relative;
   overflow: hidden;
-  padding: clamp(56px, 9vh, 96px) var(--gutter);
+  padding: clamp(96px, 16vh, 168px) var(--gutter);
   display: flex;
   justify-content: center;
 }
@@ -15,10 +21,9 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.plateImage {
-  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .row {
@@ -35,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
+  padding: 16px 16px 40px;
   border-radius: 12px;
   background: var(--paper);
   box-shadow: 0 24px 48px rgba(11, 14, 25, 0.16);
@@ -44,12 +49,14 @@
 .swatch {
   position: relative;
   width: 100%;
-  aspect-ratio: 281 / 169;
+  aspect-ratio: 281 / 200;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .swatchImage {
+  position: absolute;
+  max-width: none;
   object-fit: cover;
 }
 
@@ -82,6 +89,6 @@
 
 @media (max-width: 640px) {
   .section {
-    padding-block: 48px;
+    padding-block: 64px;
   }
 }

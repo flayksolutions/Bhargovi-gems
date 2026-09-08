@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./CommitmentSection.module.css";
+import styles from "./SustainabilityCommitmentSection.module.css";
 
 type Props = {
   eyebrow: string;
@@ -7,7 +7,7 @@ type Props = {
   body: string;
 };
 
-export default function CommitmentSection({ eyebrow, title, body }: Props) {
+export default function SustainabilityCommitmentSection({ eyebrow, title, body }: Props) {
   return (
     <section className={styles.section} aria-labelledby="commitment-title">
       <Image

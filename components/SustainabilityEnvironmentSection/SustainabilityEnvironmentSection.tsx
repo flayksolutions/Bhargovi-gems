@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./EnvironmentSection.module.css";
+import styles from "./SustainabilityEnvironmentSection.module.css";
 
 type Props = {
   title: string;
@@ -8,7 +8,7 @@ type Props = {
   alt: string;
 };
 
-export default function EnvironmentSection({ title, body, image, alt }: Props) {
+export default function SustainabilityEnvironmentSection({ title, body, image, alt }: Props) {
   return (
     <section className={styles.section} aria-labelledby="environment-title">
       <div className={styles.plate} aria-hidden="true">

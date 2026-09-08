@@ -1,13 +1,16 @@
 /* ==================================================================
-   ENVIRONMENT FRIENDLY — full-bleed diamond-shaped leaf photo (the
-   diamond silhouette is baked into the exported PNG's alpha channel)
-   with a left-anchored text block over its light half.
+   ENVIRONMENT FRIENDLY — full-bleed fern/leaf photo, cut to the
+   site's four-pointed star shape via a CSS mask (mask-size: 100% 100%
+   stretches the star to the section's exact box, so both the photo
+   and the star are full-bleed together) with the text block centered
+   over the star's left point.
    ================================================================== */
 
 .section {
   position: relative;
   overflow: hidden;
-  min-height: clamp(420px, 42vw, 811px);
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   background: var(--paper);
@@ -17,18 +20,29 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  -webkit-mask-image: url("/images/sustainability/environment-star-mask.svg");
+  mask-image: url("/images/sustainability/environment-star-mask.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 .image {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
 .content {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  max-width: 399px;
-  margin-left: clamp(24px, 20vw, 301px);
+  top: 50%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  max-width: 560px;
+  width: 100%;
   padding-inline: var(--gutter);
   display: flex;
   flex-direction: column;
@@ -58,19 +72,17 @@
 
 @media (max-width: 960px) {
   .content {
-    margin-left: var(--gutter);
+    left: 50%;
     max-width: 90%;
   }
 }
 
 @media (max-width: 640px) {
   .section {
-    min-height: 340px;
     padding-block: 48px;
   }
 
   .content {
-    margin-left: 0;
     max-width: 100%;
   }
 

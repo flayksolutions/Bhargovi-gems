@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import SustainabilityHero from "@/components/SustainabilityHero/SustainabilityHero";
-import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
+import SustainabilityCommitmentSection from "@/components/SustainabilityCommitmentSection/SustainabilityCommitmentSection";
 import PillarsSection from "@/components/PillarsSection/PillarsSection";
 import IntegritySection from "@/components/IntegritySection/IntegritySection";
-import EnvironmentSection from "@/components/EnvironmentSection/EnvironmentSection";
+import SustainabilityEnvironmentSection from "@/components/SustainabilityEnvironmentSection/SustainabilityEnvironmentSection";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import {
   commitmentSection,
@@ -31,10 +31,10 @@ export default function SustainabilityPage() {
         <SustainabilityHero {...sustainabilityHeroSection} />
 
         <div className="scroll-stack">
-          <CommitmentSection {...commitmentSection} />
+          <SustainabilityCommitmentSection {...commitmentSection} />
           <PillarsSection {...pillarsSection} />
           <IntegritySection {...integritySection} />
-          <EnvironmentSection {...environmentSection} />
+          <SustainabilityEnvironmentSection {...environmentSection} />
         </div>
       </main>
 

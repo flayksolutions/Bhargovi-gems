@@ -25,7 +25,7 @@ export default function IntegritySection({ title, body, points, images }: Props)
               src={left.src}
               alt={left.alt}
               fill
-              sizes="(max-width: 960px) 90vw, 440px"
+              sizes="(max-width: 960px) 100vw, 33vw"
               className={styles.image}
             />
           </div>
@@ -54,7 +54,7 @@ export default function IntegritySection({ title, body, points, images }: Props)
               src={right.src}
               alt={right.alt}
               fill
-              sizes="(max-width: 960px) 90vw, 440px"
+              sizes="(max-width: 960px) 100vw, 33vw"
               className={styles.image}
             />
           </div>

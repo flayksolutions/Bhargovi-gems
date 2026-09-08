@@ -1,9 +1,9 @@
 /* ==================================================================
-   PRODUCT INTEGRITY — white band. Title/body/points sit centered
-   between two equal chamfered "stage" photo panels, with the site's
-   crystal watermark behind. Below 960px only the left stage panel
-   stays visible (`.stageMobileHidden`), per the one-image-on-mobile
-   requirement.
+   PRODUCT INTEGRITY — full-width white band. Title/body/points sit
+   centered between two chamfered "stage" photo panels that touch the
+   left and right screen edges, with the site's crystal watermark
+   behind. Below 960px only the left stage panel stays visible
+   (`.stageMobileHidden`), per the one-image-on-mobile requirement.
    ================================================================== */
 
 .section {
@@ -15,18 +15,15 @@
 .inner {
   position: relative;
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 680px) minmax(0, 1fr);
   align-items: center;
-  justify-content: center;
-  gap: clamp(40px, 6vw, 96px);
-  max-width: 1440px;
-  margin-inline: auto;
-  padding: clamp(72px, 11vh, 128px) var(--gutter);
+  padding-block: clamp(72px, 11vh, 128px);
 }
 
 .content {
-  flex: 0 1 398px;
   min-width: 0;
+  padding-inline: clamp(24px, 4vw, 48px);
 }
 
 .title {
@@ -46,7 +43,6 @@
 
 .body {
   margin: 0;
-  max-width: 40ch;
   font-family: var(--font-body);
   font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
@@ -82,9 +78,7 @@
   --cn: clamp(28px, 3.2vw, 56px);
 
   position: relative;
-  flex: 0 0 440px;
   width: 100%;
-  max-width: 440px;
   aspect-ratio: 440 / 511;
   overflow: hidden;
   clip-path: polygon(
@@ -106,22 +100,16 @@
 
 @media (max-width: 960px) {
   .inner {
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
   .content {
-    flex-basis: auto;
+    padding-inline: var(--gutter);
   }
 
   .title,
   .body {
-    max-width: 100%;
-  }
-
-  .stage {
-    flex-basis: auto;
     max-width: 100%;
   }
 

@@ -825,11 +825,6 @@ export type PillarCard = {
   id: string;
   name: string;
   body: string;
-  /* CSS object-position value — crops a different region of the
-     shared `pillarsSection.background` photo into this card's
-     swatch, matching Figma's "window into one photo" per-card
-     treatment instead of three separate images. */
-  focal: string;
 };
 
 export const pillarsSection = {
@@ -839,19 +834,16 @@ export const pillarsSection = {
       id: "sustainable-growing",
       name: "Sustainable Growing",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
-      focal: "18% 30%",
     },
     {
       id: "ethical-sourcing",
       name: "Ethical Sourcing",
       body: "Every stone is traceable from lab to market, backed by independent certification.",
-      focal: "45% 35%",
     },
     {
       id: "people-community",
       name: "People & Community",
       body: "We invest in fair, safe workplaces and support the communities where we operate.",
-      focal: "82% 55%",
     },
   ] satisfies PillarCard[],
 };
