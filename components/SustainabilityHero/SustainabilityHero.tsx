@@ -33,6 +33,8 @@ export default function SustainabilityHero({
         />
       </div>
 
+      <span className={styles.topScrim} aria-hidden="true" />
+
       <div className={styles.content}>
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <ol className={styles.breadcrumbList}>
