@@ -817,7 +817,7 @@ export const legacyIntegritySection = {
 
 export const commitmentSection = {
   eyebrow: "Our Commitment",
-  title: "Rooted in Responsibility",
+  title: "Sustainable and Thriving Future For Our Planet",
   body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
 };
 

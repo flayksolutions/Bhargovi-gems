@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./CommitmentSection.module.css";
 
 type Props = {
@@ -9,25 +10,22 @@ type Props = {
 export default function CommitmentSection({ eyebrow, title, body }: Props) {
   return (
     <section className={styles.section} aria-labelledby="commitment-title">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/icons/sustainability/crystal-outline.svg"
+      <Image
+        src="/images/sustainability/commitment-glow.svg"
         alt=""
         aria-hidden="true"
-        className={styles.crystalLeft}
-      />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/icons/sustainability/crystal-outline.svg"
-        alt=""
-        aria-hidden="true"
-        className={styles.crystalRight}
+        width={219}
+        height={219}
+        className={styles.glow}
       />
 
-      <p className={styles.eyebrow}>{eyebrow}</p>
-      <h2 id="commitment-title" className={styles.title}>
-        {title}
-      </h2>
+      <div className={styles.heading}>
+        <p className={styles.eyebrow}>{eyebrow}</p>
+        <h2 id="commitment-title" className={styles.title}>
+          {title}
+        </h2>
+      </div>
+
       <p className={styles.body}>{body}</p>
     </section>
   );

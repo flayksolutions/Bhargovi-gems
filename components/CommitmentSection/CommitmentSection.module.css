@@ -1,88 +1,99 @@
 /* ==================================================================
-   OUR COMMITMENT — centered eyebrow/title/body on white, with two
-   oversized faint faceted-gem outlines bleeding off the left/right
-   edges (recreates the Figma "Icon_crystal" watermark decoration
-   without importing an off-canvas SVG).
+   OUR COMMITMENT — heading left, body right-aligned, bottom-aligned
+   two-column row with a soft blurred glow decoration behind them.
    ================================================================== */
 
 .section {
   position: relative;
   overflow: hidden;
   background: var(--paper);
-  padding: clamp(80px, 16vh, 152px) var(--gutter);
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: clamp(56px, 9vh, 96px) var(--gutter) clamp(40px, 6vh, 48px);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(32px, 6vw, 96px);
 }
 
-.crystalLeft,
-.crystalRight {
+.glow {
   position: absolute;
   z-index: 0;
-  top: 50%;
-  width: clamp(320px, 30vw, 520px);
+  left: 40%;
+  top: 30%;
+  width: clamp(160px, 16vw, 219px);
   height: auto;
-  opacity: 0.16;
+  opacity: 0.7;
   pointer-events: none;
 }
 
-.crystalLeft {
-  left: clamp(-160px, -9vw, -60px);
-  transform: translateY(-50%) rotate(-15deg);
-}
-
-.crystalRight {
-  right: clamp(-160px, -9vw, -60px);
-  transform: translateY(-50%) rotate(15deg);
+.heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 502px;
 }
 
 .eyebrow {
-  position: relative;
-  z-index: 1;
   margin: 0;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--azure);
 }
 
 .title {
-  position: relative;
-  z-index: 1;
-  margin: 6px 0 0;
-  max-width: 20ch;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(30px, 3.4vw, 44px);
-  line-height: 1.1;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1.04;
   color: var(--ink-navy);
 }
 
 .body {
   position: relative;
   z-index: 1;
-  margin: clamp(12px, 2vh, 20px) 0 0;
-  max-width: 56ch;
+  margin: 0;
+  max-width: 502px;
   font-family: var(--font-body);
-  font-size: clamp(15px, 1.05vw, 17px);
+  font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--text-muted);
+  text-align: right;
   text-wrap: pretty;
 }
 
 /* ---------------------------- responsive -------------------------- */
 
-@media (max-width: 640px) {
-  .title {
+@media (max-width: 960px) {
+  .section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .heading {
     max-width: 100%;
   }
 
   .body {
+    text-align: left;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 48px 40px;
+  }
+
+  .title {
+    font-size: clamp(26px, 8vw, 34px);
   }
 }
