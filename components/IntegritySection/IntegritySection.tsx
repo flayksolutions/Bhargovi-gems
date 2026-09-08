@@ -1,7 +1,5 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Image from "next/image";
+import CrystalField from "@/components/CrystalField/CrystalField";
 import styles from "./IntegritySection.module.css";
 
 type ImageItem = { src: string; alt: string };
@@ -14,41 +12,25 @@ type Props = {
 };
 
 export default function IntegritySection({ title, body, points, images }: Props) {
-  const [main, sliver] = images;
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const stage = stageRef.current;
-    if (!section || !stage) return;
-
-    const sync = () => {
-      section.style.setProperty("--stage-h", `${stage.offsetHeight}px`);
-    };
-
-    sync();
-    const observer = new ResizeObserver(sync);
-    observer.observe(stage);
-    return () => observer.disconnect();
-  }, []);
+  const [left, right] = images;
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-labelledby="integrity-title">
-      {sliver && (
-        <div className={styles.sliver} aria-hidden="true">
-          <Image
-            src={sliver.src}
-            alt=""
-            fill
-            sizes="20vw"
-            className={styles.image}
-          />
-        </div>
-      )}
+    <section className={styles.section} aria-labelledby="integrity-title">
+      <CrystalField opacity={0.14} />
 
       <div className={styles.inner}>
+        {left && (
+          <div className={styles.stage}>
+            <Image
+              src={left.src}
+              alt={left.alt}
+              fill
+              sizes="(max-width: 960px) 90vw, 440px"
+              className={styles.image}
+            />
+          </div>
+        )}
+
         <div className={styles.content}>
           <h2 id="integrity-title" className={styles.title}>
             {title}
@@ -56,7 +38,6 @@ export default function IntegritySection({ title, body, points, images }: Props)
 
           <div className={styles.foot}>
             <p className={styles.body}>{body}</p>
-
             <ul className={styles.points}>
               {points.map((point) => (
                 <li key={point} className={styles.point}>
@@ -67,13 +48,13 @@ export default function IntegritySection({ title, body, points, images }: Props)
           </div>
         </div>
 
-        {main && (
-          <div ref={stageRef} className={styles.stage}>
+        {right && (
+          <div className={`${styles.stage} ${styles.stageMobileHidden}`}>
             <Image
-              src={main.src}
-              alt={main.alt}
+              src={right.src}
+              alt={right.alt}
               fill
-              sizes="(max-width: 900px) 90vw, 36vw"
+              sizes="(max-width: 960px) 90vw, 440px"
               className={styles.image}
             />
           </div>

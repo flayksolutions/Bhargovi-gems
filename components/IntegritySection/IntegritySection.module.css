@@ -1,8 +1,9 @@
 /* ==================================================================
-   PRODUCT INTEGRITY — white band. Title/body/points sit left of a
-   single chamfered lifestyle photo; a second, mostly off-canvas
-   photo bleeds a sliver in from the section's left edge, matching
-   the Figma "Stage — Cut Panel" pair (523 x 511 in a 1440 frame).
+   PRODUCT INTEGRITY — white band. Title/body/points sit centered
+   between two equal chamfered "stage" photo panels, with the site's
+   crystal watermark behind. Below 960px only the left stage panel
+   stays visible (`.stageMobileHidden`), per the one-image-on-mobile
+   requirement.
    ================================================================== */
 
 .section {
@@ -11,37 +12,12 @@
   background: var(--paper);
 }
 
-/* ---------------------------- sliver --------------------------------- */
-
-.sliver {
-  --w: clamp(200px, 20vw, 340px);
-  /* Only a fixed sliver peeks past the section's clipped left edge —
-     comfortably narrower than the gutter so it never reaches the
-     content text (see .inner padding). */
-  --peek: 5%;
-
-  position: absolute;
-  left: calc(-1 * var(--w) + var(--peek));
-  top: 50%;
-  transform: translateY(-50%);
-  /* --stage-h is synced from .stage's actual rendered height via
-     ResizeObserver in IntegritySection.tsx, so this always matches
-     .stage exactly regardless of flex-shrink/breakpoint. */
-  height: var(--stage-h, 511px);
-  width: var(--w);
-  z-index: 0;
-  overflow: hidden;
-  box-shadow: 0 24px 48px rgba(11, 14, 25, 0.16);
-}
-
-/* ---------------------------- inner ----------------------------------- */
-
 .inner {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: clamp(40px, 6vw, 96px);
   max-width: 1440px;
   margin-inline: auto;
@@ -49,13 +25,12 @@
 }
 
 .content {
-  flex: 0 1 auto;
+  flex: 0 1 398px;
   min-width: 0;
 }
 
 .title {
   margin: 0 0 clamp(28px, 4vh, 48px);
-  /* max-width: 13ch; */
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(30px, 3.4vw, 48px);
@@ -107,9 +82,10 @@
   --cn: clamp(28px, 3.2vw, 56px);
 
   position: relative;
-  flex: 0 1 523px;
+  flex: 0 0 440px;
   width: 100%;
-  aspect-ratio: 523 / 511;
+  max-width: 440px;
+  aspect-ratio: 440 / 511;
   overflow: hidden;
   clip-path: polygon(
     0 0,
@@ -128,27 +104,28 @@
 
 /* ---------------------------- responsive ---------------------------- */
 
-@media (max-width: 900px) {
-  .sliver {
-    display: none;
-  }
-
+@media (max-width: 960px) {
   .inner {
     flex-direction: column;
     align-items: stretch;
     gap: 40px;
   }
 
-  .title {
-    max-width: 100%;
+  .content {
+    flex-basis: auto;
   }
 
+  .title,
   .body {
     max-width: 100%;
   }
 
   .stage {
     flex-basis: auto;
-    order: -1;
+    max-width: 100%;
+  }
+
+  .stageMobileHidden {
+    display: none;
   }
 }

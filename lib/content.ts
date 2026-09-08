@@ -885,12 +885,12 @@ export const integritySection = {
   ],
   images: [
     {
-      src: "/images/sustainability/integrity-1.png",
-      alt: "A loupe and tweezers used to inspect a polished diamond",
+      src: "/images/sustainability/integrity-flower.png",
+      alt: "A diamond ring nestled in the folds of a white calla lily",
     },
     {
-      src: "/images/sustainability/integrity-2.png",
-      alt: "A rough diamond crystal beside cutting tools",
+      src: "/images/sustainability/integrity-moss.png",
+      alt: "Loose polished diamonds resting on a moss-covered stone",
     },
   ],
 };
