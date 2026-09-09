@@ -9,11 +9,15 @@
    total height as AboutSection) with `.viewport` pinned via
    `position: sticky` for the middle of that range. A scroll listener
    in the component writes eased 0→1 progress into `--p`, and
-   `.plate`'s mask-size grows from 100% to 600% as `--p` goes 0→1 —
+   `.plate`'s mask-size grows from 100% to 470% as `--p` goes 0→1 —
    because the mask is centered, scaling it up zooms the star pattern
    in around its own center, pushing the star's transparent corner
    wedges outside the visible box until the box falls entirely inside
-   the star's solid area and the whole photo reads as visible.
+   the star's solid area and the whole photo reads as visible. The
+   mask's own geometry (an asymmetric pinwheel, not a symmetric
+   cross) needs ~449% to fully cover the box in its worst-case corner
+   — 470% gives a small safety margin without leaving a long dead
+   zone of scroll that no longer changes anything on screen.
    ================================================================== */
 
 .section {
@@ -37,14 +41,18 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  -webkit-mask-image: url("/images/sustainability/environment-star-mask.svg");
-  mask-image: url("/images/sustainability/environment-star-mask.svg");
+  /* Inlined as a data URI (not url("/images/...")) so the mask never
+     depends on a second, separate network request racing the plate's
+     first paint — that race was why the photo intermittently failed
+     to appear at all. */
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgxMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHBhdGggZD0iTTMwNi45MDYgMjYyLjExNUMxODQuNjYyIDM1OC42NTcgNTEuMzY2OSAzODkuNzEzIDAgMzkzLjE3M1Y0MTYuNTNDMTE1LjI1MiA0MzkuODg2IDE4Mi41OSA0NjQuNTQxIDMwNi45MDYgNTUxLjQ4QzQwNi4zNiA2MjEuMDMxIDQ3NS4yNTIgNzUzLjQ3MyA0OTcuMjY2IDgxMUg2MDcuMzM4QzYxNi40MDMgNzc1LjEgNjU4LjEwMSA2ODAuOTgxIDc1Mi4zNzQgNTkxLjcwNkM4NzAuMjE2IDQ4MC4xMTIgOTk5LjQ0OCA0MzcuOTc1IDEwNjEuODcgNDI0LjMxNUMxMTQxIDQwNyAxMzM0LjI0IDQwOC4zMTEgMTQ0MCA0MTAuMDQyVjQwMC45NThDMTM0Ny4xOSA0MDIuNjg5IDExNDEuNjQgNDAyLjI1NiAxMDYxLjg3IDM4Ni42ODVDOTYyLjE1OCAzNjcuMjIxIDg1NC42NzYgMzEyLjcyMiA3NTIuMzc0IDIyMC41OTJDNjcwLjUzMiAxNDYuODg4IDYyMS41ODMgNDIuODIwOCA2MDcuMzM4IDBINDk3LjI2NkM0ODQuNzQ4IDQ3LjE0NjEgNDI5LjE1MSAxNjUuNTc0IDMwNi45MDYgMjYyLjExNVoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgxMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHBhdGggZD0iTTMwNi45MDYgMjYyLjExNUMxODQuNjYyIDM1OC42NTcgNTEuMzY2OSAzODkuNzEzIDAgMzkzLjE3M1Y0MTYuNTNDMTE1LjI1MiA0MzkuODg2IDE4Mi41OSA0NjQuNTQxIDMwNi45MDYgNTUxLjQ4QzQwNi4zNiA2MjEuMDMxIDQ3NS4yNTIgNzUzLjQ3MyA0OTcuMjY2IDgxMUg2MDcuMzM4QzYxNi40MDMgNzc1LjEgNjU4LjEwMSA2ODAuOTgxIDc1Mi4zNzQgNTkxLjcwNkM4NzAuMjE2IDQ4MC4xMTIgOTk5LjQ0OCA0MzcuOTc1IDEwNjEuODcgNDI0LjMxNUMxMTQxIDQwNyAxMzM0LjI0IDQwOC4zMTEgMTQ0MCA0MTAuMDQyVjQwMC45NThDMTM0Ny4xOSA0MDIuNjg5IDExNDEuNjQgNDAyLjI1NiAxMDYxLjg3IDM4Ni42ODVDOTYyLjE1OCAzNjcuMjIxIDg1NC42NzYgMzEyLjcyMiA3NTIuMzc0IDIyMC41OTJDNjcwLjUzMiAxNDYuODg4IDYyMS41ODMgNDIuODIwOCA2MDcuMzM4IDBINDk3LjI2NkM0ODQuNzQ4IDQ3LjE0NjEgNDI5LjE1MSAxNjUuNTc0IDMwNi45MDYgMjYyLjExNVoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  -webkit-mask-size: calc(100% + var(--p) * 500%) calc(100% + var(--p) * 500%);
-  mask-size: calc(100% + var(--p) * 500%) calc(100% + var(--p) * 500%);
+  -webkit-mask-size: calc(100% + var(--p) * 370%) calc(100% + var(--p) * 370%);
+  mask-size: calc(100% + var(--p) * 370%) calc(100% + var(--p) * 370%);
 }
 
 .image {
