@@ -129,10 +129,12 @@ export const productsSection = {
     { src: "/images/shapes/emerald.png", name: "Emerald" },
     { src: "/images/shapes/oval.png", name: "Oval" },
     { src: "/images/shapes/pear.png", name: "Pear" },
+    { src: "/images/shapes/pear.png", name: "Pear" },
     { src: "/images/shapes/heart.png", name: "Heart" },
     { src: "/images/shapes/marquise.png", name: "Marquise" },
     { src: "/images/shapes/half-moon.png", name: "Half Moon" },
     { src: "/images/shapes/trillian.png", name: "Trillion" },
+    { src: "/images/shapes/octagon.png", name: "Octagon" },
     { src: "/images/shapes/octagon.png", name: "Octagon" },
     { src: "/images/shapes/lozenge.png", name: "Lozenge" },
     { src: "/images/shapes/baguette.png", name: "Baguette" },
@@ -435,12 +437,12 @@ export const legacySection = {
       {
         id: "round-brilliant",
         category: "Round Brilliant",
-        values: ["VVS-VS", "D - E - F", "3 cents to 1.50 carat"],
+        values: ["VVS-VS", "D - E - F", "0.03 carat - 1.50 carats"],
       },
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – E - F", "10 cents to 1 carat"],
+        values: ["VVS", "D – E - F", "0.10 carat - 1 carat"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -996,6 +998,8 @@ export type FourCCard = {
   photo?: string;
   items?: FourCItem[];
   note: FourCNote;
+  /** our own house standard for this C, shown as a second line under the note */
+  standard: string;
 };
 
 export const fourCsSection = {
@@ -1014,6 +1018,7 @@ export const fourCsSection = {
       ticks: ["EX", "VG", "G", "F", "P"],
       fill: 0.4,
       note: { lead: "Ships", accent: "EX–VG", trail: "only" },
+      standard: "Excellent to Very Good",
     },
     {
       id: "colour",
@@ -1030,6 +1035,7 @@ export const fourCsSection = {
         { id: "z", label: "Z", tint: "rgba(233, 209, 120, 0.74)" },
       ],
       note: { lead: "Standard range", accent: "D–M" },
+      standard: "D-E-F",
     },
     {
       id: "clarity",
@@ -1065,6 +1071,7 @@ export const fourCsSection = {
         },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
+      standard: "VVS, VS, SI",
     },
     {
       id: "carat",
@@ -1105,6 +1112,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
+      standard: "Up to 1.50 ct",
     },
   ] satisfies FourCCard[],
 };
@@ -1136,8 +1144,8 @@ const shapeStats = (table: string, depth: string): ShapeStat[] => [
 export const shapesCutsSection = {
   id: "shapes",
   eyebrow: "Shapes We Cut",
-  titleLines: ["Twelve Shapes,", "Cut & Polished In-House"],
-  body: "From the classic round brilliant to fancy silhouettes, every shape is planned, sawn, bruted and polished on our own floor.",
+  titleLines: ["Twelve Shapes,", "Cut In-House"],
+  body: "",
   stageRings: {
     outer: "/images/diamond-info/stage-ring-outer.svg",
     inner: "/images/diamond-info/stage-ring-inner.svg",
@@ -1150,7 +1158,6 @@ export const shapesCutsSection = {
       alt: "A round brilliant cut diamond viewed from the crown",
       caption: "58 facets · the benchmark for light return",
       featured: true,
-      tag: "Most Requested",
       stats: shapeStats("54 – 58", "59 – 63"),
     },
     {
@@ -1757,7 +1764,7 @@ export const contactFormSection = {
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
-  note: "Confidential enquiry · We respond within 3-4 business days",
+  note: "Confidential enquiry · We respond within 24 hours",
   image: "/images/contact-form-tray.png",
   alt: "Loose polished diamonds scattered across a jewellery tray",
   officesTitle: "Our Offices",

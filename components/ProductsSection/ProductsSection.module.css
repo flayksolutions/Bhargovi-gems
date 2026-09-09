@@ -59,13 +59,13 @@
 
 .shapesRow {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   justify-items: center;
   align-items: center;
-  gap: clamp(8px, 1.2vw, 20px);
+  gap: clamp(6px, 0.9vw, 16px);
   margin: clamp(48px, 9vh, 120px) auto clamp(52px, 10vh, 128px);
   padding: 0;
-  width: min(1500px, 94vw);
+  width: min(1600px, 96vw);
   list-style: none;
 }
 
@@ -96,7 +96,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: clamp(78px, 8.8vw, 160px);
+  height: clamp(68px, 7.4vw, 138px);
   /* filter: drop-shadow(0 0 0 rgba(20, 30, 60, 0)); */
   filter: drop-shadow(0 0 0 rgba(10, 20, 41, 0.15));
   transition: filter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
