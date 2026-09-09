@@ -161,10 +161,18 @@
   vertical-align: middle;
 }
 
-.th,
-.category,
-.td {
+.th:nth-child(2),
+.th:nth-child(3),
+.td:nth-child(2),
+.td:nth-child(3) {
   text-align: center;
+}
+
+.th:first-child,
+.category,
+.th:last-child,
+.td:last-child {
+  padding-left: 20px;
 }
 
 .table tbody tr + tr .category,
