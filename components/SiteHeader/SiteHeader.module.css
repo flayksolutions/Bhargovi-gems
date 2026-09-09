@@ -118,11 +118,13 @@
   transition: transform 520ms var(--ease-out-expo);
 }
 
-.navLink:hover {
+.navLink:hover,
+.navLink.active {
   color: var(--sapphire);
 }
 
-.navLink:hover::after {
+.navLink:hover::after,
+.navLink.active::after {
   transform: scaleX(1);
   transform-origin: left;
 }

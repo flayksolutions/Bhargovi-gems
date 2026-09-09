@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import BrandLogo from "../BrandLogo/BrandLogo";
 import styles from "./SiteHeader.module.css";
@@ -14,9 +15,13 @@ type Props = {
 };
 
 export default function SiteHeader({ brand, nav, cta }: Props) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   /* Lock body scroll while the drawer is open. */
   useEffect(() => {
@@ -99,7 +104,13 @@ export default function SiteHeader({ brand, nav, cta }: Props) {
         <ul className={styles.navList}>
           {nav.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className={styles.navLink}>
+              <Link
+                href={item.href}
+                className={[styles.navLink, isActive(item.href) ? styles.active : ""]
+                  .filter(Boolean)
+                  .join(" ")}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
                 {item.label}
               </Link>
             </li>

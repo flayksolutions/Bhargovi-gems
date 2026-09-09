@@ -142,7 +142,7 @@
 
   display: grid;
   place-items: center;
-  padding-block: calc(46px + 26px * var(--pf));
+  padding-block: calc(72px + 40px * var(--pf));
   padding-inline: calc(38px + 24px * var(--pf));
 
   color: var(--ink-deep);
@@ -165,7 +165,7 @@
   --cn: calc(48px * (1 - var(--pf)));
 
   background: var(--paper);
-  transform: scale(calc(0.3 + 0.7 * var(--pf)), calc(0.42 + 0.58 * var(--pf)));
+  transform: scale(calc(0.3 + 0.7 * var(--pf)), calc(0.46 + 0.6 * var(--pf)));
   will-change: transform;
   clip-path: polygon(
     0 0,
@@ -239,7 +239,7 @@
 
   .card {
     width: calc(74% + 26% * var(--pf));
-    padding-block: calc(38px + 20px * var(--pf));
+    padding-block: calc(58px + 32px * var(--pf));
     padding-inline: calc(26px + 14px * var(--pf));
   }
 
@@ -247,7 +247,7 @@
     --cn: calc(34px * (1 - var(--pf)));
     transform: scale(
       calc(0.74 + 0.26 * var(--pf)),
-      calc(0.42 + 0.58 * var(--pf))
+      calc(0.46 + 0.6 * var(--pf))
     );
   }
 

@@ -7,10 +7,10 @@ export const site = {
   brand: "Bhargovi Gems",
   nav: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Sustainability", href: "/sustainability" },
     { label: "Diamond", href: "/diamond-information" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
   ],
   cta: { label: "Enquire Now", href: "/contact" },
 };
@@ -251,9 +251,9 @@ export const footer = {
       title: "Quick Links",
       items: [
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
+        { label: "About Us", href: "/about" },
         { label: "Diamond Information", href: "/diamond-information" },
-        { label: "Contact", href: "/contact" },
+        { label: "Contact Us", href: "/contact" },
       ],
     },
     {
@@ -270,7 +270,7 @@ export const footer = {
         },
         {
           heading: "Surat",
-          label: "Manufacturing Facility, Surat, Gujarat, India",
+          label: "Manufacturing Facility, Surat, India",
         },
       ],
     },
@@ -356,7 +356,7 @@ export const officesSection = {
     {
       id: "surat",
       name: "Surat",
-      address: "Manufacturing Facility, Surat, Gujarat, India",
+      address: "Manufacturing Facility, Surat, India",
       icon: "/icons/office-surat.svg",
     },
   ],
@@ -1772,7 +1772,7 @@ export const contactFormSection = {
       id: "surat",
       name: "Surat",
       label: "Manufacturing Facility",
-      address: "Manufacturing Facility, Surat, Gujarat, India",
+      address: "Manufacturing Facility, Surat, India",
     },
   ] satisfies ContactOffice[],
 };
