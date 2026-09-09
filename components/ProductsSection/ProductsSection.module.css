@@ -58,21 +58,36 @@
 /* ---------------------------- shapes ----------------------------- */
 
 .shapesRow {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  justify-items: center;
+  --shapes-per-row: 7;
+  --shapes-gap: clamp(6px, 0.9vw, 16px);
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: clamp(6px, 0.9vw, 16px);
+  justify-content: center;
+  gap: var(--shapes-gap);
   margin: clamp(48px, 9vh, 120px) auto clamp(52px, 10vh, 128px);
   padding: 0;
-  width: min(1600px, 96vw);
+  /* 100%, not 96vw: vw includes the scrollbar gutter, so it can exceed
+     .inner's actual content width and overflow past the section's
+     right padding (auto margins can't center a box wider than its
+     container — it just left-aligns and spills over). */
+  width: min(1600px, 100%);
   list-style: none;
 }
 
+/* Flexbox + wrap (rather than a fixed grid) so an incomplete last row
+   — inevitable once the shape count doesn't divide evenly by the
+   per-row count — centers itself instead of hugging the grid's first
+   columns and reading as off-center. */
 .shapeCard {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 0 0
+    calc(
+      (100% - (var(--shapes-per-row) - 1) * var(--shapes-gap)) /
+        var(--shapes-per-row)
+    );
   padding: 8px;
   cursor: default;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -171,9 +186,9 @@
 
 @media (max-width: 960px) {
   .shapesRow {
-    grid-template-columns: repeat(3, 1fr);
+    --shapes-per-row: 3;
+    --shapes-gap: clamp(14px, 4vw, 24px);
     width: 100%;
-    gap: clamp(14px, 4vw, 24px);
   }
 
   .title {
@@ -191,10 +206,10 @@
    the side-by-side comparison the section exists to show. */
 @media (max-width: 640px) {
   .shapesRow {
-    grid-template-columns: repeat(3, 1fr);
+    --shapes-per-row: 3;
     /* Tighter gutters buy back the width the third column costs, so
        the longest name ("Round Brilliant") still fits on two lines. */
-    gap: clamp(8px, 2.4vw, 16px);
+    --shapes-gap: clamp(8px, 2.4vw, 16px);
   }
 
   .tagline {
