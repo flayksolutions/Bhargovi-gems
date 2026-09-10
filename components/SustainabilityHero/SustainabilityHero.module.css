@@ -95,7 +95,7 @@
 
 .title {
   margin: 0 0 clamp(16px, 2.4vh, 24px);
-  max-width: 15ch;
+  max-width: 20ch;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(38px, 5vw, 64px);
@@ -106,7 +106,7 @@
 
 .body {
   margin: 0;
-  max-width: 36ch;
+  max-width: 56ch;
   font-family: var(--font-body);
   font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
