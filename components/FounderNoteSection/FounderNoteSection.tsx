@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./FounderNoteSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   eyebrow: string;
@@ -20,17 +24,26 @@ export default function FounderNoteSection({
   image,
   alt,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
+
   return (
-    <section className={styles.section} aria-labelledby="founder-note-title">
+    <section
+      ref={sectionRef}
+      className={styles.section}
+      aria-labelledby="founder-note-title"
+    >
       <div className={styles.inner}>
         <figure className={styles.figure}>
-          <Image
-            src={image}
-            alt={alt}
-            fill
-            sizes="(max-width: 960px) 92vw, 34vw"
-            className={styles.image}
-          />
+          <div className={styles.reveal}>
+            <Image
+              src={image}
+              alt={alt}
+              fill
+              sizes="(max-width: 960px) 92vw, 34vw"
+              className={styles.image}
+            />
+          </div>
         </figure>
 
         <blockquote className={styles.copy}>
