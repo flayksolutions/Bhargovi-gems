@@ -1144,7 +1144,7 @@ const shapeStats = (table: string, depth: string): ShapeStat[] => [
 export const shapesCutsSection = {
   id: "shapes",
   eyebrow: "Shapes We Cut",
-  titleLines: ["Twelve Shapes,", "Cut In-House"],
+  titleLines: ["Unique Shapes,", "Cut In-House"],
   body: "",
   stageRings: {
     outer: "/images/diamond-info/stage-ring-outer.svg",
@@ -1760,7 +1760,7 @@ export const contactFormSection = {
       label: "Full Name",
       name: "fullName",
       type: "text",
-      placeholder: "Jane Doe",
+      placeholder: "Your name",
     },
     {
       id: "company-name",
@@ -1768,7 +1768,7 @@ export const contactFormSection = {
       label: "Company Name",
       name: "companyName",
       type: "text",
-      placeholder: "Doe Jewellery Co.",
+      placeholder: "Your company name",
     },
     {
       id: "email-address",
@@ -1776,7 +1776,7 @@ export const contactFormSection = {
       label: "Email Address",
       name: "email",
       type: "email",
-      placeholder: "jane@company.com",
+      placeholder: "example@gmail.com",
     },
     {
       id: "phone-number",
@@ -1784,7 +1784,7 @@ export const contactFormSection = {
       label: "Phone Number",
       name: "phone",
       type: "tel",
-      placeholder: "+1 (000) 000-0000",
+      placeholder: "+91 000 000 0000",
     },
     {
       id: "message",
