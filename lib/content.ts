@@ -1773,13 +1773,15 @@ export const contactFormSection = {
       id: "mumbai",
       name: "Mumbai",
       label: "Headquarters",
-      address: "Bharat Diamond Bourse, BKC, Mumbai, India",
+      address:
+        "JE 1260, BHARGOVI GEMS, Bharat Diamond Bourse, Bandra Kurla Complex, Mumbai-400051",
     },
     {
       id: "surat",
       name: "Surat",
       label: "Manufacturing Facility",
-      address: "Manufacturing Facility, Surat, India",
+      address:
+        "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture, Kapodra, Surat-395006",
     },
   ] satisfies ContactOffice[],
 };

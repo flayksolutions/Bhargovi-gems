@@ -59,7 +59,7 @@
 
   width: min(500px, 100%);
   margin-right: clamp(0px, 7vw, 150px);
-  padding: clamp(28px, 2.6vw, 46px);
+  padding: clamp(28px, 2.6vw, 64px);
 
   background: var(--paper);
   clip-path: polygon(
