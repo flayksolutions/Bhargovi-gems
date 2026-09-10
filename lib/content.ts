@@ -1751,6 +1751,7 @@ export type ContactReachOut = {
   name: string;
   href: string;
   value: string;
+  icon: string;
 };
 
 export const contactFormSection = {
@@ -1825,12 +1826,14 @@ export const contactFormSection = {
       name: "Phone",
       href: "tel:+918591095691",
       value: "(+91) 85910 95691",
+      icon: "call",
     },
     {
       id: "email",
       name: "Email",
       href: "mailto:bhargovigems4445@gmail.com",
       value: "bhargovigems4445@gmail.com",
+      icon: "mail",
     },
   ] satisfies ContactReachOut[],
 };
