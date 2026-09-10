@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./VisionSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   eyebrow: string;
@@ -16,8 +20,15 @@ export default function VisionSection({
   image,
   alt,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
+
   return (
-    <section className={styles.section} aria-labelledby="vision-title">
+    <section
+      ref={sectionRef}
+      className={styles.section}
+      aria-labelledby="vision-title"
+    >
       <div className={styles.inner}>
         <div className={styles.copy}>
           <p className={styles.eyebrow}>{eyebrow}</p>
@@ -30,13 +41,15 @@ export default function VisionSection({
         </div>
 
         <figure className={styles.figure}>
-          <Image
-            src={image}
-            alt={alt}
-            fill
-            sizes="(max-width: 960px) 100vw, 50vw"
-            className={styles.image}
-          />
+          <div className={styles.reveal}>
+            <Image
+              src={image}
+              alt={alt}
+              fill
+              sizes="(max-width: 960px) 100vw, 50vw"
+              className={styles.image}
+            />
+          </div>
         </figure>
       </div>
     </section>
