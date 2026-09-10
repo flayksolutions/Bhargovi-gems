@@ -1728,11 +1728,6 @@ export const processSection = {
 export const contactHeroSection = {
   eyebrow: "Get in Touch",
   title: "We'd Love to Hear From You",
-  phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
-  email: {
-    label: "bhargovigems4445@gmail.com",
-    href: "mailto:bhargovigems4445@gmail.com",
-  },
 };
 
 export type ContactFormField = {
@@ -1749,6 +1744,13 @@ export type ContactOffice = {
   name: string;
   label: string;
   address: string;
+};
+
+export type ContactReachOut = {
+  id: string;
+  name: string;
+  href: string;
+  value: string;
 };
 
 export const contactFormSection = {
@@ -1816,4 +1818,19 @@ export const contactFormSection = {
         "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture, Kapodra, Surat-395006",
     },
   ] satisfies ContactOffice[],
+  reachOutTitle: "Reach Out to us at",
+  reachOut: [
+    {
+      id: "phone",
+      name: "Phone",
+      href: "tel:+918591095691",
+      value: "(+91) 85910 95691",
+    },
+    {
+      id: "email",
+      name: "Email",
+      href: "mailto:bhargovigems4445@gmail.com",
+      value: "bhargovigems4445@gmail.com",
+    },
+  ] satisfies ContactReachOut[],
 };

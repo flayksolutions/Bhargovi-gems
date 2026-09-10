@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { ContactFormField, ContactOffice } from "@/lib/content";
+import Link from "next/link";
+import type { ContactFormField, ContactOffice, ContactReachOut } from "@/lib/content";
 import styles from "./ContactFormSection.module.css";
 
 type Props = {
@@ -11,6 +12,8 @@ type Props = {
   alt: string;
   officesTitle: string;
   offices: ContactOffice[];
+  reachOutTitle: string;
+  reachOut: ContactReachOut[];
 };
 
 export default function ContactFormSection({
@@ -22,6 +25,8 @@ export default function ContactFormSection({
   alt,
   officesTitle,
   offices,
+  reachOutTitle,
+  reachOut,
 }: Props) {
   return (
     <section className={styles.section} aria-label="Contact">
@@ -99,6 +104,23 @@ export default function ContactFormSection({
                 <h3 className={styles.officeName}>{office.name}</h3>
                 <p className={styles.officeLabel}>{office.label}</p>
                 <p className={styles.officeAddress}>{office.address}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.reachOut}>
+          <h2 id="contact-reach-out-title" className={styles.reachOutTitle}>
+            {reachOutTitle}
+          </h2>
+
+          <ul className={styles.reachOutList}>
+            {reachOut.map((item) => (
+              <li key={item.id} className={styles.reachOutItem}>
+                <h3 className={styles.reachOutName}>{item.name}</h3>
+                <Link href={item.href} className={styles.reachOutValue}>
+                  {item.value}
+                </Link>
               </li>
             ))}
           </ul>
