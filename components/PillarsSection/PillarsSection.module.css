@@ -12,7 +12,7 @@
 .section {
   position: relative;
   overflow: hidden;
-  padding: clamp(96px, 16vh, 168px) var(--gutter);
+  padding: clamp(96px, 24vh, 224px) var(--gutter);
   display: flex;
   justify-content: center;
 }

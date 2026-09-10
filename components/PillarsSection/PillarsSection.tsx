@@ -62,7 +62,11 @@ export default function PillarsSection({ background, cards }: Props) {
   const { sectionRef, swatchRefs, windows } = usePeepholeWindows(cards.length);
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Sustainability pillars">
+    <section
+      ref={sectionRef}
+      className={styles.section}
+      aria-label="Sustainability pillars"
+    >
       <div
         className={styles.plate}
         aria-hidden="true"
@@ -103,7 +107,7 @@ export default function PillarsSection({ background, cards }: Props) {
                 />
               </div>
               <h3 className={styles.cardTitle}>{card.name}</h3>
-              <p className={styles.cardBody}>{card.body}</p>
+              {/* <p className={styles.cardBody}>{card.body}</p> */}
             </article>
           );
         })}
