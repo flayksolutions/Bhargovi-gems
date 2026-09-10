@@ -7,10 +7,10 @@ export const site = {
   brand: "Bhargovi Gems",
   nav: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Sustainability", href: "/sustainability" },
     { label: "Diamond", href: "/diamond-information" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
   ],
   cta: { label: "Enquire Now", href: "/contact" },
 };
@@ -130,12 +130,14 @@ export const productsSection = {
     { src: "/images/shapes/oval.png", name: "Oval" },
     { src: "/images/shapes/pear.png", name: "Pear" },
     { src: "/images/shapes/heart.png", name: "Heart" },
-    { src: "/images/shapes/marquise.png", name: "Marquise" },
+    { src: "/images/shapes/pear.png", name: "Pear" },
+    { src: "/images/shapes/cushion.png", name: "Cushion" },
     { src: "/images/shapes/half-moon.png", name: "Half Moon" },
     { src: "/images/shapes/trillian.png", name: "Trillion" },
-    { src: "/images/shapes/octagon.png", name: "Octagon" },
-    { src: "/images/shapes/lozenge.png", name: "Lozenge" },
+    { src: "/images/shapes/asscher.png", name: "Asscher" },
+    { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
     { src: "/images/shapes/baguette.png", name: "Baguette" },
+    { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
   ],
 };
 
@@ -251,9 +253,9 @@ export const footer = {
       title: "Quick Links",
       items: [
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
+        { label: "About Us", href: "/about" },
         { label: "Diamond Information", href: "/diamond-information" },
-        { label: "Contact", href: "/contact" },
+        { label: "Contact Us", href: "/contact" },
       ],
     },
     {
@@ -270,7 +272,7 @@ export const footer = {
         },
         {
           heading: "Surat",
-          label: "Manufacturing Facility, Surat, Gujarat, India",
+          label: "Manufacturing Facility, Surat, India",
         },
       ],
     },
@@ -356,7 +358,7 @@ export const officesSection = {
     {
       id: "surat",
       name: "Surat",
-      address: "Manufacturing Facility, Surat, Gujarat, India",
+      address: "Manufacturing Facility, Surat, India",
       icon: "/icons/office-surat.svg",
     },
   ],
@@ -379,8 +381,8 @@ export const aboutHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "About Us" }],
   titleLines: ["A Family Legacy", "Since 1971"],
   body: "Built on over five decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
-  image: "/images/about/hero-legacy.jpg",
-  alt: "A round brilliant diamond held in tweezers above a dark, sparkling surface",
+  image: "/images/about/hero-legacy-office.jpg",
+  alt: "The Bhargovi Gems founder's office overlooking the lake, with a view of the Kolkata Birla Mandir on the wall",
 };
 
 export type SpecTableRow = {
@@ -435,12 +437,12 @@ export const legacySection = {
       {
         id: "round-brilliant",
         category: "Round Brilliant",
-        values: ["VVS-VS", "D - E - F", "3 cents to 1.50 carat"],
+        values: ["VVS-VS", "D - E - F", "0.03 carat - 1.50 carats"],
       },
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – E - F", "10 cents to 1 carat"],
+        values: ["VVS", "D – E - F", "0.10 carat - 1 carat"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -996,6 +998,8 @@ export type FourCCard = {
   photo?: string;
   items?: FourCItem[];
   note: FourCNote;
+  /** our own house standard for this C, shown as a second line under the note */
+  standard: string;
 };
 
 export const fourCsSection = {
@@ -1014,6 +1018,7 @@ export const fourCsSection = {
       ticks: ["EX", "VG", "G", "F", "P"],
       fill: 0.4,
       note: { lead: "Ships", accent: "EX–VG", trail: "only" },
+      standard: "Excellent to Very Good",
     },
     {
       id: "colour",
@@ -1030,6 +1035,7 @@ export const fourCsSection = {
         { id: "z", label: "Z", tint: "rgba(233, 209, 120, 0.74)" },
       ],
       note: { lead: "Standard range", accent: "D–M" },
+      standard: "D-E-F",
     },
     {
       id: "clarity",
@@ -1065,6 +1071,7 @@ export const fourCsSection = {
         },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
+      standard: "VVS, VS, SI",
     },
     {
       id: "carat",
@@ -1105,6 +1112,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
+      standard: "Up to 1.50 ct",
     },
   ] satisfies FourCCard[],
 };
@@ -1136,8 +1144,8 @@ const shapeStats = (table: string, depth: string): ShapeStat[] => [
 export const shapesCutsSection = {
   id: "shapes",
   eyebrow: "Shapes We Cut",
-  titleLines: ["Twelve Shapes,", "Cut & Polished In-House"],
-  body: "From the classic round brilliant to fancy silhouettes, every shape is planned, sawn, bruted and polished on our own floor.",
+  titleLines: ["Twelve Shapes,", "Cut In-House"],
+  body: "",
   stageRings: {
     outer: "/images/diamond-info/stage-ring-outer.svg",
     inner: "/images/diamond-info/stage-ring-inner.svg",
@@ -1150,7 +1158,6 @@ export const shapesCutsSection = {
       alt: "A round brilliant cut diamond viewed from the crown",
       caption: "58 facets · the benchmark for light return",
       featured: true,
-      tag: "Most Requested",
       stats: shapeStats("54 – 58", "59 – 63"),
     },
     {
@@ -1194,12 +1201,12 @@ export const shapesCutsSection = {
       stats: shapeStats("53 – 63", "56 – 66"),
     },
     {
-      id: "marquise",
-      name: "Marquise",
-      photo: "/images/shapes/marquise.png",
-      alt: "A marquise cut diamond viewed from above",
-      caption: "58 facets · maximum spread per carat",
-      stats: shapeStats("53 – 63", "58 – 66"),
+      id: "cushion",
+      name: "Cushion",
+      photo: "/images/shapes/cushion.png",
+      alt: "A cushion cut diamond viewed from above",
+      caption: "58 facets · rounded corners, soft antique glow",
+      stats: shapeStats("55 – 68", "58 – 68"),
     },
     {
       id: "half-moon",
@@ -1218,18 +1225,18 @@ export const shapesCutsSection = {
       stats: shapeStats("55 – 70", "32 – 44"),
     },
     {
-      id: "octagon",
-      name: "Octagon",
-      photo: "/images/shapes/octagon.png",
-      alt: "An octagon cut diamond viewed from above",
-      caption: "53 facets · step-cut with clipped corners",
+      id: "asscher",
+      name: "Asscher",
+      photo: "/images/shapes/asscher.png",
+      alt: "An asscher cut diamond viewed from above",
+      caption: "58 facets · step-cut square with cropped corners",
       stats: shapeStats("60 – 70", "60 – 70"),
     },
     {
-      id: "lozenge",
-      name: "Lozenge",
-      photo: "/images/shapes/lozenge.png",
-      alt: "A lozenge cut diamond viewed from above",
+      id: "trapezoid",
+      name: "Trapezoid",
+      photo: "/images/shapes/trapezoid.png",
+      alt: "A trapezoid cut diamond viewed from above",
       caption: "24 facets · a geometric accent stone",
       stats: shapeStats("55 – 68", "35 – 48"),
     },
@@ -1757,7 +1764,7 @@ export const contactFormSection = {
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
-  note: "Confidential enquiry · We respond within 3-4 business days",
+  note: "Confidential enquiry · We respond within 24 hours",
   image: "/images/contact-form-tray.png",
   alt: "Loose polished diamonds scattered across a jewellery tray",
   officesTitle: "Our Offices",
@@ -1772,7 +1779,7 @@ export const contactFormSection = {
       id: "surat",
       name: "Surat",
       label: "Manufacturing Facility",
-      address: "Manufacturing Facility, Surat, Gujarat, India",
+      address: "Manufacturing Facility, Surat, India",
     },
   ] satisfies ContactOffice[],
 };

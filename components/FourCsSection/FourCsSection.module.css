@@ -323,7 +323,7 @@
   padding-top: clamp(14px, 1.8vw, 22px);
   border-top: 1px solid rgba(37, 100, 202, 0.16);
   font-family: var(--font-body);
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--text-muted);
 }
 
@@ -338,6 +338,29 @@
 .noteAccent {
   color: var(--azure);
   font-weight: 600;
+}
+
+.standard {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 8px 0 0;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: rgba(37, 100, 202, 0.09);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sapphire);
+}
+
+.standardLabel {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azure);
+  opacity: 0.85;
 }
 
 /* ---------------------------- responsive ------------------------- */

@@ -98,7 +98,7 @@
   /* height: clamp(250px, calc(100svh - 420px), 680px); */
   height: clamp(250px, calc(100svh - 360px), 680px);
   overflow: hidden;
-  background: #e7edf7;
+  /* background: #e7edf7; */
 
   /* House chamfer: top-right and bottom-left, same as the process
      frames and the about card. */
@@ -119,8 +119,7 @@
   position: absolute;
   inset: 0;
   clip-path: inset(100% 0 0 0);
-  /* Slow, even curtain. An ease-out curve was over before it read. */
-  transition: clip-path 1900ms cubic-bezier(0.62, 0.05, 0.23, 1);
+  transition: clip-path 350ms cubic-bezier(0.62, 0.05, 0.23, 1);
 }
 
 .revealDown {
@@ -150,7 +149,7 @@
 
 /* Second block trails the first, so they don't fire in lockstep. */
 .block:nth-child(2) .reveal {
-  transition-delay: 240ms;
+  transition-delay: 60ms;
 }
 
 .block:nth-child(2) .media {

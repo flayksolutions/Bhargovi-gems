@@ -17,7 +17,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  min-height: clamp(420px, 46vw, 644px);
+  min-height: 100svh;
   background: var(--porcelain);
 }
 
@@ -130,7 +130,7 @@
 
 @media (max-width: 640px) {
   .hero {
-    min-height: 420px;
+    min-height: 100svh;
   }
 
   .title {

@@ -62,17 +62,13 @@ export default function ShapesCutsSection({
             {eyebrow}
           </p>
           <h2 id="shapes-title" className={styles.title}>
-            <span>{titleLines[0]}</span>
+            <span>{titleLines[0]}</span>{" "}
             <span className={styles.titleAccent}>{titleLines[1]}</span>
           </h2>
-          <p className={styles.body}>{body}</p>
+          {body && <p className={styles.body}>{body}</p>}
         </header>
 
         <div className={styles.stageBlock}>
-          <p className={styles.tagSlot}>
-            {selected.tag && <span className={styles.tag}>{selected.tag}</span>}
-          </p>
-
           <div className={styles.stage}>
             <span className={styles.ringOuter} aria-hidden="true" />
             <span className={styles.ringInner} aria-hidden="true" />

@@ -146,6 +146,10 @@ export default function FourCsSection({ id, eyebrow, titleLines, body, cards }: 
               <CardGraphic card={card} />
 
               <Note note={card.note} />
+              <p className={styles.standard}>
+                <span className={styles.standardLabel}>Our Standard</span>
+                {card.standard}
+              </p>
             </li>
           ))}
         </ol>

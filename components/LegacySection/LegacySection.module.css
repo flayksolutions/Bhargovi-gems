@@ -126,7 +126,7 @@
 
 /* Column boundaries from the comp: 188 / 345 / 498 of 646. */
 .th:nth-child(1) {
-  width: 29.1%;
+  width: 22%;
 }
 
 .th:nth-child(2) {
@@ -138,7 +138,7 @@
 }
 
 .th:nth-child(4) {
-  width: 22.9%;
+  width: 30%;
 }
 
 .th {
@@ -161,9 +161,18 @@
   vertical-align: middle;
 }
 
+.th:nth-child(2),
+.th:nth-child(3),
+.td:nth-child(2),
+.td:nth-child(3) {
+  text-align: center;
+}
+
 .th:first-child,
-.category {
-  padding-left: 40px;
+.category,
+.th:last-child,
+.td:last-child {
+  padding-left: 20px;
 }
 
 .table tbody tr + tr .category,
@@ -196,11 +205,6 @@
 
   .collage {
     max-width: 460px;
-  }
-
-  .th:first-child,
-  .category {
-    padding-left: 26px;
   }
 }
 
