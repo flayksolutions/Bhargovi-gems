@@ -107,7 +107,7 @@
 .body {
   margin: 0;
   max-width: 56ch;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
   line-height: 1.5;
