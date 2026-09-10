@@ -88,12 +88,6 @@
   color: var(--sky-tint);
 }
 
-.rule {
-  width: 28px;
-  height: 1px;
-  background: #7fa9e3;
-}
-
 .title {
   margin: 0 0 20px;
   font-family: var(--font-display);

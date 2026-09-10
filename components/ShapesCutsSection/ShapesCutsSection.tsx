@@ -57,10 +57,7 @@ export default function ShapesCutsSection({
 
       <div className={styles.inner}>
         <header className={styles.head}>
-          <p className={styles.eyebrow}>
-            <span className={styles.rule} aria-hidden="true" />
-            {eyebrow}
-          </p>
+          <p className={styles.eyebrow}>{eyebrow}</p>
           <h2 id="shapes-title" className={styles.title}>
             <span>{titleLines[0]}</span>{" "}
             <span className={styles.titleAccent}>{titleLines[1]}</span>

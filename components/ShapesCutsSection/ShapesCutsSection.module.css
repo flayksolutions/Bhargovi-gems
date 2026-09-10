@@ -60,13 +60,6 @@
   color: var(--azure);
 }
 
-.rule {
-  flex: none;
-  width: 16px;
-  height: 1.5px;
-  background: var(--azure);
-}
-
 .title {
   margin: 0;
   font-family: var(--font-display);

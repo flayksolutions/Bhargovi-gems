@@ -69,13 +69,6 @@
   color: rgba(255, 255, 255, 0.82);
 }
 
-.rule {
-  flex: none;
-  width: 28px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.4);
-}
-
 .title {
   margin: 0;
   font-family: var(--font-display);
