@@ -1005,8 +1005,8 @@ export type FourCCard = {
 export const fourCsSection = {
   id: "the-4cs",
   eyebrow: "Diamond Education",
-  titleLines: ["The Four C’s", "of a Diamond"],
-  body: "Every stone we grade and export is assessed against these four universal standards.",
+  titleLines: ["The 4Cs of", "a Diamond"],
+  body: "Every stone we manufacture is carefully assessed against these four universal standards.",
   cards: [
     {
       id: "cut",
@@ -1018,7 +1018,7 @@ export const fourCsSection = {
       ticks: ["EX", "VG", "G", "F", "P"],
       fill: 0.4,
       note: { lead: "Ships", accent: "EX–VG", trail: "only" },
-      standard: "Excellent to Very Good",
+      standard: "EX, VG",
     },
     {
       id: "colour",
@@ -1071,7 +1071,7 @@ export const fourCsSection = {
         },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
-      standard: "VVS, VS, SI",
+      standard: "VVS, VS",
     },
     {
       id: "carat",
@@ -1112,7 +1112,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
-      standard: "Up to 1.50 ct",
+      standard: "Melle to 1.50 carats",
     },
   ] satisfies FourCCard[],
 };
@@ -1271,7 +1271,7 @@ export const labGrownVsMinedSection = {
       tag: "Our Specialty",
       emphasis: true,
       title: "Lab-Grown Diamonds",
-      subtitle: "HPHT & CVD · 100% of our output",
+      subtitle: "HPHT • Precision Manufacturing",
     },
     {
       id: "mined",
@@ -1286,7 +1286,7 @@ export const labGrownVsMinedSection = {
       id: "formation",
       label: "Formation",
       values: [
-        "Grown in 3–10 weeks under HPHT or CVD conditions",
+        "Grown in 3–10 weeks under Hight pressure high temperature technology (HPHT)",
         "Formed 1–3 billion years ago in the earth’s mantle",
       ],
     },
@@ -1318,7 +1318,7 @@ export const labGrownVsMinedSection = {
       id: "sourcing",
       label: "Sourcing",
       values: [
-        "Every Bhargovi stone graded, certified and supplied in-house",
+        "Every Bhargovi diamond undergoes careful in-house inspection to ensure precision, consistency and quality",
         "Traceability depends on partners’ chain-of-custody, not in-house",
       ],
     },
@@ -1552,37 +1552,69 @@ export const diamondInfoFaqSection = {
   body: "Five things that come up in almost every first conversation with a new sourcing partner.",
   panelLabel: "Frequently Asked",
   background: "/images/diamond-info/faq-diamonds.jpg",
+  // items: [
+  //   {
+  //     id: "certified",
+  //     question: "Are all Bhargovi Gems diamonds independently certified?",
+  //     answer:
+  //       "Every certified stone we ship carries a GIA or IGI report, quoted by number on the invoice and matched to a laser inscription on the girdle. Non-certified parcels are graded in-house against the same 4Cs and are always labelled as such — we never blur the two.",
+  //   },
+  //   {
+  //     id: "custom-assortments",
+  //     question:
+  //       "Can we request custom parcel assortments by clarity, colour or size?",
+  //     answer:
+  //       "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
+  //   },
+  //   {
+  //     id: "certified-and-non-certified",
+  //     question: "Do you supply both certified and non-certified goods?",
+  //     answer:
+  //       "We do. Certified goods are graded and reported by GIA or IGI; non-certified goods are graded in-house against the same 4Cs and priced accordingly. Every quote states clearly which category a parcel falls into.",
+  //   },
+  //   {
+  //     id: "authenticity",
+  //     question: "How is the authenticity of each stone verified before export?",
+  //     answer:
+  //       "Each certified stone carries a laser inscription on the girdle matched to its grading report number, and every shipment is documented under Kimberley Process and RJC chain-of-custody standards before it leaves our facility.",
+  //   },
+  //   {
+  //     id: "moq",
+  //     question: "What is the minimum order quantity for wholesale buyers?",
+  //     answer:
+  //       "Minimums vary by category and band — melee parcels start small, while certified goods are typically quoted per carat lot. Share your target spec with sourcing and we will confirm the minimum for that specific order.",
+  //   },
+  // ] satisfies FAQItem[],
   items: [
     {
-      id: "certified",
-      question: "Are all Bhargovi Gems diamonds independently certified?",
+      id: "lab-grown",
+      question: "Are all Bhargovi Gems diamonds lab-grown?",
       answer:
-        "Every certified stone we ship carries a GIA or IGI report, quoted by number on the invoice and matched to a laser inscription on the girdle. Non-certified parcels are graded in-house against the same 4Cs and are always labelled as such — we never blur the two.",
+        "Yes. Bhargovi Gems is completely focused on lab-grown diamond manufacturing, with our production dedicated to HPHT-grown diamonds.",
     },
     {
-      id: "custom-assortments",
-      question:
-        "Can we request custom parcel assortments by clarity, colour or size?",
+      id: "technology",
+      question: "What technology do you use to manufacture your diamonds?",
       answer:
-        "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
+        "We specialise in HPHT (High Pressure High Temperature) lab-grown diamonds. Our manufacturing process combines HPHT technology with precision planning, cutting, polishing and quality inspection.",
     },
     {
-      id: "certified-and-non-certified",
-      question: "Do you supply both certified and non-certified goods?",
+      id: "sizes-colours-clarities",
+      question: "What sizes, colours and clarities do you offer?",
       answer:
-        "We do. Certified goods are graded and reported by GIA or IGI; non-certified goods are graded in-house against the same 4Cs and priced accordingly. Every quote states clearly which category a parcel falls into.",
+        "Our available sizes, colours and clarities vary depending on the diamond shape and specific requirement. We offer a wide range across melee, rounds and fancy shapes, with availability extending across different carat sizes and specifications. Please contact our team with your requirements for current availability.",
     },
     {
-      id: "authenticity",
-      question: "How is the authenticity of each stone verified before export?",
+      id: "shapes",
+      question: "Which diamond shapes do you manufacture?",
       answer:
-        "Each certified stone carries a laser inscription on the girdle matched to its grading report number, and every shipment is documented under Kimberley Process and RJC chain-of-custody standards before it leaves our facility.",
+        "We manufacture both round and fancy-shaped lab-grown diamonds, including Round, Oval, Marquise, Princess, Emerald, Pear, Cushion, Radiant, Heart, Trillion, Half Moon, Trapezoid, Asscher, Baguette and other specialty shapes.",
     },
     {
-      id: "moq",
-      question: "What is the minimum order quantity for wholesale buyers?",
+      id: "custom-requirements",
+      question: "Can we request diamonds according to specific requirements?",
       answer:
-        "Minimums vary by category and band — melee parcels start small, while certified goods are typically quoted per carat lot. Share your target spec with sourcing and we will confirm the minimum for that specific order.",
+        "Yes. B2B buyers can share their requirements based on shape, carat size, colour, clarity and other specific specifications. Our team can then review availability and suitable options.",
     },
   ] satisfies FAQItem[],
 };
