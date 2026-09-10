@@ -9,7 +9,7 @@
   background: var(--paper);
   max-width: calc(var(--content-max) + 2 * var(--gutter));
   margin-inline: auto;
-  padding: clamp(56px, 9vh, 96px) var(--gutter) clamp(40px, 6vh, 48px);
+  padding: clamp(56px, 13vh, 192px) var(--gutter) clamp(40px, 6vh, 48px);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
