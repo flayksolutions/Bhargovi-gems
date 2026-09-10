@@ -229,7 +229,11 @@
   .eyebrow,
   .title,
   .lede,
-  .item,
+  .item {
+    opacity: 1;
+    transform: none;
+  }
+
   .bleed {
     opacity: 1;
     transform: rotate(-44.25deg);
