@@ -80,6 +80,7 @@
   font-weight: 400;
   font-size: clamp(19px, 1.6vw, 24px);
   color: var(--sapphire);
+  text-align: center;
 }
 
 .cardBody {
