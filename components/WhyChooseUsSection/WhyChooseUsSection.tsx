@@ -1,6 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./WhyChooseUsSection.module.css";
 import type { WhyChooseUsItem } from "@/lib/content";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   eyebrow: string;
@@ -19,8 +23,15 @@ export default function WhyChooseUsSection({
   alt,
   items,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
+
   return (
-    <section className={styles.section} aria-labelledby="why-choose-us-title">
+    <section
+      ref={sectionRef}
+      className={styles.section}
+      aria-labelledby="why-choose-us-title"
+    >
       {/* Full-bleed cut-out: anchored to the section's own left edge, so
           it always runs off the left side of the viewport. */}
       <div className={styles.bleed}>
@@ -43,8 +54,12 @@ export default function WhyChooseUsSection({
         </header>
 
         <ul className={styles.list}>
-          {items.map((item) => (
-            <li key={item.id} className={styles.item}>
+          {items.map((item, i) => (
+            <li
+              key={item.id}
+              className={styles.item}
+              style={{ ["--i" as string]: i }}
+            >
               <span className={styles.iconFrame}>
                 <Image
                   src={item.icon}

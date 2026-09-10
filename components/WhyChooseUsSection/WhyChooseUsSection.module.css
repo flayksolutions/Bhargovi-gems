@@ -27,8 +27,13 @@
   bottom: 0;
   width: 22.15%; /* 318.993 / 1440 */
   aspect-ratio: 318.993 / 478.49;
-  transform: rotate(-44.25deg);
+  transform: rotate(-44.25deg) scale(0.92);
+  transition: transform 750ms var(--ease-out-expo) 80ms;
   pointer-events: none;
+}
+
+.section[data-revealed="true"] .bleed {
+  transform: rotate(-44.25deg) scale(1);
 }
 
 .bleedImage {
@@ -173,5 +178,60 @@
   .icon {
     width: 68px;
     height: 67px;
+  }
+}
+
+/* ---------------------------- reveal ------------------------------- */
+
+.eyebrow,
+.title,
+.lede {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.eyebrow {
+  transition-delay: 0ms;
+}
+
+.title {
+  transition-delay: 60ms;
+}
+
+.lede {
+  transition-delay: 120ms;
+}
+
+.section[data-revealed="true"] .eyebrow,
+.section[data-revealed="true"] .title,
+.section[data-revealed="true"] .lede {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 180ms),
+    transform 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 180ms);
+}
+
+.section[data-revealed="true"] .item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .title,
+  .lede,
+  .item,
+  .bleed {
+    opacity: 1;
+    transform: rotate(-44.25deg);
   }
 }
