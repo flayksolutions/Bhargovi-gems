@@ -41,16 +41,6 @@
       rgba(4, 14, 38, 0) 72%
     ),
     linear-gradient(to top, rgba(4, 14, 38, 0.6), rgba(4, 14, 38, 0) 46%);
-  animation: heroScrimIn 650ms var(--ease-soft) 250ms both;
-}
-
-@keyframes heroScrimIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 /* ---------------------------- content ---------------------------- */
@@ -66,18 +56,6 @@
 
 .breadcrumb {
   margin-bottom: clamp(18px, 2.4vh, 30px);
-  animation: heroFadeUp 700ms var(--ease-out-expo) 500ms both;
-}
-
-@keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .breadcrumbList {
@@ -136,17 +114,6 @@
 
 .titleLine {
   display: block;
-  animation: heroLineIn 800ms var(--ease-out-expo) both;
-  animation-delay: calc(600ms + var(--i, 0) * 90ms);
-}
-
-@keyframes heroLineIn {
-  from {
-    transform: translateY(110%);
-  }
-  to {
-    transform: translateY(0);
-  }
 }
 
 .body {
@@ -157,7 +124,6 @@
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.76);
   text-wrap: pretty;
-  animation: heroFadeUp 700ms var(--ease-out-expo) 820ms both;
 }
 
 /* ---------------------------- responsive ------------------------- */
@@ -195,14 +161,5 @@
   .body {
     max-width: 100%;
     font-size: 14px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scrim,
-  .breadcrumb,
-  .titleLine,
-  .body {
-    animation: none;
   }
 }

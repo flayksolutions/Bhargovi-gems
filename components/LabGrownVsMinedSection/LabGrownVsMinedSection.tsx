@@ -63,7 +63,10 @@ export default function LabGrownVsMinedSection({
           <p className={styles.body}>{body}</p>
         </header>
 
-        <div className={styles.table}>
+        <div
+          className={styles.table}
+          style={{ ["--row-count" as string]: rows.length }}
+        >
           {columns.map((column, colIndex) => (
             <div
               key={column.id}

@@ -751,7 +751,7 @@ const PLACEHOLDER_IMAGE = "/images/rough-stone.jpg";
 export const sustainabilityHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Sustainability" }],
   title: "Responsible by Design",
-  body: "From lab to jewel, every stone we grow reflects our commitment to people and the planet.",
+  body: "From rough to refined, every diamond we manufacture reflects our commitment to responsible practices, quality and a more sustainable future.",
   image: "/images/sustainability/hero-lily.png",
   alt: "A diamond ring and loose polished diamonds cascading from a white calla lily",
 };
@@ -763,7 +763,7 @@ export const sustainabilityHeroSection = {
 export const legacyCommitmentSection = {
   eyebrow: "Our Commitment",
   title: "Rooted in Responsibility",
-  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+  body: "We manufacture lab-grown diamonds with a focus on responsible practices, transparency and care at every stage of the manufacturing process.",
 };
 
 export type LegacyPillarCard = {
@@ -820,7 +820,7 @@ export const legacyIntegritySection = {
 export const commitmentSection = {
   eyebrow: "Our Commitment",
   title: "Sustainable and Thriving Future For Our Planet",
-  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+  body: "We manufacture lab-grown diamonds with a focus on responsible practices, transparency and care at every stage of the manufacturing process.",
 };
 
 export type PillarCard = {
@@ -834,8 +834,8 @@ export const pillarsSection = {
   background: "/images/sustainability/pillars-bg.png",
   cards: [
     {
-      id: "sustainable-growing",
-      name: "Sustainable Growing",
+      id: "responsible-production",
+      name: "Responsible Production",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
       hoverImage: "/images/sustainability/sustainable-growth.png",
     },
@@ -875,11 +875,11 @@ export const commitmentsSection = {
 
 export const integritySection = {
   title: "Product Integrity & Traceability",
-  body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
+  body: "Every diamond we manufacture is carefully inspected and handled throughout the production process, ensuring consistent quality and precision.",
   points: [
-    "Certified Authenticity",
-    "Full Traceability",
-    "Ethical Craftsmanship",
+    "Quality Assurance",
+    "Manufacturing Transparency",
+    "Responsible Craftsmanship",
   ],
   images: [
     {
@@ -938,7 +938,7 @@ export const planetSection = {
 
 export const environmentSection = {
   title: "Environment Friendly",
-  body: "Deep sourcing partnerships across mining regions, in-house Sarine 4D mapping and polishing under one roof, and an extensive ready inventory across shapes and sizes",
+  body: "Strong manufacturing expertise, advanced Sarine 4D mapping and polishing under one roof, with an extensive ready inventory across shapes and sizes.",
   image: "/images/sustainability/environment-leaf.png",
   alt: "A diamond-shaped frame over dew-covered pine branches",
 };
@@ -1549,7 +1549,7 @@ export const diamondInfoFaqSection = {
   id: "faqs",
   eyebrow: "Common Questions",
   titleLines: ["What Buyers", "Ask Us Most"],
-  body: "Five things that come up in almost every first conversation with a new sourcing partner.",
+  body: "A few of the questions we hear most often from businesses looking to source HPHT lab-grown diamonds.",
   panelLabel: "Frequently Asked",
   background: "/images/diamond-info/faq-diamonds.jpg",
   // items: [
