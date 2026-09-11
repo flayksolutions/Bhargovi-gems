@@ -118,6 +118,10 @@
     gap: 24px;
     max-width: 480px;
   }
+
+  .swatchHoverImage {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 640px) {
