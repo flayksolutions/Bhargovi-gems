@@ -93,6 +93,39 @@
   text-wrap: pretty;
 }
 
+/* ---------------------------- reveal ------------------------------- */
+
+.title,
+.body {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.title {
+  transition-delay: 60ms;
+}
+
+.body {
+  transition-delay: 120ms;
+}
+
+.section[data-revealed="true"] .title,
+.section[data-revealed="true"] .body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title,
+  .body {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 960px) {

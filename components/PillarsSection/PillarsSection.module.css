@@ -93,6 +93,23 @@
   color: var(--text-muted);
 }
 
+/* ---------------------------- reveal ------------------------------- */
+
+.card {
+  opacity: 0;
+  transition: opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 120ms);
+}
+
+.section[data-revealed="true"] .card {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+  }
+}
+
 /* ---------------------------- responsive -------------------------- */
 
 @media (max-width: 960px) {

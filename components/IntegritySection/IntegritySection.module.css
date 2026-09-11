@@ -78,6 +78,7 @@
   --cn: clamp(28px, 3.2vw, 56px);
 
   position: relative;
+  margin: 0;
   width: 100%;
   aspect-ratio: 440 / 511;
   overflow: hidden;
@@ -92,8 +93,87 @@
   box-shadow: 0 24px 52px rgba(11, 14, 25, 0.18);
 }
 
+.reveal {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1000ms var(--ease-out-expo);
+  will-change: clip-path;
+}
+
+.section[data-revealed="true"] .reveal {
+  clip-path: inset(0 0 0 0);
+}
+
+.stageTrail .reveal {
+  clip-path: inset(100% 0 0 0);
+  transition-delay: 100ms;
+}
+
 .image {
   object-fit: cover;
+  transform: scale(1.08);
+  transition: transform 1100ms var(--ease-out-expo);
+  will-change: transform;
+}
+
+.section[data-revealed="true"] .image {
+  transform: scale(1);
+}
+
+.stageTrail .image {
+  transition-delay: 100ms;
+}
+
+/* ---------------------------- reveal ------------------------------- */
+
+.title,
+.body {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.title {
+  transition-delay: 0ms;
+}
+
+.body {
+  transition-delay: 60ms;
+}
+
+.point {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 120ms),
+    transform 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 120ms);
+}
+
+.section[data-revealed="true"] .title,
+.section[data-revealed="true"] .body,
+.section[data-revealed="true"] .point {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    clip-path: none;
+  }
+
+  .image {
+    transform: none;
+  }
+
+  .title,
+  .body,
+  .point {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------------------------- responsive ---------------------------- */

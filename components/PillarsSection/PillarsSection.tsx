@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./PillarsSection.module.css";
 import type { PillarCard } from "@/lib/content";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   background: string;
@@ -60,6 +61,7 @@ function usePeepholeWindows(count: number) {
 
 export default function PillarsSection({ background, cards }: Props) {
   const { sectionRef, swatchRefs, windows } = usePeepholeWindows(cards.length);
+  useRevealOnScroll(sectionRef);
 
   return (
     <section
@@ -77,7 +79,11 @@ export default function PillarsSection({ background, cards }: Props) {
         {cards.map((card, i) => {
           const win = windows[i];
           return (
-            <article key={card.id} className={styles.card}>
+            <article
+              key={card.id}
+              className={styles.card}
+              style={{ ["--i" as string]: i }}
+            >
               <div
                 className={styles.swatch}
                 ref={(el) => {

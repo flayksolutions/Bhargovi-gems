@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./SustainabilityCommitmentSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   eyebrow: string;
@@ -8,8 +12,11 @@ type Props = {
 };
 
 export default function SustainabilityCommitmentSection({ eyebrow, title, body }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
+
   return (
-    <section className={styles.section} aria-labelledby="commitment-title">
+    <section ref={sectionRef} className={styles.section} aria-labelledby="commitment-title">
       <Image
         src="/images/sustainability/commitment-glow.svg"
         alt=""

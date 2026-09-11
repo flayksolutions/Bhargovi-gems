@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./SustainabilityEnvironmentSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   title: string;
@@ -23,6 +24,7 @@ const easeInCubic = (t: number) => t * t * t;
 
 export default function SustainabilityEnvironmentSection({ title, body, image, alt }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
 
   /* ----------------------------------------------------------------
      Scroll progress (0 → 1) across the pinned range, written straight
