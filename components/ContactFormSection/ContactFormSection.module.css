@@ -46,10 +46,24 @@
   transform: translateY(-50%);
   overflow: hidden;
   pointer-events: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 550ms var(--ease-out-expo);
+  will-change: clip-path;
+}
+
+.plate[data-revealed="true"] {
+  clip-path: inset(0 0 0 0);
 }
 
 .plateImage {
   object-fit: cover;
+  transform: scale(1.08);
+  transition: transform 700ms var(--ease-out-expo);
+  will-change: transform;
+}
+
+.plate[data-revealed="true"] .plateImage {
+  transform: scale(1);
 }
 
 /* ---------------------------- content ------------------------------ */
@@ -82,6 +96,17 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--azure);
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.card[data-revealed="true"] .eyebrow {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ---------------------------- form ---------------------------------- */
@@ -104,6 +129,17 @@
   flex-direction: column;
   gap: 12px;
   min-width: 0;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 120ms),
+    transform 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 120ms);
+}
+
+.card[data-revealed="true"] .field {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fieldWide {
@@ -169,6 +205,17 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 16px;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 120ms),
+    transform 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 120ms);
+}
+
+.card[data-revealed="true"] .submitRow {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .submit {
@@ -223,6 +270,17 @@
   font-size: clamp(32px, 3.4vw, 48px);
   line-height: 1.2;
   color: #12151c;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.offices[data-revealed="true"] .officesTitle {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .officeList {
@@ -240,6 +298,17 @@
   flex-direction: column;
   gap: 10px;
   min-width: 0;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 180ms),
+    transform 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 180ms);
+}
+
+.offices[data-revealed="true"] .office {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .officeName {
@@ -284,6 +353,17 @@
   font-size: clamp(32px, 3.4vw, 48px);
   line-height: 1.2;
   color: #12151c;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.reachOut[data-revealed="true"] .reachOutTitle {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .reachOutList {
@@ -299,6 +379,17 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 180ms),
+    transform 650ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 180ms);
+}
+
+.reachOut[data-revealed="true"] .reachOutItem {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .reachOutName {
@@ -378,5 +469,28 @@
 
   .textarea {
     min-height: 4.2em;
+  }
+}
+
+/* ---------------------------- reveal (reduced motion) ------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .plate {
+    clip-path: none;
+  }
+
+  .plateImage {
+    transform: none;
+  }
+
+  .eyebrow,
+  .field,
+  .submitRow,
+  .officesTitle,
+  .office,
+  .reachOutTitle,
+  .reachOutItem {
+    opacity: 1;
+    transform: none;
   }
 }

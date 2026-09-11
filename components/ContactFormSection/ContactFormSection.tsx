@@ -1,7 +1,11 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ContactFormField, ContactOffice, ContactReachOut } from "@/lib/content";
 import styles from "./ContactFormSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 /* Material Icons "call" and "mail" glyphs, inlined as SVG paths so the
    contact block doesn't pull in the whole Material Symbols font for
@@ -36,8 +40,14 @@ export default function ContactFormSection({
   reachOutTitle,
   reachOut,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(
+    sectionRef,
+    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`
+  );
+
   return (
-    <section className={styles.section} aria-label="Contact">
+    <section ref={sectionRef} className={styles.section} aria-label="Contact">
       <div className={styles.plate}>
         <Image
           src={image}
@@ -55,7 +65,7 @@ export default function ContactFormSection({
 
           <form className={styles.form}>
             <div className={styles.grid}>
-              {fields.map((field) => (
+              {fields.map((field, i) => (
                 <div
                   key={field.id}
                   className={
@@ -63,6 +73,7 @@ export default function ContactFormSection({
                       ? `${styles.field} ${styles.fieldWide}`
                       : styles.field
                   }
+                  style={{ ["--i" as string]: i }}
                 >
                   <div className={styles.fieldLabel}>
                     <span className={styles.fieldNumber}>{field.number}</span>
@@ -92,7 +103,7 @@ export default function ContactFormSection({
               ))}
             </div>
 
-            <div className={styles.submitRow}>
+            <div className={styles.submitRow} style={{ ["--i" as string]: fields.length }}>
               <button type="submit" className={styles.submit}>
                 {submit.label}
               </button>
@@ -107,8 +118,8 @@ export default function ContactFormSection({
           </h2>
 
           <ul className={styles.officeList}>
-            {offices.map((office) => (
-              <li key={office.id} className={styles.office}>
+            {offices.map((office, i) => (
+              <li key={office.id} className={styles.office} style={{ ["--i" as string]: i }}>
                 <h3 className={styles.officeName}>{office.name}</h3>
                 <p className={styles.officeLabel}>{office.label}</p>
                 <p className={styles.officeAddress}>{office.address}</p>
@@ -123,8 +134,8 @@ export default function ContactFormSection({
           </h2>
 
           <ul className={styles.reachOutList}>
-            {reachOut.map((item) => (
-              <li key={item.id} className={styles.reachOutItem}>
+            {reachOut.map((item, i) => (
+              <li key={item.id} className={styles.reachOutItem} style={{ ["--i" as string]: i }}>
                 <h3 className={styles.reachOutName}>{item.name}</h3>
                 <Link href={item.href} className={styles.reachOutValue}>
                   <svg
