@@ -38,6 +38,8 @@
      pins) as the section grew taller. */
   object-fit: contain;
   object-position: left center;
+  transform: scale(1.1);
+  transform-origin: left center;
 }
 
 /* ---------------------------- layout ----------------------------- */

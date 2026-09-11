@@ -39,7 +39,7 @@
 .plate {
   position: absolute;
   top: 50%;
-  right: -24%;
+  right: -40%;
   z-index: 0;
   width: 56vw;
   aspect-ratio: 3186 / 3083;
@@ -56,6 +56,7 @@
 }
 
 .plateImage {
+  top: -10% !important;
   object-fit: cover;
   transform: scale(1.08);
   transition: transform 700ms var(--ease-out-expo);

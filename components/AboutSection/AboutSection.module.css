@@ -113,6 +113,16 @@
   .gem {
     width: clamp(90px, 26vw, 160px);
   }
+
+  .gemCushion {
+    left: clamp(-20px, -4vw, -10px);
+    bottom: clamp(20px, -4vw, -20px);
+  }
+
+  .gemEmerald {
+    right: clamp(-20px, -4vw, -10px);
+    top: clamp(20px, -4vw, -20px);
+  }
 }
 
 /* ---------------------------- the card --------------------------- */

@@ -98,14 +98,7 @@ export default function CommitmentsSection({ background, blocks }: Props) {
                 .join(" ")}
             >
               <div className={styles.plate}>
-                <div
-                  className={[
-                    styles.reveal,
-                    block.captionAbove ? styles.revealDown : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
+                <div className={styles.reveal}>
                   {block.media ? (
                     isVideo ? (
                       <video
