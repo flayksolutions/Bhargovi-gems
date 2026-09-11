@@ -29,6 +29,10 @@
   object-position: 72% 50%;
 }
 
+.mobileImage {
+  display: none;
+}
+
 .scrim {
   position: absolute;
   inset: 0;
@@ -153,6 +157,29 @@
   .hero {
     min-height: 100svh;
     align-items: flex-end;
+  }
+
+  .desktopImage {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
+    object-position: center;
+  }
+
+  /* The mobile photo is its own portrait composition with a plain,
+     already-dark ground — the desktop scrim's diagonal + horizontal
+     gradients were tuned for the landscape crop and just muddy this
+     one. A single soft gradient under the bottom-aligned text is
+     enough for legibility. */
+  .scrim {
+    background: linear-gradient(
+      to top,
+      rgba(4, 14, 38, 0.75) 0%,
+      rgba(4, 14, 38, 0.25) 38%,
+      rgba(4, 14, 38, 0) 62%
+    );
   }
 
   .content {

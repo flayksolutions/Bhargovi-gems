@@ -60,6 +60,10 @@
   object-position: center;
 }
 
+.mobileImage {
+  display: none;
+}
+
 .content {
   position: absolute;
   z-index: 1;
@@ -136,6 +140,14 @@
 }
 
 @media (max-width: 640px) {
+  .desktopImage {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
+  }
+
   .content {
     max-width: 100%;
   }

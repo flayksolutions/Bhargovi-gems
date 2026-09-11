@@ -21,6 +21,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-image: var(--bg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -125,6 +126,10 @@
 }
 
 @media (max-width: 640px) {
+  .plate {
+    background-image: var(--bg-mobile, var(--bg));
+  }
+
   .section {
     padding-block: 64px;
   }

@@ -32,6 +32,10 @@
   object-position: 78% 50%;
 }
 
+.mobileImage {
+  display: none;
+}
+
 .topScrim {
   position: absolute;
   inset: 0;
@@ -156,6 +160,15 @@
 
   .image {
     object-position: 66% 50%;
+  }
+
+  .desktopImage {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
+    object-position: center;
   }
 
   .bottomScrim {

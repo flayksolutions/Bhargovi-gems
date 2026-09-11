@@ -9,6 +9,7 @@ type Props = {
   title: string;
   body: string;
   image: string;
+  mobileImage?: string;
   alt: string;
 };
 
@@ -22,7 +23,13 @@ type Props = {
    right up to t=1, so the reveal completes just as the pin releases. */
 const easeInCubic = (t: number) => t * t * t;
 
-export default function SustainabilityEnvironmentSection({ title, body, image, alt }: Props) {
+export default function SustainabilityEnvironmentSection({
+  title,
+  body,
+  image,
+  mobileImage,
+  alt,
+}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   useRevealOnScroll(sectionRef);
 
@@ -89,8 +96,17 @@ export default function SustainabilityEnvironmentSection({ title, body, image, a
             alt={alt}
             fill
             sizes="100vw"
-            className={styles.image}
+            className={[styles.image, mobileImage ? styles.desktopImage : ""].join(" ")}
           />
+          {mobileImage && (
+            <Image
+              src={mobileImage}
+              alt={alt}
+              fill
+              sizes="100vw"
+              className={[styles.image, styles.mobileImage].join(" ")}
+            />
+          )}
         </div>
 
         <div className={styles.content}>
