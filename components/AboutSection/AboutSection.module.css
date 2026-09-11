@@ -149,15 +149,12 @@
   text-align: center;
 }
 
-/* Decorative background plate only — painted separately from `.card`
-   so its growth can run on `transform: scale()` instead of animating
-   width/height/clip-path on the box that also lays out the text.
-   A transform never triggers layout, so nothing here can cause the
-   text to reflow or jump when the pin finishes. Anchored to
-   `.viewport` (a sibling, not an ancestor of `.card`) because that
-   box never changes size across the pin — unlike `.card`, it makes a
-   stable 0–1 scale basis with no risk of the width/height mismatch
-   above. */
+/* Decorative background plate only — a child of `.card` itself, sized
+   with `inset: 0` so it always fills `.card`'s actual box exactly,
+   whatever that box's width/min-height formulas resolve to on a given
+   screen. (Previously this scaled independently against `.viewport`,
+   which used a different growth basis than `.card` and could drift
+   out of sync with the card's real dimensions on some screen sizes.) */
 .cardPlate {
   position: absolute;
   inset: 0;
@@ -165,8 +162,6 @@
   --cn: calc(48px * (1 - var(--pf)));
 
   background: var(--paper);
-  transform: scale(calc(0.3 + 0.7 * var(--pf)), calc(0.46 + 0.6 * var(--pf)));
-  will-change: transform;
   clip-path: polygon(
     0 0,
     calc(100% - var(--cn)) 0,
@@ -245,10 +240,6 @@
 
   .cardPlate {
     --cn: calc(34px * (1 - var(--pf)));
-    transform: scale(
-      calc(0.74 + 0.26 * var(--pf)),
-      calc(0.46 + 0.6 * var(--pf))
-    );
   }
 
   .title {

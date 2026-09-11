@@ -440,13 +440,29 @@
   .plate {
     position: relative;
     top: auto;
-    right: -12%;
+    right: -15%;
     transform: none;
     width: calc(92% + var(--gutter) * 2);
-    margin: -12px 0 clamp(32px, 6vh, 48px);
+    margin: -16px 0 clamp(32px, 6vh, 48px);
     /* Inherits the base rule's 3186/3083 aspect ratio — the image's
        real proportions — instead of a mismatched 4:3 box that made
        `object-fit: cover` crop the top and bottom to fill it. */
+
+    /* The base rule's scroll reveal relies on an IntersectionObserver
+       whose intersection area gets clipped by every ancestor with
+       `overflow: clip`/`hidden` (this section, and `.plate` itself) —
+       combined with the negative offsets above pushing part of the box
+       outside those bounds, that made the "true" state unreliable on
+       small screens, leaving the plate permanently clipped to nothing.
+       Simplest reliable fix: skip the slide-open reveal on mobile and
+       just show the image. */
+    clip-path: inset(0 0 0 0);
+    transition: none;
+  }
+
+  .plateImage {
+    transform: scale(1);
+    transition: none;
   }
 
   .inner {

@@ -197,4 +197,8 @@
   .stageMobileHidden {
     display: none;
   }
+
+  .stage {
+    aspect-ratio: 440 / 360;
+  }
 }

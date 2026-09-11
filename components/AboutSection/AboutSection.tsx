@@ -120,10 +120,9 @@ export default function AboutSection({
           )}
         </div>
 
-        <div className={styles.cardPlate} aria-hidden="true" />
-
         <div className={styles.cardWrap}>
           <article className={styles.card}>
+            <div className={styles.cardPlate} aria-hidden="true" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/icons/sustainability/crystal-outline.svg"
