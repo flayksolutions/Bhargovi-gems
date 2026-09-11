@@ -44,6 +44,14 @@
   pointer-events: none;
 }
 
+.bottomScrim {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .content {
   position: relative;
   z-index: 1;
@@ -144,5 +152,18 @@
 
   .body {
     max-width: 100%;
+  }
+
+  .image {
+    object-position: 66% 50%;
+  }
+
+  .bottomScrim {
+    display: block;
+    background: linear-gradient(
+      to top,
+      rgba(240, 245, 252, 0.75) 0,
+      rgba(240, 245, 252, 0) 55%
+    );
   }
 }
