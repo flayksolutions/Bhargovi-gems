@@ -34,10 +34,7 @@ export default function AnatomyGlossarySection({
     <section id={id} className={styles.section} aria-labelledby="anatomy-title" ref={sectionRef}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <p className={styles.eyebrow}>
-            <span className={styles.rule} aria-hidden="true" />
-            {eyebrow}
-          </p>
+          <p className={styles.eyebrow}>{eyebrow}</p>
           <h2 id="anatomy-title" className={styles.title}>
             <span>{titleLines[0]}</span>
             <span className={styles.titleAccent}>{titleLines[1]}</span>

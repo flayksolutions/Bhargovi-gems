@@ -43,6 +43,7 @@
 /* ---------------------------- header ----------------------------- */
 
 .head {
+  margin-bottom: clamp(26px, 3.2vw, 38px);
   text-align: center;
 }
 
@@ -57,13 +58,6 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--azure);
-}
-
-.rule {
-  flex: none;
-  width: 16px;
-  height: 1.5px;
-  background: var(--azure);
 }
 
 .title {
@@ -237,7 +231,7 @@
 
 .dock {
   position: relative;
-  margin-top: clamp(24px, 3.6vw, 44px);
+  margin-top: clamp(26px, 3.2vw, 38px);
 }
 
 /* Stops 28px short of the row's top edge — the head-room the raised

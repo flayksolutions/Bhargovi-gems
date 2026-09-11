@@ -45,7 +45,6 @@
   position: relative;
   margin: 0;
   aspect-ratio: 490 / 410;
-  background: var(--ink-navy);
   /* Top-right and bottom-left corners cut — the site's standard
      chamfer, mirrored across the diagonal. */
   clip-path: polygon(
@@ -58,9 +57,28 @@
   );
 }
 
+.reveal {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 550ms var(--ease-out-expo);
+  will-change: clip-path;
+}
+
+.section[data-revealed="true"] .reveal {
+  clip-path: inset(0 0 0 0);
+}
+
 .image {
   object-fit: cover;
   object-position: 50% 30%;
+  transform: scale(1.08);
+  transition: transform 700ms var(--ease-out-expo);
+  will-change: transform;
+}
+
+.section[data-revealed="true"] .image {
+  transform: scale(1);
 }
 
 /* ---------------------------- copy -------------------------------- */
@@ -135,6 +153,68 @@
   font-weight: 500;
   line-height: 1.58;
   color: #12151c;
+}
+
+/* ---------------------------- reveal ------------------------------- */
+
+.eyebrow,
+.title,
+.quote,
+.rule,
+.attribution {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.eyebrow {
+  transition-delay: 120ms;
+}
+
+.title {
+  transition-delay: 180ms;
+}
+
+.quote {
+  transition-delay: 240ms;
+}
+
+.rule {
+  transition-delay: 300ms;
+}
+
+.attribution {
+  transition-delay: 360ms;
+}
+
+.section[data-revealed="true"] .eyebrow,
+.section[data-revealed="true"] .title,
+.section[data-revealed="true"] .quote,
+.section[data-revealed="true"] .rule,
+.section[data-revealed="true"] .attribution {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    clip-path: none;
+  }
+
+  .image {
+    transform: none;
+  }
+
+  .eyebrow,
+  .title,
+  .quote,
+  .rule,
+  .attribution {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------------------------- responsive -------------------------- */

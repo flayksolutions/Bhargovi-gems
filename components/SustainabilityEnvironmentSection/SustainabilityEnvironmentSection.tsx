@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./SustainabilityEnvironmentSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   title: string;
@@ -11,13 +12,19 @@ type Props = {
   alt: string;
 };
 
-/* Ease-in-out, not ease-out: an ease-out curve is ~90% done by the
-   halfway point, which leaves half the pin doing visually nothing. */
-const easeInOutCubic = (t: number) =>
-  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+/* Ease-in, not ease-in-out or ease-out: the mask only needs to grow to
+   ~449% of the box to fully cover it (see the mask-size comment below),
+   but the CSS drives it to 470% for corner-coverage safety across
+   aspect ratios — so the reveal is visually "done" before --p hits 1.
+   With any curve that flattens near t=1 (ease-out, ease-in-out) that
+   safety margin turns into a long stretch of dead pinned scroll after
+   the image is already fully visible. Ease-in keeps the curve steep
+   right up to t=1, so the reveal completes just as the pin releases. */
+const easeInCubic = (t: number) => t * t * t;
 
 export default function SustainabilityEnvironmentSection({ title, body, image, alt }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
 
   /* ----------------------------------------------------------------
      Scroll progress (0 → 1) across the pinned range, written straight
@@ -46,7 +53,7 @@ export default function SustainabilityEnvironmentSection({ title, body, image, a
         return;
       }
       const raw = Math.min(Math.max(-rect.top / total, 0), 1);
-      el.style.setProperty("--p", easeInOutCubic(raw).toFixed(4));
+      el.style.setProperty("--p", easeInCubic(raw).toFixed(4));
     };
 
     const onScroll = () => {

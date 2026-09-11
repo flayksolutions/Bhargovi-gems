@@ -195,6 +195,67 @@
   color: #000;
 }
 
+/* ---------------------------- reveal ------------------------------- */
+
+.eyebrow,
+.title,
+.body,
+.specTable {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.eyebrow {
+  transition-delay: 0ms;
+}
+
+.title {
+  transition-delay: 60ms;
+}
+
+.body {
+  transition-delay: 120ms;
+}
+
+.specTable {
+  transition-delay: 200ms;
+}
+
+.section[data-revealed="true"] .eyebrow,
+.section[data-revealed="true"] .title,
+.section[data-revealed="true"] .body,
+.section[data-revealed="true"] .specTable {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.collageTile {
+  opacity: 0;
+  transform: scale(0.95) rotate(var(--tilt, 0deg));
+  transition:
+    opacity 700ms var(--ease-out-expo) var(--reveal-delay, 0ms),
+    transform 700ms var(--ease-out-expo) var(--reveal-delay, 0ms);
+}
+
+.section[data-revealed="true"] .collageTile {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .title,
+  .body,
+  .specTable,
+  .collageTile {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------------------------- responsive -------------------------- */
 
 @media (max-width: 960px) {

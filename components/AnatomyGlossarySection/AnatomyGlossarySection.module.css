@@ -29,12 +29,6 @@
   color: var(--azure);
 }
 
-.rule {
-  width: 28px;
-  height: 1px;
-  background: var(--azure);
-}
-
 .title {
   margin: 0 0 20px;
   font-family: var(--font-display);
@@ -136,23 +130,6 @@
   overflow-wrap: break-word;
 }
 
-.term dt::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: #1b4c96;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 500ms var(--ease-out-expo) calc(var(--i, 0) * 60ms);
-}
-
-.section[data-revealed="true"] .term dt::after {
-  transform: scaleX(1);
-}
-
 .term dd {
   margin: 0;
   font-family: var(--font-body);
@@ -208,7 +185,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .diagram,
-  .term dt::after,
   .term dd {
     transition: none;
   }

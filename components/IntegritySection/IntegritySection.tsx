@@ -1,6 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import CrystalField from "@/components/CrystalField/CrystalField";
 import styles from "./IntegritySection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type ImageItem = { src: string; alt: string };
 
@@ -13,22 +17,27 @@ type Props = {
 
 export default function IntegritySection({ title, body, points, images }: Props) {
   const [left, right] = images;
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(sectionRef);
 
   return (
-    <section className={styles.section} aria-labelledby="integrity-title">
+    <section ref={sectionRef} className={styles.section} aria-labelledby="integrity-title">
       <CrystalField />
 
       <div className={styles.inner}>
         {left && (
-          <div className={styles.stage}>
-            <Image
-              src={left.src}
-              alt={left.alt}
-              fill
-              sizes="(max-width: 960px) 100vw, 33vw"
-              className={styles.image}
-            />
-          </div>
+          <figure className={styles.stage}>
+            <div className={styles.reveal}>
+              <Image
+                src={left.src}
+                alt={left.alt}
+                fill
+                sizes="(max-width: 960px) 100vw, 33vw"
+                className={styles.image}
+                loading="eager"
+              />
+            </div>
+          </figure>
         )}
 
         <div className={styles.content}>
@@ -39,8 +48,8 @@ export default function IntegritySection({ title, body, points, images }: Props)
           <div className={styles.foot}>
             <p className={styles.body}>{body}</p>
             <ul className={styles.points}>
-              {points.map((point) => (
-                <li key={point} className={styles.point}>
+              {points.map((point, i) => (
+                <li key={point} className={styles.point} style={{ ["--i" as string]: i }}>
                   {point}
                 </li>
               ))}
@@ -49,15 +58,18 @@ export default function IntegritySection({ title, body, points, images }: Props)
         </div>
 
         {right && (
-          <div className={`${styles.stage} ${styles.stageMobileHidden}`}>
-            <Image
-              src={right.src}
-              alt={right.alt}
-              fill
-              sizes="(max-width: 960px) 100vw, 33vw"
-              className={styles.image}
-            />
-          </div>
+          <figure className={`${styles.stage} ${styles.stageMobileHidden} ${styles.stageTrail}`}>
+            <div className={styles.reveal}>
+              <Image
+                src={right.src}
+                alt={right.alt}
+                fill
+                sizes="(max-width: 960px) 100vw, 33vw"
+                className={styles.image}
+                loading="eager"
+              />
+            </div>
+          </figure>
         )}
       </div>
     </section>

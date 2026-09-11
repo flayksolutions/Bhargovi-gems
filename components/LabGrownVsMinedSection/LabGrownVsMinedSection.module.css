@@ -4,7 +4,7 @@
 
 .section {
   position: relative;
-  padding: clamp(64px, 8vw, 95px) var(--gutter) clamp(48px, 6vw, 64px);
+  padding: clamp(48px, 6vw, 64px) var(--gutter) clamp(48px, 6vw, 64px);
   background: var(--navy-deep);
   overflow: clip;
   isolation: isolate;
@@ -69,13 +69,6 @@
   color: rgba(255, 255, 255, 0.82);
 }
 
-.rule {
-  flex: none;
-  width: 28px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.4);
-}
-
 .title {
   margin: 0;
   font-family: var(--font-display);
@@ -100,19 +93,23 @@
 .table {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto repeat(var(--row-count, 1), auto);
   margin-top: clamp(34px, 4.6vw, 56px);
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / -1;
   min-width: 0;
   background: #f7fbff;
   /* Chamfer the outer top-right corner of the pair. */
   clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 0 100%);
   opacity: 0;
   transform: translateY(46px);
-  transition: opacity 700ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
+  transition:
+    opacity 700ms var(--ease-out-expo),
+    transform 700ms var(--ease-out-expo);
 }
 
 .section[data-revealed="true"] .column {
@@ -146,7 +143,9 @@
   color: var(--sapphire);
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 500ms var(--ease-soft) 150ms, transform 500ms var(--ease-soft) 150ms;
+  transition:
+    opacity 500ms var(--ease-soft) 150ms,
+    transform 500ms var(--ease-soft) 150ms;
 }
 
 .section[data-revealed="true"] .tag {
@@ -168,7 +167,9 @@
   color: var(--ink);
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 550ms var(--ease-out-expo) 220ms, transform 550ms var(--ease-out-expo) 220ms;
+  transition:
+    opacity 550ms var(--ease-out-expo) 220ms,
+    transform 550ms var(--ease-out-expo) 220ms;
 }
 
 .section[data-revealed="true"] .columnTitle {
@@ -187,7 +188,9 @@
   color: var(--azure);
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 500ms var(--ease-soft) 300ms, transform 500ms var(--ease-soft) 300ms;
+  transition:
+    opacity 500ms var(--ease-soft) 300ms,
+    transform 500ms var(--ease-soft) 300ms;
 }
 
 .section[data-revealed="true"] .subtitle {
@@ -202,9 +205,7 @@
 /* --- rows --- */
 
 .rows {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  display: contents;
   margin: 0;
 }
 
@@ -218,7 +219,8 @@
   border-top: 1px solid rgba(37, 100, 202, 0.14);
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 500ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 380ms),
+  transition:
+    opacity 500ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 380ms),
     transform 500ms var(--ease-out-expo) calc(var(--i, 0) * 70ms + 380ms);
 }
 
@@ -292,7 +294,9 @@
   height: 12px;
   opacity: 0;
   transform: scale(0.6);
-  transition: opacity 450ms var(--ease-soft) 380ms, transform 450ms var(--ease-soft) 380ms;
+  transition:
+    opacity 450ms var(--ease-soft) 380ms,
+    transform 450ms var(--ease-soft) 380ms;
 }
 
 .section[data-revealed="true"] .glyphMark {
@@ -317,7 +321,21 @@
 
 @media (max-width: 960px) {
   .table {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Stacked: each column lays out its own rows independently, so drop
+     the shared subgrid used to sync row heights side by side. */
+  .column {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
   }
 
   /* Stacked: only the outer corners of the pair stay chamfered. */

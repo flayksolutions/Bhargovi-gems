@@ -5,7 +5,7 @@
 .section {
   position: relative;
   background: #04113a;
-  padding: clamp(72px, 10vh, 120px) var(--gutter);
+  padding: clamp(110px, 15vh, 170px) var(--gutter);
   overflow: clip;
   isolation: isolate;
   scroll-margin-top: 96px;
@@ -19,7 +19,7 @@
   /* Pushed well below the section floor so only the top of the
      scatter sits in frame; `overflow: clip` on .section trims it. */
   bottom: clamp(-260px, -14vw, -110px);
-  width: clamp(260px, 42vw, 600px);
+  width: clamp(220px, 36vw, 500px);
   aspect-ratio: 553 / 690;
   pointer-events: none;
   /* Radial falloff anchored at the bottom-left corner, so the photo's
@@ -88,12 +88,6 @@
   color: var(--sky-tint);
 }
 
-.rule {
-  width: 28px;
-  height: 1px;
-  background: #7fa9e3;
-}
-
 .title {
   margin: 0 0 20px;
   font-family: var(--font-display);
@@ -117,7 +111,7 @@
 
 .body {
   margin: 0;
-  max-width: 30ch;
+  max-width: 46ch;
   font-family: var(--font-body);
   font-size: 15.5px;
   line-height: 1.7;
@@ -295,12 +289,16 @@
   }
 
   .plate {
-    width: clamp(200px, 46vw, 380px);
+    width: clamp(180px, 38vw, 320px);
     opacity: 0.55;
   }
 }
 
 @media (max-width: 640px) {
+  .section {
+    padding-block: clamp(64px, 10vh, 100px);
+  }
+
   .accordion {
     --cn: 28px;
   }

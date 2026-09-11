@@ -12,7 +12,7 @@
 .section {
   position: relative;
   overflow: hidden;
-  padding: clamp(96px, 16vh, 168px) var(--gutter);
+  padding: clamp(96px, 24vh, 224px) var(--gutter);
   display: flex;
   justify-content: center;
 }
@@ -40,7 +40,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px 16px 40px;
+  /* padding: 16px 16px 40px; */
+  padding: 16px 16px 20px;
   border-radius: 12px;
   background: var(--paper);
   box-shadow: 0 24px 48px rgba(11, 14, 25, 0.16);
@@ -80,6 +81,7 @@
   font-weight: 400;
   font-size: clamp(19px, 1.6vw, 24px);
   color: var(--sapphire);
+  text-align: center;
 }
 
 .cardBody {
@@ -89,6 +91,23 @@
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-muted);
+}
+
+/* ---------------------------- reveal ------------------------------- */
+
+.card {
+  opacity: 0;
+  transition: opacity 650ms var(--ease-out-expo) calc(var(--i, 0) * 120ms);
+}
+
+.section[data-revealed="true"] .card {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+  }
 }
 
 /* ---------------------------- responsive -------------------------- */

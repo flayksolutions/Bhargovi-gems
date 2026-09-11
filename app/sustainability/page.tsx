@@ -33,8 +33,8 @@ export default function SustainabilityPage() {
         <div className="scroll-stack">
           <SustainabilityCommitmentSection {...commitmentSection} />
           <PillarsSection {...pillarsSection} />
-          <IntegritySection {...integritySection} />
           <SustainabilityEnvironmentSection {...environmentSection} />
+          <IntegritySection {...integritySection} />
         </div>
       </main>
 

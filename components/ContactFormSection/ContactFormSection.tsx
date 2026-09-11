@@ -1,6 +1,19 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
-import type { ContactFormField, ContactOffice } from "@/lib/content";
+import Link from "next/link";
+import type { ContactFormField, ContactOffice, ContactReachOut } from "@/lib/content";
 import styles from "./ContactFormSection.module.css";
+import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
+
+/* Material Icons "call" and "mail" glyphs, inlined as SVG paths so the
+   contact block doesn't pull in the whole Material Symbols font for
+   two icons. https://fonts.google.com/icons */
+const REACH_OUT_ICON_PATHS: Record<string, string> = {
+  call: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
+  mail: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z",
+};
 
 type Props = {
   eyebrow: string;
@@ -11,6 +24,8 @@ type Props = {
   alt: string;
   officesTitle: string;
   offices: ContactOffice[];
+  reachOutTitle: string;
+  reachOut: ContactReachOut[];
 };
 
 export default function ContactFormSection({
@@ -22,9 +37,17 @@ export default function ContactFormSection({
   alt,
   officesTitle,
   offices,
+  reachOutTitle,
+  reachOut,
 }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  useRevealOnScroll(
+    sectionRef,
+    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`
+  );
+
   return (
-    <section className={styles.section} aria-label="Contact">
+    <section ref={sectionRef} className={styles.section} aria-label="Contact">
       <div className={styles.plate}>
         <Image
           src={image}
@@ -42,7 +65,7 @@ export default function ContactFormSection({
 
           <form className={styles.form}>
             <div className={styles.grid}>
-              {fields.map((field) => (
+              {fields.map((field, i) => (
                 <div
                   key={field.id}
                   className={
@@ -50,6 +73,7 @@ export default function ContactFormSection({
                       ? `${styles.field} ${styles.fieldWide}`
                       : styles.field
                   }
+                  style={{ ["--i" as string]: i }}
                 >
                   <div className={styles.fieldLabel}>
                     <span className={styles.fieldNumber}>{field.number}</span>
@@ -79,7 +103,7 @@ export default function ContactFormSection({
               ))}
             </div>
 
-            <div className={styles.submitRow}>
+            <div className={styles.submitRow} style={{ ["--i" as string]: fields.length }}>
               <button type="submit" className={styles.submit}>
                 {submit.label}
               </button>
@@ -94,11 +118,35 @@ export default function ContactFormSection({
           </h2>
 
           <ul className={styles.officeList}>
-            {offices.map((office) => (
-              <li key={office.id} className={styles.office}>
+            {offices.map((office, i) => (
+              <li key={office.id} className={styles.office} style={{ ["--i" as string]: i }}>
                 <h3 className={styles.officeName}>{office.name}</h3>
                 <p className={styles.officeLabel}>{office.label}</p>
                 <p className={styles.officeAddress}>{office.address}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.reachOut}>
+          <h2 id="contact-reach-out-title" className={styles.reachOutTitle}>
+            {reachOutTitle}
+          </h2>
+
+          <ul className={styles.reachOutList}>
+            {reachOut.map((item, i) => (
+              <li key={item.id} className={styles.reachOutItem} style={{ ["--i" as string]: i }}>
+                <h3 className={styles.reachOutName}>{item.name}</h3>
+                <Link href={item.href} className={styles.reachOutValue}>
+                  <svg
+                    className={styles.reachOutIcon}
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d={REACH_OUT_ICON_PATHS[item.icon]} fill="currentColor" />
+                  </svg>
+                  {item.value}
+                </Link>
               </li>
             ))}
           </ul>

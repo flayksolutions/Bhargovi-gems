@@ -5,9 +5,9 @@
    the star are full-bleed together) with the text block centered over
    the star's left point.
 
-   Scroll-driven reveal: `.section` is a 260vh scroll track (same
-   total height as AboutSection) with `.viewport` pinned via
-   `position: sticky` for the middle of that range. A scroll listener
+   Scroll-driven reveal: `.section` is a 200vh scroll track with
+   `.viewport` pinned via `position: sticky` for the middle of that
+   range. A scroll listener
    in the component writes eased 0→1 progress into `--p`, and
    `.plate`'s mask-size grows from 100% to 470% as `--p` goes 0→1 —
    because the mask is centered, scaling it up zooms the star pattern
@@ -22,7 +22,7 @@
 
 .section {
   position: relative;
-  height: 260vh;
+  height: 200vh;
   background: var(--paper);
   --p: 0;
 }
@@ -91,6 +91,39 @@
   line-height: 1.5;
   color: #484848;
   text-wrap: pretty;
+}
+
+/* ---------------------------- reveal ------------------------------- */
+
+.title,
+.body {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-out-expo),
+    transform 650ms var(--ease-out-expo);
+}
+
+.title {
+  transition-delay: 60ms;
+}
+
+.body {
+  transition-delay: 120ms;
+}
+
+.section[data-revealed="true"] .title,
+.section[data-revealed="true"] .body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title,
+  .body {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------------------------- responsive ------------------------- */

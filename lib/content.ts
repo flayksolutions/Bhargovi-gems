@@ -130,14 +130,14 @@ export const productsSection = {
     { src: "/images/shapes/oval.png", name: "Oval" },
     { src: "/images/shapes/pear.png", name: "Pear" },
     { src: "/images/shapes/heart.png", name: "Heart" },
-    { src: "/images/shapes/pear.png", name: "Pear" },
+    // { src: "/images/shapes/pear.png", name: "Pear" },
     { src: "/images/shapes/cushion.png", name: "Cushion" },
     { src: "/images/shapes/half-moon.png", name: "Half Moon" },
     { src: "/images/shapes/trillian.png", name: "Trillion" },
     { src: "/images/shapes/asscher.png", name: "Asscher" },
     { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
     { src: "/images/shapes/baguette.png", name: "Baguette" },
-    { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
+    // { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
   ],
 };
 
@@ -751,7 +751,7 @@ const PLACEHOLDER_IMAGE = "/images/rough-stone.jpg";
 export const sustainabilityHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Sustainability" }],
   title: "Responsible by Design",
-  body: "From lab to jewel, every stone we grow reflects our commitment to people and the planet.",
+  body: "From rough to refined, every diamond we manufacture reflects our commitment to responsible practices, quality and a more sustainable future.",
   image: "/images/sustainability/hero-lily.png",
   alt: "A diamond ring and loose polished diamonds cascading from a white calla lily",
 };
@@ -763,7 +763,7 @@ export const sustainabilityHeroSection = {
 export const legacyCommitmentSection = {
   eyebrow: "Our Commitment",
   title: "Rooted in Responsibility",
-  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+  body: "We manufacture lab-grown diamonds with a focus on responsible practices, transparency and care at every stage of the manufacturing process.",
 };
 
 export type LegacyPillarCard = {
@@ -820,7 +820,7 @@ export const legacyIntegritySection = {
 export const commitmentSection = {
   eyebrow: "Our Commitment",
   title: "Sustainable and Thriving Future For Our Planet",
-  body: "We craft lab-grown gems with a fraction of mining's environmental impact, guided by ethics, transparency, and care at every step.",
+  body: "We manufacture lab-grown diamonds with a focus on responsible practices, transparency and care at every stage of the manufacturing process.",
 };
 
 export type PillarCard = {
@@ -834,8 +834,8 @@ export const pillarsSection = {
   background: "/images/sustainability/pillars-bg.png",
   cards: [
     {
-      id: "sustainable-growing",
-      name: "Sustainable Growing",
+      id: "responsible-production",
+      name: "Responsible Production",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
       hoverImage: "/images/sustainability/sustainable-growth.png",
     },
@@ -875,11 +875,11 @@ export const commitmentsSection = {
 
 export const integritySection = {
   title: "Product Integrity & Traceability",
-  body: "Every gem is independently certified and tracked from creation to consumer, so authenticity is never in question.",
+  body: "Every diamond we manufacture is carefully inspected and handled throughout the production process, ensuring consistent quality and precision.",
   points: [
-    "Certified Authenticity",
-    "Full Traceability",
-    "Ethical Craftsmanship",
+    "Quality Assurance",
+    "Manufacturing Transparency",
+    "Responsible Craftsmanship",
   ],
   images: [
     {
@@ -938,7 +938,7 @@ export const planetSection = {
 
 export const environmentSection = {
   title: "Environment Friendly",
-  body: "Deep sourcing partnerships across mining regions, in-house Sarine 4D mapping and polishing under one roof, and an extensive ready inventory across shapes and sizes",
+  body: "Strong manufacturing expertise, advanced Sarine 4D mapping and polishing under one roof, with an extensive ready inventory across shapes and sizes.",
   image: "/images/sustainability/environment-leaf.png",
   alt: "A diamond-shaped frame over dew-covered pine branches",
 };
@@ -1005,8 +1005,8 @@ export type FourCCard = {
 export const fourCsSection = {
   id: "the-4cs",
   eyebrow: "Diamond Education",
-  titleLines: ["The Four C’s", "of a Diamond"],
-  body: "Every stone we grade and export is assessed against these four universal standards.",
+  titleLines: ["The 4Cs of", "a Diamond"],
+  body: "Every stone we manufacture is carefully assessed against these four universal standards.",
   cards: [
     {
       id: "cut",
@@ -1018,7 +1018,7 @@ export const fourCsSection = {
       ticks: ["EX", "VG", "G", "F", "P"],
       fill: 0.4,
       note: { lead: "Ships", accent: "EX–VG", trail: "only" },
-      standard: "Excellent to Very Good",
+      standard: "EX, VG",
     },
     {
       id: "colour",
@@ -1071,7 +1071,7 @@ export const fourCsSection = {
         },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
-      standard: "VVS, VS, SI",
+      standard: "VVS, VS",
     },
     {
       id: "carat",
@@ -1112,7 +1112,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
-      standard: "Up to 1.50 ct",
+      standard: "Melle to 1.50 carats",
     },
   ] satisfies FourCCard[],
 };
@@ -1144,7 +1144,7 @@ const shapeStats = (table: string, depth: string): ShapeStat[] => [
 export const shapesCutsSection = {
   id: "shapes",
   eyebrow: "Shapes We Cut",
-  titleLines: ["Twelve Shapes,", "Cut In-House"],
+  titleLines: ["Unique Shapes,", "Cut In-House"],
   body: "",
   stageRings: {
     outer: "/images/diamond-info/stage-ring-outer.svg",
@@ -1271,7 +1271,7 @@ export const labGrownVsMinedSection = {
       tag: "Our Specialty",
       emphasis: true,
       title: "Lab-Grown Diamonds",
-      subtitle: "HPHT & CVD · 100% of our output",
+      subtitle: "HPHT • Precision Manufacturing",
     },
     {
       id: "mined",
@@ -1286,7 +1286,7 @@ export const labGrownVsMinedSection = {
       id: "formation",
       label: "Formation",
       values: [
-        "Grown in 3–10 weeks under HPHT or CVD conditions",
+        "Grown in 3–10 weeks under Hight pressure high temperature technology (HPHT)",
         "Formed 1–3 billion years ago in the earth’s mantle",
       ],
     },
@@ -1318,7 +1318,7 @@ export const labGrownVsMinedSection = {
       id: "sourcing",
       label: "Sourcing",
       values: [
-        "Every Bhargovi stone graded, certified and supplied in-house",
+        "Every Bhargovi diamond undergoes careful in-house inspection to ensure precision, consistency and quality",
         "Traceability depends on partners’ chain-of-custody, not in-house",
       ],
     },
@@ -1549,40 +1549,72 @@ export const diamondInfoFaqSection = {
   id: "faqs",
   eyebrow: "Common Questions",
   titleLines: ["What Buyers", "Ask Us Most"],
-  body: "Five things that come up in almost every first conversation with a new sourcing partner.",
+  body: "A few of the questions we hear most often from businesses looking to source HPHT lab-grown diamonds.",
   panelLabel: "Frequently Asked",
   background: "/images/diamond-info/faq-diamonds.jpg",
+  // items: [
+  //   {
+  //     id: "certified",
+  //     question: "Are all Bhargovi Gems diamonds independently certified?",
+  //     answer:
+  //       "Every certified stone we ship carries a GIA or IGI report, quoted by number on the invoice and matched to a laser inscription on the girdle. Non-certified parcels are graded in-house against the same 4Cs and are always labelled as such — we never blur the two.",
+  //   },
+  //   {
+  //     id: "custom-assortments",
+  //     question:
+  //       "Can we request custom parcel assortments by clarity, colour or size?",
+  //     answer:
+  //       "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
+  //   },
+  //   {
+  //     id: "certified-and-non-certified",
+  //     question: "Do you supply both certified and non-certified goods?",
+  //     answer:
+  //       "We do. Certified goods are graded and reported by GIA or IGI; non-certified goods are graded in-house against the same 4Cs and priced accordingly. Every quote states clearly which category a parcel falls into.",
+  //   },
+  //   {
+  //     id: "authenticity",
+  //     question: "How is the authenticity of each stone verified before export?",
+  //     answer:
+  //       "Each certified stone carries a laser inscription on the girdle matched to its grading report number, and every shipment is documented under Kimberley Process and RJC chain-of-custody standards before it leaves our facility.",
+  //   },
+  //   {
+  //     id: "moq",
+  //     question: "What is the minimum order quantity for wholesale buyers?",
+  //     answer:
+  //       "Minimums vary by category and band — melee parcels start small, while certified goods are typically quoted per carat lot. Share your target spec with sourcing and we will confirm the minimum for that specific order.",
+  //   },
+  // ] satisfies FAQItem[],
   items: [
     {
-      id: "certified",
-      question: "Are all Bhargovi Gems diamonds independently certified?",
+      id: "lab-grown",
+      question: "Are all Bhargovi Gems diamonds lab-grown?",
       answer:
-        "Every certified stone we ship carries a GIA or IGI report, quoted by number on the invoice and matched to a laser inscription on the girdle. Non-certified parcels are graded in-house against the same 4Cs and are always labelled as such — we never blur the two.",
+        "Yes. Bhargovi Gems is completely focused on lab-grown diamond manufacturing, with our production dedicated to HPHT-grown diamonds.",
     },
     {
-      id: "custom-assortments",
-      question:
-        "Can we request custom parcel assortments by clarity, colour or size?",
+      id: "technology",
+      question: "What technology do you use to manufacture your diamonds?",
       answer:
-        "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
+        "We specialise in HPHT (High Pressure High Temperature) lab-grown diamonds. Our manufacturing process combines HPHT technology with precision planning, cutting, polishing and quality inspection.",
     },
     {
-      id: "certified-and-non-certified",
-      question: "Do you supply both certified and non-certified goods?",
+      id: "sizes-colours-clarities",
+      question: "What sizes, colours and clarities do you offer?",
       answer:
-        "We do. Certified goods are graded and reported by GIA or IGI; non-certified goods are graded in-house against the same 4Cs and priced accordingly. Every quote states clearly which category a parcel falls into.",
+        "Our available sizes, colours and clarities vary depending on the diamond shape and specific requirement. We offer a wide range across melee, rounds and fancy shapes, with availability extending across different carat sizes and specifications. Please contact our team with your requirements for current availability.",
     },
     {
-      id: "authenticity",
-      question: "How is the authenticity of each stone verified before export?",
+      id: "shapes",
+      question: "Which diamond shapes do you manufacture?",
       answer:
-        "Each certified stone carries a laser inscription on the girdle matched to its grading report number, and every shipment is documented under Kimberley Process and RJC chain-of-custody standards before it leaves our facility.",
+        "We manufacture both round and fancy-shaped lab-grown diamonds, including Round, Oval, Marquise, Princess, Emerald, Pear, Cushion, Radiant, Heart, Trillion, Half Moon, Trapezoid, Asscher, Baguette and other specialty shapes.",
     },
     {
-      id: "moq",
-      question: "What is the minimum order quantity for wholesale buyers?",
+      id: "custom-requirements",
+      question: "Can we request diamonds according to specific requirements?",
       answer:
-        "Minimums vary by category and band — melee parcels start small, while certified goods are typically quoted per carat lot. Share your target spec with sourcing and we will confirm the minimum for that specific order.",
+        "Yes. B2B buyers can share their requirements based on shape, carat size, colour, clarity and other specific specifications. Our team can then review availability and suitable options.",
     },
   ] satisfies FAQItem[],
 };
@@ -1696,11 +1728,6 @@ export const processSection = {
 export const contactHeroSection = {
   eyebrow: "Get in Touch",
   title: "We'd Love to Hear From You",
-  phone: { label: "+91 85910 95691", href: "tel:+918591095691" },
-  email: {
-    label: "bhargovigems4445@gmail.com",
-    href: "mailto:bhargovigems4445@gmail.com",
-  },
 };
 
 export type ContactFormField = {
@@ -1719,6 +1746,14 @@ export type ContactOffice = {
   address: string;
 };
 
+export type ContactReachOut = {
+  id: string;
+  name: string;
+  href: string;
+  value: string;
+  icon: string;
+};
+
 export const contactFormSection = {
   eyebrow: "Send a Message",
   fields: [
@@ -1728,7 +1763,7 @@ export const contactFormSection = {
       label: "Full Name",
       name: "fullName",
       type: "text",
-      placeholder: "Jane Doe",
+      placeholder: "Your name",
     },
     {
       id: "company-name",
@@ -1736,7 +1771,7 @@ export const contactFormSection = {
       label: "Company Name",
       name: "companyName",
       type: "text",
-      placeholder: "Doe Jewellery Co.",
+      placeholder: "Your company name",
     },
     {
       id: "email-address",
@@ -1744,7 +1779,7 @@ export const contactFormSection = {
       label: "Email Address",
       name: "email",
       type: "email",
-      placeholder: "jane@company.com",
+      placeholder: "example@gmail.com",
     },
     {
       id: "phone-number",
@@ -1752,7 +1787,7 @@ export const contactFormSection = {
       label: "Phone Number",
       name: "phone",
       type: "tel",
-      placeholder: "+1 (000) 000-0000",
+      placeholder: "+91 000 000 0000",
     },
     {
       id: "message",
@@ -1773,13 +1808,32 @@ export const contactFormSection = {
       id: "mumbai",
       name: "Mumbai",
       label: "Headquarters",
-      address: "Bharat Diamond Bourse, BKC, Mumbai, India",
+      address:
+        "JE 1260, BHARGOVI GEMS, Bharat Diamond Bourse, Bandra Kurla Complex, Mumbai-400051",
     },
     {
       id: "surat",
       name: "Surat",
       label: "Manufacturing Facility",
-      address: "Manufacturing Facility, Surat, India",
+      address:
+        "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture, Kapodra, Surat-395006",
     },
   ] satisfies ContactOffice[],
+  reachOutTitle: "Reach Out to us at",
+  reachOut: [
+    {
+      id: "phone",
+      name: "Phone",
+      href: "tel:+918591095691",
+      value: "(+91) 85910 95691",
+      icon: "call",
+    },
+    {
+      id: "email",
+      name: "Email",
+      href: "mailto:bhargovigems4445@gmail.com",
+      value: "bhargovigems4445@gmail.com",
+      icon: "mail",
+    },
+  ] satisfies ContactReachOut[],
 };

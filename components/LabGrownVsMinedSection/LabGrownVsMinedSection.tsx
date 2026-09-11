@@ -56,18 +56,17 @@ export default function LabGrownVsMinedSection({
 
       <div className={styles.inner}>
         <header className={styles.head}>
-          <p className={styles.eyebrow}>
-            <span className={styles.rule} aria-hidden="true" />
-            {eyebrow}
-            <span className={styles.rule} aria-hidden="true" />
-          </p>
+          <p className={styles.eyebrow}>{eyebrow}</p>
           <h2 id="lab-vs-mined-title" className={styles.title}>
             {title}
           </h2>
           <p className={styles.body}>{body}</p>
         </header>
 
-        <div className={styles.table}>
+        <div
+          className={styles.table}
+          style={{ ["--row-count" as string]: rows.length }}
+        >
           {columns.map((column, colIndex) => (
             <div
               key={column.id}

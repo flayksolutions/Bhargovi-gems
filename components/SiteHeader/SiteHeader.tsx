@@ -58,16 +58,23 @@ export default function SiteHeader({ brand, nav, cta }: Props) {
 
     let queued = false;
     let rafId = 0;
-    let lastY = window.scrollY;
+    let directionY = window.scrollY;
+    let scrollingDown = false;
+    // Ignore sub-pixel jitter from Lenis's eased/inertial scroll so the
+    // header doesn't flicker direction on every rAF tick.
+    const directionThreshold = 6;
 
     const update = () => {
       queued = false;
       setScrolled(target.getBoundingClientRect().top <= 0);
 
       const currentY = window.scrollY;
-      const scrollingDown = currentY > lastY;
+      const delta = currentY - directionY;
+      if (Math.abs(delta) > directionThreshold) {
+        scrollingDown = delta > 0;
+        directionY = currentY;
+      }
       setHidden(scrollingDown && currentY > revealThreshold);
-      lastY = currentY;
     };
 
     const onScroll = () => {
