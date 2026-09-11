@@ -128,4 +128,22 @@
   .section {
     padding-block: 64px;
   }
+
+  .row {
+    max-width: 260px;
+    gap: 48px;
+  }
+
+  .card {
+    gap: 10px;
+    padding: 10px 10px 14px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardBody {
+    font-size: 12px;
+  }
 }
