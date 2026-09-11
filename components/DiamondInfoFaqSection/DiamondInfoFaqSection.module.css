@@ -295,6 +295,10 @@
 }
 
 @media (max-width: 640px) {
+  .section {
+    padding-block: clamp(64px, 10vh, 100px);
+  }
+
   .accordion {
     --cn: 28px;
   }

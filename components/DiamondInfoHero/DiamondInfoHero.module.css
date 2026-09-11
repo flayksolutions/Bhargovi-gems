@@ -152,6 +152,11 @@
 @media (max-width: 640px) {
   .hero {
     min-height: 100svh;
+    align-items: flex-end;
+  }
+
+  .content {
+    padding-bottom: clamp(40px, 8vh, 64px);
   }
 
   .title {

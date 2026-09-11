@@ -182,6 +182,7 @@
   .inner {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding-bottom: clamp(48px, 8vh, 96px);
   }
 
   .content {

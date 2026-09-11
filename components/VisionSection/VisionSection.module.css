@@ -129,6 +129,7 @@
   .section {
     /* Stacked, the copy no longer holds the section open on its own. */
     min-height: 0;
+    padding-top: clamp(32px, 5vh, 52px);
     padding-bottom: clamp(48px, 8vh, 72px);
   }
 
@@ -141,6 +142,7 @@
     justify-self: stretch;
     width: auto;
     margin-inline: var(--gutter);
+    padding-top: 0;
     padding-bottom: 0;
   }
 

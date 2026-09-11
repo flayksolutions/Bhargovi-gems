@@ -227,3 +227,9 @@
     order: 0;
   }
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: clamp(64px, 11vh, 120px) var(--gutter) clamp(56px, 9vh, 110px);
+  }
+}
