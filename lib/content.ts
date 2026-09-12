@@ -246,37 +246,33 @@ export const certificationsSection = {
 };
 
 export const footer = {
-  tagline: "Certified diamonds, manufactured ethically and cut precisely.",
-  image: "/images/facility-2.jpg",
-  columns: [
-    {
-      title: "Quick Links",
-      items: [
-        { label: "Home", href: "/" },
-        { label: "About Us", href: "/about" },
-        { label: "Diamond Information", href: "/diamond-information" },
-        { label: "Contact Us", href: "/contact" },
-      ],
-    },
-    {
-      title: "Contact",
-      items: [
-        { label: "+91 85910 95691", href: "tel:+918591095691" },
-        {
-          label: "bhargovigems4445@gmail.com",
-          href: "mailto:bhargovigems4445@gmail.com",
-        },
-        {
-          heading: "Mumbai",
-          label: "Bharat Diamond Bourse, BKC, Mumbai, India",
-        },
-        {
-          heading: "Surat",
-          label: "Manufacturing Facility, Surat, India",
-        },
-      ],
-    },
+  tagline: "A Step Over Perfection",
+  image: "/images/footer/footer-plate.png",
+  socials: [
+    { label: "LinkedIn", href: "#" },
+    { label: "Instagram", href: "#" },
   ],
+  quickLinks: [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Diamond Information", href: "/diamond-information" },
+    { label: "Contact", href: "/contact" },
+  ],
+  contact: {
+    title: "Contact",
+    phone: "+91 85910 95691",
+    email: "bhargovigems4445@gmail.com",
+    offices: [
+      {
+        heading: "Mumbai",
+        label: "Bharat Diamond Bourse, BKC, Mumbai, India",
+      },
+      {
+        heading: "Surat",
+        label: "Manufacturing Facility, Surat, India",
+      },
+    ],
+  },
   legal: "All Rights Reserved.",
   credit: { prefix: "Site by", label: "Flayk", href: "#" },
 };
@@ -1799,7 +1795,7 @@ export const contactFormSection = {
       label: "Email Address",
       name: "email",
       type: "email",
-      placeholder: "example@gmail.com",
+      placeholder: "your@email.com",
     },
     {
       id: "phone-number",
