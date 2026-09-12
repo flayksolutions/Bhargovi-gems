@@ -39,7 +39,7 @@
 .plate {
   position: absolute;
   top: 50%;
-  right: -40%;
+  right: -24%;
   z-index: 0;
   width: 56vw;
   aspect-ratio: 3186 / 3083;
@@ -56,7 +56,6 @@
 }
 
 .plateImage {
-  top: -10% !important;
   object-fit: cover;
   transform: scale(1.08);
   transition: transform 700ms var(--ease-out-expo);
@@ -441,10 +440,10 @@
   .plate {
     position: relative;
     top: auto;
-    right: -15%;
+    right: -30%;
     transform: none;
     width: calc(92% + var(--gutter) * 2);
-    margin: -16px 0 clamp(32px, 6vh, 48px);
+    margin: -16px 0 clamp(16px, 3vh, 24px);
     /* Inherits the base rule's 3186/3083 aspect ratio — the image's
        real proportions — instead of a mismatched 4:3 box that made
        `object-fit: cover` crop the top and bottom to fill it. */
@@ -462,6 +461,7 @@
   }
 
   .plateImage {
+    top: -15% !important;
     transform: scale(1);
     transition: none;
   }
