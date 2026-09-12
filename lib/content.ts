@@ -130,14 +130,14 @@ export const productsSection = {
     { src: "/images/shapes/oval.png", name: "Oval" },
     { src: "/images/shapes/pear.png", name: "Pear" },
     { src: "/images/shapes/heart.png", name: "Heart" },
-    // { src: "/images/shapes/pear.png", name: "Pear" },
+    { src: "/images/shapes/pear.png", name: "Pear" },
     { src: "/images/shapes/cushion.png", name: "Cushion" },
     { src: "/images/shapes/half-moon.png", name: "Half Moon" },
     { src: "/images/shapes/trillian.png", name: "Trillion" },
     { src: "/images/shapes/asscher.png", name: "Asscher" },
     { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
     { src: "/images/shapes/baguette.png", name: "Baguette" },
-    // { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
+    { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
   ],
 };
 
