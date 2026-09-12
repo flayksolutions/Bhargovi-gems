@@ -1,12 +1,19 @@
 /* ==================================================================
-   CONTACT HERO — compact navy banner, gradient + a single glow blob.
-   No photography yet: pinned like the main Hero so the form section
+   CONTACT HERO — compact navy banner, gradient + two corner glows and
+   a scattered diamond-facet watermark, lifted 1:1 from the Figma
+   "01 — Immersive Hero" frame (1440×265 reference canvas). No
+   photography yet: pinned like the main Hero so the form section
    slides up and over it, same reveal pattern used site-wide.
 
    Per the Figma the band is short (265px of content below the nav):
    headline sits bottom-left, the quick-contact row bottom-right, both
    sharing one baseline. Height is driven by the padding below rather
    than a min-height, so the two columns stay bottom-aligned.
+
+   Every glow/crystal position below is the Figma layer's absolute
+   left/top converted to a fraction of the 1440px reference width
+   (value / 1440 * 100vw) so the whole watermark scales as one unit
+   and keeps its rotation/skew angles true at any viewport width.
    ================================================================== */
 
 .hero {
@@ -19,7 +26,7 @@
   display: flex;
   align-items: flex-end;
   padding: calc(var(--header-h) + clamp(48px, 7vh, 89px)) var(--gutter)
-    clamp(40px, 6vh, 68px);
+    clamp(40px, 6vh, 68px) calc(var(--gutter) * 2);
 
   background: linear-gradient(100deg, #0f1729 0%, #000d34 100%);
 }
@@ -28,20 +35,64 @@
 
 .glow {
   position: absolute;
-  top: clamp(-260px, -22vw, -140px);
-  right: clamp(-220px, -16vw, -80px);
-  width: clamp(360px, 34vw, 640px);
-  height: clamp(360px, 34vw, 640px);
+  width: clamp(320px, 44.44vw, 640px);
+  height: clamp(320px, 44.44vw, 640px);
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(127, 169, 227, 0.55) 0%,
-    rgba(37, 100, 202, 0.28) 42%,
-    rgba(15, 23, 41, 0) 72%
-  );
-  filter: blur(10px);
+  background: #2564ca;
+  filter: blur(clamp(40px, 5.56vw, 80px));
+  transform: translate(-50%, -50%);
   pointer-events: none;
-  opacity: 0.2;
+  opacity: 0.18;
+}
+
+.glowRight {
+  left: 98.61vw;
+  top: 6.94vw;
+}
+
+.glowLeft {
+  left: -3.26vw;
+  top: 14.58vw;
+}
+
+/* ------------------------- diamond scatter -------------------------- */
+
+.crystals {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.crystal {
+  position: absolute;
+  width: clamp(340px, 49.06vw, 706px);
+  height: clamp(345px, 49.67vw, 715px);
+  opacity: 0.3;
+}
+
+.crystal1 {
+  left: 98.36vw;
+  top: 6.96vw;
+  transform: translate(-50%, -50%) rotate(11.47deg) skewX(-8.01deg) scaleY(0.99);
+}
+
+.crystal2 {
+  left: -18.72vw;
+  top: 17vw;
+  transform: translate(-50%, -50%) rotate(11.47deg) skewX(-8.01deg) scaleY(0.99);
+}
+
+.crystal3 {
+  left: 114.93vw;
+  top: 10.32vw;
+  transform: translate(-50%, -50%) rotate(11.47deg) skewX(-8.01deg) scaleY(0.99);
+}
+
+.crystal4 {
+  left: -2.15vw;
+  top: 20.36vw;
+  transform: translate(-50%, -50%) rotate(11.47deg) skewX(-8.01deg) scaleY(0.99);
 }
 
 /* ---------------------------- content ------------------------------ */
@@ -86,6 +137,10 @@
 /* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 960px) {
+  .hero {
+    padding-left: calc(var(--gutter) * 1.4);
+  }
+
   .title {
     font-size: clamp(30px, 8vw, 44px);
   }

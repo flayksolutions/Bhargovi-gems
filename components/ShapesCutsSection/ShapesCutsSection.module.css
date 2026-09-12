@@ -1,5 +1,5 @@
 /* ==================================================================
-   SHAPES & CUTS — centred stage with a chamfered dock of 12 shapes
+   SHAPES & CUTS — centred stage with a chamfered dock of 14 shapes
    ================================================================== */
 
 .section {
@@ -36,7 +36,9 @@
 
 .inner {
   position: relative;
-  max-width: 1280px;
+  /* Wider than the site's usual 1280px content column so 14 dock shapes
+     get more room before they need to scroll. */
+  max-width: var(--content-max, 1360px);
   margin: 0 auto;
 }
 
@@ -231,6 +233,10 @@
 
 .dock {
   --cn: 44px;
+  /* Icon box size, driven off the same var everywhere (bar height-room,
+     row min-height, icon box, image sizes) so the dock can shrink as one
+     unit if it ever needs to. */
+  --icon: 88px;
   /* The head-room the raised active icon rises into, above the bar's own
      top edge — shared by the bar's height formula, the row's top padding,
      and the row's own clip-path below, so they can't drift out of sync. */
@@ -243,6 +249,11 @@
 
   position: relative;
   margin-top: clamp(26px, 3.2vw, 38px);
+  /* Clip stray horizontal bleed (e.g. a long shape label wider than its
+     flex item at min-width) to the dock's own box instead of letting it
+     spill into the page — `overflow-x` only, so the active icon can still
+     rise into --headroom above the bar uncropped. */
+  overflow-x: clip;
 }
 
 /* Stops `--headroom` short of the row's top edge — the head-room the
@@ -280,8 +291,8 @@
   background: linear-gradient(
     to right,
     var(--paper) 0,
-    var(--paper) 16px,
-    transparent clamp(80px, 14vw, 150px)
+    color-mix(in srgb, var(--paper) 80%, transparent) 10px,
+    transparent clamp(46px, 7vw, 84px)
   );
 }
 
@@ -289,8 +300,8 @@
   background: linear-gradient(
     to left,
     var(--paper) 0,
-    var(--paper) 16px,
-    transparent clamp(80px, 14vw, 150px)
+    color-mix(in srgb, var(--paper) 80%, transparent) 10px,
+    transparent clamp(46px, 7vw, 84px)
   );
 }
 
@@ -305,18 +316,20 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  gap: clamp(6px, 0.8vw, 12px);
+  gap: clamp(4px, 0.6vw, 10px);
   margin: 0;
   padding: 28px var(--edge-clear) 12px clamp(16px, 2.2vw, 30px);
-  /* 28 head-room + 88 icon + 6 + 14 label + 6 + 4 dot + 12. */
-  min-height: 158px;
+  /* 28 head-room + --icon + 6 + 14 label + 6 + 4 dot + 12. */
+  min-height: calc(70px + var(--icon));
   list-style: none;
-  /* Twelve shapes scroll rather than crush. A scroll container clips at
+  /* Fourteen shapes scroll rather than crush. A scroll container clips at
      its padding box, so the raised icon's head-room is reserved as
      padding above — it overflows the bar, never this box. */
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
   /* The row's right edge sits flush with the bar's own right edge, so
      whichever item is scrolled to that edge sits exactly where the bar's
      top-right chamfer has cut its paper away — without this, that item's
@@ -345,7 +358,7 @@
   flex: 1 1 0;
   /* Never narrower than the icon box, so the reserved circles cannot
      overlap their neighbours once every item is full-size. */
-  min-width: 88px;
+  min-width: var(--icon);
   opacity: 0;
   transform: translateX(24px);
   transition: opacity 500ms var(--ease-out-expo) calc(var(--i, 0) * 45ms),
@@ -369,14 +382,14 @@
   cursor: pointer;
 }
 
-/* The button box is fixed at 88px so the row's height never changes;
+/* The button box is fixed at --icon so the row's height never changes;
    selecting a shape only scales that box up from the dock baseline.
    Animating width/height instead made the row grow and shrink. */
 .dockIcon {
   position: relative;
   display: block;
-  width: 88px;
-  height: 88px;
+  width: var(--icon);
+  height: var(--icon);
   border-radius: 50%;
   transform-origin: bottom center;
   transition: transform 320ms var(--ease-soft);
@@ -470,7 +483,7 @@
 @media (max-width: 960px) {
   .dockItem {
     flex: 0 0 auto;
-    min-width: 88px;
+    min-width: var(--icon);
   }
 
   .dockRow {

@@ -1,5 +1,10 @@
 /* ==================================================================
-   SITE FOOTER — navy plate with a lightened diamond behind the type
+   SITE FOOTER — deep-navy plate with a diamond-facet illustration,
+   lifted from the Figma "11 — Footer" frame (1440×597 reference
+   canvas). Horizontal offsets below are the Figma layer's absolute
+   left position converted to a fraction of that 1440px width
+   (value / 1440 * 100vw), same convention used in ContactHero, so the
+   layout keeps its proportions at any viewport width.
    ================================================================== */
 
 .footer {
@@ -21,24 +26,20 @@
   bottom: 0;
   z-index: 0;
   overflow: hidden;
-  background: #0a1a45;
-  padding: clamp(74px, 12vh, 160px) var(--gutter) clamp(30px, 5vh, 56px);
+  background: #01173b;
+  padding: clamp(48px, 12.9vh, 90px) 0 clamp(24px, 6.7vh, 40px);
   isolation: isolate;
 }
 
 /* ---------------------------- plate ------------------------------ */
 
-/* Full-bleed plate behind everything. Two things silently cancel a
-   blend mode by creating a stacking context on an ANCESTOR:
-   `transform` and a set `z-index` - neither is used here. `opacity` on
-   the blended element itself is fine. */
+/* Full-bleed illustration behind everything — the asset is already
+   finished brand art (facets + reflection), so it renders at full
+   opacity with no desaturation/overlay treatment. */
 .plate {
   position: absolute;
   inset: 0;
   pointer-events: none;
-
-  opacity: 0.2;
-  mix-blend-mode: luminosity;
 }
 
 .plateImage {
@@ -46,14 +47,14 @@
   object-position: 50% 42%;
 }
 
-/* Separate full-bleed overlay (not on .plate) so its opacity/blend
-   don't interact with the luminosity blend already applied above. */
-.plateOverlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: #000;
-  opacity: 0.4;
+@media (max-width: 640px) {
+  /* Cover-crop has nowhere near enough width to keep the art centered
+     on a phone screen, so pin it to the image's right edge instead —
+     shifts the crop left and lines the art's right edge up with the
+     viewport's, rather than losing it off both sides. */
+  .plateImage {
+    object-position: right 42%;
+  }
 }
 
 /* ---------------------------- layout ----------------------------- */
@@ -61,106 +62,138 @@
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 1640px;
+  max-width: 1440px;
   margin-inline: auto;
+  padding-left: clamp(20px, 9.65vw, 139px);
+  padding-right: clamp(20px, 8.89vw, 128px);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  column-gap: clamp(36px, 6vw, 130px);
-  row-gap: clamp(34px, 5vh, 56px);
+  grid-template-columns: auto 1fr auto;
   align-items: start;
-  padding-bottom: clamp(56px, 10vh, 130px);
+  column-gap: clamp(24px, 3.4vw, 49px);
+  row-gap: clamp(32px, 5vh, 56px);
+  padding-bottom: clamp(56px, 18vh, 400px);
 }
 
-/* ---------------------------- brand ------------------------------ */
+/* ---------------------------- nav columns ------------------------- */
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: clamp(12px, 1.2vw, 22px);
-  text-decoration: none;
+.navGroup {
+  display: flex;
+  gap: clamp(32px, 7.01vw, 101px);
 }
 
-.logo {
-  width: clamp(160px, 15vw, 240px);
-  height: auto;
-  color: #fff;
-}
-
-.tagline {
-  margin: clamp(18px, 2.4vh, 32px) 0 0;
-  max-width: 30ch;
-  font-family: var(--font-body);
-  font-size: clamp(16px, 0.98vw, 17px);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.76);
-}
-
-/* ---------------------------- columns ---------------------------- */
-
-.column {
+.navCol {
   min-width: 0;
 }
 
-.columnTitle {
-  margin: 0 0 clamp(14px, 1.8vh, 24px);
+.navTitle {
+  margin: 0 0 16px;
   font-family: var(--font-body);
-  font-size: clamp(14px, 0.98vw, 17px);
-  font-weight: 600;
-  letter-spacing: 0.005em;
+  font-size: 16px;
+  font-weight: 700;
   color: #fff;
 }
 
-.columnList {
+.navList {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: clamp(10px, 1.4vh, 18px);
+  gap: 16px;
 }
 
-.columnLink,
-.columnText {
+.navLink {
   font-family: var(--font-body);
-  font-size: clamp(14px, 0.95vw, 16.5px);
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.74);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   white-space: nowrap;
   transition: color 380ms var(--ease-soft);
 }
 
-.columnLink:hover {
+.navLink:hover {
   color: #fff;
 }
 
-/* Office blocks in the Contact column: a bold city label with the
-   address beneath it. Unlike links these must wrap, so they opt out of
-   the `nowrap` above and cap their own measure. */
+/* ---------------------------- brand ------------------------------ */
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 5.56vh, 40px);
+  text-align: center;
+}
+
+.brand {
+  display: inline-flex;
+}
+
+.logo {
+  width: clamp(150px, 16.7vw, 241px);
+  height: auto;
+}
+
+.slogan {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 3.33vw, 48px);
+  line-height: 1.08;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* ---------------------------- contact ----------------------------- */
+
+.contactCol {
+  min-width: 0;
+  max-width: 284px;
+}
+
+.contactIcons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.iconLink {
+  display: block;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
 .address {
   display: grid;
-  gap: 4px;
-  max-width: 40ch;
+  gap: 0;
+  margin-top: 16px;
 }
 
 .addressTitle {
   font-family: var(--font-body);
-  font-size: clamp(14px, 0.95vw, 16.5px);
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
   color: #fff;
 }
 
 .addressText {
   font-family: var(--font-body);
-  font-size: clamp(14px, 0.95vw, 16.5px);
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.74);
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* ---------------------------- bottom bar ------------------------- */
+/* ---------------------------- bottom bar --------------------------- */
 
 .bar {
   display: flex;
@@ -168,49 +201,90 @@
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding-top: clamp(18px, 2.6vh, 30px);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.legal,
-.credit {
+.legal {
   margin: 0;
   font-family: var(--font-body);
-  font-size: clamp(14px, 0.88vw, 15px);
-  color: rgba(255, 255, 255, 0.62);
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.credit {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .creditLink {
+  display: inline-flex;
+  align-items: flex-end;
   color: #fff;
+  font-weight: 500;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-  padding-bottom: 1px;
-  transition: border-color 380ms var(--ease-soft);
-}
-
-.creditLink:hover {
-  border-color: #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .arrow {
-  margin-left: 4px;
-  font-size: 0.9em;
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
 }
 
 /* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 960px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
   }
 
   .brandCol {
     grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .contactCol {
+    max-width: none;
   }
 }
 
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .navGroup {
+    gap: clamp(32px, 16vw, 60px);
+    justify-content: center;
+  }
+
+  .slogan {
+    white-space: normal;
+  }
+
+  .bar {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Drop the sticky reveal on phones: the trick relies on tall content
+     above scrolling fully clear before the footer's natural height
+     shows through, which needs real scroll room to spare. On short
+     mobile viewports that room is scarce and the pin just eats into
+     the section above instead of reading as a reveal, so let the
+     footer sit in normal flow here. `relative`, not `static` - .plate
+     is `position: absolute; inset: 0`, so it needs .footer to stay a
+     positioned ancestor or it escapes to the nearest one above it
+     (and disappears from view). */
+  .footer {
+    position: relative;
   }
 }

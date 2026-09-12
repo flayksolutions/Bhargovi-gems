@@ -216,4 +216,9 @@
   .section {
     padding: clamp(64px, 11vh, 120px) var(--gutter) clamp(56px, 9vh, 110px);
   }
+
+  .title {
+    text-align: center;
+    font-size: clamp(26px, 6.5vw, 34px);
+  }
 }

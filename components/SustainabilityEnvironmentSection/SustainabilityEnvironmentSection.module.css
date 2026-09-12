@@ -175,15 +175,14 @@
     mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MTEgMTQ0MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMxNC41IDMxNC41KSByb3RhdGUoOTAgNzIwIDQwNS41KSI+PHBhdGggZD0iTTMwNi45MDYgMjYyLjExNUMxODQuNjYyIDM1OC42NTcgNTEuMzY2OSAzODkuNzEzIDAgMzkzLjE3M1Y0MTYuNTNDMTE1LjI1MiA0MzkuODg2IDE4Mi41OSA0NjQuNTQxIDMwNi45MDYgNTUxLjQ4QzQwNi4zNiA2MjEuMDMxIDQ3NS4yNTIgNzUzLjQ3MyA0OTcuMjY2IDgxMUg2MDcuMzM4QzYxNi40MDMgNzc1LjEgNjU4LjEwMSA2ODAuOTgxIDc1Mi4zNzQgNTkxLjcwNkM4NzAuMjE2IDQ4MC4xMTIgOTk5LjQ0OCA0MzcuOTc1IDEwNjEuODcgNDI0LjMxNUMxMTQxIDQwNyAxMzM0LjI0IDQwOC4zMTEgMTQ0MCA0MTAuMDQyVjQwMC45NThDMTM0Ny4xOSA0MDIuNjg5IDExNDEuNjQgNDAyLjI1NiAxMDYxLjg3IDM4Ni42ODVDOTYyLjE1OCAzNjcuMjIxIDg1NC42NzYgMzEyLjcyMiA3NTIuMzc0IDIyMC41OTJDNjcwLjUzMiAxNDYuODg4IDYyMS41ODMgNDIuODIwOCA2MDcuMzM4IDBINDk3LjI2NkM0ODQuNzQ4IDQ3LjE0NjEgNDI5LjE1MSAxNjUuNTc0IDMwNi45MDYgMjYyLjExNVoiIGZpbGw9IiNmZmYiLz48L2c+PC9zdmc+Cg==");
   }
 
-  /* Text stays hidden until the mask has fully opened (the formula
-     above this query reaches full box coverage around --p: 0.94,
-     ahead of --p: 1's safety margin), instead of revealing on its own
-     timer via the data-revealed scroll-into-view hook — so the copy
-     never sits over a half-revealed photo on narrow screens. */
+  /* Text starts revealing once the mask's mask-size (100% + --p *
+     370%, same formula as the .plate rule above) reaches 185% —
+     i.e. --p: (1.85 - 1) / 3.7 ≈ 0.2297 — instead of revealing on its
+     own timer via the data-revealed scroll-into-view hook. */
   .title,
   .body {
     transition: none !important;
-    opacity: clamp(0, calc((var(--p) - 0.94) * 50), 1) !important;
-    transform: translateY(calc(18px * (1 - clamp(0, calc((var(--p) - 0.94) * 50), 1)))) !important;
+    opacity: clamp(0, calc((var(--p) - 0.2297) * 50), 1) !important;
+    transform: translateY(calc(18px * (1 - clamp(0, calc((var(--p) - 0.2297) * 50), 1)))) !important;
   }
 }
