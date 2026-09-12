@@ -291,7 +291,7 @@
   background: linear-gradient(
     to right,
     var(--paper) 0,
-    color-mix(in srgb, var(--paper) 55%, transparent) 6px,
+    color-mix(in srgb, var(--paper) 80%, transparent) 10px,
     transparent clamp(46px, 7vw, 84px)
   );
 }
@@ -300,7 +300,7 @@
   background: linear-gradient(
     to left,
     var(--paper) 0,
-    color-mix(in srgb, var(--paper) 55%, transparent) 6px,
+    color-mix(in srgb, var(--paper) 80%, transparent) 10px,
     transparent clamp(46px, 7vw, 84px)
   );
 }
