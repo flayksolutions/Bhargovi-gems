@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./ShapesCutsSection.module.css";
 import { useScrollEdges } from "@/lib/useScrollEdges";
+import { usePointerHorizontalScroll } from "@/lib/usePointerHorizontalScroll";
 import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 import type { ShapeItem } from "@/lib/content";
 
@@ -35,6 +36,8 @@ export default function ShapesCutsSection({
 
   // Fades the dock's leading/trailing edge while shapes overflow the row.
   useScrollEdges(dockRowRef, dockRef);
+  // Lets a mouse wheel or click-drag pan the row too, not just touch/trackpad.
+  usePointerHorizontalScroll(dockRowRef);
   useRevealOnScroll(sectionRef, undefined, "0px 0px -45% 0px");
   useRevealOnScroll(sectionRef, `.${styles.dockItem}`, "0px 0px -10% 0px");
 
@@ -108,6 +111,7 @@ export default function ShapesCutsSection({
             className={styles.dockRow}
             aria-label="Diamond shapes"
             ref={dockRowRef}
+            data-lenis-prevent
           >
             {shapes.map((shape, i) => {
               const active = shape.id === selectedId;
