@@ -9,6 +9,7 @@ type Props = {
   title: string;
   body: string;
   image: string;
+  mobileImage?: string;
   alt: string;
 };
 
@@ -17,6 +18,7 @@ export default function SustainabilityHero({
   title,
   body,
   image,
+  mobileImage,
   alt,
 }: Props) {
   return (
@@ -29,8 +31,19 @@ export default function SustainabilityHero({
           sizes="100vw"
           priority
           quality={90}
-          className={styles.image}
+          className={[styles.image, mobileImage ? styles.desktopImage : ""].join(" ")}
         />
+        {mobileImage && (
+          <Image
+            src={mobileImage}
+            alt={alt}
+            fill
+            sizes="100vw"
+            priority
+            quality={90}
+            className={[styles.image, styles.mobileImage].join(" ")}
+          />
+        )}
       </div>
 
       <span className={styles.topScrim} aria-hidden="true" />

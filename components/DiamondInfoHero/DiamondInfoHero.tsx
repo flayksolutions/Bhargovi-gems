@@ -9,6 +9,7 @@ type Props = {
   titleLines: string[];
   body: string;
   image: string;
+  mobileImage?: string;
   alt: string;
 };
 
@@ -17,6 +18,7 @@ export default function DiamondInfoHero({
   titleLines,
   body,
   image,
+  mobileImage,
   alt,
 }: Props) {
   return (
@@ -28,8 +30,18 @@ export default function DiamondInfoHero({
           fill
           sizes="100vw"
           priority
-          className={styles.image}
+          className={[styles.image, mobileImage ? styles.desktopImage : ""].join(" ")}
         />
+        {mobileImage && (
+          <Image
+            src={mobileImage}
+            alt={alt}
+            fill
+            sizes="100vw"
+            priority
+            className={[styles.image, styles.mobileImage].join(" ")}
+          />
+        )}
         <span className={styles.scrim} aria-hidden="true" />
       </div>
 

@@ -130,7 +130,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding-block: 48px 40px;
+    padding-block: 96px 40px;
   }
 
   .title {

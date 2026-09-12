@@ -230,21 +230,32 @@
 /* ---------------------------- dock ------------------------------- */
 
 .dock {
+  --cn: 44px;
+  /* The head-room the raised active icon rises into, above the bar's own
+     top edge — shared by the bar's height formula, the row's top padding,
+     and the row's own clip-path below, so they can't drift out of sync. */
+  --headroom: 28px;
+  /* Horizontal clearance reserved past the bar's own chamfer width so a
+     dock item (including the enlarged active icon, which grows past its
+     88px box on scale) can never scroll flush into the notch and peek
+     out where the bar's paper has been cut away. */
+  --edge-clear: calc(var(--cn) + 16px);
+
   position: relative;
   margin-top: clamp(26px, 3.2vw, 38px);
 }
 
-/* Stops 28px short of the row's top edge — the head-room the raised
-   active icon rises into, so the stone breaks the bar's top line. */
+/* Stops `--headroom` short of the row's top edge — the head-room the
+   raised active icon rises into, so the stone breaks the bar's top line. */
 .dockBar {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: calc(100% - 28px);
+  height: calc(100% - var(--headroom));
   background: var(--paper);
   box-shadow: 0 18px 44px rgba(2, 38, 113, 0.08);
-  clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, 0 100%);
 }
 
 /* Scroll affordance: a fade on whichever edge still hides shapes. Each
@@ -257,12 +268,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: calc(100% - 28px);
+  height: calc(100% - var(--headroom));
   z-index: 2;
   pointer-events: none;
   opacity: 0;
   transition: opacity 220ms var(--ease-soft);
-  clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - var(--cn)) 0, 100% var(--cn), 100% 100%, 0 100%);
 }
 
 .dockFadeStart {
@@ -296,7 +307,7 @@
   align-items: flex-end;
   gap: clamp(6px, 0.8vw, 12px);
   margin: 0;
-  padding: 28px clamp(16px, 2.2vw, 30px) 12px;
+  padding: 28px var(--edge-clear) 12px clamp(16px, 2.2vw, 30px);
   /* 28 head-room + 88 icon + 6 + 14 label + 6 + 4 dot + 12. */
   min-height: 158px;
   list-style: none;
@@ -306,6 +317,24 @@
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  /* The row's right edge sits flush with the bar's own right edge, so
+     whichever item is scrolled to that edge sits exactly where the bar's
+     top-right chamfer has cut its paper away — without this, that item's
+     icon paints over the page background instead of the bar, "peeking
+     out" of the cut. `--edge-clear` above only guards the scrolled-to-end
+     case; this clip-path removes the same notch from the row itself (at
+     every scroll position, since the clip is fixed to the row's own box,
+     not its scrolled content) while leaving the head-room above the bar
+     — where the active icon is meant to rise — untouched. */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% var(--headroom),
+    calc(100% - var(--cn)) var(--headroom),
+    100% calc(var(--headroom) + var(--cn)),
+    100% 100%,
+    0 100%
+  );
 }
 
 .dockRow::-webkit-scrollbar {
@@ -450,6 +479,14 @@
 }
 
 @media (max-width: 640px) {
+  .dockItem {
+    min-width: 72px;
+  }
+
+  .dockRow {
+    min-height: 142px;
+  }
+
   .title {
     white-space: normal;
   }
@@ -481,13 +518,21 @@
     border-left: 1px solid rgba(37, 100, 202, 0.2);
   }
 
-  .dockBar,
-  .dockFade {
-    clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  .dock {
+    --cn: 28px;
   }
 
   .crystal {
     opacity: 0.1;
+  }
+
+  .dockIcon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .dockButtonActive .dockIcon {
+    transform: scale(1.16);
   }
 }
 

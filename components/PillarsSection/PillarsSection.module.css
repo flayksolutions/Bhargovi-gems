@@ -21,6 +21,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-image: var(--bg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -118,10 +119,36 @@
     gap: 24px;
     max-width: 480px;
   }
+
+  .swatchHoverImage {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 640px) {
+  .plate {
+    background-image: var(--bg-mobile, var(--bg));
+  }
+
   .section {
     padding-block: 64px;
+  }
+
+  .row {
+    max-width: 260px;
+    gap: 48px;
+  }
+
+  .card {
+    gap: 10px;
+    padding: 10px 10px 14px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardBody {
+    font-size: 12px;
   }
 }

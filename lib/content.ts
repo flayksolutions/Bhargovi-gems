@@ -753,6 +753,7 @@ export const sustainabilityHeroSection = {
   title: "Responsible by Design",
   body: "From rough to refined, every diamond we manufacture reflects our commitment to responsible practices, quality and a more sustainable future.",
   image: "/images/sustainability/hero-lily.png",
+  mobileImage: "/images/sustainability/hero-mobile.png",
   alt: "A diamond ring and loose polished diamonds cascading from a white calla lily",
 };
 
@@ -832,6 +833,7 @@ export type PillarCard = {
 
 export const pillarsSection = {
   background: "/images/sustainability/pillars-bg.png",
+  mobileBackground: "/images/sustainability/pillars-mobile.png",
   cards: [
     {
       id: "responsible-production",
@@ -940,6 +942,7 @@ export const environmentSection = {
   title: "Environment Friendly",
   body: "Strong manufacturing expertise, advanced Sarine 4D mapping and polishing under one roof, with an extensive ready inventory across shapes and sizes.",
   image: "/images/sustainability/environment-leaf.png",
+  mobileImage: "/images/sustainability/environment-mobile.png",
   alt: "A diamond-shaped frame over dew-covered pine branches",
 };
 
@@ -952,6 +955,7 @@ export const diamondInfoHeroSection = {
   titleLines: ["Understanding Diamonds", "The Complete Buyer's Guide"],
   body: "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
   image: "/images/diamond-info/hero-guide.jpg",
+  mobileImage: "/images/diamond-info/hero-mobile.png",
   alt: "Round, pear, emerald and marquise cut diamonds resting on a moss-covered stone beside a bare branch",
 };
 

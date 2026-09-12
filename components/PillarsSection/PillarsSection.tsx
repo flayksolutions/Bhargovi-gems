@@ -7,6 +7,7 @@ import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   background: string;
+  mobileBackground?: string;
   cards: PillarCard[];
 };
 
@@ -59,7 +60,7 @@ function usePeepholeWindows(count: number) {
   return { sectionRef, swatchRefs, windows };
 }
 
-export default function PillarsSection({ background, cards }: Props) {
+export default function PillarsSection({ background, mobileBackground, cards }: Props) {
   const { sectionRef, swatchRefs, windows } = usePeepholeWindows(cards.length);
   useRevealOnScroll(sectionRef);
 
@@ -72,7 +73,10 @@ export default function PillarsSection({ background, cards }: Props) {
       <div
         className={styles.plate}
         aria-hidden="true"
-        style={{ backgroundImage: `url(${background})` }}
+        style={{
+          ["--bg" as string]: `url(${background})`,
+          ...(mobileBackground ? { ["--bg-mobile" as string]: `url(${mobileBackground})` } : {}),
+        }}
       />
 
       <div className={styles.row}>

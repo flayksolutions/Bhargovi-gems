@@ -32,6 +32,22 @@
   /* Holds the tweezers + stone cluster in frame as the viewport
      narrows — it sits in the right third of the source photo. */
   object-position: 66% 50%;
+  animation: heroZoomIn 1.8s var(--ease-soft) both;
+}
+
+@keyframes heroZoomIn {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    animation: none;
+  }
 }
 
 /* Figma: linear-gradient(205.49deg, transparent 40.6%, #0009 74.4%) —
