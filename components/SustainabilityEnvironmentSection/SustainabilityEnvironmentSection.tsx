@@ -59,14 +59,7 @@ export default function SustainabilityEnvironmentSection({
         el.style.setProperty("--p", "1");
         return;
       }
-      /* On mobile, --p reaches 1 (mask fully open, text fully
-         revealed — see the 0.94 threshold in the CSS) a touch before
-         the pin actually releases, so there's a brief dead scroll
-         with nothing changing on screen instead of the reveal
-         finishing right as the section unpins. */
-      const isMobile = window.innerWidth <= 640;
-      const total = isMobile ? pinnedRange * 0.95 : pinnedRange;
-      const raw = Math.min(Math.max(-rect.top / total, 0), 1);
+      const raw = Math.min(Math.max(-rect.top / pinnedRange, 0), 1);
       el.style.setProperty("--p", easeInCubic(raw).toFixed(4));
     };
 
