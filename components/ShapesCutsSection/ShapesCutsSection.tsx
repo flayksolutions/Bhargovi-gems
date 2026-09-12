@@ -111,7 +111,7 @@ export default function ShapesCutsSection({
             className={styles.dockRow}
             aria-label="Diamond shapes"
             ref={dockRowRef}
-            data-lenis-prevent
+            data-lenis-prevent-horizontal
           >
             {shapes.map((shape, i) => {
               const active = shape.id === selectedId;

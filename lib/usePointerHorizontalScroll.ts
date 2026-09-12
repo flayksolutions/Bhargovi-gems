@@ -3,17 +3,21 @@
 import { useEffect, type RefObject } from "react";
 
 /**
- * Makes a horizontally-scrolling element usable with a mouse: a vertical
- * wheel gesture and a click-drag both pan it sideways. Touch/trackpad
- * users already get native horizontal scrolling for free, so this only
- * adds what a plain mouse can't do on its own.
+ * Makes a horizontally-scrolling element usable with a mouse: an already-
+ * horizontal wheel gesture (shift+wheel, or a trackpad's horizontal swipe)
+ * and a click-drag both pan it sideways. A plain vertical wheel is left
+ * alone so the page keeps scrolling normally while the cursor happens to
+ * be over the dock — hijacking that felt jarring.
  *
  * Wheel input is redirected to `scrollLeft` only while the element still
  * has room to scroll in that direction — once an edge is reached, the
  * event is left alone so the page keeps scrolling vertically instead of
  * getting stuck against the dock. The element should also carry
- * `data-lenis-prevent` so the Lenis smooth-scroll instance doesn't also
- * consume the same wheel event for the page.
+ * `data-lenis-prevent-horizontal` so Lenis (which otherwise treats any
+ * wheel event with a nonzero deltaY as a vertical-scroll intent, even one
+ * that's mostly horizontal) steps aside for a shift+wheel/trackpad swipe
+ * without also losing its smooth vertical scroll for plain wheel input
+ * over the dock.
  *
  * Drag-to-scroll listens on `window` rather than capturing the pointer,
  * and only starts panning once the mouse has actually moved past a small
@@ -26,10 +30,13 @@ export function usePointerHorizontalScroll(scrollerRef: RefObject<HTMLElement | 
     if (!el) return;
 
     const onWheel = (e: WheelEvent) => {
+      // Only a gesture that's already horizontal (shift+wheel, or a
+      // trackpad swipe) should pan the dock — a plain vertical wheel
+      // must keep scrolling the page.
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
       const max = el.scrollWidth - el.clientWidth;
       if (max <= 1) return;
-      const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      if (delta === 0) return;
+      const delta = e.deltaX;
       const atStart = el.scrollLeft <= 0 && delta < 0;
       const atEnd = el.scrollLeft >= max - 1 && delta > 0;
       if (atStart || atEnd) return;
