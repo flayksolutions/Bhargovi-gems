@@ -333,7 +333,7 @@
 .officeAddress {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   color: #444;
 }
@@ -406,7 +406,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #444;
   text-decoration: none;
