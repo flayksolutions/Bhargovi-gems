@@ -19,7 +19,7 @@ export const heroSection = {
   titleLines: ["Manufacturing", "Lab Grown Diamonds"],
   body: "Crafting exceptional diamonds through precision, innovation and decades of manufacturing experience.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
-  image: "/images/hero-diamond.jpg",
+  image: "/images/hero-4-poster.jpg",
   video: "/videos/hero-4.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
