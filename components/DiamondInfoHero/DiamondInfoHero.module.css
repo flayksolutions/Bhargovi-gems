@@ -58,6 +58,12 @@
   padding: clamp(64px, 12vh, 128px) var(--gutter) clamp(52px, 10vh, 108px);
 }
 
+@media (min-width: 1920px) {
+  .content {
+    max-width: 1600px;
+  }
+}
+
 .breadcrumb {
   margin-bottom: clamp(18px, 2.4vh, 30px);
 }
@@ -106,6 +112,12 @@
   line-height: 1.14;
   letter-spacing: 0.004em;
   color: #fff;
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(32px, 4.1vw, 64px);
+  }
 }
 
 .title span {

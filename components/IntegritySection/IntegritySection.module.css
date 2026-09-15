@@ -35,6 +35,12 @@
   color: var(--ink-navy);
 }
 
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(30px, 3.4vw, 54px);
+  }
+}
+
 .foot {
   display: flex;
   flex-direction: column;

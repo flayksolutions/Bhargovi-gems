@@ -32,6 +32,12 @@
   text-align: center;
 }
 
+@media (min-width: 1920px) {
+  .inner {
+    max-width: 2100px;
+  }
+}
+
 .eyebrow {
   margin: 0 auto clamp(16px, 2.2vh, 28px);
   max-width: 1100px;
@@ -53,6 +59,12 @@
   letter-spacing: 0.008em;
   color: var(--ink-deep);
   text-wrap: balance;
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(27px, 3.4vw, 68px);
+  }
 }
 
 /* ---------------------------- shapes ----------------------------- */

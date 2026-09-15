@@ -76,6 +76,12 @@
   text-wrap: balance;
 }
 
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(26px, 2.6vw, 48px);
+  }
+}
+
 /* ---------------------------- wave -------------------------------- */
 
 /* The first and last nodes centre a 200px label on a badge sitting at

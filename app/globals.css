@@ -42,6 +42,17 @@
 
 }
 
+/* Wide-desktop tier (≥1920px): every clamp() above is already capped,
+   so past this width content stops growing and just sits in a wider
+   and wider band of empty gutter. Bumping the shared tokens here lets
+   content (and, per-component, type) claim a bit more of that room
+   instead of leaving it idle. */
+@media (min-width: 1920px) {
+  :root {
+    --content-max: 1520px;
+  }
+}
+
 /* ------------------------------------------------------------------
    Shared breakpoint scale — every *.module.css file's @media blocks
    should use one of these two widths (CSS has no custom-media-query
@@ -55,6 +66,10 @@
                                    unless a rule truly only applies
                                    between the two thresholds)
      desktop: > 960px            (the default, unqueried styles)
+     wide:    min-width: 1920px  (optional — only for a rule that
+                                   specifically claims extra space on
+                                   very large monitors; most sections
+                                   don't need one)
 
    Do not introduce one-off breakpoints (780px, 820px, 860px, 900px,
    etc.) — fold the rule into the 640 or 960 query instead.

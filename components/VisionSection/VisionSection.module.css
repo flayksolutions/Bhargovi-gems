@@ -73,6 +73,12 @@
   text-wrap: pretty;
 }
 
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(30px, 3.35vw, 54px);
+  }
+}
+
 .titleAccent {
   color: #0049bc;
 }

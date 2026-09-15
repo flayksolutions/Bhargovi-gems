@@ -57,6 +57,13 @@
   margin-left: 50%;
 }
 
+@media (min-width: 1920px) {
+  .content {
+    max-width: 1800px;
+    margin-left: 53%;
+  }
+}
+
 .title {
   margin: 0 0 clamp(16px, 2.2vh, 28px);
   font-family: var(--font-display);
@@ -66,6 +73,12 @@
   letter-spacing: 0.005em;
   color: var(--ink-deep);
   text-wrap: balance;
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(27px, 3vw, 60px);
+  }
 }
 
 .body {

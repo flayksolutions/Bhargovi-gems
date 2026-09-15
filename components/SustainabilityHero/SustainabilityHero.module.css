@@ -116,6 +116,12 @@
   color: var(--ink-navy);
 }
 
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(38px, 5vw, 74px);
+  }
+}
+
 .body {
   margin: 0;
   max-width: 56ch;

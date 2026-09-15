@@ -75,6 +75,12 @@
   align-items: start;
 }
 
+@media (min-width: 1920px) {
+  .inner {
+    max-width: 1400px;
+  }
+}
+
 .eyebrow {
   display: flex;
   align-items: center;
@@ -107,6 +113,16 @@
 .titleAccent {
   font-size: clamp(20px, 2vw, 32px);
   color: #aecbf2;
+}
+
+@media (min-width: 1920px) {
+  .title span:first-child {
+    font-size: clamp(26px, 2.7vw, 50px);
+  }
+
+  .titleAccent {
+    font-size: clamp(20px, 2vw, 36px);
+  }
 }
 
 .body {

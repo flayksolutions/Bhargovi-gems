@@ -24,7 +24,7 @@
   bottom: 0;
   left: 0;
   z-index: -1;
-  width: min(52%, 940px);
+  width: min(56%, 1040px);
   height: 100%;
   pointer-events: none;
   user-select: none;
@@ -40,6 +40,26 @@
   object-position: left center;
   transform: scale(1.1);
   transform-origin: left center;
+}
+
+@media (min-width: 1920px) {
+  /* Past ~1920px the `contain` box (capped at 940px wide) is much
+     narrower than it is tall, so `contain` letterboxes the globe with
+     empty gaps above and below instead of filling the section. `cover`
+     doesn't have that problem — it always fills the box — and at this
+     width there's enough room that it no longer crops the pins the
+     way it did on shorter/narrower viewports (the reason `contain` was
+     chosen in the first place). Wider box + no letterbox reads as a
+     bigger globe that sits closer to the card instead of hugging the
+     left edge. */
+  .mapWrap {
+    width: min(64%, 1400px);
+  }
+
+  .map {
+    object-fit: cover;
+    transform: none;
+  }
 }
 
 /* ---------------------------- layout ----------------------------- */
@@ -74,6 +94,14 @@
   );
 }
 
+@media (min-width: 1920px) {
+  .card {
+    --cn: clamp(26px, 2.5vw, 56px);
+    width: min(640px, 100%);
+    padding: clamp(28px, 2.6vw, 80px);
+  }
+}
+
 .eyebrow {
   margin: 0 0 clamp(10px, 1.2vh, 16px);
   font-family: var(--font-body);
@@ -92,6 +120,18 @@
   line-height: 1.12;
   letter-spacing: 0.005em;
   color: var(--ink-deep);
+}
+
+@media (min-width: 1920px) {
+  .eyebrow {
+    margin: 0 0 clamp(10px, 1.2vh, 20px);
+    font-size: clamp(14px, 0.76vw, 17px);
+  }
+
+  .title {
+    margin: 0 0 clamp(30px, 4vh, 56px);
+    font-size: clamp(24px, 2.1vw, 44px);
+  }
 }
 
 /* ---------------------------- offices ---------------------------- */
@@ -136,6 +176,24 @@
   font-weight: 400;
   line-height: 1.5;
   color: #7286a3;
+}
+
+@media (min-width: 1920px) {
+  .list {
+    gap: clamp(16px, 2.2vh, 34px);
+  }
+
+  .pin {
+    width: clamp(28px, 2.2vw, 44px);
+  }
+
+  .officeName {
+    font-size: clamp(15px, 1.15vw, 24px);
+  }
+
+  .officeAddress {
+    font-size: clamp(14px, 0.9vw, 17px);
+  }
 }
 
 /* ---------------------------- cta -------------------------------- */
