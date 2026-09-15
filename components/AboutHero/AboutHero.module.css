@@ -127,6 +127,12 @@
   display: block;
 }
 
+@media (min-width: 1921px) {
+  .title {
+    font-size: clamp(38px, 5vw, 84px);
+  }
+}
+
 .body {
   margin: 0;
   max-width: 504px;

@@ -76,6 +76,12 @@
   text-wrap: balance;
 }
 
+@media (min-width: 1921px) {
+  .title {
+    font-size: clamp(26px, 2.6vw, 48px);
+  }
+}
+
 /* ---------------------------- wave -------------------------------- */
 
 /* The first and last nodes centre a 200px label on a badge sitting at
@@ -87,6 +93,34 @@
   max-width: calc(var(--content-max) + 88px);
   padding-inline: 44px;
   margin: 0 auto;
+}
+
+@media (min-width: 1921px) {
+  .wave {
+    max-width: 2400px;
+    padding-inline: 64px;
+  }
+
+  .badge {
+    width: 76px;
+    height: 76px;
+  }
+
+  .content {
+    width: 260px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .year {
+    font-size: 34px;
+  }
+
+  .body {
+    font-size: 15px;
+  }
 }
 
 .line {

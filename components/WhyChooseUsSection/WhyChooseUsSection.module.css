@@ -78,6 +78,12 @@
   color: #12151c;
 }
 
+@media (min-width: 1921px) {
+  .title {
+    font-size: clamp(32px, 3.9vw, 64px);
+  }
+}
+
 .lede {
   margin: 0;
   max-width: 450px;

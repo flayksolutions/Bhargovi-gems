@@ -9,7 +9,7 @@
 }
 
 .inner {
-  max-width: 1360px;
+  max-width: var(--content-max);
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
@@ -48,6 +48,16 @@
 .titleAccent {
   font-size: clamp(20px, 2vw, 32px);
   color: #1b4c96;
+}
+
+@media (min-width: 1921px) {
+  .title span:first-child {
+    font-size: clamp(28px, 2.9vw, 52px);
+  }
+
+  .titleAccent {
+    font-size: clamp(20px, 2vw, 36px);
+  }
 }
 
 .body {

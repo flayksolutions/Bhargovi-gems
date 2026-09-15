@@ -35,6 +35,12 @@
   color: var(--ink-navy);
 }
 
+@media (min-width: 1921px) {
+  .title {
+    font-size: clamp(30px, 3.4vw, 54px);
+  }
+}
+
 .foot {
   display: flex;
   flex-direction: column;
@@ -177,6 +183,20 @@
 }
 
 /* ---------------------------- responsive ---------------------------- */
+
+@media (min-width: 1921px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 900px) minmax(0, 1fr);
+  }
+
+  .body {
+    font-size: clamp(14px, 1vw, 19px);
+  }
+
+  .point {
+    font-size: 17px;
+  }
+}
 
 @media (max-width: 960px) {
   .inner {
