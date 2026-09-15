@@ -16,7 +16,7 @@
      min-height keeps the section at the comp's stature now that the
      image no longer sets the height through an aspect ratio. */
   display: flex;
-  min-height: clamp(520px, 55.8vw, 804px);
+  min-height: clamp(702px, 75.3vw, 1085px);
   padding: 100px 0;
 }
 

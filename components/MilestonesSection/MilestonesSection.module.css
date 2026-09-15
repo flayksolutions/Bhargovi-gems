@@ -94,6 +94,34 @@
   margin: 0 auto;
 }
 
+@media (min-width: 1920px) {
+  .wave {
+    max-width: 2400px;
+    padding-inline: 64px;
+  }
+
+  .badge {
+    width: 76px;
+    height: 76px;
+  }
+
+  .content {
+    width: 260px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .year {
+    font-size: 34px;
+  }
+
+  .body {
+    font-size: 15px;
+  }
+}
+
 .line {
   position: relative;
   display: flex;
