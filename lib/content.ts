@@ -494,7 +494,7 @@ export const whyChooseUsSection = {
 };
 
 export const founderNoteSection = {
-  eyebrow: "Our Founder",
+  eyebrow: "Founder's Note",
   title: {
     lead: "A better way to bring ",
     accent: "brilliance",
@@ -506,7 +506,7 @@ export const founderNoteSection = {
   role: "Founder, Bhargovi Gems",
   /* PLACEHOLDER — the Figma comp uses a watermarked Unsplash+ stock
      portrait. Swap for the real founder photograph before launch. */
-  image: "/images/about/founder-portrait.jpg",
+  image: "/images/about/founder-portrait.webp",
   alt: "Portrait of the founder of Bhargovi Gems",
 };
 
