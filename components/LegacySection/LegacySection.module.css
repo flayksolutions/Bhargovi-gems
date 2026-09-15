@@ -122,18 +122,18 @@
     #f7fbff;
 }
 
+@media (min-width: 961px) {
+  .specTable {
+    max-width: 720px;
+  }
+}
+
 .table {
   width: 100%;
   min-width: 460px;
   border-collapse: collapse;
   table-layout: fixed;
   text-align: left;
-}
-
-@media (min-width: 961px) {
-  .table {
-    max-width: 720px;
-  }
 }
 
 /* Column boundaries from the comp: 188 / 345 / 498 of 646. */
