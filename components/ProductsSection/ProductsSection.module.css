@@ -32,7 +32,7 @@
   text-align: center;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .inner {
     max-width: 2100px;
   }
@@ -61,7 +61,7 @@
   text-wrap: balance;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(27px, 3.4vw, 68px);
   }

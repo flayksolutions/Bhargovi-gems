@@ -53,9 +53,15 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: clamp(64px, 12vh, 128px) var(--gutter) clamp(52px, 10vh, 108px);
+}
+
+@media (min-width: 1921px) {
+  .content {
+    max-width: 1600px;
+  }
 }
 
 .breadcrumb {
@@ -108,7 +114,7 @@
   color: #fff;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(32px, 4.1vw, 64px);
   }

@@ -42,7 +42,7 @@
   transform-origin: left center;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   /* Past ~1920px the `contain` box (capped at 940px wide) is much
      narrower than it is tall, so `contain` letterboxes the globe with
      empty gaps above and below instead of filling the section. `cover`
@@ -66,7 +66,7 @@
 
 .inner {
   position: relative;
-  max-width: 1800px;
+  max-width: 1640px;
   margin-inline: auto;
   display: flex;
   justify-content: flex-end;
@@ -94,7 +94,7 @@
   );
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .card {
     --cn: clamp(26px, 2.5vw, 56px);
     width: min(640px, 100%);
@@ -122,7 +122,7 @@
   color: var(--ink-deep);
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .eyebrow {
     margin: 0 0 clamp(10px, 1.2vh, 20px);
     font-size: clamp(14px, 0.76vw, 17px);
@@ -178,7 +178,7 @@
   color: #7286a3;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .list {
     gap: clamp(16px, 2.2vh, 34px);
   }

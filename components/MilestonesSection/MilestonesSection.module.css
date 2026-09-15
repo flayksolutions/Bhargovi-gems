@@ -76,7 +76,7 @@
   text-wrap: balance;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(26px, 2.6vw, 48px);
   }
@@ -86,15 +86,16 @@
 
 /* The first and last nodes centre a 200px label on a badge sitting at
    the very edge of the track, so the track needs its own inset or those
-   two labels run into (and past) the section gutter. */
+   two labels run into (and past) the section gutter. The inset is added
+   on top of --content-max so the line itself still reaches 1360px. */
 .wave {
   width: 100%;
-  max-width: 1800px;
+  max-width: calc(var(--content-max) + 88px);
   padding-inline: 44px;
   margin: 0 auto;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .wave {
     max-width: 2400px;
     padding-inline: 64px;

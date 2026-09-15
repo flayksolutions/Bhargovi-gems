@@ -69,10 +69,16 @@
   gap: clamp(20px, 3vw, 52px);
   margin: 0 auto;
   padding: 0 var(--gutter);
-  max-width: 1800px;
+  max-width: 1440px;
   list-style: none;
   overflow-x: auto;
   scrollbar-width: none;
+}
+
+@media (min-width: 1921px) {
+  .list {
+    max-width: 1600px;
+  }
 }
 
 .list::-webkit-scrollbar {

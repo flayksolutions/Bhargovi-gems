@@ -65,12 +65,18 @@
 
 .inner {
   position: relative;
-  max-width: 1800px;
+  max-width: 1640px;
   margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(28px, 5vw, 96px);
   align-items: start;
+}
+
+@media (min-width: 1921px) {
+  .inner {
+    max-width: 1800px;
+  }
 }
 
 .block {
@@ -180,7 +186,7 @@
   color: var(--ink-deep);
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(22px, 2.4vw, 50px);
   }

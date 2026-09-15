@@ -80,7 +80,7 @@
   color: var(--sapphire);
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title span:first-child,
   .titleAccent {
     font-size: clamp(26px, 3vw, 46px);

@@ -80,7 +80,7 @@
   color: #fff;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(34px, 4.6vw, 90px);
   }

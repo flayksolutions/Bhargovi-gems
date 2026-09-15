@@ -67,7 +67,7 @@
 }
 
 .inner {
-  max-width: 1800px;
+  max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
@@ -109,7 +109,7 @@
   color: #aecbf2;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title span:first-child {
     font-size: clamp(26px, 2.7vw, 50px);
   }
@@ -304,8 +304,9 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .inner {
+    max-width: 1400px;
     grid-template-columns: minmax(0, 1fr) minmax(0, 760px);
   }
 

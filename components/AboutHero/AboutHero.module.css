@@ -127,7 +127,7 @@
   display: block;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(38px, 5vw, 84px);
   }

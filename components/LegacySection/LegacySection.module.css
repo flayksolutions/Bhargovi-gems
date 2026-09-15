@@ -70,7 +70,7 @@
   text-wrap: balance;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(28px, 3.05vw, 50px);
   }

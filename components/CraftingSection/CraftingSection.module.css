@@ -52,13 +52,14 @@
 
 .content {
   position: relative;
-  max-width: 1800px;
+  max-width: 1640px;
   margin-inline: auto;
   margin-left: 50%;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .content {
+    max-width: 1800px;
     margin-left: 53%;
   }
 }
@@ -74,7 +75,7 @@
   text-wrap: balance;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(27px, 3vw, 60px);
   }

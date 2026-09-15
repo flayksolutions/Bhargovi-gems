@@ -50,7 +50,7 @@
   color: #1b4c96;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title span:first-child {
     font-size: clamp(28px, 2.9vw, 52px);
   }

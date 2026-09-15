@@ -46,8 +46,14 @@
 }
 
 .inner {
-  max-width: 1800px;
+  max-width: 1280px;
   margin: 0 auto;
+}
+
+@media (min-width: 1921px) {
+  .inner {
+    max-width: 1400px;
+  }
 }
 
 /* ---------------------------- header ----------------------------- */
@@ -78,7 +84,7 @@
   color: #fff;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .title {
     font-size: clamp(28px, 3.2vw, 50px);
   }
