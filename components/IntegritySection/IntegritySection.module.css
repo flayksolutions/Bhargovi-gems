@@ -184,6 +184,20 @@
 
 /* ---------------------------- responsive ---------------------------- */
 
+@media (min-width: 1920px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 900px) minmax(0, 1fr);
+  }
+
+  .body {
+    font-size: clamp(14px, 1vw, 19px);
+  }
+
+  .point {
+    font-size: 17px;
+  }
+}
+
 @media (max-width: 960px) {
   .inner {
     grid-template-columns: 1fr;

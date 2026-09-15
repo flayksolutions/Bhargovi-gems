@@ -304,6 +304,28 @@
   }
 }
 
+@media (min-width: 1920px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 760px);
+  }
+
+  .questionText {
+    font-size: clamp(15px, 1.2vw, 19px);
+  }
+
+  .answer {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .question,
+  .panelHeader,
+  .answer {
+    padding-left: 48px;
+    padding-right: 64px;
+  }
+}
+
 @media (max-width: 640px) {
   .section {
     padding-block: clamp(64px, 10vh, 100px);

@@ -151,3 +151,9 @@
     font-size: clamp(30px, 8vw, 44px);
   }
 }
+
+@media (min-width: 1920px) {
+  .hero {
+    padding-inline: 20%;
+  }
+}
