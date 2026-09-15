@@ -52,14 +52,13 @@
 
 .content {
   position: relative;
-  max-width: 1640px;
+  max-width: 1800px;
   margin-inline: auto;
   margin-left: 50%;
 }
 
 @media (min-width: 1920px) {
   .content {
-    max-width: 1800px;
     margin-left: 53%;
   }
 }

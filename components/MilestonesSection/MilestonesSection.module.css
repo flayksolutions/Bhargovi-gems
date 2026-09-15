@@ -86,11 +86,10 @@
 
 /* The first and last nodes centre a 200px label on a badge sitting at
    the very edge of the track, so the track needs its own inset or those
-   two labels run into (and past) the section gutter. The inset is added
-   on top of --content-max so the line itself still reaches 1360px. */
+   two labels run into (and past) the section gutter. */
 .wave {
   width: 100%;
-  max-width: calc(var(--content-max) + 88px);
+  max-width: 1800px;
   padding-inline: 44px;
   margin: 0 auto;
 }

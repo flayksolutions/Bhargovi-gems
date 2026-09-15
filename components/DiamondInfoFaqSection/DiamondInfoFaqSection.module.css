@@ -67,18 +67,12 @@
 }
 
 .inner {
-  max-width: 1280px;
+  max-width: 1800px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
   gap: clamp(32px, 5vw, 88px);
   align-items: start;
-}
-
-@media (min-width: 1920px) {
-  .inner {
-    max-width: 1400px;
-  }
 }
 
 .eyebrow {

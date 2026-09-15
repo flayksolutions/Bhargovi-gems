@@ -10,14 +10,8 @@
 }
 
 .inner {
-  max-width: 1240px;
+  max-width: 1800px;
   margin: 0 auto;
-}
-
-@media (min-width: 1920px) {
-  .inner {
-    max-width: 1360px;
-  }
 }
 
 /* ---------------------------- header ----------------------------- */

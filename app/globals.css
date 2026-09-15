@@ -38,19 +38,8 @@
   --header-h: clamp(62px, 5.4vw, 92px);
   --gutter: clamp(20px, 4.4vw, 72px);
   /* Widest a section's content may run, measured inside the gutter. */
-  --content-max: 1360px;
+  --content-max: 1800px;
 
-}
-
-/* Wide-desktop tier (≥1920px): every clamp() above is already capped,
-   so past this width content stops growing and just sits in a wider
-   and wider band of empty gutter. Bumping the shared tokens here lets
-   content (and, per-component, type) claim a bit more of that room
-   instead of leaving it idle. */
-@media (min-width: 1920px) {
-  :root {
-    --content-max: 1520px;
-  }
 }
 
 /* ------------------------------------------------------------------

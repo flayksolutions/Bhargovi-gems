@@ -62,16 +62,10 @@
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 1440px;
+  max-width: 1800px;
   margin-inline: auto;
   padding-left: clamp(20px, 9.65vw, 139px);
   padding-right: clamp(20px, 8.89vw, 128px);
-}
-
-@media (min-width: 1920px) {
-  .inner {
-    max-width: 1600px;
-  }
 }
 
 .grid {
