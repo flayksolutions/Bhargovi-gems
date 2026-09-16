@@ -265,7 +265,7 @@ export const footer = {
     offices: [
       {
         heading: "Mumbai",
-        label: "Bharat Diamond Bourse, BKC, Mumbai, India",
+        label: "Corporate Office, Mumbai, India",
       },
       {
         heading: "Surat",
@@ -1298,6 +1298,7 @@ export const labGrownVsMinedSection = {
     },
   ],
   rows: [
+    // in values, first value should be the lab-grown diamond and second value should be the mined diamond
     {
       id: "formation",
       label: "Formation",
@@ -1331,11 +1332,11 @@ export const labGrownVsMinedSection = {
       ],
     },
     {
-      id: "sourcing",
-      label: "Sourcing",
+      id: "manufacturing",
+      label: "Manufacturing",
       values: [
-        "Every Bhargovi diamond undergoes careful in-house inspection to ensure precision, consistency and quality",
-        "Traceability depends on partners’ chain-of-custody, not in-house",
+        "Produced using controlled technology, allowing manufacturing to respond to specific market requirements.",
+        "Dependent on naturally occurring rough diamonds recovered through mining.",
       ],
     },
   ] satisfies ComparisonRow[],
@@ -1568,45 +1569,18 @@ export const diamondInfoFaqSection = {
   body: "A few of the questions we hear most often from businesses looking to source HPHT lab-grown diamonds.",
   panelLabel: "Frequently Asked",
   background: "/images/diamond-info/faq-diamonds.jpg",
-  // items: [
-  //   {
-  //     id: "certified",
-  //     question: "Are all Bhargovi Gems diamonds independently certified?",
-  //     answer:
-  //       "Every certified stone we ship carries a GIA or IGI report, quoted by number on the invoice and matched to a laser inscription on the girdle. Non-certified parcels are graded in-house against the same 4Cs and are always labelled as such — we never blur the two.",
-  //   },
-  //   {
-  //     id: "custom-assortments",
-  //     question:
-  //       "Can we request custom parcel assortments by clarity, colour or size?",
-  //     answer:
-  //       "Yes. Custom assortments are assembled to order against the spec you send us — clarity, colour, size or shape — with minimums that depend on the band. Talk to sourcing and we will confirm lead time and minimum order for your parcel.",
-  //   },
-  //   {
-  //     id: "certified-and-non-certified",
-  //     question: "Do you supply both certified and non-certified goods?",
-  //     answer:
-  //       "We do. Certified goods are graded and reported by GIA or IGI; non-certified goods are graded in-house against the same 4Cs and priced accordingly. Every quote states clearly which category a parcel falls into.",
-  //   },
-  //   {
-  //     id: "authenticity",
-  //     question: "How is the authenticity of each stone verified before export?",
-  //     answer:
-  //       "Each certified stone carries a laser inscription on the girdle matched to its grading report number, and every shipment is documented under Kimberley Process and RJC chain-of-custody standards before it leaves our facility.",
-  //   },
-  //   {
-  //     id: "moq",
-  //     question: "What is the minimum order quantity for wholesale buyers?",
-  //     answer:
-  //       "Minimums vary by category and band — melee parcels start small, while certified goods are typically quoted per carat lot. Share your target spec with sourcing and we will confirm the minimum for that specific order.",
-  //   },
-  // ] satisfies FAQItem[],
   items: [
+    // {
+    //   id: "lab-grown",
+    //   question: "Are all Bhargovi Gems diamonds lab-grown?",
+    //   answer:
+    //     "Yes. Bhargovi Gems is completely focused on lab-grown diamond manufacturing, with our production dedicated to HPHT-grown diamonds.",
+    // },
     {
-      id: "lab-grown",
-      question: "Are all Bhargovi Gems diamonds lab-grown?",
+      id: "certified",
+      question: "Are all Bhargovi Gems Diamonds Certified?",
       answer:
-        "Yes. Bhargovi Gems is completely focused on lab-grown diamond manufacturing, with our production dedicated to HPHT-grown diamonds.",
+        "No. Individual certification is not provided for every diamond we supply. At Bhargovi Gems, we have built our business around trust, consistency and long-term relationships. Where certification is not required, we avoid adding unnecessary certification costs and pass those savings on to our customers.",
     },
     {
       id: "technology",
@@ -1618,7 +1592,7 @@ export const diamondInfoFaqSection = {
       id: "sizes-colours-clarities",
       question: "What sizes, colours and clarities do you offer?",
       answer:
-        "Our available sizes, colours and clarities vary depending on the diamond shape and specific requirement. We offer a wide range across melee, rounds and fancy shapes, with availability extending across different carat sizes and specifications. Please contact our team with your requirements for current availability.",
+        "Our available sizes, colours and clarities vary based on the specific diamond requirement. We offer a broad selection across different carat sizes, colours and clarity grades, with options available to suit varying specifications and applications. Please contact our team with your requirements for current availability.",
     },
     {
       id: "shapes",
@@ -1628,9 +1602,9 @@ export const diamondInfoFaqSection = {
     },
     {
       id: "custom-requirements",
-      question: "Can we request diamonds according to specific requirements?",
+      question: "Do you accept bulk and recurring orders?",
       answer:
-        "Yes. B2B buyers can share their requirements based on shape, carat size, colour, clarity and other specific specifications. Our team can then review availability and suitable options.",
+        "Yes. We work with trade customers on both individual requirements and recurring supply needs. Orders are handled according to the required specifications, quantity and availability.",
     },
   ] satisfies FAQItem[],
 };
@@ -1832,7 +1806,7 @@ export const contactFormSection = {
       name: "Surat",
       label: "Manufacturing Facility",
       address:
-        "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture, Kapodra, Surat-395006",
+        "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture Mall, Kapodra, Surat-395006",
     },
   ] satisfies ContactOffice[],
   reachOutTitle: "Reach Out to us at",
