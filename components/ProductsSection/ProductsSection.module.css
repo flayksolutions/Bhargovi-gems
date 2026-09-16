@@ -77,7 +77,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--shapes-gap);
-  margin: clamp(48px, 9vh, 120px) auto clamp(52px, 10vh, 128px);
+  margin: clamp(48px, 9vh, 120px) auto clamp(24px, 4vh, 56px);
   padding: 0;
   /* 100%, not 96vw: vw includes the scrollbar gutter, so it can exceed
      .inner's actual content width and overflow past the section's
@@ -213,6 +213,42 @@
     opacity: 1;
     transform: none;
   }
+}
+
+.moreInfoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto clamp(20px, 4vh, 48px);
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1vw, 19px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--sapphire);
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.moreInfoLabel {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.moreInfoArrow {
+  transition: transform 320ms var(--ease-soft);
+}
+
+.moreInfoLink:hover,
+.moreInfoLink:focus-visible {
+  color: var(--ink-deep);
+  opacity: 0.8;
+}
+
+.moreInfoLink:hover .moreInfoArrow,
+.moreInfoLink:focus-visible .moreInfoArrow {
+  transform: translateX(4px);
 }
 
 /* ---------------------------- tagline ---------------------------- */
