@@ -193,7 +193,8 @@
 .stageCaption {
   margin: 8px 0 0;
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 16px;
+  font-weight: 500;
   color: var(--azure);
 }
 

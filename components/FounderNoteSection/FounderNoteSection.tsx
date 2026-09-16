@@ -48,11 +48,11 @@ export default function FounderNoteSection({
 
         <blockquote className={styles.copy}>
           <p className={styles.eyebrow}>{eyebrow}</p>
-          {/* <h2 id="founder-note-title" className={styles.title}>
+          <h2 id="founder-note-title" className={styles.title}>
             {title.lead}
             <span className={styles.titleAccent}>{title.accent}</span>
             {title.trail}
-          </h2> */}
+          </h2>
 
           <p className={styles.quote}>{quote}</p>
 

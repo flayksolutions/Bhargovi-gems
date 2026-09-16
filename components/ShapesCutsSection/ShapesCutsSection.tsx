@@ -85,7 +85,7 @@ export default function ShapesCutsSection({
           </div>
 
           <h3 className={styles.stageName}>{selected.name}</h3>
-          <p className={styles.stageCaption}>{selected.caption}</p>
+          <p className={styles.stageCaption}>Available Sizes: {selected.size}</p>
 
           <dl className={styles.stats}>
             {selected.stats.map((stat) => (

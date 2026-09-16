@@ -90,8 +90,8 @@ export default function ProductsSection({
               </div>
               <span className={styles.shapeMeta}>
                 <span className={styles.shapeName}>{shape.name}</span>
-                <span className={styles.shapeDivider} aria-hidden="true" />
-                <span className={styles.shapeSize}>{shape.size}</span>
+                {/* <span className={styles.shapeDivider} aria-hidden="true" />
+                <span className={styles.shapeSize}>{shape.size}</span> */}
               </span>
             </li>
           ))}
@@ -99,7 +99,7 @@ export default function ProductsSection({
 
         <Link href={moreInfoCta.href} className={styles.moreInfoLink}>
           <span className={styles.moreInfoLabel}>{moreInfoCta.label}</span>
-          <svg
+          {/* <svg
             width="20"
             height="15"
             viewBox="0 0 16 12"
@@ -114,7 +114,7 @@ export default function ProductsSection({
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg>
+          </svg> */}
         </Link>
 
         <div>

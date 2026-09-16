@@ -123,22 +123,22 @@ export const productsSection = {
   title: "Each One Grown, Not Mined",
   tagline: "Precision. Purity. Perfection",
   background: "/images/shapes-bg.png",
-  moreInfoCta: { label: "More Info", href: "/diamond-information#shapes" },
+  moreInfoCta: { label: "Know More", href: "/diamond-information#shapes" },
   shapes: [
     { src: "/images/shapes/round-brilliant.png", name: "Round", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/trillian.png", name: "Trillion", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/oval.png", name: "Oval", size: "0.30 - 5.00 CT" },
     { src: "/images/shapes/cushion.png", name: "Cushion", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/trapezoid.png", name: "Trapezoid", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/baguette.png", name: "Baguette", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/pear.png", name: "Pear", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/emerald.png", name: "Emerald", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/marquise.png", name: "Marquise", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/trillian.png", name: "Trillion", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/princess.png", name: "Princess", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/heart.png", name: "Heart", size: "0.30 - 5.00 CT" },
     { src: "/images/shapes/half-moon.png", name: "Half Moon", size: "0.30 - 5.00 CT" },
     { src: "/images/shapes/asscher.png", name: "Asscher", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/emerald.png", name: "Emerald", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/heart.png", name: "Heart", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/baguette.png", name: "Baguette", size: "0.30 - 5.00 CT" },
     { src: "/images/shapes/radiant.png", name: "Radiant", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/oval.png", name: "Oval", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/princess.png", name: "Princess", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/pear.png", name: "Pear", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/marquise.png", name: "Marquise", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/trapezoid.png", name: "Trapezoid", size: "0.30 - 5.00 CT" },
   ],
 };
 
@@ -257,6 +257,7 @@ export const footer = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Diamond Information", href: "/diamond-information" },
+    { label: "Sustainability", href: "/sustainability" },
     { label: "Contact", href: "/contact" },
   ],
   contact: {
@@ -377,7 +378,7 @@ export const craftingSection = {
 export const aboutHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "About Us" }],
   titleLines: ["A Family Legacy", "Since 1988"],
-  body: "Built on over four decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
+  body: "Built on over four decades of diamond expertise, we combine craftsmanship with modern technology to create precision-cut diamonds across an extensive range of shapes and sizes.",
   image: "/images/about/hero-legacy-office.webp",
   alt: "The Bhargovi Gems founder's office overlooking the lake, with a view of the Kolkata Birla Mandir on the wall",
 };
@@ -392,7 +393,7 @@ export type SpecTableRow = {
 export const legacySection = {
   eyebrow: "About Us",
   /* Split so the trailing clause can carry the accent colour. */
-  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1988" },
+  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "" },
   body: "With in-house cutting and polishing capabilities and a strong inventory, Bhargovi Gems delivers precision-manufactured lab-grown diamonds to clients across India.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
@@ -434,12 +435,12 @@ export const legacySection = {
       {
         id: "round-brilliant",
         category: "Round Brilliant",
-        values: ["VVS-VS", "D - E - F", "0.03 carat - 1.50 carats"],
+        values: ["VVS-VS", "D - E - F", "0.03 – 1.50 CT"],
       },
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – E - F", "0.10 carat - 1 carat"],
+        values: ["VVS", "D – E - F", "0.05 – 1.00 CT"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -455,7 +456,7 @@ export type WhyChooseUsItem = {
 export const whyChooseUsSection = {
   eyebrow: "Held to a Higher Cut",
   title: "Why Choose Us",
-  body: "A brilliant is read facet by facet. So is a supplier. These are the five we are judged on, and the five we will not trade away.",
+  body: "Every diamond reflects precision. Every relationship reflects trust. These are the standards we uphold and never compromise.",
   /* Cut-out artwork with its own alpha — it bleeds off the left edge of
      the viewport, so it must stay transparent, not a boxed photo. */
   image: "/images/about/why-choose-us-ribbon.png",
@@ -497,9 +498,9 @@ export const whyChooseUsSection = {
 export const founderNoteSection = {
   eyebrow: "Founder's Note",
   title: {
-    lead: "A better way to bring ",
-    accent: "brilliance",
-    trail: " into the world.",
+    lead: "A business built on ",
+    accent: "quality, trust and relationships.",
+    trail: "",
   },
   quote:
     "When I founded Bhargovi Gems in 1988, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
@@ -514,11 +515,11 @@ export const founderNoteSection = {
 export const visionSection = {
   eyebrow: "Our Vision",
   title: {
-    lead: "Every stone we release should give back ",
-    accent: "more light than it was asked for",
+    lead: "Where Experience Meets ",
+    accent: "the Future",
     trail: ".",
   },
-  body: "Brilliance is not a grade on a certificate. It is what the light does when it leaves the table, and it is the only thing the customer ever really sees.",
+  body: "To carry forward decades of diamond expertise while embracing the future of manufacturing, creating exceptional diamonds through precision, innovation and an unwavering commitment to quality.",
   image: "/images/about/diamond-on-table.jpg",
   alt: "Several hands resting together on the trunk of an old tree",
 };
@@ -1019,7 +1020,7 @@ export const fourCsSection = {
       ticks: ["EX", "VG", "G", "F", "P"],
       fill: 0.4,
       note: { lead: "Ships", accent: "EX–VG", trail: "only" },
-      standard: "EX, VG",
+      standard: "EX - VG",
     },
     {
       id: "colour",
@@ -1072,7 +1073,7 @@ export const fourCsSection = {
         },
       ],
       note: { lead: "Certified", accent: "IF–SI2" },
-      standard: "VVS, VS",
+      standard: "VVS - VS",
     },
     {
       id: "carat",
@@ -1126,8 +1127,8 @@ export type ShapeItem = {
   /** transparent PNG used both in the dock and on the stage */
   photo: string;
   alt: string;
-  /** one line under the stage name */
-  caption: string;
+  /** carat range shown under the stage name */
+  size: string;
   featured?: boolean;
   tag?: string;
   /* Proportion bands quoted on our own grading sheets. Verify against the
@@ -1138,9 +1139,7 @@ export type ShapeItem = {
 const shapeStats = (
   table: string,
   depth: string,
-  size: string = "0.30 - 5.00 CT"
 ): ShapeStat[] => [
-  { label: "Size", value: size },
   { label: "Table %", value: table },
   { label: "Depth %", value: depth },
   { label: "Girdle", value: "Thin – Sl. Thick" },
@@ -1162,48 +1161,80 @@ export const shapesCutsSection = {
       name: "Round Brilliant",
       photo: "/images/shapes/round-brilliant.png",
       alt: "A round brilliant cut diamond viewed from the crown",
-      caption: "58 facets · the benchmark for light return",
+      size: "0.03 - 1.50 CT",
       featured: true,
       stats: shapeStats("54 – 58", "59 – 63"),
     },
     {
-      id: "trillion",
-      name: "Trillion",
-      photo: "/images/shapes/trillian.png",
-      alt: "A trillion cut diamond viewed from above",
-      caption: "31 facets · triangular, shallow and bright",
-      stats: shapeStats("55 – 70", "32 – 44"),
+      id: "oval",
+      name: "Oval",
+      photo: "/images/shapes/oval.png",
+      alt: "An oval cut diamond viewed from above",
+      size: "0.10 - 1.00 CT",
+      stats: shapeStats("53 – 63", "58 – 65"),
     },
     {
       id: "cushion",
       name: "Cushion",
       photo: "/images/shapes/cushion.png",
       alt: "A cushion cut diamond viewed from above",
-      caption: "58 facets · rounded corners, soft antique glow",
+      size: "0.30 - 1.00 CT",
       stats: shapeStats("55 – 68", "58 – 68"),
     },
     {
-      id: "trapezoid",
-      name: "Trapezoid",
-      photo: "/images/shapes/trapezoid.png",
-      alt: "A trapezoid cut diamond viewed from above",
-      caption: "24 facets · a geometric accent stone",
-      stats: shapeStats("55 – 68", "35 – 48"),
+      id: "pear",
+      name: "Pear",
+      photo: "/images/shapes/pear.png",
+      alt: "A pear cut diamond viewed from above",
+      size: "0.10 - 1.00 CT",
+      stats: shapeStats("53 – 65", "58 – 66"),
     },
     {
-      id: "baguette",
-      name: "Baguette",
-      photo: "/images/shapes/baguette.png",
-      alt: "A baguette cut diamond viewed from above",
-      caption: "14 facets · clean steps for channel setting",
-      stats: shapeStats("60 – 72", "38 – 52"),
+      id: "emerald",
+      name: "Emerald",
+      photo: "/images/shapes/emerald.png",
+      alt: "An emerald cut diamond viewed from above",
+      size: "0.10 - 1.00 CT",
+      stats: shapeStats("61 – 69", "61 – 67"),
+    },
+    {
+      id: "marquise",
+      name: "Marquise",
+      photo: "/images/shapes/marquise.png",
+      alt: "A marquise cut diamond viewed from above",
+      size: "0.06 - 0.50 CT",
+      stats: shapeStats("53 – 63", "58 – 62"),
+    },
+    {
+      id: "trillion",
+      name: "Trillion",
+      photo: "/images/shapes/trillian.png",
+      alt: "A trillion cut diamond viewed from above",
+      size: "0.30 - 0.50 CT",
+      stats: shapeStats("55 – 70", "32 – 44"),
+    },
+    {
+      id: "princess",
+      name: "Princess",
+      photo: "/images/shapes/princess.png",
+      alt: "A princess cut diamond viewed from above",
+      size: "0.05 - 0.75 CT",
+      stats: shapeStats("67 – 72", "64 – 75"),
+    },
+    {
+      id: "heart",
+      name: "Heart",
+      photo: "/images/shapes/heart.png",
+      alt: "A heart cut diamond viewed from above",
+      size: "0.30 - 1.00 CT",
+      stats: shapeStats("53 – 63", "56 – 66"),
     },
     {
       id: "half-moon",
       name: "Half Moon",
       photo: "/images/shapes/half-moon.png",
       alt: "A half moon cut diamond viewed from above",
-      caption: "16 facets · a side stone, cut in matched pairs",
+      size: "0.30 - 0.50 CT",
       stats: shapeStats("55 – 65", "55 – 68"),
     },
     {
@@ -1211,64 +1242,32 @@ export const shapesCutsSection = {
       name: "Asscher",
       photo: "/images/shapes/asscher.png",
       alt: "An asscher cut diamond viewed from above",
-      caption: "58 facets · step-cut square with cropped corners",
+      size: "0.30 - 1.00 CT",
       stats: shapeStats("60 – 70", "60 – 70"),
     },
     {
-      id: "emerald",
-      name: "Emerald",
-      photo: "/images/shapes/emerald.png",
-      alt: "An emerald cut diamond viewed from above",
-      caption: "57 facets · step-cut, hall-of-mirrors effect",
-      stats: shapeStats("61 – 69", "61 – 67"),
-    },
-    {
-      id: "heart",
-      name: "Heart",
-      photo: "/images/shapes/heart.png",
-      alt: "A heart cut diamond viewed from above",
-      caption: "59 facets · the most demanding outline to cut",
-      stats: shapeStats("53 – 63", "56 – 66"),
+      id: "baguette",
+      name: "Baguette",
+      photo: "/images/shapes/baguette.png",
+      alt: "A baguette cut diamond viewed from above",
+      size: "0.05 - 0.25 CT",
+      stats: shapeStats("60 – 72", "38 – 52"),
     },
     {
       id: "radiant",
       name: "Radiant",
       photo: "/images/shapes/radiant.png",
       alt: "A radiant cut diamond viewed from above",
-      caption: "70 facets · cropped corners with brilliant-cut fire",
+      size: "0.30 - 1.00 CT",
       stats: shapeStats("61 – 69", "61 – 67"),
     },
     {
-      id: "oval",
-      name: "Oval",
-      photo: "/images/shapes/oval.png",
-      alt: "An oval cut diamond viewed from above",
-      caption: "58 facets · elongated, finger-lengthening",
-      stats: shapeStats("53 – 63", "58 – 65"),
-    },
-    {
-      id: "princess",
-      name: "Princess",
-      photo: "/images/shapes/princess.png",
-      alt: "A princess cut diamond viewed from above",
-      caption: "76 facets · sharp, modern corners",
-      stats: shapeStats("67 – 72", "64 – 75"),
-    },
-    {
-      id: "pear",
-      name: "Pear",
-      photo: "/images/shapes/pear.png",
-      alt: "A pear cut diamond viewed from above",
-      caption: "58 facets · brilliance with a single point",
-      stats: shapeStats("53 – 65", "58 – 66"),
-    },
-    {
-      id: "marquise",
-      name: "Marquise",
-      photo: "/images/shapes/marquise.png",
-      alt: "A marquise cut diamond viewed from above",
-      caption: "58 facets · elongated points that maximise apparent size",
-      stats: shapeStats("53 – 63", "58 – 62"),
+      id: "trapezoid",
+      name: "Trapezoid",
+      photo: "/images/shapes/trapezoid.png",
+      alt: "A trapezoid cut diamond viewed from above",
+      size: "0.30 - 1.00 CT",
+      stats: shapeStats("55 – 68", "35 – 48"),
     },
   ] satisfies ShapeItem[],
   catalogueLink: { label: "View the full shape catalogue", href: "/products" },
@@ -1572,7 +1571,7 @@ export const diamondInfoFaqSection = {
   id: "faqs",
   eyebrow: "Common Questions",
   titleLines: ["What Buyers", "Ask Us Most"],
-  body: "A few of the questions we hear most often from businesses looking to source HPHT lab-grown diamonds.",
+  body: "A few of the questions we hear most often from businesses looking to source Lab-Grown Diamonds.",
   panelLabel: "Frequently Asked",
   background: "/images/diamond-info/faq-diamonds.jpg",
   items: [
@@ -1586,7 +1585,7 @@ export const diamondInfoFaqSection = {
       id: "certified",
       question: "Are all Bhargovi Gems Diamonds Certified?",
       answer:
-        "No. Individual certification is not provided for every diamond we supply. At Bhargovi Gems, we have built our business around trust, consistency and long-term relationships. Where certification is not required, we avoid adding unnecessary certification costs and pass those savings on to our customers.",
+        "No. Individual certification is not provided for every diamond we supply. At Bhargovi Gems, we have built our business around trust, consistency and long-term relationships. We avoid adding unnecessary certification costs and pass those savings on to our customers.",
     },
     {
       id: "technology",
@@ -1791,7 +1790,7 @@ export const contactFormSection = {
       label: "Tell Us What You Need",
       name: "message",
       type: "textarea",
-      placeholder: "Volume, specifications, timeline, or partnership details…",
+      placeholder: "Volume, specifications, timeline, or other details…",
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
