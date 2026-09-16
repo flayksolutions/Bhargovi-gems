@@ -221,7 +221,7 @@
   gap: 8px;
   margin: 0 auto clamp(20px, 4vh, 48px);
   font-family: var(--font-body);
-  font-size: clamp(16px, 1vw, 19px);
+  font-size: clamp(20px, 1.3vw, 24px);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--sapphire);

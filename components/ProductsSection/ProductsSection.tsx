@@ -100,8 +100,8 @@ export default function ProductsSection({
         <Link href={moreInfoCta.href} className={styles.moreInfoLink}>
           <span className={styles.moreInfoLabel}>{moreInfoCta.label}</span>
           <svg
-            width="16"
-            height="12"
+            width="20"
+            height="15"
             viewBox="0 0 16 12"
             fill="none"
             aria-hidden="true"
