@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./ProductsSection.module.css";
 import logo from "@/public/brand/bhargovi/brand-logo.png";
 
@@ -17,6 +18,7 @@ type Props = {
   tagline: string;
   background: string;
   shapes: Shape[];
+  moreInfoCta: { label: string; href: string };
 };
 
 // Base columns per breakpoint, matching the CSS `--shapes-per-row`
@@ -31,6 +33,7 @@ export default function ProductsSection({
   tagline,
   background,
   shapes,
+  moreInfoCta,
 }: Props) {
   // flex-wrap fills each row to a fixed width and dumps the remainder
   // into the last row, so a hardcoded --shapes-per-row leaves an
@@ -93,6 +96,27 @@ export default function ProductsSection({
             </li>
           ))}
         </ul>
+
+        <Link href={moreInfoCta.href} className={styles.moreInfoLink}>
+          <span className={styles.moreInfoLabel}>{moreInfoCta.label}</span>
+          <svg
+            width="20"
+            height="15"
+            viewBox="0 0 16 12"
+            fill="none"
+            aria-hidden="true"
+            className={styles.moreInfoArrow}
+          >
+            <path
+              d="M9.5 1L15 6M15 6L9.5 11M15 6H1"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+
         <div>
         {/* <Image
                   src={logo}

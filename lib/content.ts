@@ -123,6 +123,7 @@ export const productsSection = {
   title: "Each One Grown, Not Mined",
   tagline: "Precision. Purity. Perfection",
   background: "/images/shapes-bg.png",
+  moreInfoCta: { label: "More Info", href: "/diamond-information#shapes" },
   shapes: [
     { src: "/images/shapes/round-brilliant.png", name: "Round", size: "0.30 - 5.00 CT" },
     { src: "/images/shapes/trillian.png", name: "Trillion", size: "0.30 - 5.00 CT" },
@@ -1134,7 +1135,12 @@ export type ShapeItem = {
   stats: ShapeStat[];
 };
 
-const shapeStats = (table: string, depth: string): ShapeStat[] => [
+const shapeStats = (
+  table: string,
+  depth: string,
+  size: string = "0.30 - 5.00 CT"
+): ShapeStat[] => [
+  { label: "Size", value: size },
   { label: "Table %", value: table },
   { label: "Depth %", value: depth },
   { label: "Girdle", value: "Thin – Sl. Thick" },
