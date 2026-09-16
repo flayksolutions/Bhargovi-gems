@@ -100,6 +100,11 @@
       (100% - (var(--shapes-per-row) - 1) * var(--shapes-gap)) /
         var(--shapes-per-row)
     );
+  /* Without this, the flex item's default min-width:auto keeps it from
+     shrinking below the shapeMeta text's min-content width (the
+     nowrap shapeSize line), which was overriding the flex-basis above
+     and pushing the row to wrap early. */
+  min-width: 0;
   padding: 8px;
   cursor: default;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
