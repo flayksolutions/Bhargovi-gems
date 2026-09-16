@@ -144,7 +144,7 @@
 
 .card {
   position: relative;
-  width: calc(30% + 70% * var(--pf));
+  width: calc(40% + 60% * var(--pf));
   min-width: min(320px, 100%);
   /* Overshoots 100vh slightly at full so there is no seam; the
      pinned viewport clips it. */
