@@ -1,10 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import styles from "./AnatomyGlossarySection.module.css";
 import type { GlossaryTerm } from "@/lib/content";
-import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   id: string;
@@ -27,11 +25,8 @@ export default function AnatomyGlossarySection({
   glossaryHeading,
   terms,
 }: Props) {
-  const sectionRef = useRef<HTMLElement>(null);
-  useRevealOnScroll(sectionRef);
-
   return (
-    <section id={id} className={styles.section} aria-labelledby="anatomy-title" ref={sectionRef}>
+    <section id={id} className={styles.section} aria-labelledby="anatomy-title">
       <div className={styles.inner}>
         <div className={styles.left}>
           <p className={styles.eyebrow}>{eyebrow}</p>

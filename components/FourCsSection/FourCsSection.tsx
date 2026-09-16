@@ -1,10 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import styles from "./FourCsSection.module.css";
 import type { FourCCard, FourCNote } from "@/lib/content";
-import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 
 type Props = {
   id: string;
@@ -114,11 +112,8 @@ function CardGraphic({ card }: { card: FourCCard }) {
 }
 
 export default function FourCsSection({ id, eyebrow, titleLines, body, cards }: Props) {
-  const sectionRef = useRef<HTMLElement>(null);
-  useRevealOnScroll(sectionRef, `.${styles.card}`);
-
   return (
-    <section id={id} className={styles.section} aria-labelledby="four-cs-title" ref={sectionRef}>
+    <section id={id} className={styles.section} aria-labelledby="four-cs-title">
       <div className={styles.inner}>
         <header className={styles.head}>
           <div className={styles.headLeft}>

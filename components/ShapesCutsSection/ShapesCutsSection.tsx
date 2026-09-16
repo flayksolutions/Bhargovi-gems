@@ -39,7 +39,7 @@ export default function ShapesCutsSection({
   // Lets a mouse wheel or click-drag pan the row too, not just touch/trackpad.
   usePointerHorizontalScroll(dockRowRef);
   useRevealOnScroll(sectionRef, undefined, "0px 0px -45% 0px");
-  useRevealOnScroll(sectionRef, `.${styles.dockItem}`, "0px 0px -10% 0px");
+  useRevealOnScroll(sectionRef, `.${styles.dockItem}`, "0px 0px 200px 0px");
 
   return (
     <section id={id} className={styles.section} aria-labelledby="shapes-title" ref={sectionRef}>
