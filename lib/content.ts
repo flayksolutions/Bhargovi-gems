@@ -377,7 +377,7 @@ export const aboutHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "About Us" }],
   titleLines: ["A Family Legacy", "Since 1988"],
   body: "Built on over four decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
-  image: "/images/about/hero-legacy-office.jpg",
+  image: "/images/about/hero-legacy-office.webp",
   alt: "The Bhargovi Gems founder's office overlooking the lake, with a view of the Kolkata Birla Mandir on the wall",
 };
 
