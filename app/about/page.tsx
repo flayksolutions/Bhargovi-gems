@@ -36,7 +36,7 @@ export default function AboutPage() {
           <LegacySection {...legacySection} />
           <WhyChooseUsSection {...whyChooseUsSection} />
           <FounderNoteSection {...founderNoteSection} />
-          <MilestonesSection {...milestonesSection} />
+          {/* <MilestonesSection {...milestonesSection} /> */}
           <VisionSection {...visionSection} />
         </div>
       </main>

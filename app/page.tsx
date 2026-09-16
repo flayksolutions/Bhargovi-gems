@@ -19,7 +19,9 @@ import {
   processSection,
   productsSection,
   site,
+  milestonesSection,
 } from "@/lib/content";
+import MilestonesSection from "@/components/MilestonesSection";
 
 export default function Home() {
   return (
@@ -36,6 +38,7 @@ export default function Home() {
           {/* <FacilityCarousel {...facilitySection} /> */}
           <OfficesSection {...officesSection} />
           <CraftingSection {...craftingSection} />
+          <MilestonesSection {...milestonesSection} />
           <CommitmentsSection {...commitmentsSection} />
         </div>
       </main>
