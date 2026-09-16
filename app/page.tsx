@@ -38,7 +38,7 @@ export default function Home() {
           {/* <FacilityCarousel {...facilitySection} /> */}
           <OfficesSection {...officesSection} />
           <CraftingSection {...craftingSection} />
-          <MilestonesSection {...milestonesSection} />
+          {/* <MilestonesSection {...milestonesSection} /> */}
           <CommitmentsSection {...commitmentsSection} />
         </div>
       </main>
