@@ -1135,7 +1135,12 @@ export type ShapeItem = {
   stats: ShapeStat[];
 };
 
-const shapeStats = (table: string, depth: string): ShapeStat[] => [
+const shapeStats = (
+  table: string,
+  depth: string,
+  size: string = "0.30 - 5.00 CT"
+): ShapeStat[] => [
+  { label: "Size", value: size },
   { label: "Table %", value: table },
   { label: "Depth %", value: depth },
   { label: "Girdle", value: "Thin – Sl. Thick" },
