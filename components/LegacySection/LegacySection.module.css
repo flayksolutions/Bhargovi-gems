@@ -70,6 +70,12 @@
   text-wrap: balance;
 }
 
+@media (min-width: 1921px) {
+  .title {
+    font-size: clamp(28px, 3.05vw, 50px);
+  }
+}
+
 .titleAccent {
   color: #0049bc;
 }
@@ -114,6 +120,12 @@
     linear-gradient(to left, rgba(10, 32, 66, 0.14), rgba(10, 32, 66, 0))
       right / 10px 100% no-repeat scroll,
     #f7fbff;
+}
+
+@media (min-width: 961px) {
+  .specTable {
+    max-width: 720px;
+  }
 }
 
 .table {

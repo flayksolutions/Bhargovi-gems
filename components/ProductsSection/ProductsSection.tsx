@@ -8,6 +8,7 @@ import logo from "@/public/brand/bhargovi/brand-logo.png";
 type Shape = {
   src: string;
   name: string;
+  size: string;
 };
 
 type Props = {
@@ -84,7 +85,11 @@ export default function ProductsSection({
                   className={styles.shapeImage}
                 />
               </div>
-              <span className={styles.shapeName}>{shape.name}</span>
+              <span className={styles.shapeMeta}>
+                <span className={styles.shapeName}>{shape.name}</span>
+                <span className={styles.shapeDivider} aria-hidden="true" />
+                <span className={styles.shapeSize}>{shape.size}</span>
+              </span>
             </li>
           ))}
         </ul>

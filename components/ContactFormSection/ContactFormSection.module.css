@@ -73,7 +73,6 @@
   z-index: 1;
   width: 100%;
   max-width: 720px;
-  margin-left: calc(var(--gutter) * 2);
 
   display: flex;
   flex-direction: column;
@@ -490,6 +489,16 @@
 }
 
 /* ---------------------------- reveal (reduced motion) ------------- */
+
+@media (min-width: 1921px) {
+  .section {
+    padding-inline: 20%;
+  }
+
+  .inner {
+    padding-top: 5vh;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .plate {

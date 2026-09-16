@@ -87,6 +87,12 @@
   color: #484848;
 }
 
+@media (min-width: 1921px) {
+  .title {
+    font-size: clamp(28px, 3vw, 50px);
+  }
+}
+
 .body {
   margin: 0;
   font-family: var(--font-body);

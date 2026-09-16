@@ -109,6 +109,16 @@
   color: #aecbf2;
 }
 
+@media (min-width: 1921px) {
+  .title span:first-child {
+    font-size: clamp(26px, 2.7vw, 50px);
+  }
+
+  .titleAccent {
+    font-size: clamp(20px, 2vw, 36px);
+  }
+}
+
 .body {
   margin: 0;
   max-width: 46ch;
@@ -291,6 +301,29 @@
   .plate {
     width: clamp(180px, 38vw, 320px);
     opacity: 0.55;
+  }
+}
+
+@media (min-width: 1921px) {
+  .inner {
+    max-width: 1400px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 760px);
+  }
+
+  .questionText {
+    font-size: clamp(15px, 1.2vw, 19px);
+  }
+
+  .answer {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .question,
+  .panelHeader,
+  .answer {
+    padding-left: 48px;
+    padding-right: 64px;
   }
 }
 

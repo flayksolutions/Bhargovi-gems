@@ -103,7 +103,7 @@
   transform-origin: center right;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .gem {
     width: clamp(120px, 16vw, 360px);
   }

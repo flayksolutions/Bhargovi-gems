@@ -73,6 +73,24 @@
   text-wrap: pretty;
 }
 
+@media (min-width: 1921px) {
+  .section {
+    min-height: clamp(702px, 75.3vw, 1085px);
+  }
+
+  .copy {
+    width: min(640px, 100% - var(--gutter));
+  }
+
+  .title {
+    font-size: clamp(30px, 3.35vw, 54px);
+  }
+
+  .body {
+    font-size: clamp(15px, 1.1vw, 19px);
+  }
+}
+
 .titleAccent {
   color: #0049bc;
 }

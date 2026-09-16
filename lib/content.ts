@@ -26,7 +26,7 @@ export const heroSection = {
 
 // export const aboutSection = {
 //   eyebrow: "About Us",
-//   title: "A Family Legacy in Diamond Crafting Since 1994",
+//   title: "A Family Legacy in Diamond Crafting Since 1988",
 //   body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory.",
 //   /* Drop the real headquarters photograph in at
 //      public/images/facility.jpg and this line needs no change. */
@@ -36,7 +36,7 @@ export const heroSection = {
 
 export const aboutSection = {
   eyebrow: "About Us",
-  title: "A Family Legacy in Diamond Crafting Since 1971",
+  title: "A Family Legacy in Diamond Crafting Since 1988",
   body: "At Bhargovi Gems, every diamond reflects a balance of precision, craftsmanship and innovation, shaped through decades of experience in diamond manufacturing.",
   image: "/images/facility-2.jpg",
   video: "/videos/house-tour.mp4",
@@ -124,20 +124,20 @@ export const productsSection = {
   tagline: "Precision. Purity. Perfection",
   background: "/images/shapes-bg.png",
   shapes: [
-    { src: "/images/shapes/round-brilliant.png", name: "Round" },
-    { src: "/images/shapes/trillian.png", name: "Trillion" },
-    { src: "/images/shapes/cushion.png", name: "Cushion" },
-    { src: "/images/shapes/trapezoid.png", name: "Trapezoid" },
-    { src: "/images/shapes/baguette.png", name: "Baguette" },
-    { src: "/images/shapes/half-moon.png", name: "Half Moon" },
-    { src: "/images/shapes/asscher.png", name: "Asscher" },
-    { src: "/images/shapes/emerald.png", name: "Emerald" },
-    { src: "/images/shapes/heart.png", name: "Heart" },
-    { src: "/images/shapes/radiant.png", name: "Radiant" },
-    { src: "/images/shapes/oval.png", name: "Oval" },
-    { src: "/images/shapes/princess.png", name: "Princess" },
-    { src: "/images/shapes/pear.png", name: "Pear" },
-    { src: "/images/shapes/marquise.png", name: "Marquise" },
+    { src: "/images/shapes/round-brilliant.png", name: "Round", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/trillian.png", name: "Trillion", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/cushion.png", name: "Cushion", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/trapezoid.png", name: "Trapezoid", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/baguette.png", name: "Baguette", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/half-moon.png", name: "Half Moon", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/asscher.png", name: "Asscher", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/emerald.png", name: "Emerald", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/heart.png", name: "Heart", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/radiant.png", name: "Radiant", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/oval.png", name: "Oval", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/princess.png", name: "Princess", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/pear.png", name: "Pear", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/marquise.png", name: "Marquise", size: "0.30 - 5.00 CT" },
   ],
 };
 
@@ -261,7 +261,7 @@ export const footer = {
   contact: {
     title: "Contact",
     phone: "+91 85910 95691",
-    email: "bhargovigems4445@gmail.com",
+    email: "sales@bhargovigems.co",
     offices: [
       {
         heading: "Mumbai",
@@ -375,8 +375,8 @@ export const craftingSection = {
 
 export const aboutHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "About Us" }],
-  titleLines: ["A Family Legacy", "Since 1971"],
-  body: "Built on over five decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
+  titleLines: ["A Family Legacy", "Since 1988"],
+  body: "Built on over four decades of diamond expertise, we combine craftsmanship and modern technology to manufacture lab-grown diamonds.",
   image: "/images/about/hero-legacy-office.jpg",
   alt: "The Bhargovi Gems founder's office overlooking the lake, with a view of the Kolkata Birla Mandir on the wall",
 };
@@ -391,7 +391,7 @@ export type SpecTableRow = {
 export const legacySection = {
   eyebrow: "About Us",
   /* Split so the trailing clause can carry the accent colour. */
-  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1971" },
+  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "Since 1988" },
   body: "With in-house cutting and polishing capabilities and a strong inventory, Bhargovi Gems delivers precision-manufactured lab-grown diamonds to clients across India.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three
@@ -501,7 +501,7 @@ export const founderNoteSection = {
     trail: " into the world.",
   },
   quote:
-    "When I founded Bhargovi Gems in 1971, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
+    "When I founded Bhargovi Gems in 1988, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
   name: "Bhagwanbhai Patel",
   role: "Founder, Bhargovi Gems",
   /* PLACEHOLDER — the Figma comp uses a watermarked Unsplash+ stock
@@ -531,11 +531,11 @@ export type Milestone = {
 
 export const milestonesSection = {
   eyebrow: "Our Story",
-  title: "Three Decades of Milestones",
+  title: "Four Decades of Milestones",
   milestones: [
     {
-      id: "1994",
-      year: "1994",
+      id: "1988",
+      year: "1988",
       label: "Founded",
       body: "Founded in Mumbai as a small diamond manufacturing firm",
     },
@@ -669,7 +669,7 @@ export type ApproachStory = {
 export const ourApproachSection = {
   eyebrow: "Our Approach",
   titleLines: ["Commitment to Quality", "and Service"],
-  body: "Over three decades of excellence in diamond manufacturing, backed by strong sourcing networks and customer-focused operations.",
+  body: "Over four decades of excellence in diamond manufacturing, backed by strong sourcing networks and customer-focused operations.",
   bleedImage: "/images/about/approach-bleed-diamond.png",
   bleedImageAlt: "A diamond held in tweezers, faded into the dark background",
   stories: [
@@ -690,7 +690,7 @@ export const ourApproachSection = {
     {
       id: "trusted-by-brands",
       title: "Trusted by Brands Worldwide",
-      body: "Three generations of grading and craftsmanship since 1994, reliable delivery to 15+ countries, and transparent GIA/IGI-backed grading on every parcel we ship.",
+      body: "Three generations of grading and craftsmanship since 1988, reliable delivery to 15+ countries, and transparent GIA/IGI-backed grading on every parcel we ship.",
       image: "/images/about/approach-loose-diamonds.png",
       alt: "A scatter of loose polished diamonds of varying cuts",
     },
@@ -1847,8 +1847,8 @@ export const contactFormSection = {
     {
       id: "email",
       name: "Email",
-      href: "mailto:bhargovigems4445@gmail.com",
-      value: "bhargovigems4445@gmail.com",
+      href: "mailto:sales@bhargovigems.co",
+      value: "sales@bhargovigems.co",
       icon: "mail",
     },
   ] satisfies ContactReachOut[],
