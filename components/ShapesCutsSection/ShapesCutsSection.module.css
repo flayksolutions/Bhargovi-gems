@@ -211,23 +211,6 @@
   }
 }
 
-.stageName::after {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: -4px;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(37, 100, 202, 0.4) 20%,
-    rgba(37, 100, 202, 0.4) 80%,
-    transparent
-  );
-}
-
 .stageCaption {
   /* The site's signature chamfered cut-out, notched at the top-right and
      bottom-left corners — same motif as the submit button and dock bar,

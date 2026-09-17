@@ -59,7 +59,31 @@
 
 @media (min-width: 1921px) {
   .inner {
-    max-width: 1800px;
+    max-width: 2200px;
+  }
+
+  .frame {
+    max-height: 88vh;
+  }
+
+  .mediaItem {
+    min-height: 94vh;
+  }
+
+  .eyebrow {
+    font-size: 19px;
+  }
+
+  .name {
+    font-size: 46px;
+  }
+
+  .body {
+    font-size: 21px;
+  }
+
+  .num {
+    font-size: 18px;
   }
 }
 

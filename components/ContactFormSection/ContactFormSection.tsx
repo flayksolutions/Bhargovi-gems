@@ -48,7 +48,8 @@ export default function ContactFormSection({
   const sectionRef = useRef<HTMLElement>(null);
   useRevealOnScroll(
     sectionRef,
-    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`
+    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`,
+    "0px 0px -20% 0px"
   );
 
   return (
