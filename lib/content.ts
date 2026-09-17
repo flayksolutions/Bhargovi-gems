@@ -294,8 +294,16 @@ export const footer = {
   tagline: "A Step Over Perfection",
   image: "/images/footer/footer-plate.png",
   socials: [
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/bhargovi-gems-6a8290431/?viewAsMember=true",
+      icon: "linkedin",
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/bhargovigems?stkn=MWlzM2VsZXE0YjI2Mg%3D%3D&utm_source=qr",
+      icon: "instagram",
+    },
   ],
   quickLinks: [
     { label: "Home", href: "/" },
@@ -1871,6 +1879,20 @@ export const contactFormSection = {
       href: "mailto:sales@bhargovigems.co",
       value: "sales@bhargovigems.co",
       icon: "mail",
+    },
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/bhargovi-gems-6a8290431/?viewAsMember=true",
+      value: "Bhargovi Gems",
+      icon: "linkedin",
+    },
+    {
+      id: "instagram",
+      name: "Instagram",
+      href: "https://www.instagram.com/bhargovigems?stkn=MWlzM2VsZXE0YjI2Mg%3D%3D&utm_source=qr",
+      value: "@bhargovigems",
+      icon: "instagram",
     },
   ] satisfies ContactReachOut[],
 };
