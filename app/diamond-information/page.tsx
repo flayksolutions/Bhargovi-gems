@@ -20,10 +20,31 @@ import {
   site,
 } from "@/lib/content";
 
+const title = "Diamond Information — Bhargovi Gems";
+const description =
+  "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.";
+
 export const metadata: Metadata = {
-  title: "Diamond Information — Bhargovi Gems",
-  description:
-    "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
+  title,
+  description,
+  alternates: {
+    canonical: "/diamond-information",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/diamond-information",
+    siteName: "Bhargovi Gems",
+    images: ["/images/diamond-info/hero-guide.jpg"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/diamond-info/hero-guide.jpg"],
+  },
 };
 
 export default function DiamondInformationPage() {

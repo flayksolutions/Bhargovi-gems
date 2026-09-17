@@ -5,10 +5,31 @@ import ContactFormSection from "@/components/ContactFormSection/ContactFormSecti
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import { contactFormSection, contactHeroSection, footer, site } from "@/lib/content";
 
+const title = "Contact — Bhargovi Gems";
+const description =
+  "Get in touch with Bhargovi Gems for enquiries on certified natural diamonds, volume orders and partnerships.";
+
 export const metadata: Metadata = {
-  title: "Contact — Bhargovi Gems",
-  description:
-    "Get in touch with Bhargovi Gems for enquiries on certified natural diamonds, volume orders and partnerships.",
+  title,
+  description,
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/contact",
+    siteName: "Bhargovi Gems",
+    images: ["/images/hero-4-poster.jpg"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/hero-4-poster.jpg"],
+  },
 };
 
 export default function ContactPage() {
