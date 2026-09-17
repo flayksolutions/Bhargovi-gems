@@ -18,10 +18,31 @@ import {
   whyChooseUsSection,
 } from "@/lib/content";
 
+const title = "About Us — Bhargovi Gems";
+const description =
+  "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.";
+
 export const metadata: Metadata = {
-  title: "About Us — Bhargovi Gems",
-  description:
-    "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.",
+  title,
+  description,
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/about",
+    siteName: "Bhargovi Gems",
+    images: ["/images/about/hero-legacy-office.webp"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/about/hero-legacy-office.webp"],
+  },
 };
 
 export default function AboutPage() {

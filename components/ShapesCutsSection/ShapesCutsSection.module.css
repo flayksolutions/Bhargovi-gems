@@ -182,20 +182,103 @@
 }
 
 .stageName {
-  margin: clamp(10px, 1.4vw, 18px) 0 0;
+  position: relative;
+  /* Block + fit-content instead of inline-block: guarantees its own line
+     above the size chip. Two adjacent inline-level boxes only wrap once
+     they run out of horizontal room, so short shape names (e.g. "Oval")
+     were sitting on the same row as the chip on narrow screens. */
+  display: block;
+  width: fit-content;
+  margin: clamp(10px, 1.4vw, 18px) auto 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(22px, 2.1vw, 30px);
+  font-size: clamp(24px, 2.4vw, 34px);
   line-height: 1.2;
-  color: var(--ink);
+  color: var(--sapphire);
+  /* `key={selected.id}` remounts the heading on every pick, so this pop
+     replays fresh each time a new shape is chosen. */
+  animation: stageNamePop 420ms var(--ease-out-expo);
+}
+
+@keyframes stageNamePop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .stageCaption {
-  margin: 8px 0 0;
+  /* The site's signature chamfered cut-out, notched at the top-right and
+     bottom-left corners — same motif as the submit button and dock bar,
+     used here instead of a plain pill. The 1px ring is drawn as a second,
+     inset clip-path layer rather than a `border`, since a real border
+     would be a rectangle that a clip-path simply crops — it disappears
+     along the diagonal cut instead of following it. */
+  --cn: 9px;
+
+  position: relative;
+  z-index: 0;
+  /* Same reasoning as .stageName above: block + fit-content forces this
+     onto its own line instead of sharing a row with the name when both
+     are short enough to fit side by side. */
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  margin: clamp(12px, 1.6vw, 18px) auto 0;
+  padding: 6px clamp(16px, 2vw, 24px);
+  animation: stageNamePop 420ms var(--ease-out-expo);
+}
+
+.stageCaption::before,
+.stageCaption::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
+}
+
+.stageCaption::before {
+  inset: 0;
+  z-index: -2;
+  background: rgba(37, 100, 202, 0.35);
+}
+
+.stageCaption::after {
+  inset: 1px;
+  z-index: -1;
+  /* One notch narrower so the ring reads as an even 1px band once inset. */
+  --cn: 8px;
+  /* Opaque, not the translucent rgba the fill used as a flat pill — a
+     translucent fill here would let the ::before ring color underneath
+     bleed through and darken the whole interior, not just the 1px edge. */
+  background: color-mix(in srgb, var(--azure) 7%, #f7fbff 93%);
+}
+
+.stageCaptionLabel {
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azure);
+}
+
+.stageCaptionValue {
   font-family: var(--font-body);
   font-size: 16px;
-  font-weight: 500;
-  color: var(--azure);
+  font-weight: 700;
+  color: var(--sapphire);
 }
 
 /* ---------------------------- stat row --------------------------- */
@@ -556,6 +639,11 @@
   .dockButtonActive .dockIcon {
     transform: scale(1.16);
   }
+
+  .stageCaption {
+    margin-top: 20px;
+    margin-bottom: 22px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -564,5 +652,10 @@
   .stagePhotoWrap,
   .dockItem {
     transition: none;
+  }
+
+  .stageName,
+  .stageCaption {
+    animation: none;
   }
 }

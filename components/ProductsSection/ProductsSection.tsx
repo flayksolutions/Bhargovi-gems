@@ -98,6 +98,12 @@ export default function ProductsSection({
         </ul>
 
         <Link href={moreInfoCta.href} className={styles.moreInfoLink}>
+          <span className={styles.moreInfoBorder} aria-hidden="true">
+            <span className={styles.borderEdgeTop} />
+            <span className={styles.borderEdgeRight} />
+            <span className={styles.borderEdgeBottom} />
+            <span className={styles.borderEdgeLeft} />
+          </span>
           <span className={styles.moreInfoLabel}>{moreInfoCta.label}</span>
           {/* <svg
             width="20"

@@ -16,10 +16,31 @@ import {
   sustainabilityHeroSection,
 } from "@/lib/content";
 
+const title = "Sustainability — Bhargovi Gems";
+const description =
+  "From lab to jewel, every stone we grow reflects our commitment to people and the planet.";
+
 export const metadata: Metadata = {
-  title: "Sustainability — Bhargovi Gems",
-  description:
-    "From lab to jewel, every stone we grow reflects our commitment to people and the planet.",
+  title,
+  description,
+  alternates: {
+    canonical: "/sustainability",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/sustainability",
+    siteName: "Bhargovi Gems",
+    images: ["/images/sustainability/hero-lily.png"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/sustainability/hero-lily.png"],
+  },
 };
 
 export default function SustainabilityPage() {

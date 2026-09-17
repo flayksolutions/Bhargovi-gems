@@ -15,6 +15,11 @@ const REACH_OUT_ICON_PATHS: Record<string, string> = {
   mail: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z",
 };
 
+/* Material Symbols "location_on" glyph, inlined for the same reason as
+   the reach-out icons above. */
+const MAP_PIN_PATH =
+  "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z";
+
 type Props = {
   eyebrow: string;
   fields: ContactFormField[];
@@ -43,7 +48,8 @@ export default function ContactFormSection({
   const sectionRef = useRef<HTMLElement>(null);
   useRevealOnScroll(
     sectionRef,
-    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`
+    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`,
+    "0px 0px -20% 0px"
   );
 
   return (
@@ -123,6 +129,21 @@ export default function ContactFormSection({
                 <h3 className={styles.officeName}>{office.name}</h3>
                 <p className={styles.officeLabel}>{office.label}</p>
                 <p className={styles.officeAddress}>{office.address}</p>
+                <Link
+                  href={office.mapHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.officeMapLink}
+                >
+                  <svg
+                    className={styles.officeMapIcon}
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d={MAP_PIN_PATH} fill="currentColor" />
+                  </svg>
+                  View on Google Maps
+                </Link>
               </li>
             ))}
           </ul>

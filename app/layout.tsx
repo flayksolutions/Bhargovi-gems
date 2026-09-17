@@ -2,9 +2,32 @@ import type { Metadata } from "next";
 import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import "./globals.css";
 
+const title = "Bhargovi Gems — Our Process";
+const description =
+  "From rough stone to polish — the Bhargovi Gems diamond process.";
+
 export const metadata: Metadata = {
-  title: "Bhargovi Gems — Our Process",
-  description: "From rough stone to polish — the Bhargovi Gems diamond process.",
+  metadataBase: new URL("https://www.bhargovigems.co"),
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Bhargovi Gems",
+    images: ["/images/hero-4-poster.jpg"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/hero-4-poster.jpg"],
+  },
 };
 
 export default function RootLayout({
