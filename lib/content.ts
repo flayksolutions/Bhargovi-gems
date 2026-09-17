@@ -123,22 +123,66 @@ export const productsSection = {
   title: "Each One Grown, Not Mined",
   tagline: "Precision. Purity. Perfection",
   background: "/images/shapes-bg.png",
-  moreInfoCta: { label: "Know More", href: "/diamond-information#shapes" },
+  moreInfoCta: { label: "View all sizes", href: "/diamond-information#shapes" },
   shapes: [
-    { src: "/images/shapes/round-brilliant.png", name: "Round", size: "0.30 - 5.00 CT" },
+    {
+      src: "/images/shapes/round-brilliant.png",
+      name: "Round",
+      size: "0.30 - 5.00 CT",
+    },
     { src: "/images/shapes/oval.png", name: "Oval", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/cushion.png", name: "Cushion", size: "0.30 - 5.00 CT" },
+    // {
+    //   src: "/images/shapes/cushion.png",
+    //   name: "Cushion",
+    //   size: "0.30 - 5.00 CT",
+    // },
     { src: "/images/shapes/pear.png", name: "Pear", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/emerald.png", name: "Emerald", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/marquise.png", name: "Marquise", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/trillian.png", name: "Trillion", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/princess.png", name: "Princess", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/heart.png", name: "Heart", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/half-moon.png", name: "Half Moon", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/asscher.png", name: "Asscher", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/baguette.png", name: "Baguette", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/radiant.png", name: "Radiant", size: "0.30 - 5.00 CT" },
-    { src: "/images/shapes/trapezoid.png", name: "Trapezoid", size: "0.30 - 5.00 CT" },
+    {
+      src: "/images/shapes/emerald.png",
+      name: "Emerald",
+      size: "0.30 - 5.00 CT",
+    },
+    {
+      src: "/images/shapes/marquise.png",
+      name: "Marquise",
+      size: "0.30 - 5.00 CT",
+    },
+    {
+      src: "/images/shapes/trillian.png",
+      name: "Trillion",
+      size: "0.30 - 5.00 CT",
+    },
+    {
+      src: "/images/shapes/princess.png",
+      name: "Princess",
+      size: "0.30 - 5.00 CT",
+    },
+    // { src: "/images/shapes/heart.png", name: "Heart", size: "0.30 - 5.00 CT" },
+    // {
+    //   src: "/images/shapes/half-moon.png",
+    //   name: "Half Moon",
+    //   size: "0.30 - 5.00 CT",
+    // },
+    {
+      src: "/images/shapes/asscher.png",
+      name: "Asscher",
+      size: "0.30 - 5.00 CT",
+    },
+    {
+      src: "/images/shapes/baguette.png",
+      name: "Baguette",
+      size: "0.30 - 5.00 CT",
+    },
+    // {
+    //   src: "/images/shapes/radiant.png",
+    //   name: "Radiant",
+    //   size: "0.30 - 5.00 CT",
+    // },
+    {
+      src: "/images/shapes/trapezoid.png",
+      name: "Trapezoid",
+      size: "0.30 - 5.00 CT",
+    },
   ],
 };
 
@@ -1134,10 +1178,7 @@ export type ShapeItem = {
   stats: ShapeStat[];
 };
 
-const shapeStats = (
-  table: string,
-  depth: string,
-): ShapeStat[] => [
+const shapeStats = (table: string, depth: string): ShapeStat[] => [
   { label: "Table %", value: table },
   { label: "Depth %", value: depth },
   { label: "Girdle", value: "Thin – Sl. Thick" },
@@ -1171,14 +1212,14 @@ export const shapesCutsSection = {
       size: "0.10 - 1.00 CT",
       stats: shapeStats("53 – 63", "58 – 65"),
     },
-    {
-      id: "cushion",
-      name: "Cushion",
-      photo: "/images/shapes/cushion.png",
-      alt: "A cushion cut diamond viewed from above",
-      size: "0.30 - 1.00 CT",
-      stats: shapeStats("55 – 68", "58 – 68"),
-    },
+    // {
+    //   id: "cushion",
+    //   name: "Cushion",
+    //   photo: "/images/shapes/cushion.png",
+    //   alt: "A cushion cut diamond viewed from above",
+    //   size: "0.30 - 1.00 CT",
+    //   stats: shapeStats("55 – 68", "58 – 68"),
+    // },
     {
       id: "pear",
       name: "Pear",
@@ -1219,22 +1260,22 @@ export const shapesCutsSection = {
       size: "0.05 - 0.75 CT",
       stats: shapeStats("67 – 72", "64 – 75"),
     },
-    {
-      id: "heart",
-      name: "Heart",
-      photo: "/images/shapes/heart.png",
-      alt: "A heart cut diamond viewed from above",
-      size: "0.30 - 1.00 CT",
-      stats: shapeStats("53 – 63", "56 – 66"),
-    },
-    {
-      id: "half-moon",
-      name: "Half Moon",
-      photo: "/images/shapes/half-moon.png",
-      alt: "A half moon cut diamond viewed from above",
-      size: "0.30 - 0.50 CT",
-      stats: shapeStats("55 – 65", "55 – 68"),
-    },
+    // {
+    //   id: "heart",
+    //   name: "Heart",
+    //   photo: "/images/shapes/heart.png",
+    //   alt: "A heart cut diamond viewed from above",
+    //   size: "0.30 - 1.00 CT",
+    //   stats: shapeStats("53 – 63", "56 – 66"),
+    // },
+    // {
+    //   id: "half-moon",
+    //   name: "Half Moon",
+    //   photo: "/images/shapes/half-moon.png",
+    //   alt: "A half moon cut diamond viewed from above",
+    //   size: "0.30 - 0.50 CT",
+    //   stats: shapeStats("55 – 65", "55 – 68"),
+    // },
     {
       id: "asscher",
       name: "Asscher",
@@ -1251,14 +1292,14 @@ export const shapesCutsSection = {
       size: "0.05 - 0.25 CT",
       stats: shapeStats("60 – 72", "38 – 52"),
     },
-    {
-      id: "radiant",
-      name: "Radiant",
-      photo: "/images/shapes/radiant.png",
-      alt: "A radiant cut diamond viewed from above",
-      size: "0.30 - 1.00 CT",
-      stats: shapeStats("61 – 69", "61 – 67"),
-    },
+    // {
+    //   id: "radiant",
+    //   name: "Radiant",
+    //   photo: "/images/shapes/radiant.png",
+    //   alt: "A radiant cut diamond viewed from above",
+    //   size: "0.30 - 1.00 CT",
+    //   stats: shapeStats("61 – 69", "61 – 67"),
+    // },
     {
       id: "trapezoid",
       name: "Trapezoid",
@@ -1601,7 +1642,7 @@ export const diamondInfoFaqSection = {
       id: "shapes",
       question: "Which diamond shapes do you manufacture?",
       answer:
-        "We manufacture both round and fancy-shaped lab-grown diamonds, including Round, Oval, Marquise, Princess, Emerald, Pear, Cushion, Radiant, Heart, Trillion, Half Moon, Trapezoid, Asscher, Baguette and other specialty shapes.",
+        "We manufacture both round and fancy-shaped lab-grown diamonds, including Round, Oval, Marquise, Princess, Emerald, Pear, Trillion, Trapezoid, Asscher, Baguette and other specialty shapes.",
     },
     {
       id: "custom-requirements",
