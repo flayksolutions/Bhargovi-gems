@@ -3,6 +3,7 @@ import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.bhargovigems.co"),
   title: "Bhargovi Gems — Our Process",
   description: "From rough stone to polish — the Bhargovi Gems diamond process.",
 };
