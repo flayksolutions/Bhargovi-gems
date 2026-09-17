@@ -506,8 +506,6 @@ export const founderNoteSection = {
     "When I founded Bhargovi Gems in 1988, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
   name: "Bhagwanbhai Patel",
   role: "Founder, Bhargovi Gems",
-  /* PLACEHOLDER — the Figma comp uses a watermarked Unsplash+ stock
-     portrait. Swap for the real founder photograph before launch. */
   image: "/images/about/founder-portrait.webp",
   alt: "Portrait of the founder of Bhargovi Gems",
 };
@@ -1739,6 +1737,7 @@ export type ContactOffice = {
   name: string;
   label: string;
   address: string;
+  mapHref: string;
 };
 
 export type ContactReachOut = {
@@ -1805,6 +1804,7 @@ export const contactFormSection = {
       label: "Headquarters",
       address:
         "JE 1260, BHARGOVI GEMS, Bharat Diamond Bourse, Bandra Kurla Complex, Mumbai-400051",
+      mapHref: "https://maps.app.goo.gl/9HxU6CotxAyAKJSV7?g_st=ic",
     },
     {
       id: "surat",
@@ -1812,6 +1812,7 @@ export const contactFormSection = {
       label: "Manufacturing Facility",
       address:
         "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture Mall, Kapodra, Surat-395006",
+      mapHref: "https://maps.app.goo.gl/TwiWxWgmqFs2ZAJ58?g_st=ic",
     },
   ] satisfies ContactOffice[],
   reachOutTitle: "Reach Out to us at",
