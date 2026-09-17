@@ -393,7 +393,7 @@ export const officesSection = {
   offices: [
     {
       id: "mumbai",
-      name: "Mumbai (HQ)",
+      name: "Mumbai",
       address: "Corporate Office, Mumbai, India",
       icon: "/icons/office-mumbai.svg",
     },
@@ -1156,7 +1156,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
-      standard: "Melle to 1.50 carats",
+      standard: "Melle to 1.50 CT",
     },
   ] satisfies FourCCard[],
 };
@@ -1842,7 +1842,7 @@ export const contactFormSection = {
     {
       id: "mumbai",
       name: "Mumbai",
-      label: "Headquarters",
+      label: "Corporate Office",
       address:
         "JE 1260, BHARGOVI GEMS, Bharat Diamond Bourse, Bandra Kurla Complex, Mumbai-400051",
       mapHref: "https://maps.app.goo.gl/9HxU6CotxAyAKJSV7?g_st=ic",
