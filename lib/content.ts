@@ -547,7 +547,7 @@ export const founderNoteSection = {
     trail: "",
   },
   quote:
-    "When I founded Bhargovi Gems in 1988, my vision was simple to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
+    "When I founded Bhargovi Gems in 1988, my vision was simple, to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
   name: "Bhagwanbhai Patel",
   role: "Founder, Bhargovi Gems",
   image: "/images/about/founder-portrait.webp",
@@ -1156,7 +1156,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
-      standard: "Melle to 1.50 CT",
+      standard: "Melee to 1.50 CT",
     },
   ] satisfies FourCCard[],
 };
@@ -1347,7 +1347,7 @@ export const labGrownVsMinedSection = {
       id: "formation",
       label: "Formation",
       values: [
-        "Grown in 3–10 weeks under Hight pressure high temperature technology (HPHT)",
+        "Grown in 3–10 weeks under high pressure high temperature technology (HPHT)",
         "Formed 1–3 billion years ago in the earth’s mantle",
       ],
     },
@@ -1745,7 +1745,7 @@ export const processSection = {
       alt: "Diamond girdle shaped on the bruting lathe",
     },
     {
-      id: "final-nspection",
+      id: "final-inspection",
       name: "Final Inspection",
       description:
         "Every polished diamond undergoes detailed quality inspection for cut, symmetry, polish and overall finish before it is ready for certification or further use.",
