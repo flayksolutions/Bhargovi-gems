@@ -216,14 +216,14 @@
 }
 
 .moreInfoLink {
+  --cn: var(--notch-sm);
+
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   margin: 0 auto clamp(20px, 4vh, 48px);
   padding: clamp(10px, 1.1vw, 14px) clamp(28px, 2.6vw, 40px);
-  border: 1px solid var(--sapphire);
-  /* border-radius: 999px; */
   font-family: var(--font-body);
   font-size: clamp(14px, 0.85vw, 16px);
   font-weight: 600;
@@ -231,7 +231,91 @@
   text-transform: uppercase;
   color: var(--sapphire);
   text-decoration: none;
-  transition: border-color 0.2s ease;
+}
+
+/* House chamfer (top-right + bottom-left). `clip-path` can't punch a
+   hole out of a bordered box (`polygon()` is a single closed path, not
+   a ring), so the outline is built from six real 1px segments instead:
+   four straight edges stopping short of the cut corners, plus two
+   diagonal bars closing each chamfer. */
+.moreInfoBorder {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.moreInfoBorder::before,
+.moreInfoBorder::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--cn) * 1.4142);
+  height: 1px;
+  background: var(--sapphire);
+  transform: rotate(45deg);
+  transform-origin: 0 50%;
+}
+
+/* top-right chamfer: (100% - cn, 0) -> (100%, cn) */
+.moreInfoBorder::before {
+  top: 0;
+  left: calc(100% - var(--cn));
+}
+
+/* bottom-left chamfer: (0, 100% - cn) -> (cn, 100%) */
+.moreInfoBorder::after {
+  top: calc(100% - var(--cn));
+  left: 0;
+}
+
+.borderEdgeTop,
+.borderEdgeBottom {
+  position: absolute;
+  left: 0;
+  width: calc(100% - var(--cn));
+  height: 1px;
+  background: var(--sapphire);
+  transition: opacity 0.2s ease;
+}
+
+.borderEdgeRight,
+.borderEdgeLeft {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: calc(100% - var(--cn));
+  background: var(--sapphire);
+  transition: opacity 0.2s ease;
+}
+
+.borderEdgeTop {
+  top: 0;
+}
+
+.borderEdgeBottom {
+  bottom: 0;
+  left: var(--cn);
+}
+
+.borderEdgeRight {
+  top: var(--cn);
+  right: 0;
+}
+
+.borderEdgeLeft {
+  top: 0;
+  left: 0;
+}
+
+.moreInfoLink:hover .borderEdgeTop,
+.moreInfoLink:hover .borderEdgeRight,
+.moreInfoLink:hover .borderEdgeBottom,
+.moreInfoLink:hover .borderEdgeLeft,
+.moreInfoLink:focus-visible .borderEdgeTop,
+.moreInfoLink:focus-visible .borderEdgeRight,
+.moreInfoLink:focus-visible .borderEdgeBottom,
+.moreInfoLink:focus-visible .borderEdgeLeft {
+  opacity: 0;
 }
 
 /* Two corner-anchored pseudo-elements each trace two sides; growing
@@ -255,30 +339,27 @@
 }
 
 .moreInfoLink::before {
-  top: -1px;
-  left: -1px;
+  top: 0;
+  left: 0;
   border-top-color: var(--sapphire);
   border-left-color: var(--sapphire);
 }
 
 .moreInfoLink::after {
-  bottom: -1px;
-  right: -1px;
+  bottom: 0;
+  right: 0;
   border-bottom-color: var(--sapphire);
   border-right-color: var(--sapphire);
-}
-
-.moreInfoLink:hover,
-.moreInfoLink:focus-visible {
-  border-color: transparent;
 }
 
 .moreInfoLink:hover::before,
 .moreInfoLink:hover::after,
 .moreInfoLink:focus-visible::before,
 .moreInfoLink:focus-visible::after {
-  width: 100%;
-  height: 100%;
+  /* Stop at the chamfer instead of the literal corner — growing to
+     100% would draw a square corner over the cut-off ring. */
+  width: calc(100% - var(--cn));
+  height: calc(100% - var(--cn));
   /* Draw-in (mouse-enter) order: width first, then height. */
   transition:
     width 0.25s ease,
