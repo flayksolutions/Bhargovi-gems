@@ -113,24 +113,10 @@
 .reveal {
   position: absolute;
   inset: 0;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 550ms var(--ease-out-expo) 100ms;
-  will-change: clip-path;
-}
-
-.section[data-revealed="true"] .reveal {
-  clip-path: inset(0 0 0 0);
 }
 
 .image {
   object-fit: cover;
-  transform: scale(1.08);
-  transition: transform 700ms var(--ease-out-expo) 100ms;
-  will-change: transform;
-}
-
-.section[data-revealed="true"] .image {
-  transform: scale(1);
 }
 
 /* ---------------------------- responsive -------------------------- */
@@ -147,50 +133,3 @@
   }
 }
 
-/* ---------------------------- reveal ------------------------------- */
-
-.eyebrow,
-.title,
-.body {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 650ms var(--ease-out-expo),
-    transform 650ms var(--ease-out-expo);
-}
-
-.eyebrow {
-  transition-delay: 0ms;
-}
-
-.title {
-  transition-delay: 60ms;
-}
-
-.body {
-  transition-delay: 120ms;
-}
-
-.section[data-revealed="true"] .eyebrow,
-.section[data-revealed="true"] .title,
-.section[data-revealed="true"] .body {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    clip-path: none;
-  }
-
-  .image {
-    transform: none;
-  }
-
-  .eyebrow,
-  .title,
-  .body {
-    opacity: 1;
-    transform: none;
-  }
-}
