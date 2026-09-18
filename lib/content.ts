@@ -565,13 +565,12 @@ export const founderNoteSection = {
 export const visionSection = {
   eyebrow: "Our Vision",
   title: {
-    lead: "Where Experience Meets ",
-    accent: "the Future",
-    trail: ".",
+    lead: "Where Experience Meets",
+    accent: "the Future.",
   },
   body: "To carry forward decades of diamond expertise while embracing the future of manufacturing, creating exceptional diamonds through precision, innovation and an unwavering commitment to quality.",
-  image: "/images/about/diamond-on-table.jpg",
-  alt: "Several hands resting together on the trunk of an old tree",
+  image: "/images/about/vision-brilliance.png",
+  alt: "Polished diamond studs and loose stones staged on stone blocks beside Bhargovi Gems packaging",
 };
 
 export type Milestone = {
