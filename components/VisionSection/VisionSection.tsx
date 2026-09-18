@@ -44,6 +44,7 @@ export default function VisionSection({
             alt={alt}
             fill
             sizes="(max-width: 960px) 100vw, 92vw"
+            priority
             className={styles.image}
           />
         </div>
