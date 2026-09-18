@@ -307,10 +307,10 @@ export const footer = {
   ],
   quickLinks: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Diamond Information", href: "/diamond-information" },
     { label: "Sustainability", href: "/sustainability" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
   ],
   contact: {
     title: "Contact",
@@ -492,7 +492,7 @@ export const legacySection = {
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – E - F", "0.05 – 1.00 CT"],
+        values: ["VVS-VS", "D – E - F", "0.05 – 1.00 CT"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -1354,7 +1354,7 @@ export const labGrownVsMinedSection = {
       id: "formation",
       label: "Formation",
       values: [
-        "Grown in 3–10 weeks under high pressure high temperature technology (HPHT)",
+        "Grown in 3–10 weeks under High Pressure High Temperature technology (HPHT)",
         "Formed 1–3 billion years ago in the earth’s mantle",
       ],
     },
