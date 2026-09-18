@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./AboutSection.module.css";
 
 type Props = {
@@ -29,11 +29,32 @@ export default function AboutSection({
   video,
 }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
+  /* The video only starts fetching once the section is close to the
+     viewport, so it doesn't compete with above-the-fold requests. */
+  const [videoActive, setVideoActive] = useState(false);
 
   /* A remote plate goes through a plain <img>: next/image would demand
      a `remotePatterns` entry in next.config.mjs. Local paths still get
      the optimiser. */
   const isRemote = /^https?:\/\//.test(image);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || !video || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setVideoActive(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [video]);
 
   /* ----------------------------------------------------------------
      Scroll progress (0 → 1) across the pinned range, written straight
@@ -94,13 +115,13 @@ export default function AboutSection({
                decoration and browsers will allow the autoplay. */
             <video
               className={styles.image}
-              src={video}
+              src={videoActive ? video : undefined}
               poster={image}
               autoPlay
               muted
               loop
               playsInline
-              preload="auto"
+              preload="none"
               aria-hidden="true"
               tabIndex={-1}
             />
