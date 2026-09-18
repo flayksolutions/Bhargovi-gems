@@ -558,7 +558,7 @@ export const founderNoteSection = {
     "When I founded Bhargovi Gems in 1988, my vision was simple, to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
   name: "Bhagwanbhai Patel",
   role: "Founder, Bhargovi Gems",
-  image: "/images/about/founder-portrait.webp",
+  image: "/images/about/founder-portrait.jpg",
   alt: "Portrait of the founder of Bhargovi Gems",
 };
 
