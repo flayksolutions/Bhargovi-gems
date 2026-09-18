@@ -18,6 +18,13 @@ export default function SmoothScroll({
       window.history.scrollRestoration = "manual";
     }
 
+    // A hash in the URL (e.g. a cross-page CTA linking to
+    // "/diamond-information#shapes") means Next's own hash-scroll is
+    // about to bring a specific section into view. Forcing scroll to 0
+    // here races that: whichever runs last wins, so the landing spot
+    // becomes timing-dependent instead of always correct.
+    if (window.location.hash) return;
+
     const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
     if (lenis) lenis.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
