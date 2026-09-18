@@ -41,6 +41,7 @@ export default function FounderNoteSection({
               alt={alt}
               fill
               sizes="(max-width: 960px) 92vw, 34vw"
+              priority
               className={styles.image}
             />
           </div>

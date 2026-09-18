@@ -116,12 +116,12 @@ export default function CommitmentsSection({ background, blocks }: Props) {
                     isVideo ? (
                       <video
                         className={styles.media}
-                        src={block.media}
+                        src={shown[block.id] ? block.media : undefined}
                         autoPlay
                         muted
                         loop
                         playsInline
-                        preload="auto"
+                        preload="none"
                         aria-hidden="true"
                         tabIndex={-1}
                       />
