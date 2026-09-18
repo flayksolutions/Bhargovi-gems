@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./ChapterRail.module.css";
 import { useScrollEdges } from "@/lib/useScrollEdges";
 import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
+import { DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED } from "@/lib/scrollAnimationConfig";
 import type { Chapter } from "@/lib/content";
 
 type Props = {
@@ -24,8 +25,13 @@ export default function ChapterRail({ chapters }: Props) {
   // Fades the rail's leading/trailing edge while chapters overflow it.
   useScrollEdges(listRef, railRef);
 
-  useRevealOnScroll(railRef);
-  useRevealOnScroll(railRef, `.${styles.item}`);
+  useRevealOnScroll(railRef, undefined, undefined, DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED);
+  useRevealOnScroll(
+    railRef,
+    `.${styles.item}`,
+    undefined,
+    DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED
+  );
 
   useEffect(() => {
     const sections = chapters

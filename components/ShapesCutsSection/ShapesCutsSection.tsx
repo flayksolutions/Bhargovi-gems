@@ -7,6 +7,7 @@ import styles from "./ShapesCutsSection.module.css";
 import { useScrollEdges } from "@/lib/useScrollEdges";
 import { usePointerHorizontalScroll } from "@/lib/usePointerHorizontalScroll";
 import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
+import { DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED } from "@/lib/scrollAnimationConfig";
 import type { ShapeItem } from "@/lib/content";
 
 type Props = {
@@ -38,8 +39,18 @@ export default function ShapesCutsSection({
   useScrollEdges(dockRowRef, dockRef);
   // Lets a mouse wheel or click-drag pan the row too, not just touch/trackpad.
   usePointerHorizontalScroll(dockRowRef);
-  useRevealOnScroll(sectionRef, undefined, "0px 0px -45% 0px");
-  useRevealOnScroll(sectionRef, `.${styles.dockItem}`, "0px 0px 200px 0px");
+  useRevealOnScroll(
+    sectionRef,
+    undefined,
+    "0px 0px -45% 0px",
+    DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED
+  );
+  useRevealOnScroll(
+    sectionRef,
+    `.${styles.dockItem}`,
+    "0px 0px 200px 0px",
+    DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED
+  );
 
   return (
     <section id={id} className={styles.section} aria-labelledby="shapes-title" ref={sectionRef}>
