@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./CommitmentsSection.module.css";
+import { HOME_COMMITMENTS_SCROLL_ANIMATIONS_ENABLED } from "@/lib/scrollAnimationConfig";
 
 export type Commitment = {
   id: string;
@@ -31,6 +32,18 @@ export default function CommitmentsSection({ background, blocks }: Props) {
     const nodes = Array.from(
       root.querySelectorAll<HTMLElement>("[data-commitment]")
     );
+
+    if (!HOME_COMMITMENTS_SCROLL_ANIMATIONS_ENABLED) {
+      setShown(
+        Object.fromEntries(
+          nodes
+            .map((node) => node.dataset.commitment)
+            .filter((id): id is string => Boolean(id))
+            .map((id) => [id, true])
+        )
+      );
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
