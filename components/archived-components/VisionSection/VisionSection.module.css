@@ -1,20 +1,23 @@
 /* ==================================================================
-   VISION — centred statement copy over a full-width photograph, cut
-   with the site's standard diagonal chamfer (top-right + bottom-left).
+   VISION — statement copy on the left, a half-width photograph pinned
+   to the right edge of the viewport with a single top-left chamfer,
+   over the same faceted crystal pattern as the founder note.
 
-   Comp (1440 × ~968): copy 763 wide centred at top=96; photograph
-   1280 × 579 at x=80, top=390 — inset by the shared gutter on both
-   sides, chamfer notches sized to match --notch (64px at 1440w).
+   Comp (1440 × 804): copy 517 wide at x=103; image 720 × 610 running
+   from x=720 to the right edge, centred vertically.
    ================================================================== */
 
 .section {
   position: relative;
   overflow: clip;
   background: var(--paper);
-  padding: clamp(72px, 11vh, 108px) var(--gutter);
+  /* No padding at all: the photograph reaches the right edge *and* the
+     section's top and bottom edges, so both insets live on the copy.
+     min-height keeps the section at the comp's stature now that the
+     image no longer sets the height through an aspect ratio. */
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: clamp(520px, 55.8vw, 804px);
+  padding: 100px 0;
 }
 
 .section::before {
@@ -26,15 +29,28 @@
   pointer-events: none;
 }
 
-/* ---------------------------- copy -------------------------------- */
-
-.copy {
+.inner {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 763px;
-  margin: 0 0 clamp(40px, 6vh, 72px);
-  text-align: center;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 50%;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+/* ---------------------------- copy -------------------------------- */
+
+/* Right-aligned inside the left half so it lands 103px from the left
+   edge at the comp width and keeps a sane gutter below that. */
+.copy {
+  justify-self: center;
+  align-self: center;
+  /* The gutter is subtracted rather than added as padding so the copy's
+     own measure stays at the comp's 517px. */
+  width: min(517px, 100% - var(--gutter));
+  padding-block: clamp(48px, 9vh, 97px);
+  min-width: 0;
 }
 
 .eyebrow {
@@ -57,13 +73,30 @@
   text-wrap: pretty;
 }
 
+@media (min-width: 1921px) {
+  .section {
+    min-height: clamp(702px, 75.3vw, 1085px);
+  }
+
+  .copy {
+    width: min(640px, 100% - var(--gutter));
+  }
+
+  .title {
+    font-size: clamp(30px, 3.35vw, 54px);
+  }
+
+  .body {
+    font-size: clamp(15px, 1.1vw, 19px);
+  }
+}
+
 .titleAccent {
   color: #0049bc;
 }
 
 .body {
-  max-width: 620px;
-  margin: 0 auto;
+  margin: 0;
   font-family: var(--font-body);
   font-size: clamp(15px, 1.1vw, 16px);
   font-weight: 400;
@@ -72,42 +105,17 @@
   text-wrap: pretty;
 }
 
-@media (min-width: 1921px) {
-  .copy {
-    max-width: 860px;
-  }
-
-  .title {
-    font-size: clamp(30px, 3.35vw, 54px);
-  }
-
-  .body {
-    max-width: 700px;
-    font-size: clamp(15px, 1.1vw, 19px);
-  }
-}
-
 /* ---------------------------- figure ------------------------------ */
 
 .figure {
-  --cn: var(--notch);
+  --cn: clamp(30px, 3.7vw, 53px);
 
   position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: var(--content-max);
   margin: 0;
-  aspect-ratio: 1280 / 579;
-  /* Top-right and bottom-left corners cut — the site's standard
-     chamfer, mirrored across the diagonal. */
-  clip-path: polygon(
-    0 0,
-    calc(100% - var(--cn)) 0,
-    100% var(--cn),
-    100% 100%,
-    var(--cn) 100%,
-    0 calc(100% - var(--cn))
-  );
+  /* Stretched by the grid: the photograph runs the full height of the
+     section rather than sitting inset within it. */
+  height: 100%;
+  clip-path: polygon(var(--cn) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cn));
 }
 
 .reveal {
@@ -136,14 +144,31 @@
 /* ---------------------------- responsive -------------------------- */
 
 @media (max-width: 960px) {
-  .figure {
-    aspect-ratio: 4 / 3;
+  .section {
+    /* Stacked, the copy no longer holds the section open on its own. */
+    min-height: 0;
+    padding-top: clamp(72px, 11vh, 108px);
+    padding-bottom: clamp(72px, 11vh, 108px);
   }
-}
 
-@media (max-width: 640px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(32px, 5vh, 48px);
+  }
+
+  .copy {
+    justify-self: stretch;
+    width: auto;
+    margin-inline: var(--gutter);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Back to an intrinsic height: there is no full-height column to
+     stretch against once the two stack. */
   .figure {
-    aspect-ratio: 1 / 1;
+    height: auto;
+    aspect-ratio: 16 / 11;
   }
 }
 

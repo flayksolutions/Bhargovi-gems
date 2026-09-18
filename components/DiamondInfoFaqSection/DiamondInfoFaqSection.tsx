@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./DiamondInfoFaqSection.module.css";
 import type { FAQItem } from "@/lib/content";
 import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
+import { DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED } from "@/lib/scrollAnimationConfig";
 
 type Props = {
   id: string;
@@ -27,7 +28,7 @@ export default function DiamondInfoFaqSection({
 }: Props) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
   const sectionRef = useRef<HTMLElement>(null);
-  useRevealOnScroll(sectionRef);
+  useRevealOnScroll(sectionRef, undefined, undefined, DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED);
 
   return (
     <section id={id} className={styles.section} aria-labelledby="faq-title" ref={sectionRef}>

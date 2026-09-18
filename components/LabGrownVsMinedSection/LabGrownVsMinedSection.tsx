@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import styles from "./LabGrownVsMinedSection.module.css";
 import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
+import { DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED } from "@/lib/scrollAnimationConfig";
 import type { ComparisonRow } from "@/lib/content";
 
 type Column = {
@@ -38,7 +39,12 @@ export default function LabGrownVsMinedSection({
   disclaimer,
 }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
-  useRevealOnScroll(sectionRef, undefined, "0px 0px -40% 0px");
+  useRevealOnScroll(
+    sectionRef,
+    undefined,
+    "0px 0px -40% 0px",
+    DIAMOND_INFO_SCROLL_ANIMATIONS_ENABLED
+  );
 
   return (
     <section id={id} className={styles.section} aria-labelledby="lab-vs-mined-title" ref={sectionRef}>

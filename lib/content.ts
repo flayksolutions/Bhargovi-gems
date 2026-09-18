@@ -307,10 +307,10 @@ export const footer = {
   ],
   quickLinks: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Diamond Information", href: "/diamond-information" },
     { label: "Sustainability", href: "/sustainability" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
   ],
   contact: {
     title: "Contact",
@@ -492,7 +492,7 @@ export const legacySection = {
       {
         id: "fancy-shapes",
         category: "Fancy Shapes",
-        values: ["VVS", "D – E - F", "0.05 – 1.00 CT"],
+        values: ["VVS-VS", "D – E - F", "0.05 – 1.00 CT"],
       },
     ] satisfies SpecTableRow[],
   },
@@ -565,13 +565,12 @@ export const founderNoteSection = {
 export const visionSection = {
   eyebrow: "Our Vision",
   title: {
-    lead: "Where Experience Meets ",
-    accent: "the Future",
-    trail: ".",
+    lead: "Where Experience Meets",
+    accent: "the Future.",
   },
   body: "To carry forward decades of diamond expertise while embracing the future of manufacturing, creating exceptional diamonds through precision, innovation and an unwavering commitment to quality.",
-  image: "/images/about/diamond-on-table.jpg",
-  alt: "Several hands resting together on the trunk of an old tree",
+  image: "/images/about/vision-brilliance.png",
+  alt: "Polished diamond studs and loose stones staged on stone blocks beside Bhargovi Gems packaging",
 };
 
 export type Milestone = {
@@ -1355,7 +1354,7 @@ export const labGrownVsMinedSection = {
       id: "formation",
       label: "Formation",
       values: [
-        "Grown in 3–10 weeks under high pressure high temperature technology (HPHT)",
+        "Grown in 3–10 weeks under High Pressure High Temperature technology (HPHT)",
         "Formed 1–3 billion years ago in the earth’s mantle",
       ],
     },

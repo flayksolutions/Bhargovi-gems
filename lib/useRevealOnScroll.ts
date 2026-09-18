@@ -8,13 +8,14 @@ import { useEffect, type RefObject } from "react";
  * stops observing it. The reveal fires once and never resets, even
  * if the user scrolls back up past it.
  *
- * Under `prefers-reduced-motion: reduce`, every target is marked
- * revealed immediately and no observer is created.
+ * Under `prefers-reduced-motion: reduce`, or when `enabled` is `false`,
+ * every target is marked revealed immediately and no observer is created.
  */
 export function useRevealOnScroll<T extends HTMLElement>(
   ref: RefObject<T | null>,
   selector?: string,
-  rootMargin = "0px 0px -35% 0px"
+  rootMargin = "0px 0px -35% 0px",
+  enabled = true
 ) {
   useEffect(() => {
     const root = ref.current;
@@ -26,7 +27,7 @@ export function useRevealOnScroll<T extends HTMLElement>(
 
     if (targets.length === 0) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (!enabled || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       for (const target of targets) {
         target.setAttribute("data-revealed", "true");
       }
@@ -52,5 +53,5 @@ export function useRevealOnScroll<T extends HTMLElement>(
     for (const target of targets) observer.observe(target);
 
     return () => observer.disconnect();
-  }, [ref, selector, rootMargin]);
+  }, [ref, selector, rootMargin, enabled]);
 }
