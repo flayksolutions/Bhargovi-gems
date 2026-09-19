@@ -342,6 +342,9 @@
   .header {
     grid-template-columns: auto auto;
     justify-content: space-between;
+    /* Taller bar (content stays centered) for vertical breathing room. */
+    height: calc(var(--header-h) + 20px);
+    padding-left: calc(var(--gutter) + 8px);
   }
 
   .nav {
@@ -355,6 +358,10 @@
 
   .menuToggle {
     display: flex;
+  }
+
+  .logo {
+    width: clamp(150px, 42vw, 200px);
   }
 }
 
