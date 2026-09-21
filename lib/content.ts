@@ -293,6 +293,7 @@ export const certificationsSection = {
 export const footer = {
   tagline: "A Step Over Perfection",
   image: "/images/footer/footer-plate.png",
+  mobileImage: "/images/footer/footer-mobile-plate.png",
   socials: [
     {
       label: "LinkedIn",

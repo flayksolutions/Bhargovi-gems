@@ -47,13 +47,20 @@
   object-position: 50% 42%;
 }
 
+.plateMobile {
+  display: none;
+}
+
 @media (max-width: 640px) {
-  /* Cover-crop has nowhere near enough width to keep the art centered
-     on a phone screen, so pin it to the image's right edge instead —
-     shifts the crop left and lines the art's right edge up with the
-     viewport's, rather than losing it off both sides. */
-  .plateImage {
-    object-position: right 42%;
+  /* Phones get the dedicated portrait plate instead of a cover-crop of
+     the wide desktop art. */
+  .plateDesktop {
+    display: none;
+  }
+
+  .plateMobile {
+    display: block;
+    object-position: 50% 50%;
   }
 }
 
@@ -269,6 +276,11 @@
 }
 
 @media (max-width: 640px) {
+  .inner {
+    padding-left: clamp(40px, 12vw, 64px);
+    padding-right: clamp(40px, 12vw, 64px);
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
