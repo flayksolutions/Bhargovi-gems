@@ -165,7 +165,7 @@ export default function SiteFooter({
           <p className={styles.legal}>
             &copy; {year} {brand}. {legal}
           </p>
-          <p className={styles.credit}>
+          {/* <p className={styles.credit}>
             {credit.prefix}{" "}
             <a
               href={credit.href}
@@ -174,14 +174,13 @@ export default function SiteFooter({
               className={styles.creditLink}
             >
               {credit.label}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/icons/footer/arrow-outward.svg"
                 alt=""
                 className={styles.arrow}
               />
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

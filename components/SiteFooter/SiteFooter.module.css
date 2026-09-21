@@ -211,12 +211,13 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 14px;
 }
 
 .legal {
   margin: 0;
+  text-align: left;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
