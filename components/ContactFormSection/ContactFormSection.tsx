@@ -96,9 +96,19 @@ export default function ContactFormSection({
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [modalOpen, setModalOpen] = useState(false);
 
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
   useEffect(() => {
     mountedAt.current = performance.now();
   }, []);
+
+  // Grow the message box with its content (and shrink back after a reset).
+  useEffect(() => {
+    const el = messageRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight + (el.offsetHeight - el.clientHeight)}px`;
+  }, [values.message]);
 
   const update = (name: ContactFieldName, value: string) => {
     const next = { ...values, [name]: value };
@@ -300,6 +310,7 @@ export default function ContactFormSection({
                     {field.type === "textarea" ? (
                       <textarea
                         {...common}
+                        ref={messageRef}
                         rows={1}
                         className={styles.textarea}
                         onChange={(e) => update(field.name, e.target.value)}

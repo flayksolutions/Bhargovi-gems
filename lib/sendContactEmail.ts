@@ -54,8 +54,7 @@ function buildHtml(v: ContactValues): string {
     : `<p style="margin:24px 0 0;font-size:14px;color:#6d7f99">No message provided.</p>`;
 
   return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;color:#12151c">
-<p style="margin:0 0 8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#2564ca">New website enquiry</p>
-<h1 style="margin:0 0 20px;font-size:22px;font-weight:600;color:#022671">${escapeHtml(v.fullName)}, ${escapeHtml(v.companyName)}</h1>
+<p style="margin:0 0 20px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#2564ca">New website enquiry</p>
 <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${rowHtml}</table>
 ${message}
 <p style="margin:28px 0 0;font-size:12px;color:#6d7f99">Reply to this email to respond directly to the enquirer.</p>

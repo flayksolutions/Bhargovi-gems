@@ -195,6 +195,7 @@
 
 .textarea {
   resize: none;
+  overflow: hidden;
   min-height: 1.6em;
 }
 
