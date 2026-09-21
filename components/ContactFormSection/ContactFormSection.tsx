@@ -1,11 +1,36 @@
 "use client";
 
-import { useRef } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import type { ContactFormField, ContactOffice, ContactReachOut } from "@/lib/content";
+import type {
+  ContactFieldName,
+  ContactFormField,
+  ContactFormMessages,
+  ContactModalCopy,
+  ContactOffice,
+  ContactReachOut,
+} from "@/lib/content";
 import styles from "./ContactFormSection.module.css";
 import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
+import {
+  EMPTY_CONTACT_VALUES,
+  caretIndexForDigits,
+  countDigits,
+  formatPhone,
+  normalizeContact,
+  validateContact,
+  type ContactErrors,
+  type ContactValues,
+} from "@/lib/contactValidation";
+import ThankYouModal from "./ThankYouModal";
 
 /* Material Icons "call" and "mail" glyphs, inlined as SVG paths so the
    contact block doesn't pull in the whole Material Symbols font for
@@ -29,6 +54,8 @@ type Props = {
   fields: ContactFormField[];
   submit: { label: string };
   note: string;
+  messages: ContactFormMessages;
+  modal: ContactModalCopy;
   image: string;
   alt: string;
   officesTitle: string;
@@ -42,6 +69,8 @@ export default function ContactFormSection({
   fields,
   submit,
   note,
+  messages,
+  modal,
   image,
   alt,
   officesTitle,
@@ -55,6 +84,172 @@ export default function ContactFormSection({
     `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`,
     "0px 0px -20% 0px"
   );
+
+  const mountedAt = useRef(0);
+  const submitRef = useRef<HTMLButtonElement>(null);
+  const [values, setValues] = useState<ContactValues>(EMPTY_CONTACT_VALUES);
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const [touched, setTouched] = useState<
+    Partial<Record<ContactFieldName, boolean>>
+  >({});
+  const [honeypot, setHoneypot] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    mountedAt.current = performance.now();
+  }, []);
+
+  // Grow the message box with its content (and shrink back after a reset).
+  useEffect(() => {
+    const el = messageRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight + (el.offsetHeight - el.clientHeight)}px`;
+  }, [values.message]);
+
+  const update = (name: ContactFieldName, value: string) => {
+    const next = { ...values, [name]: value };
+    setValues(next);
+    if (status === "error") setStatus("idle");
+    if (touched[name]) {
+      const e = validateContact(next, messages.errors)[name];
+      setErrors((prev) => {
+        const merged = { ...prev };
+        if (e) merged[name] = e;
+        else delete merged[name];
+        return merged;
+      });
+    }
+  };
+
+  const handleBlur = (name: ContactFieldName) => {
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const e = validateContact(values, messages.errors)[name];
+    setErrors((prev) => {
+      const merged = { ...prev };
+      if (e) merged[name] = e;
+      else delete merged[name];
+      return merged;
+    });
+  };
+
+  /* Reformat the phone number as the user types and keep the caret next to
+     the same digit, so editing in the middle of the number still works. */
+  const applyPhone = (
+    el: HTMLInputElement,
+    raw: string,
+    digitsBeforeCaret: number
+  ) => {
+    const formatted = formatPhone(raw);
+    update("phone", formatted);
+    const pos = caretIndexForDigits(formatted, digitsBeforeCaret);
+    requestAnimationFrame(() => el.setSelectionRange(pos, pos));
+  };
+
+  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const el = e.target;
+    const caret = el.selectionStart ?? el.value.length;
+    applyPhone(el, el.value, countDigits(el.value.slice(0, caret)));
+  };
+
+  /* Backspace next to a space would otherwise delete only the space, which
+     reformatting immediately puts back — leaving the user stuck. Delete the
+     digit before the space instead. */
+  const handlePhoneKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Delete") {
+      const el = e.currentTarget;
+      const { selectionStart: start, selectionEnd: end, value } = el;
+      if (
+        start === null ||
+        start !== end ||
+        value[start] !== " " ||
+        start + 1 >= value.length
+      )
+        return;
+      e.preventDefault();
+      const before = value.slice(0, start);
+      const after = value.slice(start + 2);
+      applyPhone(el, before + after, countDigits(before));
+      return;
+    }
+    if (e.key !== "Backspace") return;
+    const el = e.currentTarget;
+    const { selectionStart: start, selectionEnd: end, value } = el;
+    if (start === null || start !== end || start < 2 || value[start - 1] !== " ")
+      return;
+    e.preventDefault();
+    const before = value.slice(0, start - 2);
+    applyPhone(el, before + value.slice(start), countDigits(before));
+  };
+
+  const focusField = (id: string) => document.getElementById(id)?.focus();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === "sending") return;
+
+    const found = validateContact(values, messages.errors);
+    setErrors(found);
+    setTouched({
+      fullName: true,
+      companyName: true,
+      email: true,
+      phone: true,
+      message: true,
+    });
+    const firstInvalid = fields.find((f) => found[f.name]);
+    if (firstInvalid) {
+      focusField(firstInvalid.id);
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...normalizeContact(values),
+          referralCode: honeypot,
+          elapsedMs: Math.round(performance.now() - mountedAt.current),
+        }),
+      });
+
+      if (res.status === 400) {
+        const data = (await res.json().catch(() => null)) as {
+          errors?: ContactErrors;
+        } | null;
+        if (data?.errors) {
+          setErrors(data.errors);
+          setStatus("idle");
+          const invalid = fields.find((f) => data.errors?.[f.name]);
+          if (invalid) focusField(invalid.id);
+          return;
+        }
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      setStatus("idle");
+      setModalOpen(true);
+    } catch (err) {
+      console.error("[contact] submit failed:", err);
+      setStatus("error");
+    }
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setValues(EMPTY_CONTACT_VALUES);
+    setErrors({});
+    setTouched({});
+    setHoneypot("");
+    setStatus("idle");
+    mountedAt.current = performance.now();
+    requestAnimationFrame(() => submitRef.current?.focus());
+  };
 
   return (
     <section ref={sectionRef} className={styles.section} aria-label="Contact">
@@ -73,49 +268,114 @@ export default function ContactFormSection({
         <div className={styles.card}>
           <p className={styles.eyebrow}>{eyebrow}</p>
 
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={handleSubmit} noValidate>
             <div className={styles.grid}>
-              {fields.map((field, i) => (
-                <div
-                  key={field.id}
-                  className={
-                    field.type === "textarea"
-                      ? `${styles.field} ${styles.fieldWide}`
-                      : styles.field
-                  }
-                  style={{ ["--i" as string]: i }}
-                >
-                  <div className={styles.fieldLabel}>
-                    <span className={styles.fieldNumber}>{field.number}</span>
-                    <label htmlFor={field.id} className={styles.fieldLabelText}>
-                      {field.label}
-                    </label>
-                  </div>
+              {fields.map((field, i) => {
+                const error = errors[field.name];
+                const errorId = `${field.id}-error`;
+                const common = {
+                  id: field.id,
+                  name: field.name,
+                  placeholder: field.placeholder,
+                  value: values[field.name],
+                  "aria-invalid": error ? true : undefined,
+                  "aria-describedby": error ? errorId : undefined,
+                  "aria-required": field.optional ? undefined : true,
+                  autoComplete: field.autoComplete,
+                  onBlur: () => handleBlur(field.name),
+                };
 
-                  {field.type === "textarea" ? (
-                    <textarea
-                      id={field.id}
-                      name={field.name}
-                      rows={1}
-                      placeholder={field.placeholder}
-                      className={styles.textarea}
-                    />
-                  ) : (
-                    <input
-                      id={field.id}
-                      name={field.name}
-                      type={field.type}
-                      placeholder={field.placeholder}
-                      className={styles.input}
-                    />
-                  )}
-                </div>
-              ))}
+                return (
+                  <div
+                    key={field.id}
+                    className={
+                      field.type === "textarea"
+                        ? `${styles.field} ${styles.fieldWide}`
+                        : styles.field
+                    }
+                    style={{ ["--i" as string]: i }}
+                  >
+                    <div className={styles.fieldLabel}>
+                      <span className={styles.fieldNumber}>{field.number}</span>
+                      <label htmlFor={field.id} className={styles.fieldLabelText}>
+                        {field.label}
+                      </label>
+                      {field.optional && (
+                        <span className={styles.optionalTag}>
+                          {messages.optionalTag}
+                        </span>
+                      )}
+                    </div>
+
+                    {field.type === "textarea" ? (
+                      <textarea
+                        {...common}
+                        ref={messageRef}
+                        rows={1}
+                        className={styles.textarea}
+                        onChange={(e) => update(field.name, e.target.value)}
+                      />
+                    ) : field.name === "phone" ? (
+                      <input
+                        {...common}
+                        type="tel"
+                        inputMode="tel"
+                        className={styles.input}
+                        onChange={handlePhoneChange}
+                        onKeyDown={handlePhoneKeyDown}
+                      />
+                    ) : (
+                      <input
+                        {...common}
+                        type={field.type}
+                        className={styles.input}
+                        onChange={(e) => update(field.name, e.target.value)}
+                      />
+                    )}
+
+                    {error && (
+                      <p id={errorId} className={styles.error}>
+                        {error}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
+            {/* Honeypot: invisible to people, tempting to bots. */}
+            <div className={styles.honeypot} aria-hidden="true">
+              <label>
+                Referral code
+                <input
+                  type="text"
+                  name="referral_code"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </label>
+            </div>
+
+            {status === "error" && (
+              <p className={styles.formError} role="alert">
+                {messages.submitError}{" "}
+                <a href={`mailto:${messages.fallbackEmail}`}>
+                  {messages.fallbackEmail}
+                </a>
+                .
+              </p>
+            )}
+
             <div className={styles.submitRow} style={{ ["--i" as string]: fields.length }}>
-              <button type="submit" className={styles.submit}>
-                {submit.label}
+              <button
+                ref={submitRef}
+                type="submit"
+                className={styles.submit}
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? messages.sending : submit.label}
               </button>
               <p className={styles.note}>{note}</p>
             </div>
@@ -183,6 +443,7 @@ export default function ContactFormSection({
           </ul>
         </div>
       </div>
+      <ThankYouModal open={modalOpen} onClose={handleModalClose} {...modal} />
     </section>
   );
 }

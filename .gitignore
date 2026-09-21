@@ -20,9 +20,6 @@ lerna-debug.log*
 *.log
 
 # Local Environment Variables (Contains private API keys/secrets)
-.env*.local
-.env
-!.env.example
 
 # Vercel Deployment Artifacts
 .vercel

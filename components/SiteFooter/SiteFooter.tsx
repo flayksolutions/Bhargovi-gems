@@ -19,6 +19,7 @@ type Props = {
   brand: string;
   tagline: string;
   image: string;
+  mobileImage: string;
   socials: FooterLink[];
   quickLinks: FooterLink[];
   contact: {
@@ -35,6 +36,7 @@ export default function SiteFooter({
   brand,
   tagline,
   image,
+  mobileImage,
   socials,
   quickLinks,
   contact,
@@ -52,7 +54,15 @@ export default function SiteFooter({
           fill
           sizes="100vw"
           quality={90}
-          className={styles.plateImage}
+          className={`${styles.plateImage} ${styles.plateDesktop}`}
+        />
+        <Image
+          src={mobileImage}
+          alt=""
+          fill
+          sizes="100vw"
+          quality={90}
+          className={`${styles.plateImage} ${styles.plateMobile}`}
         />
       </div>
 
@@ -165,7 +175,7 @@ export default function SiteFooter({
           <p className={styles.legal}>
             &copy; {year} {brand}. {legal}
           </p>
-          <p className={styles.credit}>
+          {/* <p className={styles.credit}>
             {credit.prefix}{" "}
             <a
               href={credit.href}
@@ -174,14 +184,13 @@ export default function SiteFooter({
               className={styles.creditLink}
             >
               {credit.label}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/icons/footer/arrow-outward.svg"
                 alt=""
                 className={styles.arrow}
               />
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
