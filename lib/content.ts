@@ -1771,13 +1771,44 @@ export const contactHeroSection = {
   title: "We'd Love to Hear From You",
 };
 
+export type ContactFieldName =
+  | "fullName"
+  | "companyName"
+  | "email"
+  | "phone"
+  | "message";
+
 export type ContactFormField = {
   id: string;
   number: string;
   label: string;
-  name: string;
+  name: ContactFieldName;
   type: "text" | "email" | "tel" | "textarea";
   placeholder: string;
+  autoComplete?: string;
+  /** Shows the "Optional" tag next to the label. */
+  optional?: boolean;
+};
+
+export type ContactFormMessages = {
+  errors: {
+    fullName: { required: string; invalid: string };
+    companyName: { required: string; invalid: string };
+    email: { required: string; invalid: string };
+    phone: { required: string; invalid: string };
+    message: { invalid: string };
+  };
+  optionalTag: string;
+  sending: string;
+  submitError: string;
+  fallbackEmail: string;
+};
+
+export type ContactModalCopy = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  closeLabel: string;
 };
 
 export type ContactOffice = {
@@ -1806,6 +1837,7 @@ export const contactFormSection = {
       name: "fullName",
       type: "text",
       placeholder: "Your name",
+      autoComplete: "name",
     },
     {
       id: "company-name",
@@ -1814,6 +1846,7 @@ export const contactFormSection = {
       name: "companyName",
       type: "text",
       placeholder: "Your company name",
+      autoComplete: "organization",
     },
     {
       id: "email-address",
@@ -1822,6 +1855,7 @@ export const contactFormSection = {
       name: "email",
       type: "email",
       placeholder: "your@email.com",
+      autoComplete: "email",
     },
     {
       id: "phone-number",
@@ -1830,6 +1864,7 @@ export const contactFormSection = {
       name: "phone",
       type: "tel",
       placeholder: "+91 000 000 0000",
+      autoComplete: "tel",
     },
     {
       id: "message",
@@ -1838,10 +1873,45 @@ export const contactFormSection = {
       name: "message",
       type: "textarea",
       placeholder: "Volume, specifications, timeline, or other details…",
+      optional: true,
     },
   ] satisfies ContactFormField[],
   submit: { label: "Submit Enquiry" },
   note: "Confidential enquiry · We respond within 24 hours",
+  messages: {
+    errors: {
+      fullName: {
+        required: "Please enter your full name.",
+        invalid: "Name must be between 2 and 100 characters.",
+      },
+      companyName: {
+        required: "Please enter your company name.",
+        invalid: "Company name must be between 2 and 120 characters.",
+      },
+      email: {
+        required: "Please enter your email address.",
+        invalid: "Enter a valid email address, e.g. name@company.com.",
+      },
+      phone: {
+        required: "Please enter your phone number.",
+        invalid:
+          "Enter a valid phone number with country code, e.g. +91 987 654 3210.",
+      },
+      message: {
+        invalid: "Please keep your message under 2,000 characters.",
+      },
+    },
+    optionalTag: "Optional",
+    sending: "Sending…",
+    submitError: "We couldn't send your message. Please try again, or email us at",
+    fallbackEmail: "sales@bhargovigems.co",
+  } satisfies ContactFormMessages,
+  modal: {
+    eyebrow: "Message Received",
+    title: "Thank you for your message.",
+    body: "We will get back to you soon.",
+    closeLabel: "Close",
+  } satisfies ContactModalCopy,
   image: "/images/contact-form-tray.png",
   alt: "Loose polished diamonds scattered across a jewellery tray",
   officesTitle: "Our Offices",
