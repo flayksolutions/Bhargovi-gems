@@ -60,25 +60,11 @@
 .reveal {
   position: absolute;
   inset: 0;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 550ms var(--ease-out-expo);
-  will-change: clip-path;
-}
-
-.section[data-revealed="true"] .reveal {
-  clip-path: inset(0 0 0 0);
 }
 
 .image {
   object-fit: cover;
   object-position: 50% 30%;
-  transform: scale(1.08);
-  transition: transform 700ms var(--ease-out-expo);
-  will-change: transform;
-}
-
-.section[data-revealed="true"] .image {
-  transform: scale(1);
 }
 
 /* ---------------------------- copy -------------------------------- */
@@ -205,14 +191,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    clip-path: none;
-  }
-
-  .image {
-    transform: none;
-  }
-
   .eyebrow,
   .title,
   .quote,
