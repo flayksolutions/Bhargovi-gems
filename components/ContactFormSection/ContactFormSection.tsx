@@ -6,7 +6,6 @@ import {
   useState,
   type ChangeEvent,
   type FormEvent,
-  type KeyboardEvent,
 } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +18,6 @@ import type {
   ContactReachOut,
 } from "@/lib/content";
 import styles from "./ContactFormSection.module.css";
-import { useRevealOnScroll } from "@/lib/useRevealOnScroll";
 import {
   EMPTY_CONTACT_VALUES,
   caretIndexForDigits,
@@ -78,13 +76,6 @@ export default function ContactFormSection({
   reachOutTitle,
   reachOut,
 }: Props) {
-  const sectionRef = useRef<HTMLElement>(null);
-  useRevealOnScroll(
-    sectionRef,
-    `.${styles.plate}, .${styles.card}, .${styles.offices}, .${styles.reachOut}`,
-    "0px 0px -20% 0px"
-  );
-
   const mountedAt = useRef(0);
   const submitRef = useRef<HTMLButtonElement>(null);
   const [values, setValues] = useState<ContactValues>(EMPTY_CONTACT_VALUES);
@@ -136,53 +127,16 @@ export default function ContactFormSection({
     });
   };
 
-  /* Reformat the phone number as the user types and keep the caret next to
-     the same digit, so editing in the middle of the number still works. */
-  const applyPhone = (
-    el: HTMLInputElement,
-    raw: string,
-    digitsBeforeCaret: number
-  ) => {
-    const formatted = formatPhone(raw);
-    update("phone", formatted);
-    const pos = caretIndexForDigits(formatted, digitsBeforeCaret);
-    requestAnimationFrame(() => el.setSelectionRange(pos, pos));
-  };
-
+  /* Strip non-digits as the user types and keep the caret next to the same
+     digit, so editing in the middle of the number still works. */
   const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
     const el = e.target;
     const caret = el.selectionStart ?? el.value.length;
-    applyPhone(el, el.value, countDigits(el.value.slice(0, caret)));
-  };
-
-  /* Backspace next to a space would otherwise delete only the space, which
-     reformatting immediately puts back — leaving the user stuck. Delete the
-     digit before the space instead. */
-  const handlePhoneKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Delete") {
-      const el = e.currentTarget;
-      const { selectionStart: start, selectionEnd: end, value } = el;
-      if (
-        start === null ||
-        start !== end ||
-        value[start] !== " " ||
-        start + 1 >= value.length
-      )
-        return;
-      e.preventDefault();
-      const before = value.slice(0, start);
-      const after = value.slice(start + 2);
-      applyPhone(el, before + after, countDigits(before));
-      return;
-    }
-    if (e.key !== "Backspace") return;
-    const el = e.currentTarget;
-    const { selectionStart: start, selectionEnd: end, value } = el;
-    if (start === null || start !== end || start < 2 || value[start - 1] !== " ")
-      return;
-    e.preventDefault();
-    const before = value.slice(0, start - 2);
-    applyPhone(el, before + value.slice(start), countDigits(before));
+    const digitsBeforeCaret = countDigits(el.value.slice(0, caret));
+    const formatted = formatPhone(el.value);
+    update("phone", formatted);
+    const pos = caretIndexForDigits(formatted, digitsBeforeCaret);
+    requestAnimationFrame(() => el.setSelectionRange(pos, pos));
   };
 
   const focusField = (id: string) => document.getElementById(id)?.focus();
@@ -252,7 +206,7 @@ export default function ContactFormSection({
   };
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Contact">
+    <section className={styles.section} aria-label="Contact">
       <div className={styles.plate}>
         <Image
           src={image}
@@ -316,14 +270,22 @@ export default function ContactFormSection({
                         onChange={(e) => update(field.name, e.target.value)}
                       />
                     ) : field.name === "phone" ? (
-                      <input
-                        {...common}
-                        type="tel"
-                        inputMode="tel"
-                        className={styles.input}
-                        onChange={handlePhoneChange}
-                        onKeyDown={handlePhoneKeyDown}
-                      />
+                      <div
+                        className={`${styles.phoneRow}${
+                          error ? ` ${styles.phoneRowInvalid}` : ""
+                        }`}
+                      >
+                        <span className={styles.phonePrefix} aria-hidden="true">
+                          +91
+                        </span>
+                        <input
+                          {...common}
+                          type="tel"
+                          inputMode="numeric"
+                          className={styles.phoneInput}
+                          onChange={handlePhoneChange}
+                        />
+                      </div>
                     ) : (
                       <input
                         {...common}

@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { normalizeContact, validateContact } from "@/lib/contactValidation";
+import {
+  normalizeContact,
+  validateContact,
+  withCountryCode,
+} from "@/lib/contactValidation";
 import { sendContactEmail } from "@/lib/sendContactEmail";
 import { contactFormSection } from "@/lib/content";
 
@@ -54,7 +58,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    await sendContactEmail(values);
+    await sendContactEmail({ ...values, phone: withCountryCode(values.phone) });
     return ok();
   } catch (err) {
     console.error("[contact] send failed:", err);
