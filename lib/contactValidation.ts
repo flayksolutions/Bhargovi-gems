@@ -25,9 +25,9 @@ export function countDigits(value: string): number {
 
 /**
  * Formats loosely-typed input into the 10-digit Indian local-number shape,
- * e.g. "9876543210" -> "987 654 3210". The +91 country code is fixed in the
- * UI and prepended separately, so it's stripped here if pasted in. Returns
- * "" when there are no digits.
+ * e.g. "9876543210" -> "98765 43210", capped at 10 digits. The +91 country
+ * code is fixed in the UI and prepended separately, so it's stripped here
+ * if pasted in. Returns "" when there are no digits.
  */
 export function formatPhone(raw: string): string {
   let digits = raw.replace(/\D/g, "");
@@ -36,13 +36,11 @@ export function formatPhone(raw: string): string {
   } else if (digits.length > PHONE_DIGITS && digits.startsWith("0")) {
     digits = digits.slice(1);
   }
-  // One extra digit is kept so validation can reject it instead of silently truncating.
-  digits = digits.slice(0, PHONE_DIGITS + 1);
+  digits = digits.slice(0, PHONE_DIGITS);
   if (!digits) return "";
 
-  const groups: string[] = [digits.slice(0, 3)];
-  if (digits.length > 3) groups.push(digits.slice(3, 6));
-  if (digits.length > 6) groups.push(digits.slice(6));
+  const groups: string[] = [digits.slice(0, 5)];
+  if (digits.length > 5) groups.push(digits.slice(5));
   return groups.join(" ");
 }
 

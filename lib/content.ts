@@ -1864,7 +1864,7 @@ export const contactFormSection = {
       label: "Phone Number",
       name: "phone",
       type: "tel",
-      placeholder: "000 000 0000",
+      placeholder: "00000 00000",
       autoComplete: "tel-national",
     },
     {
@@ -1895,7 +1895,7 @@ export const contactFormSection = {
       },
       phone: {
         required: "Please enter your phone number.",
-        invalid: "Enter a valid 10-digit Indian phone number, e.g. 987 654 3210.",
+        invalid: "Enter a valid 10-digit Indian phone number, e.g. 98765 43210.",
       },
       message: {
         invalid: "Please keep your message under 2,000 characters.",
