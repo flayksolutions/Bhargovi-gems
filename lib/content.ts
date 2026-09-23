@@ -19,8 +19,10 @@ export const heroSection = {
   titleLines: ["Manufacturing", "Lab Grown Diamonds"],
   body: "Crafting exceptional diamonds through precision, innovation and decades of manufacturing experience.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
-  image: "/images/hero-4-poster.jpg",
-  video: "/videos/hero-4.mp4",
+  image: "/images/hero-poster.jpg",
+  video: "/videos/hero.mp4",
+  mobileImage: "/images/hero-poster-mobile.jpg",
+  mobileVideo: "/videos/hero-mobile.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
 
@@ -1895,7 +1897,8 @@ export const contactFormSection = {
       },
       phone: {
         required: "Please enter your phone number.",
-        invalid: "Enter a valid 10-digit Indian phone number, e.g. 98765 43210.",
+        invalid:
+          "Enter a valid 10-digit Indian phone number, e.g. 98765 43210.",
       },
       message: {
         invalid: "Please keep your message under 2,000 characters.",
@@ -1903,7 +1906,8 @@ export const contactFormSection = {
     },
     optionalTag: "Optional",
     sending: "Sending…",
-    submitError: "We couldn't send your message. Please try again, or email us at",
+    submitError:
+      "We couldn't send your message. Please try again, or email us at",
     fallbackEmail: "sales@bhargovigems.co",
   } satisfies ContactFormMessages,
   modal: {
