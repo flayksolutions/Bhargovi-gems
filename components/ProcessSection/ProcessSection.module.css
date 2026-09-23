@@ -322,14 +322,21 @@
   margin-top: 22px;
 }
 
+.mobileText .numRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
 .mobileText .num {
-  display: block;
-  margin-bottom: 8px;
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 .mobileText .name {
-  display: block;
-  margin: 0 0 4px;
+  display: inline-block;
+  margin: 0;
   color: var(--ink-deep);
 }
 
@@ -368,6 +375,14 @@
 
   .name {
     font-size: clamp(24px, 6vw, 34px);
+  }
+
+  .num {
+    font-size: 18px;
+  }
+
+  .body {
+    font-size: 14px;
   }
 }
 

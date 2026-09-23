@@ -182,13 +182,14 @@
   .bleed {
     width: 46%;
     left: -22%;
+    bottom: -3.5%;
     opacity: 0.32;
   }
 
   .iconFrame,
   .icon {
-    width: 68px;
-    height: 67px;
+    width: 56px;
+    height: 56px;
   }
 }
 

@@ -77,7 +77,7 @@
 .eyebrow {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -462,6 +462,10 @@
 /* ---------------------------- responsive ------------------------- */
 
 @media (max-width: 960px) {
+  .eyebrow {
+    font-size: 14px;
+  }
+
   .section {
     display: flex;
     flex-direction: column;
