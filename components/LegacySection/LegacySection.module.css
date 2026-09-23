@@ -52,7 +52,7 @@
 .eyebrow {
   margin: 0 0 clamp(12px, 1.6vh, 18px);
   font-family: var(--font-body);
-  font-size: clamp(12px, 0.95vw, 14px);
+  font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -71,6 +71,11 @@
 }
 
 @media (min-width: 1921px) {
+  .eyebrow {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
   .title {
     font-size: clamp(28px, 3.05vw, 50px);
   }
@@ -138,19 +143,19 @@
 
 /* Column boundaries from the comp: 188 / 345 / 498 of 646. */
 .th:nth-child(1) {
-  width: 22%;
+  width: 25%;
 }
 
 .th:nth-child(2) {
-  width: 24.3%;
+  width: 27.3%;
 }
 
 .th:nth-child(3) {
-  width: 23.7%;
+  width: 26.7%;
 }
 
 .th:nth-child(4) {
-  width: 30%;
+  width: 21%;
 }
 
 .th {
@@ -181,7 +186,10 @@
 }
 
 .th:first-child,
-.category,
+.category {
+  padding-left: 32px;
+}
+
 .th:last-child,
 .td:last-child {
   padding-left: 20px;
