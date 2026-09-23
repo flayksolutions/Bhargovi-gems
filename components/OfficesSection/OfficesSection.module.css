@@ -99,6 +99,7 @@
     --cn: clamp(26px, 2.5vw, 56px);
     width: min(640px, 100%);
     padding: clamp(28px, 2.6vw, 80px);
+    margin-right: calc(clamp(0px, 4vw, 90px) - 100px);
   }
 }
 
