@@ -41,6 +41,10 @@
   }
 }
 
+.mobileImage {
+  display: none;
+}
+
 .scrim {
   position: absolute;
   inset: 0;
@@ -178,6 +182,14 @@
 
   .image {
     object-position: 50% 50%;
+  }
+
+  .desktopImage {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
   }
 
   .foot {

@@ -169,8 +169,10 @@ export default function ProcessSection({ eyebrow, title, steps }: Props) {
                   <span className={styles.frameGlow} />
                 </figure>
                 <div className={styles.mobileText}>
-                  <span className={styles.num}>{pad(i)}</span>
-                  <h3 className={styles.name}>{step.name}</h3>
+                  <div className={styles.numRow}>
+                    <span className={styles.num}>{pad(i)}</span>
+                    <h3 className={styles.name}>{step.name}</h3>
+                  </div>
                   <p className={styles.body}>{step.description}</p>
                 </div>
               </li>

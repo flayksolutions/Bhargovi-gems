@@ -302,6 +302,10 @@
     width: clamp(180px, 38vw, 320px);
     opacity: 0.55;
   }
+
+  .answer {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 1921px) {

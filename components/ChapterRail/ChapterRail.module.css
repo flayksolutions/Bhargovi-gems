@@ -78,6 +78,7 @@
 @media (min-width: 1921px) {
   .list {
     max-width: 1600px;
+    gap: 64px;
   }
 }
 
@@ -126,6 +127,16 @@
   font-weight: 500;
   color: rgba(58, 68, 86, 0.75);
   transition: color 280ms var(--ease-soft);
+}
+
+@media (min-width: 1921px) {
+  .label {
+    font-size: 16px;
+  }
+
+  .number {
+    font-size: 13px;
+  }
 }
 
 .link::after {

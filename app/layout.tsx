@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description,
     url: "/",
     siteName: "Bhargovi Gems",
-    images: ["/images/hero-4-poster.jpg"],
+    images: [heroSection.image],
     locale: "en_US",
     type: "website",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/hero-4-poster.jpg"],
+    images: [heroSection.image],
   },
 };
 

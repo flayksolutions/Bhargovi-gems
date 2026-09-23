@@ -217,12 +217,13 @@
 
 .moreInfoLink {
   --cn: var(--notch-sm);
+  --bw: 1px;
 
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 0 auto clamp(20px, 4vh, 48px);
+  margin: 0 auto clamp(20px, 4.8vh, 64px);
   padding: clamp(10px, 1.1vw, 14px) clamp(28px, 2.6vw, 40px);
   font-family: var(--font-body);
   font-size: clamp(14px, 0.85vw, 16px);
@@ -231,142 +232,47 @@
   text-transform: uppercase;
   color: var(--sapphire);
   text-decoration: none;
-}
 
-/* House chamfer (top-right + bottom-left). `clip-path` can't punch a
-   hole out of a bordered box (`polygon()` is a single closed path, not
-   a ring), so the outline is built from six real 1px segments instead:
-   four straight edges stopping short of the cut corners, plus two
-   diagonal bars closing each chamfer. */
-.moreInfoBorder {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.moreInfoBorder::before,
-.moreInfoBorder::after {
-  content: "";
-  position: absolute;
-  width: calc(var(--cn) * 1.4142);
-  height: 1px;
   background: var(--sapphire);
-  transform: rotate(45deg);
-  transform-origin: 0 50%;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cn)) 0,
+    100% var(--cn),
+    100% 100%,
+    var(--cn) 100%,
+    0 calc(100% - var(--cn))
+  );
 }
 
-/* top-right chamfer: (100% - cn, 0) -> (100%, cn) */
-.moreInfoBorder::before {
-  top: 0;
-  left: calc(100% - var(--cn));
-}
-
-/* bottom-left chamfer: (0, 100% - cn) -> (cn, 100%) */
-.moreInfoBorder::after {
-  top: calc(100% - var(--cn));
-  left: 0;
-}
-
-.borderEdgeTop,
-.borderEdgeBottom {
-  position: absolute;
-  left: 0;
-  width: calc(100% - var(--cn));
-  height: 1px;
-  background: var(--sapphire);
-  transition: opacity 0.2s ease;
-}
-
-.borderEdgeRight,
-.borderEdgeLeft {
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: calc(100% - var(--cn));
-  background: var(--sapphire);
-  transition: opacity 0.2s ease;
-}
-
-.borderEdgeTop {
-  top: 0;
-}
-
-.borderEdgeBottom {
-  bottom: 0;
-  left: var(--cn);
-}
-
-.borderEdgeRight {
-  top: var(--cn);
-  right: 0;
-}
-
-.borderEdgeLeft {
-  top: 0;
-  left: 0;
-}
-
-.moreInfoLink:hover .borderEdgeTop,
-.moreInfoLink:hover .borderEdgeRight,
-.moreInfoLink:hover .borderEdgeBottom,
-.moreInfoLink:hover .borderEdgeLeft,
-.moreInfoLink:focus-visible .borderEdgeTop,
-.moreInfoLink:focus-visible .borderEdgeRight,
-.moreInfoLink:focus-visible .borderEdgeBottom,
-.moreInfoLink:focus-visible .borderEdgeLeft {
-  opacity: 0;
-}
-
-/* Two corner-anchored pseudo-elements each trace two sides; growing
-   both from 0 to full width/height (staggered) makes the outline
-   look like it's being drawn around the button, meeting at the
-   opposite corner. */
-.moreInfoLink::before,
-.moreInfoLink::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 1px solid transparent;
-  /* Retract (mouse-leave) order: height first, then width — the
-     reverse of the draw-in order set below, so the outline unwinds
-     back toward the corner it grew from instead of just rewinding
-     the same way it came. */
-  transition:
-    height 0.25s ease,
-    width 0.25s ease 0.25s;
-}
-
+/* Chamfered border via the clip-path inset method: the link itself is
+   clipped to the full chamfer shape and its background is the border
+   color; this pseudo sits inset by --bw with the same chamfer (shrunk
+   by --bw) and its own background, leaving a --bw ring of the parent's
+   background visible as the border. Fill starts transparent (showing
+   the border-only outline) and swaps in the hover tint. */
 .moreInfoLink::before {
-  top: 0;
-  left: 0;
-  border-top-color: var(--sapphire);
-  border-left-color: var(--sapphire);
-}
-
-.moreInfoLink::after {
-  bottom: 0;
-  right: 0;
-  border-bottom-color: var(--sapphire);
-  border-right-color: var(--sapphire);
+  content: "";
+  position: absolute;
+  inset: var(--bw);
+  background: #fff;
+  clip-path: polygon(
+    0 0,
+    calc(100% - (var(--cn) - var(--bw))) 0,
+    100% calc(var(--cn) - var(--bw)),
+    100% 100%,
+    calc(var(--cn) - var(--bw)) 100%,
+    0 calc(100% - (var(--cn) - var(--bw)))
+  );
+  transition: background 320ms var(--ease-soft);
 }
 
 .moreInfoLink:hover::before,
-.moreInfoLink:hover::after,
-.moreInfoLink:focus-visible::before,
-.moreInfoLink:focus-visible::after {
-  /* Stop at the chamfer instead of the literal corner — growing to
-     100% would draw a square corner over the cut-off ring. */
-  width: calc(100% - var(--cn));
-  height: calc(100% - var(--cn));
-  /* Draw-in (mouse-enter) order: width first, then height. */
-  transition:
-    width 0.25s ease,
-    height 0.25s ease 0.25s;
+.moreInfoLink:focus-visible::before {
+  background: #d9eafb;
 }
 
 .moreInfoLabel {
+  position: relative;
   display: inline-block;
   text-decoration: none;
 }
@@ -386,7 +292,7 @@
   margin: 0 auto;
   max-width: 1100px;
   font-family: var(--font-display);
-  font-size: clamp(17px, 1.75vw, 31px);
+  font-size: clamp(17px, 1.75vw, 40px);
   font-weight: 400;
   line-height: 1.3;
   letter-spacing: 0.02em;
@@ -400,6 +306,7 @@
     --shapes-per-row: 3;
     --shapes-gap: clamp(14px, 4vw, 24px);
     width: 100%;
+    margin-top: clamp(48px, 6vh, 120px);
   }
 
   .title {
@@ -407,7 +314,7 @@
   }
 
   .tagline {
-    font-size: clamp(16px, 4.2vw, 23px);
+    font-size: clamp(16px, 4.2vw, 24px);
   }
 }
 

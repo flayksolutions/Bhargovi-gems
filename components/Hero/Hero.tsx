@@ -11,6 +11,9 @@ type Props = {
   /* Optional: when present the plate plays this instead of the still,
      which stays on as the poster frame. */
   video?: string;
+  /* Optional: swapped in for `video`/`image` below the 960px breakpoint. */
+  mobileVideo?: string;
+  mobileImage?: string;
 };
 
 export default function Hero({
@@ -20,7 +23,11 @@ export default function Hero({
   image,
   alt,
   video,
+  mobileVideo,
+  mobileImage,
 }: Props) {
+  const hasMobileVariant = Boolean(mobileVideo);
+
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.plate}>
@@ -28,7 +35,7 @@ export default function Hero({
           /* Silent by design: muted + no controls, so it counts as
              decoration and browsers will allow the autoplay. */
           <video
-            className={styles.image}
+            className={[styles.image, hasMobileVariant ? styles.desktopImage : ""].join(" ")}
             src={video}
             poster={image}
             autoPlay
@@ -47,7 +54,21 @@ export default function Hero({
             sizes="100vw"
             priority
             quality={90}
-            className={styles.image}
+            className={[styles.image, hasMobileVariant ? styles.desktopImage : ""].join(" ")}
+          />
+        )}
+        {hasMobileVariant && (
+          <video
+            className={[styles.image, styles.mobileImage].join(" ")}
+            src={mobileVideo}
+            poster={mobileImage ?? image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            tabIndex={-1}
           />
         )}
         <span className={styles.scrim} />

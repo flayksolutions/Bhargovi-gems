@@ -77,7 +77,7 @@
 .eyebrow {
   margin: 0 0 8px;
   font-family: var(--font-body);
-  font-size: clamp(12px, 0.95vw, 14px);
+  font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -95,6 +95,11 @@
 }
 
 @media (min-width: 1921px) {
+  .eyebrow {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
   .title {
     font-size: clamp(30px, 3.35vw, 54px);
   }
