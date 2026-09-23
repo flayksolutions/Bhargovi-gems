@@ -41,16 +41,24 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: transparent;
+  /* Subtle dark fade so nav text/logo stay legible over any hero
+     imagery, without reading as a solid bar. */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.38) 0%,
+    rgba(0, 0, 0, 0.18) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
 
   pointer-events: none;
 
-  transition: background 480ms var(--ease-soft);
+  transition: background 480ms var(--ease-soft), opacity 480ms var(--ease-soft);
 }
 
-/* Second section has reached the top: solid white backing. */
+/* Second section has reached the top: solid white backing, gradient fades out. */
 .scrolled .backdrop {
   background: #fff;
+  opacity: 1;
 }
 
 /* ---------------------------- brand ------------------------------ */
