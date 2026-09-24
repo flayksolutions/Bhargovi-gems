@@ -69,24 +69,6 @@ export default function SiteFooter({
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.navGroup}>
-            <nav className={styles.navCol} aria-label="Social">
-              <h2 className={styles.navTitle}>Socials</h2>
-              <ul className={styles.navList}>
-                {socials.map((item) => (
-                  <li key={item.label}>
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.navLink}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
             <nav className={styles.navCol} aria-label="Quick Links">
               <h2 className={styles.navTitle}>Quick Links</h2>
               <ul className={styles.navList}>

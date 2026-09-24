@@ -71,8 +71,8 @@
   z-index: 1;
   max-width: 1440px;
   margin-inline: auto;
-  padding-left: clamp(20px, 9.65vw, 139px);
-  padding-right: clamp(20px, 8.89vw, 128px);
+  /* Symmetric so the middle grid column lands on the viewport centre. */
+  padding-inline: clamp(20px, 9.65vw, 139px);
 }
 
 @media (min-width: 1921px) {
@@ -83,7 +83,10 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  /* minmax(0, 1fr) keeps both side tracks equal even if one side's
+     content is wider; plain 1fr grows to min-content and skews the
+     centre column off-axis. */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: start;
   column-gap: clamp(24px, 6.8vw, 98px);
   row-gap: clamp(32px, 5vh, 56px);
@@ -96,6 +99,12 @@
   display: flex;
   justify-content: flex-end;
   gap: clamp(32px, 7.01vw, 101px);
+}
+
+@media (min-width: 961px) {
+  .navGroup {
+    padding-right: clamp(24px, 4vw, 64px);
+  }
 }
 
 .navCol {
@@ -289,6 +298,20 @@
   .navGroup {
     gap: clamp(32px, 16vw, 60px);
     justify-content: center;
+    text-align: center;
+  }
+
+  .navGroup,
+  .contactCol {
+    padding-inline: clamp(12px, 6vw, 32px);
+  }
+
+  .contactCol {
+    text-align: center;
+  }
+
+  .contactIcons {
+    justify-content: center;
   }
 
   .slogan {
@@ -296,9 +319,14 @@
   }
 
   .bar {
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .legal {
+    text-align: center;
   }
 
   /* Drop the sticky reveal on phones: the trick relies on tall content
@@ -312,5 +340,6 @@
      (and disappears from view). */
   .footer {
     position: relative;
+    padding-top: clamp(32px, 7vh, 56px);
   }
 }
