@@ -311,8 +311,8 @@ export const footer = {
   quickLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
-    { label: "Diamond Information", href: "/diamond-information" },
     { label: "Sustainability", href: "/sustainability" },
+    { label: "Diamond Information", href: "/diamond-information" },
     { label: "Contact Us", href: "/contact" },
   ],
   contact: {
@@ -490,7 +490,7 @@ export const legacySection = {
       {
         id: "round-brilliant",
         category: "Round Brilliant",
-        values: ["VVS-VS", "D - E - F", "0.03 – 1.50 CT"],
+        values: ["VVS-VS", "D - E - F", "0.08 – 1.50 CT"],
       },
       {
         id: "fancy-shapes",
@@ -1166,7 +1166,7 @@ export const fourCsSection = {
         },
       ],
       note: { accent: "0.005–3.00ct", trail: "melee to solitaire" },
-      standard: "Melee to 1.50 CT",
+      standard: "0.08 to 1.50 CT",
     },
   ] satisfies FourCCard[],
 };
@@ -1210,7 +1210,7 @@ export const shapesCutsSection = {
       name: "Round Brilliant",
       photo: "/images/shapes/round-brilliant.png",
       alt: "A round brilliant cut diamond viewed from the crown",
-      size: "0.03 - 1.50 CT",
+      size: "0.08 - 1.50 CT",
       featured: true,
       stats: shapeStats("54 – 58", "59 – 63"),
     },
@@ -1933,7 +1933,7 @@ export const contactFormSection = {
       name: "Surat",
       label: "Manufacturing Facility",
       address:
-        "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture Mall, Kapodra, Surat-395006",
+        "Riverview, Near Karamnath Mahadev Temple, Next To Jalaram Furniture, Kapodra, Surat-395006",
       mapHref: "https://maps.app.goo.gl/TwiWxWgmqFs2ZAJ58?g_st=ic",
     },
   ] satisfies ContactOffice[],
