@@ -291,19 +291,17 @@
     padding-right: clamp(40px, 12vw, 64px);
   }
 
+  /* Quick links left, contact/addresses right; the brand block still
+     spans the full row above (from the 960px rule). */
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(16px, 5vw, 32px);
+    padding-bottom: clamp(152px, 24vh, 210px);
   }
 
   .navGroup {
-    gap: clamp(32px, 16vw, 60px);
     justify-content: center;
     text-align: center;
-  }
-
-  .navGroup,
-  .contactCol {
-    padding-inline: clamp(12px, 6vw, 32px);
   }
 
   .contactCol {
@@ -311,7 +309,9 @@
   }
 
   .contactIcons {
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
   }
 
   .slogan {
