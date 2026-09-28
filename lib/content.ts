@@ -882,26 +882,26 @@ export type PillarCard = {
 };
 
 export const pillarsSection = {
-  background: "/images/sustainability/pillars-bg.png",
-  mobileBackground: "/images/sustainability/pillars-mobile.png",
+  background: "/images/sustainability/pillars-bg.webp",
+  mobileBackground: "/images/sustainability/pillars-mobile.webp",
   cards: [
     {
       id: "responsible-production",
       name: "Responsible Production",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
-      hoverImage: "/images/sustainability/sustainable-growth.png",
+      hoverImage: "/images/sustainability/sustainable-growth.webp",
     },
     {
       id: "ethical-sourcing",
       name: "Ethical Sourcing",
       body: "Every stone is traceable from lab to market, backed by independent certification.",
-      hoverImage: "/images/sustainability/ethical-sourcing.png",
+      hoverImage: "/images/sustainability/ethical-sourcing.webp",
     },
     {
       id: "people-community",
       name: "People & Community",
       body: "We invest in fair, safe workplaces and support the communities where we operate.",
-      hoverImage: "/images/sustainability/people-and-community.png",
+      hoverImage: "/images/sustainability/people-and-community.webp",
     },
   ] satisfies PillarCard[],
 };

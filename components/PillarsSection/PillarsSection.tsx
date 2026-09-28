@@ -100,6 +100,7 @@ export default function PillarsSection({ background, mobileBackground, cards }: 
                     src={background}
                     alt={card.name}
                     className={styles.swatchImage}
+                    fetchPriority="high"
                     style={{
                       width: win.width,
                       height: win.height,
