@@ -88,6 +88,16 @@ export async function sendContactEmail(v: ContactValues): Promise<void> {
 
   let transporter;
   if (service) {
+    console.log("[SMTP diagnostics]", {
+      service: process.env.SMTP_SERVICE,
+      userPresent: Boolean(process.env.SMTP_USER),
+      passPresent: Boolean(process.env.SMTP_PASS),
+      fromPresent: Boolean(process.env.MAIL_FROM),
+      toPresent: Boolean(process.env.MAIL_TO),
+      userMatchesFrom:
+        process.env.SMTP_USER?.toLowerCase() ===
+        process.env.MAIL_FROM?.toLowerCase(),
+    });
     // Nodemailer fills in host, port and TLS for known providers.
     transporter = nodemailer.createTransport({ service, auth, ...timeouts });
   } else {
@@ -95,6 +105,16 @@ export async function sendContactEmail(v: ContactValues): Promise<void> {
     if (!Number.isInteger(port) || port <= 0) {
       throw new Error("SMTP_PORT must be a positive integer");
     }
+    console.log("[SMTP diagnostics]", {
+      service: process.env.SMTP_SERVICE,
+      userPresent: Boolean(process.env.SMTP_USER),
+      passPresent: Boolean(process.env.SMTP_PASS),
+      fromPresent: Boolean(process.env.MAIL_FROM),
+      toPresent: Boolean(process.env.MAIL_TO),
+      userMatchesFrom:
+        process.env.SMTP_USER?.toLowerCase() ===
+        process.env.MAIL_FROM?.toLowerCase(),
+    });
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port,
