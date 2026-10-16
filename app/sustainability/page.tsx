@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description,
     url: "/sustainability",
     siteName: "Bhargovi Gems",
-    images: ["/images/sustainability/hero-lily.png"],
+    images: ["/images/sustainability/hero-lily.webp"],
     locale: "en_US",
     type: "website",
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/sustainability/hero-lily.png"],
+    images: ["/images/sustainability/hero-lily.webp"],
   },
 };
 

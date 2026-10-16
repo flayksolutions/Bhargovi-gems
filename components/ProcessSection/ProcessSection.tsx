@@ -68,7 +68,7 @@ export default function ProcessSection({ eyebrow, title, steps }: Props) {
         <div className={styles.accentSticky}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/accents/tweezers-stone.png"
+            src="/images/accents/tweezers-stone.webp"
             alt=""
             className={styles.accent}
           />
