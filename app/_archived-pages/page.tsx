@@ -39,7 +39,7 @@ export default function Home() {
 
         <AboutSection
           {...aboutSection}
-          image="/images/facility-2.jpg"
+          image="/images/facility-2.webp"
           alt="The Bhargovi Gems Surat facility"
         />
         <PurposeSection {...purposeSection} />

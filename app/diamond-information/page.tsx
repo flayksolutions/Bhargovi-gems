@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description,
     url: "/diamond-information",
     siteName: "Bhargovi Gems",
-    images: ["/images/diamond-info/hero-guide.jpg"],
+    images: ["/images/diamond-info/hero-guide.webp"],
     locale: "en_US",
     type: "website",
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/diamond-info/hero-guide.jpg"],
+    images: ["/images/diamond-info/hero-guide.webp"],
   },
 };
 

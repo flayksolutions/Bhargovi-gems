@@ -24,7 +24,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/images/about/crystal-pattern.png") center / cover no-repeat;
+  background: url("/images/about/crystal-pattern.webp") center / cover no-repeat;
   opacity: 0.4;
   pointer-events: none;
 }

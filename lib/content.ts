@@ -19,9 +19,9 @@ export const heroSection = {
   titleLines: ["Manufacturing", "Lab Grown Diamonds"],
   body: "Crafting exceptional diamonds through precision, innovation and decades of manufacturing experience.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
-  image: "/images/hero-poster.jpg",
+  image: "/images/hero-poster.webp",
   video: "/videos/hero.mp4",
-  mobileImage: "/images/hero-poster-mobile.jpg",
+  mobileImage: "/images/hero-poster-mobile.webp",
   mobileVideo: "/videos/hero-mobile.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
@@ -31,8 +31,8 @@ export const heroSection = {
 //   title: "A Family Legacy in Diamond Crafting Since 1988",
 //   body: "Bhargovi Gems operates in-house cutting and polishing facilities and an extensive inventory.",
 //   /* Drop the real headquarters photograph in at
-//      public/images/facility.jpg and this line needs no change. */
-//   image: "/images/facility.jpg",
+//      public/images/facility.webp and this line needs no change. */
+//   image: "/images/facility.webp",
 //   alt: "The Bhargovi Gems headquarters at night",
 // };
 
@@ -40,7 +40,7 @@ export const aboutSection = {
   eyebrow: "About Us",
   title: "A Family Legacy in Diamond Crafting Since 1988",
   body: "At Bhargovi Gems, every diamond reflects a balance of precision, craftsmanship and innovation, shaped through decades of experience in diamond manufacturing.",
-  image: "/images/facility-2.jpg",
+  image: "/images/facility-2.webp",
   video: "/videos/house-tour.mp4",
   alt: "The Bhargovi Gems Surat facility",
 };
@@ -65,56 +65,56 @@ export const statsSection = {
 //       id: "round-brilliant",
 //       name: "Round Brilliant",
 //       spec: "58 Facets \u00b7 Excellent Cut",
-//       image: "/images/cuts/round-brilliant.png",
+//       image: "/images/cuts/round-brilliant.webp",
 //       alt: "Round brilliant cut diamond",
 //     },
 //     {
 //       id: "princess-cut",
 //       name: "Princess Cut",
 //       spec: "76 Facets \u00b7 Sharp Corners",
-//       image: "/images/cuts/princess-cut.png",
+//       image: "/images/cuts/princess-cut.webp",
 //       alt: "Princess cut diamond",
 //     },
 //     {
 //       id: "emerald-cut",
 //       name: "Emerald Cut",
 //       spec: "Step Cut \u00b7 Hall-of-Mirrors",
-//       image: "/images/cuts/emerald-cut.png",
+//       image: "/images/cuts/emerald-cut.webp",
 //       alt: "Emerald cut diamond",
 //     },
 //     {
 //       id: "cushion-cut",
 //       name: "Cushion Cut",
 //       spec: "Pillow Silhouette \u00b7 Soft Fire",
-//       image: "/images/cuts/cushion-cut.png",
+//       image: "/images/cuts/cushion-cut.webp",
 //       alt: "Cushion cut diamond",
 //     },
 //     // {
 //     //   id: "shape-five",
 //     //   name: "Shape Five",
 //     //   spec: "Placeholder \u00b7 Spec Line",
-//     //   image: "/images/cuts/round-brilliant.png",
+//     //   image: "/images/cuts/round-brilliant.webp",
 //     //   alt: "Placeholder diamond plate",
 //     // },
 //     // {
 //     //   id: "shape-six",
 //     //   name: "Shape Six",
 //     //   spec: "Placeholder \u00b7 Spec Line",
-//     //   image: "/images/cuts/princess-cut.png",
+//     //   image: "/images/cuts/princess-cut.webp",
 //     //   alt: "Placeholder diamond plate",
 //     // },
 //     // {
 //     //   id: "shape-seven",
 //     //   name: "Shape Seven",
 //     //   spec: "Placeholder \u00b7 Spec Line",
-//     //   image: "/images/cuts/emerald-cut.png",
+//     //   image: "/images/cuts/emerald-cut.webp",
 //     //   alt: "Placeholder diamond plate",
 //     // },
 //     // {
 //     //   id: "shape-eight",
 //     //   name: "Shape Eight",
 //     //   spec: "Placeholder \u00b7 Spec Line",
-//     //   image: "/images/cuts/cushion-cut.png",
+//     //   image: "/images/cuts/cushion-cut.webp",
 //     //   alt: "Placeholder diamond plate",
 //     // },
 //   ],
@@ -124,64 +124,64 @@ export const productsSection = {
   eyebrow: "Flagship Products",
   title: "Each One Grown, Not Mined",
   tagline: "Precision. Purity. Perfection",
-  background: "/images/shapes-bg.png",
+  background: "/images/shapes-bg.webp",
   moreInfoCta: { label: "View all sizes", href: "/diamond-information#shapes" },
   shapes: [
     {
-      src: "/images/shapes/round-brilliant.png",
+      src: "/images/shapes/round-brilliant.webp",
       name: "Round",
       size: "0.30 - 5.00 CT",
     },
-    { src: "/images/shapes/oval.png", name: "Oval", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/oval.webp", name: "Oval", size: "0.30 - 5.00 CT" },
     // {
-    //   src: "/images/shapes/cushion.png",
+    //   src: "/images/shapes/cushion.webp",
     //   name: "Cushion",
     //   size: "0.30 - 5.00 CT",
     // },
-    { src: "/images/shapes/pear.png", name: "Pear", size: "0.30 - 5.00 CT" },
+    { src: "/images/shapes/pear.webp", name: "Pear", size: "0.30 - 5.00 CT" },
     {
-      src: "/images/shapes/emerald.png",
+      src: "/images/shapes/emerald.webp",
       name: "Emerald",
       size: "0.30 - 5.00 CT",
     },
     {
-      src: "/images/shapes/marquise.png",
+      src: "/images/shapes/marquise.webp",
       name: "Marquise",
       size: "0.30 - 5.00 CT",
     },
     {
-      src: "/images/shapes/trillian.png",
+      src: "/images/shapes/trillian.webp",
       name: "Trillion",
       size: "0.30 - 5.00 CT",
     },
     {
-      src: "/images/shapes/princess.png",
+      src: "/images/shapes/princess.webp",
       name: "Princess",
       size: "0.30 - 5.00 CT",
     },
-    // { src: "/images/shapes/heart.png", name: "Heart", size: "0.30 - 5.00 CT" },
+    // { src: "/images/shapes/heart.webp", name: "Heart", size: "0.30 - 5.00 CT" },
     // {
-    //   src: "/images/shapes/half-moon.png",
+    //   src: "/images/shapes/half-moon.webp",
     //   name: "Half Moon",
     //   size: "0.30 - 5.00 CT",
     // },
     {
-      src: "/images/shapes/asscher.png",
+      src: "/images/shapes/asscher.webp",
       name: "Asscher",
       size: "0.30 - 5.00 CT",
     },
     {
-      src: "/images/shapes/baguette.png",
+      src: "/images/shapes/baguette.webp",
       name: "Baguette",
       size: "0.30 - 5.00 CT",
     },
     // {
-    //   src: "/images/shapes/radiant.png",
+    //   src: "/images/shapes/radiant.webp",
     //   name: "Radiant",
     //   size: "0.30 - 5.00 CT",
     // },
     {
-      src: "/images/shapes/trapezoid.png",
+      src: "/images/shapes/trapezoid.webp",
       name: "Trapezoid",
       size: "0.30 - 5.00 CT",
     },
@@ -192,7 +192,7 @@ export const purposeSection = {
   eyebrow: "Building a Better Tomorrow",
   title: "Purpose Beyond Business",
   body: "Our commitment goes beyond creating exceptional diamonds. We invest in communities, support meaningful causes, and embrace responsible practices that create lasting value. Through initiatives in education, healthcare and environmental care, we strive to make a positive difference today and for generations to come.",
-  image: "/images/purpose-community.png",
+  image: "/images/purpose-community.webp",
   alt: "Two children planting a sapling together in the soil",
 };
 
@@ -203,43 +203,43 @@ export const facilitySection = {
   slides: [
     {
       id: "facility-1",
-      image: "/images/facility/facility-01-cutting-floor.jpg",
+      image: "/images/facility/facility-01-cutting-floor.webp",
       alt: "Cutting and polishing floor at the Surat facility",
       caption: "Image 01",
     },
     {
       id: "facility-2",
-      image: "/images/facility/facility-02-sarine-mapping.jpg",
+      image: "/images/facility/facility-02-sarine-mapping.webp",
       alt: "Sarine 4D mapping software scanning a rough diamond",
       caption: "Image 02",
     },
     {
       id: "facility-3",
-      image: "/images/facility/facility-03-grading.jpg",
+      image: "/images/facility/facility-03-grading.webp",
       alt: "Craftsman grading a polished stone with a loupe and tweezers",
       caption: "Image 03",
     },
     {
       id: "facility-4",
-      image: "/images/facility/facility-04-laser-sawing.jpg",
+      image: "/images/facility/facility-04-laser-sawing.webp",
       alt: "Technician operating a laser sawing machine",
       caption: "Image 04",
     },
     {
       id: "facility-5",
-      image: "/images/facility/facility-05-bruting-floor.jpg",
+      image: "/images/facility/facility-05-bruting-floor.webp",
       alt: "Craftsmen at work on the bruting floor",
       caption: "Image 05",
     },
     {
       id: "facility-6",
-      image: "/images/facility/facility-06-polishing-wheel.jpg",
+      image: "/images/facility/facility-06-polishing-wheel.webp",
       alt: "Craftsman setting a stone at the polishing wheel",
       caption: "Image 06",
     },
     {
       id: "facility-7",
-      image: "/images/facility/facility-07-planning-room.jpg",
+      image: "/images/facility/facility-07-planning-room.webp",
       alt: "Diamond planning and mapping room",
       caption: "Image 07",
     },
@@ -294,8 +294,8 @@ export const certificationsSection = {
 
 export const footer = {
   tagline: "A Step Over Perfection",
-  image: "/images/footer/footer-plate.png",
-  mobileImage: "/images/footer/footer-mobile-plate.png",
+  image: "/images/footer/footer-plate.webp",
+  mobileImage: "/images/footer/footer-mobile-plate.webp",
   socials: [
     {
       label: "LinkedIn",
@@ -337,7 +337,7 @@ export const footer = {
 export const testimonialsSection = {
   eyebrow: "What Our Clients Say",
   title: "Trusted by Jewellery Brands Worldwide",
-  image: "/images/testimonial-diamonds.png",
+  image: "/images/testimonial-diamonds.webp",
   imageAlt: "Scattered polished diamonds of varying cuts",
   testimonials: [
     {
@@ -377,7 +377,7 @@ export const testimonialsSection = {
 //   /* Exported straight from Figma with the Mumbai/Surat location pins
 //      already composited in, so they stay pixel-accurate no matter how
 //      the full-bleed image gets cropped by object-fit: cover. */
-//   mapImage: "/images/offices-map-pins.png",
+//   mapImage: "/images/offices-map-pins.webp",
 //   mapImageAlt: "World map highlighting the Mumbai and Surat office locations",
 //   cta: { label: "Request a Quote", href: "/contact" },
 //   offices: [
@@ -422,7 +422,7 @@ export const craftingSection = {
   title: "Crafting Beyond the Ordinary",
   body: "Every exceptional stone begins with careful hands and a clear vision. At Bhargovi Gems, we refine each creation through precision, patience, and an uncompromising eye for detail. From the first cut to the final polish, every step is guided by a commitment to enduring quality.",
   watermark: ["Precision", "Patience", "Perfection"],
-  image: "/images/crafting-2.png",
+  image: "/images/crafting-2.webp",
   alt: "Close-up of a diamond being shaped on a precision cutting machine",
 };
 
@@ -458,7 +458,7 @@ export const legacySection = {
   images: [
     {
       id: "collage-1",
-      src: "/images/about/legacy-collage-1.png",
+      src: "/images/about/legacy-collage-1.webp",
       alt: "The Bhargovi Gems headquarters building",
       left: 0,
       top: 0,
@@ -467,7 +467,7 @@ export const legacySection = {
     },
     {
       id: "collage-2",
-      src: "/images/about/legacy-collage-2.png",
+      src: "/images/about/legacy-collage-2.webp",
       alt: "Bench worker polishing a diamond",
       left: 47.29,
       top: 50.49,
@@ -476,7 +476,7 @@ export const legacySection = {
     },
     {
       id: "collage-3",
-      src: "/images/about/legacy-collage-3.png",
+      src: "/images/about/legacy-collage-3.webp",
       alt: "Cutting and polishing floor at the Surat facility",
       left: 0,
       top: 59.68,
@@ -514,7 +514,7 @@ export const whyChooseUsSection = {
   body: "Every diamond reflects precision. Every relationship reflects trust. These are the standards we uphold and never compromise.",
   /* Cut-out artwork with its own alpha — it bleeds off the left edge of
      the viewport, so it must stay transparent, not a boxed photo. */
-  image: "/images/about/why-choose-us-ribbon.png",
+  image: "/images/about/why-choose-us-ribbon.webp",
   alt: "A solitaire diamond ring threaded onto a knotted blue silk ribbon",
   items: [
     {
@@ -561,7 +561,7 @@ export const founderNoteSection = {
     "When I founded Bhargovi Gems in 1988, my vision was simple, to build a diamond business rooted in trust, craftsmanship and integrity. As the industry has evolved, our commitment to quality and continuous improvement has remained unchanged.",
   name: "Bhagwanbhai Patel",
   role: "Founder, Bhargovi Gems",
-  image: "/images/about/founder-portrait.jpg",
+  image: "/images/about/founder-portrait.webp",
   alt: "Portrait of the founder of Bhargovi Gems",
 };
 
@@ -572,7 +572,7 @@ export const visionSection = {
     accent: "the Future.",
   },
   body: "To carry forward decades of diamond expertise while embracing the future of manufacturing, creating exceptional diamonds through precision, innovation and an unwavering commitment to quality.",
-  image: "/images/about/vision-brilliance.png",
+  image: "/images/about/vision-brilliance.webp",
   alt: "Polished diamond studs and loose stones staged on stone blocks beside Bhargovi Gems packaging",
 };
 
@@ -641,7 +641,7 @@ export const facilitiesPageSection = {
       id: "surat-cutting",
       name: "Surat Cutting & Polishing Unit",
       location: "SURAT",
-      image: "/images/about/facility-surat-cutting.jpg",
+      image: "/images/about/facility-surat-cutting.webp",
       alt: "Craftsman cutting a diamond on the bench at the Surat unit",
       size: "large",
     },
@@ -649,7 +649,7 @@ export const facilitiesPageSection = {
       id: "sarine-lab",
       name: "Sarine Mapping & Grading Lab",
       location: "SURAT",
-      image: "/images/about/facility-sarine-lab.jpg",
+      image: "/images/about/facility-sarine-lab.webp",
       alt: "Sarine 4D mapping software scanning a rough diamond",
       size: "medium",
     },
@@ -657,7 +657,7 @@ export const facilitiesPageSection = {
       id: "rough-sorting",
       name: "Rough Diamond Sorting House",
       location: "SURAT",
-      image: "/images/about/facility-rough-sorting.jpg",
+      image: "/images/about/facility-rough-sorting.webp",
       alt: "Workers sorting rough diamond parcels",
       size: "small",
     },
@@ -665,7 +665,7 @@ export const facilitiesPageSection = {
       id: "laser-sawing",
       name: "Laser Sawing & Bruting Floor",
       location: "SURAT",
-      image: "/images/about/facility-laser-sawing.jpg",
+      image: "/images/about/facility-laser-sawing.webp",
       alt: "Technician operating a laser sawing machine",
       size: "small",
     },
@@ -673,7 +673,7 @@ export const facilitiesPageSection = {
       id: "polishing-wheels",
       name: "Automated Polishing Wheels",
       location: "SURAT",
-      image: "/images/about/facility-polishing-wheels.jpg",
+      image: "/images/about/facility-polishing-wheels.webp",
       alt: "Automated polishing wheel finishing a stone",
       size: "small",
     },
@@ -681,7 +681,7 @@ export const facilitiesPageSection = {
       id: "quality-control",
       name: "In-House Quality Control Lab",
       location: "MUMBAI",
-      image: "/images/about/facility-quality-control.jpg",
+      image: "/images/about/facility-quality-control.webp",
       alt: "Quality control technicians inspecting stones",
       size: "medium",
     },
@@ -689,7 +689,7 @@ export const facilitiesPageSection = {
       id: "certification-desk",
       name: "Certification & Documentation Desk",
       location: "MUMBAI",
-      image: "/images/about/facility-certification-desk.jpg",
+      image: "/images/about/facility-certification-desk.webp",
       alt: "Staff preparing certification documentation",
       size: "large",
     },
@@ -697,7 +697,7 @@ export const facilitiesPageSection = {
       id: "export-packing",
       name: "Secure Export Packing Unit",
       location: "MUMBAI",
-      image: "/images/about/facility-export-packing.jpg",
+      image: "/images/about/facility-export-packing.webp",
       alt: "Secure packing of stones for export",
       size: "wide",
     },
@@ -705,7 +705,7 @@ export const facilitiesPageSection = {
       id: "inventory-vault",
       name: "Mumbai Inventory Vault",
       location: "MUMBAI",
-      image: "/images/about/facility-inventory-vault.jpg",
+      image: "/images/about/facility-inventory-vault.webp",
       alt: "Rows of desks in the Mumbai inventory vault",
       size: "wide",
     },
@@ -724,28 +724,28 @@ export const ourApproachSection = {
   eyebrow: "Our Approach",
   titleLines: ["Commitment to Quality", "and Service"],
   body: "Over four decades of excellence in diamond manufacturing, backed by strong sourcing networks and customer-focused operations.",
-  bleedImage: "/images/about/approach-bleed-diamond.png",
+  bleedImage: "/images/about/approach-bleed-diamond.webp",
   bleedImageAlt: "A diamond held in tweezers, faded into the dark background",
   stories: [
     {
       id: "what-sets-us-apart",
       title: "What Sets Us Apart",
       body: "Deep sourcing partnerships across mining regions, in-house Sarine 4D mapping and polishing under one roof, and an extensive ready inventory across shapes and sizes.",
-      image: "/images/about/approach-jewelry.png",
+      image: "/images/about/approach-jewelry.webp",
       alt: "Finished diamond jewellery on display",
     },
     {
       id: "certified-verified-guaranteed",
       title: "Certified. Verified. Guaranteed.",
       body: "Every stone is GIA/IGI certified, 4D Sarine scanned and multi-point inspected before it leaves the floor. Certificates are quoted by number on the invoice and matched to the laser inscription on the girdle.",
-      image: "/images/about/approach-retail.png",
+      image: "/images/about/approach-retail.webp",
       alt: "Retail jewellery counter with a client reviewing stones",
     },
     {
       id: "trusted-by-brands",
       title: "Trusted by Brands Worldwide",
       body: "Three generations of grading and craftsmanship since 1988, reliable delivery to 15+ countries, and transparent GIA/IGI-backed grading on every parcel we ship.",
-      image: "/images/about/approach-loose-diamonds.png",
+      image: "/images/about/approach-loose-diamonds.webp",
       alt: "A scatter of loose polished diamonds of varying cuts",
     },
   ] satisfies ApproachStory[],
@@ -762,7 +762,7 @@ export const aboutValuesSection = {
       name: "Ethical Sourcing",
       description:
         "Absolute integrity as a foundational principle across every business activity — from sourcing through to the sale, with nothing compromised along the way.",
-      image: "/images/about/ethical-sourcing.png",
+      image: "/images/about/ethical-sourcing.webp",
       alt: "Finished diamond jewellery on display",
     },
     {
@@ -770,7 +770,7 @@ export const aboutValuesSection = {
       name: "Craftsmanship",
       description:
         "Meticulous attention at every stage, backed by in-house Sarine 4D mapping and generations of expert craftsmanship, so each diamond meets the highest standard.",
-      image: "/images/about/craftsmanship.png",
+      image: "/images/about/craftsmanship.webp",
       alt: "Retail jewellery counter with a client reviewing stones",
     },
     {
@@ -778,7 +778,7 @@ export const aboutValuesSection = {
       name: "Transparency",
       description:
         "Every diamond traced from source to market, with GIA/IGI-backed grading and complete transparency on origin and quality for every parcel we ship.",
-      image: "/images/about/transparency.png",
+      image: "/images/about/transparency.webp",
       alt: "A scatter of loose polished diamonds of varying cuts",
     },
   ],
@@ -792,7 +792,7 @@ export type ProcessStep = {
   alt: string;
 };
 
-const PLACEHOLDER_IMAGE = "/images/rough-stone.jpg";
+const PLACEHOLDER_IMAGE = "/images/rough-stone.webp";
 
 /* ------------------------------------------------------------------
    Sustainability page (/sustainability)
@@ -802,8 +802,8 @@ export const sustainabilityHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Sustainability" }],
   title: "Responsible by Design",
   body: "From rough to refined, every diamond we manufacture reflects our commitment to responsible practices, quality and a more sustainable future.",
-  image: "/images/sustainability/hero-lily.png",
-  mobileImage: "/images/sustainability/hero-mobile.png",
+  image: "/images/sustainability/hero-lily.webp",
+  mobileImage: "/images/sustainability/hero-mobile.webp",
   alt: "A diamond ring and loose polished diamonds cascading from a white calla lily",
 };
 
@@ -825,7 +825,7 @@ export type LegacyPillarCard = {
 };
 
 export const legacyPillarsSection = {
-  background: "/images/sustainability/commitment-bg.png",
+  background: "/images/sustainability/commitment-bg.webp",
   cards: [
     {
       id: "sustainable-growing",
@@ -858,11 +858,11 @@ export const legacyIntegritySection = {
   ],
   images: [
     {
-      src: "/images/sustainability/integrity-1.png",
+      src: "/images/sustainability/integrity-1.webp",
       alt: "A loupe and tweezers used to inspect a polished diamond",
     },
     {
-      src: "/images/sustainability/integrity-2.png",
+      src: "/images/sustainability/integrity-2.webp",
       alt: "A rough diamond crystal beside cutting tools",
     },
   ],
@@ -882,32 +882,32 @@ export type PillarCard = {
 };
 
 export const pillarsSection = {
-  background: "/images/sustainability/pillars-bg.png",
-  mobileBackground: "/images/sustainability/pillars-mobile.png",
+  background: "/images/sustainability/pillars-bg.webp",
+  mobileBackground: "/images/sustainability/pillars-mobile.webp",
   cards: [
     {
       id: "responsible-production",
       name: "Responsible Production",
       body: "Grown with energy-efficient technology that significantly cuts carbon and water impact.",
-      hoverImage: "/images/sustainability/sustainable-growth.png",
+      hoverImage: "/images/sustainability/sustainable-growth.webp",
     },
     {
       id: "ethical-sourcing",
       name: "Ethical Sourcing",
       body: "Every stone is traceable from lab to market, backed by independent certification.",
-      hoverImage: "/images/sustainability/ethical-sourcing.png",
+      hoverImage: "/images/sustainability/ethical-sourcing.webp",
     },
     {
       id: "people-community",
       name: "People & Community",
       body: "We invest in fair, safe workplaces and support the communities where we operate.",
-      hoverImage: "/images/sustainability/people-and-community.png",
+      hoverImage: "/images/sustainability/people-and-community.webp",
     },
   ] satisfies PillarCard[],
 };
 
 export const commitmentsSection = {
-  background: "/images/shapes-bg.png",
+  background: "/images/shapes-bg.webp",
   blocks: [
     {
       id: "ethically-sourced",
@@ -935,11 +935,11 @@ export const integritySection = {
   ],
   images: [
     {
-      src: "/images/sustainability/integrity-flower.png",
+      src: "/images/sustainability/integrity-flower.webp",
       alt: "A diamond ring nestled in the folds of a white calla lily",
     },
     {
-      src: "/images/sustainability/integrity-moss.png",
+      src: "/images/sustainability/integrity-moss.webp",
       alt: "Loose polished diamonds resting on a moss-covered stone",
     },
   ],
@@ -962,7 +962,7 @@ export const caringSection = {
       id: "people",
       title: "Caring for People",
       body: "Our people define who we are. We ensure fair treatment and safe workplaces for everyone.",
-      image: "/images/sustainability/caring-people.png",
+      image: "/images/sustainability/caring-people.webp",
       alt: "A large group of colleagues gathered together outdoors",
       theme: "dark",
       imageSide: "left",
@@ -972,7 +972,7 @@ export const caringSection = {
       id: "community",
       title: "Caring for Community",
       body: "We support education, health, and local development where we live and work.",
-      image: "/images/sustainability/caring-community.png",
+      image: "/images/sustainability/caring-community.webp",
       alt: "Hands resting together on a moss-covered tree trunk",
       theme: "light",
       imageSide: "right",
@@ -984,15 +984,15 @@ export const caringSection = {
 export const planetSection = {
   title: "Caring for the Planet",
   body: "Grown, not mined — our gems use far less land and water, and we keep reducing our footprint.",
-  image: "/images/sustainability/caring-planet.png",
+  image: "/images/sustainability/caring-planet.webp",
   alt: "A cluster of polished diamonds resting on a green leaf",
 };
 
 export const environmentSection = {
   title: "Environment Friendly",
   body: "Strong manufacturing expertise, advanced Sarine 4D mapping and polishing under one roof, with an extensive ready inventory across shapes and sizes.",
-  image: "/images/sustainability/environment-leaf.png",
-  mobileImage: "/images/sustainability/environment-mobile.png",
+  image: "/images/sustainability/environment-leaf.webp",
+  mobileImage: "/images/sustainability/environment-mobile.webp",
   alt: "A diamond-shaped frame over dew-covered pine branches",
 };
 
@@ -1004,8 +1004,8 @@ export const diamondInfoHeroSection = {
   breadcrumb: [{ label: "Home", href: "/" }, { label: "Diamond Information" }],
   titleLines: ["Understanding Diamonds", "The Complete Buyer's Guide"],
   body: "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.",
-  image: "/images/diamond-info/hero-guide.jpg",
-  mobileImage: "/images/diamond-info/hero-mobile.png",
+  image: "/images/diamond-info/hero-guide.webp",
+  mobileImage: "/images/diamond-info/hero-mobile.webp",
   alt: "Round, pear, emerald and marquise cut diamonds resting on a moss-covered stone beside a bare branch",
 };
 
@@ -1080,7 +1080,7 @@ export const fourCsSection = {
       name: "Colour",
       caption: "Body tone, D→Z",
       kind: "gems",
-      photo: "/images/shapes/round-brilliant.png",
+      photo: "/images/shapes/round-brilliant.webp",
       items: [
         { id: "d", label: "D", tint: "rgba(255, 255, 255, 0)" },
         { id: "g", label: "G", tint: "rgba(246, 236, 196, 0.24)" },
@@ -1208,7 +1208,7 @@ export const shapesCutsSection = {
     {
       id: "round",
       name: "Round Brilliant",
-      photo: "/images/shapes/round-brilliant.png",
+      photo: "/images/shapes/round-brilliant.webp",
       alt: "A round brilliant cut diamond viewed from the crown",
       size: "0.08 - 1.50 CT",
       featured: true,
@@ -1217,7 +1217,7 @@ export const shapesCutsSection = {
     {
       id: "oval",
       name: "Oval",
-      photo: "/images/shapes/oval.png",
+      photo: "/images/shapes/oval.webp",
       alt: "An oval cut diamond viewed from above",
       size: "0.10 - 1.00 CT",
       stats: shapeStats("53 – 63", "58 – 65"),
@@ -1225,7 +1225,7 @@ export const shapesCutsSection = {
     // {
     //   id: "cushion",
     //   name: "Cushion",
-    //   photo: "/images/shapes/cushion.png",
+    //   photo: "/images/shapes/cushion.webp",
     //   alt: "A cushion cut diamond viewed from above",
     //   size: "0.30 - 1.00 CT",
     //   stats: shapeStats("55 – 68", "58 – 68"),
@@ -1233,7 +1233,7 @@ export const shapesCutsSection = {
     {
       id: "pear",
       name: "Pear",
-      photo: "/images/shapes/pear.png",
+      photo: "/images/shapes/pear.webp",
       alt: "A pear cut diamond viewed from above",
       size: "0.10 - 1.00 CT",
       stats: shapeStats("53 – 65", "58 – 66"),
@@ -1241,7 +1241,7 @@ export const shapesCutsSection = {
     {
       id: "emerald",
       name: "Emerald",
-      photo: "/images/shapes/emerald.png",
+      photo: "/images/shapes/emerald.webp",
       alt: "An emerald cut diamond viewed from above",
       size: "0.10 - 1.00 CT",
       stats: shapeStats("61 – 69", "61 – 67"),
@@ -1249,7 +1249,7 @@ export const shapesCutsSection = {
     {
       id: "marquise",
       name: "Marquise",
-      photo: "/images/shapes/marquise.png",
+      photo: "/images/shapes/marquise.webp",
       alt: "A marquise cut diamond viewed from above",
       size: "0.06 - 0.50 CT",
       stats: shapeStats("53 – 63", "58 – 62"),
@@ -1257,7 +1257,7 @@ export const shapesCutsSection = {
     {
       id: "trillion",
       name: "Trillion",
-      photo: "/images/shapes/trillian.png",
+      photo: "/images/shapes/trillian.webp",
       alt: "A trillion cut diamond viewed from above",
       size: "0.30 - 0.50 CT",
       stats: shapeStats("55 – 70", "32 – 44"),
@@ -1265,7 +1265,7 @@ export const shapesCutsSection = {
     {
       id: "princess",
       name: "Princess",
-      photo: "/images/shapes/princess.png",
+      photo: "/images/shapes/princess.webp",
       alt: "A princess cut diamond viewed from above",
       size: "0.05 - 0.75 CT",
       stats: shapeStats("67 – 72", "64 – 75"),
@@ -1273,7 +1273,7 @@ export const shapesCutsSection = {
     // {
     //   id: "heart",
     //   name: "Heart",
-    //   photo: "/images/shapes/heart.png",
+    //   photo: "/images/shapes/heart.webp",
     //   alt: "A heart cut diamond viewed from above",
     //   size: "0.30 - 1.00 CT",
     //   stats: shapeStats("53 – 63", "56 – 66"),
@@ -1281,7 +1281,7 @@ export const shapesCutsSection = {
     // {
     //   id: "half-moon",
     //   name: "Half Moon",
-    //   photo: "/images/shapes/half-moon.png",
+    //   photo: "/images/shapes/half-moon.webp",
     //   alt: "A half moon cut diamond viewed from above",
     //   size: "0.30 - 0.50 CT",
     //   stats: shapeStats("55 – 65", "55 – 68"),
@@ -1289,7 +1289,7 @@ export const shapesCutsSection = {
     {
       id: "asscher",
       name: "Asscher",
-      photo: "/images/shapes/asscher.png",
+      photo: "/images/shapes/asscher.webp",
       alt: "An asscher cut diamond viewed from above",
       size: "0.30 - 1.00 CT",
       stats: shapeStats("60 – 70", "60 – 70"),
@@ -1297,7 +1297,7 @@ export const shapesCutsSection = {
     {
       id: "baguette",
       name: "Baguette",
-      photo: "/images/shapes/baguette.png",
+      photo: "/images/shapes/baguette.webp",
       alt: "A baguette cut diamond viewed from above",
       size: "0.05 - 0.25 CT",
       stats: shapeStats("60 – 72", "38 – 52"),
@@ -1305,7 +1305,7 @@ export const shapesCutsSection = {
     // {
     //   id: "radiant",
     //   name: "Radiant",
-    //   photo: "/images/shapes/radiant.png",
+    //   photo: "/images/shapes/radiant.webp",
     //   alt: "A radiant cut diamond viewed from above",
     //   size: "0.30 - 1.00 CT",
     //   stats: shapeStats("61 – 69", "61 – 67"),
@@ -1313,7 +1313,7 @@ export const shapesCutsSection = {
     {
       id: "trapezoid",
       name: "Trapezoid",
-      photo: "/images/shapes/trapezoid.png",
+      photo: "/images/shapes/trapezoid.webp",
       alt: "A trapezoid cut diamond viewed from above",
       size: "0.30 - 1.00 CT",
       stats: shapeStats("55 – 68", "35 – 48"),
@@ -1333,7 +1333,7 @@ export const labGrownVsMinedSection = {
   eyebrow: "Our Technology",
   title: "Grown in Weeks, Not Eons",
   body: "Buyers increasingly ask about origin. Here is how the two compare — and exactly where we stand.",
-  background: "/images/diamond-info/lab-bench.jpg",
+  background: "/images/diamond-info/lab-bench.webp",
   backgroundAlt: "",
   columns: [
     {
@@ -1418,28 +1418,28 @@ export const certificationVerificationSection = {
       code: "GIA",
       name: "Gemological Institute of America",
       blurb: "Sets the global grading standard for the 4Cs.",
-      logo: "/images/diamond-info/certs/gia.png",
+      logo: "/images/diamond-info/certs/gia.webp",
     },
     {
       id: "igi",
       code: "IGI",
       name: "International Gemological Institute",
       blurb: "The world’s largest independent gem laboratory.",
-      logo: "/images/diamond-info/certs/igi.png",
+      logo: "/images/diamond-info/certs/igi.webp",
     },
     {
       id: "hrd",
       code: "HRD Antwerp",
       name: "European grading authority",
       blurb: "Antwerp-based grading and quality reports.",
-      logo: "/images/diamond-info/certs/hrd.png",
+      logo: "/images/diamond-info/certs/hrd.webp",
     },
     {
       id: "kimberley",
       code: "Kimberley Process",
       name: "Conflict-free assurance",
       blurb: "Chain-of-custody warranty on every shipment.",
-      logo: "/images/diamond-info/certs/kimberley.png",
+      logo: "/images/diamond-info/certs/kimberley.webp",
     },
     {
       id: "scs",
@@ -1541,7 +1541,7 @@ export const anatomyGlossarySection = {
   titleLines: ["Anatomy of a", "Round Brilliant"],
   body: "The vocabulary that appears on every grading report — and on every conversation you will have with a cutter.",
   diagram: {
-    image: "/images/diamond-info/anatomy/cross-section-labelled.png",
+    image: "/images/diamond-info/anatomy/cross-section-labelled.webp",
     alt: "Cross-section diagram of a round brilliant cut diamond labelled with table, crown, girdle, pavilion, culet, depth and diameter",
   },
   caption:
@@ -1622,7 +1622,7 @@ export const diamondInfoFaqSection = {
   titleLines: ["What Buyers", "Ask Us Most"],
   body: "A few of the questions we hear most often from businesses looking to source Lab-Grown Diamonds.",
   panelLabel: "Frequently Asked",
-  background: "/images/diamond-info/faq-diamonds.jpg",
+  background: "/images/diamond-info/faq-diamonds.webp",
   items: [
     // {
     //   id: "lab-grown",
@@ -1916,7 +1916,7 @@ export const contactFormSection = {
     body: "We will get back to you soon.",
     closeLabel: "Close",
   } satisfies ContactModalCopy,
-  image: "/images/contact-form-tray.png",
+  image: "/images/contact-form-tray.webp",
   alt: "Loose polished diamonds scattered across a jewellery tray",
   officesTitle: "Our Offices",
   offices: [

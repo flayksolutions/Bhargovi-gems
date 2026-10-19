@@ -89,6 +89,8 @@ export default function SiteFooter({
               <img
                 src="/brand/footer-logo.svg"
                 alt={brand}
+                width={241}
+                height={212}
                 className={styles.logo}
               />
             </Link>

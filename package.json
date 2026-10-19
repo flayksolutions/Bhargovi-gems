@@ -8,6 +8,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 111",
+    "safari >= 16.4",
+    "ios_saf >= 16.4"
+  ],
   "dependencies": {
     "lenis": "^1.1.18",
     "next": "^15.1.6",

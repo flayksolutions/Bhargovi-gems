@@ -88,7 +88,7 @@ export default function FacilityCarousel({
     <section className={styles.section} aria-labelledby="facility-title">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/accents/diamond-scatter.png"
+        src="/images/accents/diamond-scatter.webp"
         alt=""
         aria-hidden="true"
         className={styles.accent}

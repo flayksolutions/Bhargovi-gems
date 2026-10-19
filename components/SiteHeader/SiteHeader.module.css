@@ -237,7 +237,7 @@
   text-align: center;
   gap: clamp(28px, 6vh, 56px);
   padding: clamp(24px, 6vh, 48px) clamp(28px, 6vw, 40px);
-  background: var(--paper) url("/images/shapes-bg.png") center / cover
+  background: var(--paper) url("/images/shapes-bg.webp") center / cover
     no-repeat;
   transform: translateX(100%);
   transition: transform 520ms var(--ease-out-expo);

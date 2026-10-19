@@ -4,7 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProductsSection.module.css";
-import logo from "@/public/brand/bhargovi/brand-logo.png";
+import logo from "@/public/brand/bhargovi/brand-logo.webp";
 
 type Shape = {
   src: string;

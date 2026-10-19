@@ -159,7 +159,7 @@ export default function AboutSection({
               className={styles.crystalRight}
             />
             <Image
-              src="/images/about-cushion.png"
+              src="/images/about-cushion.webp"
               alt=""
               width={440}
               height={410}
@@ -167,7 +167,7 @@ export default function AboutSection({
               className={`${styles.gem} ${styles.gemCushion}`}
             />
             <Image
-              src="/images/about-emerald.png"
+              src="/images/about-emerald.webp"
               alt=""
               width={430}
               height={520}
