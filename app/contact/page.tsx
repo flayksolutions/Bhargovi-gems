@@ -7,7 +7,7 @@ import { contactFormSection, contactHeroSection, footer, site } from "@/lib/cont
 
 const title = "Contact — Bhargovi Gems";
 const description =
-  "Get in touch with Bhargovi Gems for enquiries on certified natural diamonds, volume orders and partnerships.";
+  "Get in touch with Bhargovi Gems for enquiries on lab grown diamonds, volume orders and partnerships.";
 
 export const metadata: Metadata = {
   title,

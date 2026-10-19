@@ -28,7 +28,7 @@ const manrope = Manrope({
   variable: "--ff-manrope",
 });
 
-const title = "Bhargovi Gems — Our Process";
+const title = "Bhargovi Gems — Crafted to Perfection";
 const description =
   "From rough stone to polish — the Bhargovi Gems diamond process.";
 

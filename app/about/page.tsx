@@ -20,7 +20,7 @@ import {
 
 const title = "About Us — Bhargovi Gems";
 const description =
-  "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.";
+  "Three generations of expertise in sourcing, cutting and polishing lab grown diamonds for the world's leading jewellery brands.";
 
 export const metadata: Metadata = {
   title,
