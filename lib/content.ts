@@ -20,9 +20,9 @@ export const heroSection = {
   body: "Crafting exceptional diamonds through precision, innovation and decades of manufacturing experience.",
   cta: { label: "Download Catalogue", href: "/catalogue" },
   image: "/images/hero-poster.webp",
-  video: "/videos/hero.mp4",
+  video: "/videos/hero-1080p.mp4",
   mobileImage: "/images/hero-poster-mobile.webp",
-  mobileVideo: "/videos/hero-mobile.mp4",
+  mobileVideo: "/videos/hero-mobile-720p.mp4",
   alt: "A round brilliant diamond held in tweezers against a dark field",
 };
 
