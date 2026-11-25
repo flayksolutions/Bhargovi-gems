@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd/JsonLd";
+import { faqPageSchema, pageMetadata, pages } from "@/lib/seo";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import DiamondInfoHero from "@/components/DiamondInfoHero/DiamondInfoHero";
 import ChapterRail from "@/components/ChapterRail/ChapterRail";
@@ -20,36 +21,13 @@ import {
   site,
 } from "@/lib/content";
 
-const title = "Diamond Information — Bhargovi Gems";
-const description =
-  "From the 4Cs to shapes and lab-grown vs mined — everything our sourcing partners need to specify, verify and buy lab-grown diamonds with confidence.";
-
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: {
-    canonical: "/diamond-information",
-  },
-  openGraph: {
-    title,
-    description,
-    url: "/diamond-information",
-    siteName: "Bhargovi Gems",
-    images: ["/images/diamond-info/hero-guide.webp"],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/images/diamond-info/hero-guide.webp"],
-  },
-};
+export const metadata = pageMetadata(pages.diamondInformation);
 
 export default function DiamondInformationPage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(pages.diamondInformation)} />
+
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
 
       <main>

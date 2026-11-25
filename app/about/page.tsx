@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd/JsonLd";
+import { pageMetadata, pageSchema, pages } from "@/lib/seo";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import AboutHero from "@/components/AboutHero/AboutHero";
 import LegacySection from "@/components/LegacySection/LegacySection";
@@ -18,36 +19,13 @@ import {
   whyChooseUsSection,
 } from "@/lib/content";
 
-const title = "About Us — Bhargovi Gems";
-const description =
-  "Three generations of expertise in sourcing, cutting and polishing certified natural diamonds for the world's leading jewellery brands.";
-
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: {
-    canonical: "/about",
-  },
-  openGraph: {
-    title,
-    description,
-    url: "/about",
-    siteName: "Bhargovi Gems",
-    images: ["/images/about/hero-legacy-office.webp"],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/images/about/hero-legacy-office.webp"],
-  },
-};
+export const metadata = pageMetadata(pages.about);
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={pageSchema(pages.about, "AboutPage")} />
+
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
 
       <main>

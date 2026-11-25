@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd/JsonLd";
+import { pageMetadata, pageSchema, pages } from "@/lib/seo";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import SustainabilityHero from "@/components/SustainabilityHero/SustainabilityHero";
 import SustainabilityCommitmentSection from "@/components/SustainabilityCommitmentSection/SustainabilityCommitmentSection";
@@ -16,36 +17,13 @@ import {
   sustainabilityHeroSection,
 } from "@/lib/content";
 
-const title = "Sustainability — Bhargovi Gems";
-const description =
-  "From lab to jewel, every stone we grow reflects our commitment to people and the planet.";
-
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: {
-    canonical: "/sustainability",
-  },
-  openGraph: {
-    title,
-    description,
-    url: "/sustainability",
-    siteName: "Bhargovi Gems",
-    images: ["/images/sustainability/hero-lily.webp"],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/images/sustainability/hero-lily.webp"],
-  },
-};
+export const metadata = pageMetadata(pages.sustainability);
 
 export default function SustainabilityPage() {
   return (
     <>
+      <JsonLd data={pageSchema(pages.sustainability)} />
+
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
 
       <main>

@@ -22,10 +22,16 @@ import {
   milestonesSection,
 } from "@/lib/content";
 import MilestonesSection from "@/components/MilestonesSection";
+import JsonLd from "@/components/JsonLd/JsonLd";
+import { pageMetadata, pageSchema, pages } from "@/lib/seo";
+
+export const metadata = pageMetadata(pages.home);
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={pageSchema(pages.home)} />
+
       <SiteHeader brand={site.brand} nav={site.nav} cta={site.cta} />
 
       <main>

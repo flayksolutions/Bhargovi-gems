@@ -9,7 +9,7 @@ export const site = {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Sustainability", href: "/sustainability" },
-    { label: "Diamond", href: "/diamond-information" },
+    { label: "Diamond Information", href: "/diamond-information" },
     { label: "Contact Us", href: "/contact" },
   ],
   cta: { label: "Enquire Now", href: "/contact" },
@@ -23,7 +23,7 @@ export const heroSection = {
   video: "/videos/hero-1080p.mp4",
   mobileImage: "/images/hero-poster-mobile.webp",
   mobileVideo: "/videos/hero-mobile-720p.mp4",
-  alt: "A round brilliant diamond held in tweezers against a dark field",
+  alt: "A craftsman examining a diamond at a polishing wheel",
 };
 
 // export const aboutSection = {
@@ -448,7 +448,7 @@ export type SpecTableRow = {
 export const legacySection = {
   eyebrow: "About Us",
   /* Split so the trailing clause can carry the accent colour. */
-  title: { lead: "Your Trusted Diamond Manufacturer ", accent: "" },
+  title: { lead: "Your Trusted Lab Grown Diamond Manufacturer ", accent: "" },
   body: "With in-house cutting and polishing capabilities and a strong inventory, Bhargovi Gems delivers precision-manufactured lab-grown diamonds to clients across India.",
   /* Pre-composited collage tiles exported straight from Figma — each
      PNG already carries its own diagonal alpha-cut edge, so the three

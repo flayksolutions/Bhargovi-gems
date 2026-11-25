@@ -1,18 +1,10 @@
 import type { MetadataRoute } from "next";
+import { pages, siteUrl } from "@/lib/seo";
 
-const baseUrl = "https://www.bhargovigems.co";
-
+/* No lastModified: stamping the build date on every page would claim
+   changes that didn't happen, and search engines then ignore it. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    "",
-    "/about",
-    "/contact",
-    "/diamond-information",
-    "/sustainability",
-  ];
-
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+  return Object.values(pages).map((page) => ({
+    url: new URL(page.path, siteUrl).href,
   }));
 }
