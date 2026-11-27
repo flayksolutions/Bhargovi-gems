@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Arsenal, Arsenal_SC, Manrope } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
-import { heroSection } from "@/lib/content";
+import JsonLd from "@/components/JsonLd/JsonLd";
+import { heroSection, site } from "@/lib/content";
+import { pages, siteSchema, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 /* Self-hosted at build time by next/font: no render-blocking request to
@@ -28,31 +30,25 @@ const manrope = Manrope({
   variable: "--ff-manrope",
 });
 
-const title = "Bhargovi Gems — Crafted to Perfection";
-const description =
-  "From rough stone to polish — the Bhargovi Gems diamond process.";
-
+/* Site-wide defaults. Each page sets its own title, description,
+   canonical and share card with pageMetadata() from lib/seo.ts. No
+   canonical here, so a page without one (such as the 404) doesn't
+   claim to be the homepage. */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.bhargovigems.co"),
-  title,
-  description,
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title,
-    description,
-    url: "/",
-    siteName: "Bhargovi Gems",
-    images: [heroSection.image],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: [heroSection.image],
+  metadataBase: new URL(siteUrl),
+  title: pages.home.title,
+  description: pages.home.description,
+  applicationName: site.brand,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -73,6 +69,7 @@ export default function RootLayout({
         <link rel="preload" as="image" href={heroSection.image} fetchPriority="high" />
       </head>
       <body>
+        <JsonLd data={siteSchema} />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
